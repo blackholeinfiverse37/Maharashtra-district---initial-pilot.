@@ -6,7 +6,7 @@ import { PieChart, Pie, Cell, Tooltip, Legend, ResponsiveContainer } from "recha
 const COLORS = ["#4e79a7", "#f28e2b", "#e15759", "#76b7b2", "#59a14f", "#edc948",
                 "#b07aa1", "#ff9da7", "#9c755f", "#bab0ac", "#1f3a93", "#8cd17d"];
 
-export default function CropAreaPieChart({ data }) {
+export default function CropAreaPieChart({ data, crop }) {
   const cropService = data?.crop?.[0];
   const region = cropService?.subject?.region || "Selected District";
   const crops = cropService?.supporting_evidence?.district_crop_apy?.crops || [];
@@ -26,6 +26,11 @@ export default function CropAreaPieChart({ data }) {
 
   if (chartData.length === 0) return null;
 
+  // Say so when the selected crop is missing from this government data (e.g. Nashik has no Onion row), so the chart
+  // is not read as covering it. No crop passed in: no note.
+  const cropMissing =
+    crop && !chartData.some((d) => d.name.toLowerCase() === crop.toLowerCase());
+
   const freshnessLabel = source
     ? (source.real_world_freshness || source.freshness || "").toUpperCase()
     : "";
@@ -34,6 +39,7 @@ export default function CropAreaPieChart({ data }) {
     <div className="bg-white p-5 rounded-xl border border-gray-200 shadow-sm">
       <h3 className="text-xs font-bold text-gray-400 uppercase tracking-wider mb-3">
         How farmland is used in {region} (in lakh hectares; 1 lakh = 100,000)
+        {cropMissing ? ` · ${crop} is not in this government data.` : ""}
       </h3>
       <ResponsiveContainer width="100%" height={260}>
         <PieChart>

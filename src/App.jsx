@@ -154,7 +154,7 @@ export default function App() {
         <div className="max-w-5xl mx-auto flex flex-col gap-5">
           <DataDisplayPanel data={data} crop={cropName} />
           <SimulationPanel data={data} />
-          <CropAreaPieChart data={data} />
+          <CropAreaPieChart data={data} crop={cropName} />
         </div>
       )}
 
