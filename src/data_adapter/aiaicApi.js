@@ -41,15 +41,19 @@ export async function fetchCrops(state, district) {
 }
 
 // { market: [item], storage: [item], water: [item], crop: [item], weather: [item] } where each item is the
-// service's answer with its `summary` attached: the same shape the panels already read.
+// service's answer with its `summary` attached: the same shape the panels already read. Plus `na_reasons`: the
+// server's own reason, per service, when it returns no answer (e.g. { weather: { code, text } }).
 export async function fetchDistrictView({ state, district, crop }) {
   const payload = await getJson('/view/unified', { crop, region: district, state, lang: 'en' })
-  return Object.fromEntries(
-    Object.entries(payload.services || {}).map(([service, items]) => [
-      service,
-      (items || []).map((i) => ({ ...(i.intelligence || {}), summary: i.summary || null })),
-    ]),
-  )
+  return {
+    ...Object.fromEntries(
+      Object.entries(payload.services || {}).map(([service, items]) => [
+        service,
+        (items || []).map((i) => ({ ...(i.intelligence || {}), summary: i.summary || null })),
+      ]),
+    ),
+    na_reasons: payload.na_reasons || {},
+  }
 }
 
 // The engine fills best/average/worst with a FIXED band (e.g. plus or minus 2% of one price) when it has no measured

@@ -3,6 +3,7 @@ import DistrictSelector from "./components/DistrictSelector";
 import CropSelector from "./components/CropSelector";
 import DataDisplayPanel from "./components/DataDisplayPanel";
 import SimulationPanel from "./components/SimulationPanel";
+import WeatherNotePanel from "./components/WeatherNotePanel";
 import SystemStateBar from "./components/SystemStateBar";
 import CropAreaPieChart from "./components/CropAreaPieChart";
 import { fetchCrops, fetchDistrictView, fetchDistricts } from "./data_adapter/aiaicApi";
@@ -154,6 +155,7 @@ export default function App() {
         <div className="max-w-5xl mx-auto flex flex-col gap-5">
           <DataDisplayPanel data={data} crop={cropName} />
           <SimulationPanel data={data} />
+          <WeatherNotePanel data={data} />
           <CropAreaPieChart data={data} crop={cropName} />
         </div>
       )}
