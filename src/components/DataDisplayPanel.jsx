@@ -48,10 +48,40 @@ export default function DataDisplayPanel({ data, crop }) {
 
   const region = waterService?.subject?.region || cropService?.subject?.region || "this district";
 
-  // The backend's own warning about talukas hiding inside the district average
-  const talukaWarning = (waterService?.explainability || []).find((line) =>
+  // Talukas hiding inside the district average, built from CGWB's own taluka list (the same assessment as the
+  // district figure). The backend's taluka line is only a fallback: it cites a different survey (GSDA 2023).
+  const cgwbUnits = waterService?.supporting_evidence?.cgwb_units_2025;
+  const stressedUnits = cgwbUnits?.stressed_units || [];
+  const categoryLabels = {
+    over_exploited: "Over-exploited",
+    critical: "Critical",
+    semi_critical: "Semi-critical",
+    saline: "Saline",
+  };
+  const unitGroups = Object.entries(categoryLabels)
+    .map(([category, label]) => {
+      const names = stressedUnits
+        .filter((u) => u.category === category)
+        .map((u) => u.shown || u.unit);
+      return names.length ? `${label}: ${names.join(", ")}.` : null;
+    })
+    .filter(Boolean);
+  const cgwbDate = cgwbUnits?.observed_at
+    ? new Date(cgwbUnits.observed_at).toLocaleDateString("en-IN", {
+        day: "numeric",
+        month: "long",
+        year: "numeric",
+      })
+    : null;
+  const backendTalukaLine = (waterService?.explainability || []).find((line) =>
     line.toLowerCase().includes("taluka")
   );
+  const talukaWarning = unitGroups.length
+    ? `The district figure can hide your taluka. ${region} is '${waterCategory}' as a whole, but that is an average. ` +
+      `In the CGWB assessment${cgwbDate ? ` as on ${cgwbDate}` : ""}, these talukas are worse. ` +
+      `${unitGroups.join(" ")} ` +
+      "If you farm in one of them, the district answer does not describe your water."
+    : backendTalukaLine;
 
   return (
     <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
@@ -81,7 +111,7 @@ export default function DataDisplayPanel({ data, crop }) {
         <p className="text-xs text-gray-400 mt-3">
           Where this comes from: DES / MoSPI (government crop statistics)
         </p>
-        {yieldPeriod && (
+        {yieldTHa && yieldPeriod && (
           <p className="text-xs text-gray-500 mt-1">
             Data covers: {yieldPeriod} (updated once a year)
           </p>
@@ -142,7 +172,7 @@ export default function DataDisplayPanel({ data, crop }) {
             </p>
             {waterCategory && (
               <p className="text-xs text-gray-500 mt-1">
-                Official category for the district: {waterCategory}
+                Category for the district (worked out by AIAIC from the extraction stage): {waterCategory}
               </p>
             )}
           </>

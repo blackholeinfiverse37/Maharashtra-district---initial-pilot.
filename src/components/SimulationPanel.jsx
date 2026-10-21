@@ -35,7 +35,7 @@ export default function SimulationPanel({ data }) {
     : (storage.recommendation_detail || "").toLowerCase();
 
   // The backend's own most important warnings, shown as written
-  const warnings = (storage.read_these_first || []).slice(0, 2);
+  const warnings = (storage.read_these_first || []).slice(0, 4);
 
   // When AIAIC has no measured spread, its engine fills best/average/worst with a FIXED band around one price.
   // That is not "a better day / a weaker day", so only the price itself is shown (review 2026-10-02).
