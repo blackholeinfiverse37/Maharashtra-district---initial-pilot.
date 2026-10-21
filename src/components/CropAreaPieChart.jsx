@@ -9,8 +9,11 @@ const COLORS = ["#4e79a7", "#f28e2b", "#e15759", "#76b7b2", "#59a14f", "#edc948"
 export default function CropAreaPieChart({ data, crop }) {
   const cropService = data?.crop?.[0];
   const region = cropService?.subject?.region || "Selected District";
-  const crops = cropService?.supporting_evidence?.district_crop_apy?.crops || [];
-  const source = cropService?.sources_used?.[0];
+  const apy = cropService?.supporting_evidence?.district_crop_apy;
+  const crops = apy?.crops || [];
+  // Only the DES crop-area source describes this chart. The crop service's first source is CGWB groundwater, so its
+  // freshness must never be shown here; with no DES source, no freshness word is shown.
+  const source = (cropService?.sources_used || []).find((s) => /^des[_-]/i.test(s?.source_id || ""));
 
   const byCrop = {};
   crops.forEach((c) => {
@@ -59,7 +62,8 @@ export default function CropAreaPieChart({ data, crop }) {
         </PieChart>
       </ResponsiveContainer>
       <p className="text-xs text-gray-400 mt-2">
-        Where this comes from: DES / MoSPI (government crop statistics)
+        Where this comes from: DES / MoSPI
+        {apy?.year ? ` · Data covers ${apy.year}` : ""}
         {freshnessLabel ? ` · AIAIC marks this data ${freshnessLabel.toLowerCase()}` : ""}
       </p>
     </div>
