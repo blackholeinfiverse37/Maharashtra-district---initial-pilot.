@@ -126,6 +126,15 @@ const en = {
   "weather.kind.some_chance": "Some chance of rain",
   "weather.kind.rain_likely": "Rain likely",
 
+  // Weather map card
+  "wmap.title": "What is the weather in each district?",
+  "wmap.bubbleTitle": "{district}: highest {temp}°C, {word}",
+  "wmap.detail": "{district}: highest {temp}°C, {dry} of {days} days dry.",
+  "wmap.nextRain": "Rain likely on {date}.",
+  "wmap.noRain": "No rain likely in these {days} days.",
+  "wmap.hint": "Tap a pin to choose that district.",
+  "wmap.tempNote": "The number next to each pin is the highest temperature expected this week, in °C.",
+
   // Background card
   "bg.title": "Background information (older data)",
   "bg.enam": "Mandis on e-NAM in {district}",

@@ -1,4 +1,4 @@
-import { createContext, useContext } from "react";
+import { createContext, useCallback, useContext } from "react";
 import { DEFAULT_LANGUAGE, languageByCode } from "./languages";
 import { translate } from "./translate";
 
@@ -18,7 +18,8 @@ export const LanguageContext = createContext({
 export const useLanguage = () => useContext(LanguageContext);
 
 // t(key, variables, fallback): the dashboard's own words in the chosen language (see translate.js)
+// (the same function until the language changes, so it can be an effect's dependency)
 export const useT = () => {
   const { lang } = useContext(LanguageContext);
-  return (key, variables, fallback) => translate(lang, key, variables, fallback);
+  return useCallback((key, variables, fallback) => translate(lang, key, variables, fallback), [lang]);
 };

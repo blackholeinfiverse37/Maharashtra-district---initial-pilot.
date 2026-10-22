@@ -5,6 +5,7 @@ import DataDisplayPanel from "./components/DataDisplayPanel";
 import SimulationPanel from "./components/SimulationPanel";
 import WeatherNotePanel from "./components/WeatherNotePanel";
 import BackgroundInfoPanel from "./components/BackgroundInfoPanel";
+import WeatherMapPanel from "./components/WeatherMapPanel";
 import AtAGlancePanel from "./components/AtAGlancePanel";
 import Warning from "./components/Warning";
 import SystemStateBar from "./components/SystemStateBar";
@@ -17,9 +18,11 @@ import {
   fetchDistrictView,
   fetchDistricts,
   fetchEnamMandis,
+  fetchPlacesMap,
   fetchServedStates,
   fetchSoilMoisture,
   fetchWeatherForecast,
+  fetchWeatherOutlook,
 } from "./data_adapter/aiaicApi";
 
 export default function App() {
@@ -37,6 +40,8 @@ export default function App() {
   const [data, setData] = useState(null);
   const [forecast, setForecast] = useState(null); // the district's 7-day forecast, or null when it failed
   const [background, setBackground] = useState({ enam: null, soil: null }); // older district facts; null = failed
+  const [outlook, setOutlook] = useState(null); // every district's week of weather (the map card); null = failed
+  const [mapData, setMapData] = useState(null); // every district's centre and names (the map card); null = failed
 
   // A change of choice clears everything that depended on the old one, here and not inside an effect.
   const chooseEstate = (next) => {
@@ -49,6 +54,8 @@ export default function App() {
     setData(null);
     setForecast(null);
     setBackground({ enam: null, soil: null });
+    setOutlook(null);
+    setMapData(null);
     setStatus("idle");
   };
   const chooseDistrict = (next) => {
@@ -59,6 +66,25 @@ export default function App() {
     setForecast(null);
     setBackground({ enam: null, soil: null });
     setStatus("idle");
+  };
+  // A district chosen on the weather map: like the dropdown (sent by its English name), but the chosen crop is kept
+  // when the new district offers it too, so the page does not empty itself under the map.
+  const chooseDistrictOnMap = (nextEn) => {
+    if (!nextEn || nextEn === district) return;
+    fetchCrops(estate, nextEn, apiLang)
+      .then((list) => {
+        if (crop && list.some((c) => c.key === crop)) {
+          setDistrict(nextEn);
+          setCrops(list);
+          setData(null);
+          setForecast(null);
+          setBackground({ enam: null, soil: null });
+          setStatus("loading");
+        } else {
+          chooseDistrict(nextEn);
+        }
+      })
+      .catch(() => chooseDistrict(nextEn));
   };
   const chooseCrop = (next) => {
     setCrop(next);
@@ -113,6 +139,27 @@ export default function App() {
       cancelled = true;
     };
   }, [estate, district, apiLang]);
+
+  // The weather map: every district's week of weather (read in English, see fetchWeatherOutlook) and every district's
+  // centre and names in the chosen language. Either one failing leaves it empty, and the map card is hidden.
+  useEffect(() => {
+    let cancelled = false;
+    fetchWeatherOutlook({ state: estate })
+      .then((o) => !cancelled && setOutlook(o))
+      .catch(() => !cancelled && setOutlook(null));
+    return () => {
+      cancelled = true;
+    };
+  }, [estate]);
+  useEffect(() => {
+    let cancelled = false;
+    fetchPlacesMap({ state: estate, crop: crop || undefined, lang: apiLang })
+      .then((m) => !cancelled && setMapData(m))
+      .catch(() => !cancelled && setMapData(null));
+    return () => {
+      cancelled = true;
+    };
+  }, [estate, crop, apiLang]);
 
   // Older background facts for the district (e-NAM mandis, soil moisture). Each one that fails stays empty, and the
   // card hides that part.
@@ -228,6 +275,12 @@ export default function App() {
           <DataDisplayPanel data={data} crop={cropName} cropEn={cropNameEn} districtName={districtName} card="water" />
           <DataDisplayPanel data={data} crop={cropName} cropEn={cropNameEn} districtName={districtName} card="harvest" />
           <WeatherNotePanel data={data} forecast={forecast} />
+          <WeatherMapPanel
+            outlook={outlook}
+            mapData={mapData}
+            selectedDistrictEn={district}
+            onSelectDistrict={chooseDistrictOnMap}
+          />
           <BackgroundInfoPanel enam={background.enam} soil={background.soil} districtName={districtName} />
           <CropAreaPieChart data={data} crop={cropName} cropEn={cropNameEn} districtName={districtName} />
         </div>

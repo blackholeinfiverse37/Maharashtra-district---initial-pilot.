@@ -126,6 +126,15 @@ const mr = {
   "weather.kind.some_chance": "पावसाची थोडी शक्यता",
   "weather.kind.rain_likely": "पाऊस पडण्याची शक्यता",
 
+  // Weather map card
+  "wmap.title": "प्रत्येक जिल्ह्यात हवामान कसे आहे?",
+  "wmap.bubbleTitle": "{district}: कमाल {temp}°C, {word}",
+  "wmap.detail": "{district}: कमाल {temp}°C, {days} पैकी {dry} दिवस कोरडे.",
+  "wmap.nextRain": "{date} रोजी पावसाची शक्यता.",
+  "wmap.noRain": "या {days} दिवसांत पावसाची शक्यता नाही.",
+  "wmap.hint": "तो जिल्हा निवडण्यासाठी त्याच्या पिनवर टॅप करा.",
+  "wmap.tempNote": "प्रत्येक पिनजवळील आकडा या आठवड्यातील अपेक्षित कमाल तापमान आहे (°C मध्ये).",
+
   // Background card
   "bg.title": "अधिक माहिती (जुनी आकडेवारी)",
   "bg.enam": "{district} जिल्ह्यातील e-NAM वरील बाजार समित्या",

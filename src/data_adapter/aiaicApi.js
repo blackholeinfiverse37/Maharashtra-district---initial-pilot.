@@ -70,6 +70,18 @@ export async function fetchWeatherForecast({ state, district, lang = 'en' }) {
   return getJson('/weather/forecast', { district, state, lang })
 }
 
+// The 7-day weather outlook for every district of a state, one line each (dry days, next rain-likely day, highest
+// temperature) with its source. Always read in English: its district `name` is then the English name, which is how it
+// is matched with the map's districts (the outlook has no separate English-name field).
+export async function fetchWeatherOutlook({ state }) {
+  return getJson('/weather/outlook', { state, lang: 'en' })
+}
+
+// Every district's centre (lat, lon) with its name in the chosen language (`district`) and in English (`name_en`).
+export async function fetchPlacesMap({ state, crop, lang = 'en' }) {
+  return getJson('/places/map', { state, crop, lang })
+}
+
 // Background facts for one district (older data, not about the crop), each as the server sends it:
 // the mandis that were on e-NAM, and a past year's soil moisture.
 export async function fetchEnamMandis({ state, district, lang = 'en' }) {

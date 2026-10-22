@@ -28,6 +28,7 @@
   --text-price: 18px;    /* a price line under a sentence answer (normal) */
   --text-body: 16px;     /* normal text */
   --text-small: 14px;    /* small grey text: labels, sources, dates, notes */
+  --text-map: 12px;      /* the temperature next to a map pin */
 
   --row-gap: 16px;       /* space between rows inside one card */
 
@@ -183,6 +184,99 @@
   .forecast-kind {
     font-weight: 600;
     min-width: 11em;
+  }
+
+  /* Weather map: a fixed-height map (shorter on a phone) and one small pin per district. A pin's shape and fill both
+     say dry / maybe rain / rain (solid, hollow ring, solid with a white centre), so colour is never the only signal. */
+  .weather-map {
+    height: 420px;
+    margin-top: 12px;
+    border: 1px solid var(--color-border);
+    border-radius: 8px;
+    overflow: hidden;
+    z-index: 0; /* keep the map's own layers below the page's other content */
+  }
+  @media (max-width: 640px) {
+    .weather-map {
+      height: 320px;
+    }
+  }
+  .wmap-icon {
+    background: none;
+    border: none;
+  }
+  .wmap-pin {
+    position: relative;
+    display: block;
+    width: 16px;
+    height: 16px;
+    border-radius: 50% 50% 50% 0;
+    transform: rotate(-45deg);
+    background: var(--color-muted);
+    border: 2px solid var(--color-card);
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.35);
+    cursor: pointer;
+  }
+  .wmap-icon .wmap-pin {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 1;
+  }
+  .wmap-dry {
+    background: var(--color-warning-edge);
+  }
+  .wmap-maybe {
+    background: var(--color-card);
+    border: 3px solid var(--color-link);
+  }
+  .wmap-rain {
+    background: var(--color-link);
+  }
+  .wmap-rain::after {
+    content: "";
+    position: absolute;
+    inset: 30%;
+    border-radius: 50%;
+    background: var(--color-card);
+  }
+  .wmap-selected {
+    border-color: var(--color-text);
+    border-width: 3px;
+  }
+  /* The week's highest temperature beside a pin, with a white halo so it reads over the map */
+  .wmap-temp {
+    position: absolute;
+    left: calc(100% + 3px);
+    top: -2px;
+    font-size: var(--text-map);
+    font-weight: 700;
+    color: var(--color-text);
+    white-space: nowrap;
+    pointer-events: none;
+    text-shadow: 0 0 2px var(--color-card), 0 0 2px var(--color-card), 0 0 3px var(--color-card);
+  }
+  .wmap-label {
+    font-size: var(--text-small);
+    font-weight: 600;
+    color: var(--color-text);
+  }
+  .wmap-legend {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px 20px;
+    margin-top: 8px;
+    font-size: var(--text-small);
+    color: var(--color-muted);
+  }
+  .wmap-legend li {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .wmap-legend-pin {
+    width: 12px;
+    height: 12px;
+    cursor: default;
   }
 
   /* Warnings: soft amber box, thin amber left edge */

@@ -126,6 +126,15 @@ const hi = {
   "weather.kind.some_chance": "बारिश की थोड़ी संभावना",
   "weather.kind.rain_likely": "बारिश होने की संभावना",
 
+  // Weather map card
+  "wmap.title": "हर ज़िले में मौसम कैसा है?",
+  "wmap.bubbleTitle": "{district}: सबसे ज़्यादा {temp}°C, {word}",
+  "wmap.detail": "{district}: सबसे ज़्यादा {temp}°C, {days} में से {dry} दिन सूखे।",
+  "wmap.nextRain": "{date} को बारिश की संभावना।",
+  "wmap.noRain": "इन {days} दिनों में बारिश की संभावना नहीं।",
+  "wmap.hint": "उस ज़िले को चुनने के लिए उसकी पिन पर टैप करें।",
+  "wmap.tempNote": "हर पिन के पास लिखी संख्या इस हफ़्ते का सबसे ज़्यादा अनुमानित तापमान है (°C में)।",
+
   // Background card
   "bg.title": "और जानकारी (पुराने आँकड़े)",
   "bg.enam": "{district} ज़िले की e-NAM वाली मंडियाँ",
