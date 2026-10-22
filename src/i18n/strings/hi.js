@@ -1,0 +1,143 @@
+// Machine-drafted, pending native review.
+// The dashboard's own words in Hindi: same keys as en.js. Keep {name} placeholders exactly as they are.
+const hi = {
+  // Page
+  "app.title": "AIAIC ज़िला कृषि जानकारी डैशबोर्ड",
+  "app.subtitle": "खेती की जानकारी - {state}",
+  "app.englishNote": "कुछ बातें अंग्रेज़ी में दिखाई गई हैं।",
+  "app.reviewNote": "अनुवाद की जाँच चल रही है।",
+  "app.listError": "ज़िले या फसल की सूची नहीं खुल पाई: {error}",
+  "app.uncalibratedLead": "कृषि विशेषज्ञों ने अभी इसे मंज़ूरी नहीं दी है। इसे सिर्फ़ मार्गदर्शन के लिए देखें।",
+  "app.idle": "अपने इलाके की सलाह देखने के लिए ऊपर ज़िला और फसल चुनें",
+  "app.loadError": "जानकारी नहीं खुल पाई। कृपया दूसरा ज़िला या फसल चुनकर देखें।",
+
+  // Dropdowns
+  "field.language": "भाषा",
+  "field.state": "राज्य",
+  "field.district": "ज़िला",
+  "field.crop": "फसल",
+  "field.selectDistrict": "ज़िला चुनें",
+  "field.selectCrop": "फसल चुनें",
+  "field.chooseDistrictFirst": "पहले ज़िला चुनें",
+
+  // State names
+  "state.maharashtra": "महाराष्ट्र",
+  "state.madhya_pradesh": "मध्य प्रदेश",
+
+  // Status bar
+  "status.idle": "सलाह देखने के लिए ज़िला और फसल चुनें।",
+  "status.loading": "जानकारी आ रही है...",
+  "status.success": "{district} · {crop} की जानकारी",
+  "status.error": "जानकारी नहीं खुल पाई। कृपया फिर से कोशिश करें।",
+
+  // Shared
+  "common.whereFrom": "यह जानकारी कहाँ से: {source}",
+  "common.dataFrom": "{date} की जानकारी",
+  "common.dataFromTo": "{from} से {to} तक की जानकारी",
+  "common.lastChecked": "आख़िरी बार जाँचा गया: {date}",
+  "common.thisDistrict": "आपके",
+  "common.unknown": "पता नहीं",
+  "common.perQuintal": "प्रति क्विंटल",
+  "common.pricePerQuintal": "₹{price} प्रति क्विंटल",
+
+  // How old a source is
+  "fresh.fresh": "ताज़ा",
+  "fresh.aging": "थोड़ी पुरानी",
+  "fresh.stale": "पुरानी",
+
+  // At a glance
+  "glance.title": "एक नज़र में",
+  "glance.whereToSell": "कहाँ बेचें",
+  "glance.sellOrStore": "अभी बेचें या रखें?",
+  "glance.water": "पानी",
+  "glance.talukaHint": "इस ज़िले के कुछ तालुकों में हालत ज़्यादा ख़राब है। नीचे पानी वाले कार्ड में अपना तालुका देखें।",
+
+  // Harvest card
+  "harvest.title": "{district} ज़िले में {crop} की पैदावार कितनी है?",
+  "harvest.noData": "इस चुनाव के लिए पैदावार की जानकारी नहीं है।",
+  "harvest.unit": "टन प्रति हेक्टेयर",
+  "harvest.hectareNote": "(1 हेक्टेयर लगभग 2.5 एकड़ होता है)",
+  "harvest.noRecord": "कोई आँकड़ा नहीं मिला",
+  "harvest.missing": "सरकारी फसल आँकड़ों में {district} ज़िले के {crop} की पैदावार नहीं दी गई है।",
+  "harvest.coversOnly": "इस ज़िले के लिए इनमें सिर्फ़ ये फसलें हैं: {crops}।",
+  "harvest.notAbsent": "आँकड़ा न होने का मतलब यह नहीं कि यहाँ यह फसल नहीं उगाई जाती।",
+  "harvest.aboutData": "इस जानकारी के बारे में: {note}",
+  "harvest.source": "DES / MoSPI (सरकारी फसल आँकड़े)",
+  "harvest.dataCovers": "जानकारी का समय: {period} (साल में एक बार बदलती है)",
+
+  // Price card
+  "price.title": "{district} ज़िले में {crop} का सबसे अच्छा भाव कहाँ है?",
+  "price.noData": "इस चुनाव के लिए भाव की जानकारी नहीं है।",
+  "price.quintalNote": "(1 क्विंटल = 100 किलो)",
+  "price.noRecent": "हाल का कोई भाव नहीं मिला",
+  "price.payingMost": "सबसे ज़्यादा भाव देने वाली मंडी: {mandi}",
+  "price.beforeTransport": "इस भाव में ढुलाई का ख़र्च नहीं जोड़ा गया है।",
+  "price.priceFrom": "भाव की तारीख़: {date}",
+
+  // Water card
+  "water.title": "{district} ज़िले में कितना भूजल निकाला जा रहा है?",
+  "water.noData": "इस चुनाव के लिए भूजल की जानकारी नहीं है।",
+  "water.refill": "हर साल बारिश से ज़मीन में पानी भरता है। उसमें से लगभग {pct}% पानी निकाला जा रहा है।",
+  "water.category": "ज़िले की श्रेणी (कितना भूजल निकाला जाता है, उससे तय की गई): {category}",
+  "water.notAvailable": "जानकारी नहीं है",
+  "water.abstained": "यहाँ पानी की कोई सलाह नहीं है। जानकारी बहुत पुरानी है, उस पर भरोसा नहीं किया जा सकता।",
+  "water.dataIsFrom": "जानकारी की तारीख़: {date}",
+  "water.stale": "यह सबसे नया सरकारी सर्वे है, लेकिन पुराना है। कुछ करने से पहले अपने इलाके की हालत देख लें।",
+  "water.talukaIntro": "ज़िले का आँकड़ा आपके तालुके की हालत छिपा सकता है। पूरा {district} ज़िला '{category}' है, लेकिन यह औसत है।",
+  "water.talukaAssessmentOn": "{date} के CGWB आकलन में इन तालुकों की हालत ज़्यादा ख़राब है।",
+  "water.talukaAssessment": "CGWB आकलन में इन तालुकों की हालत ज़्यादा ख़राब है।",
+  "water.talukaGroup": "{label}: {names}।",
+  "water.talukaOutro": "अगर आपकी खेती इनमें से किसी तालुके में है, तो ज़िले का जवाब आपके पानी पर लागू नहीं होता।",
+  "water.talukaNoneWorse": "इस ज़िले का कोई भी तालुका ज़िले के औसत से ज़्यादा ख़राब श्रेणी में नहीं है।",
+  // Groundwater category, used for the district and for each taluka (the backend's code -> a plain word)
+  "water.cat.safe": "सुरक्षित",
+  "water.cat.semi_critical": "कुछ गंभीर",
+  "water.cat.critical": "गंभीर",
+  "water.cat.over_exploited": "बहुत ज़्यादा दोहन",
+  "water.cat.saline": "खारा",
+
+  // Storage card
+  "storage.title": "अभी बेचें, या रखकर इंतज़ार करें?",
+  "storage.noData": "इस फसल के लिए अभी बेचने या रखने की सलाह नहीं है।",
+  "storage.sample": "नमूने का हिसाब",
+  "storage.guideOnly": "सिर्फ़ मार्गदर्शन। बेचने से पहले अपनी नज़दीकी मंडी में भाव पूछ लें।",
+  "storage.abstained": "यहाँ बेचने या रखने की सलाह नहीं है। जानकारी पर पूरा भरोसा नहीं किया जा सकता।",
+  "storage.inSample": "इस नमूने के हिसाब में: ",
+  "storage.whatToDo": "क्या करें: ",
+  "storage.latestPrice": "प्रति क्विंटल (100 किलो) ताज़ा भाव:",
+  "storage.fixedBand": "अच्छे या कमज़ोर दिन का भाव नहीं दिखाया गया: इसका असली उतार-चढ़ाव नहीं मापा गया, बस इसी एक भाव के आसपास तय {band} है।",
+  "storage.band": "दायरा",
+  "storage.expected": "प्रति क्विंटल (100 किलो) अनुमानित भाव:",
+  "storage.betterDay": "अच्छे दिन",
+  "storage.typicalDay": "आम दिन",
+  "storage.weakerDay": "कमज़ोर दिन",
+  "storage.priceFrom": "यहाँ इस्तेमाल किया गया भाव {mandi} का है, {district} ज़िले का नहीं।",
+  "storage.yourDistrict": "आपके",
+  "storage.referenceMarket": "एक तुलना वाली मंडी",
+  "storage.na": "उपलब्ध नहीं",
+
+  // Weather card
+  "weather.title": "इस हफ़्ते मौसम कैसा रहेगा?",
+  "weather.noAnswerTitle": "मौसम का क्या?",
+  "weather.highest": "सबसे ज़्यादा {temp}°C",
+  "weather.rainChance": "बारिश की संभावना {pct}%",
+  "weather.readOn": "पूर्वानुमान {date} को लिया गया",
+  "weather.kind.dry": "सूखा",
+  "weather.kind.some_chance": "बारिश की थोड़ी संभावना",
+  "weather.kind.rain_likely": "बारिश होने की संभावना",
+
+  // Background card
+  "bg.title": "और जानकारी (पुराने आँकड़े)",
+  "bg.enam": "{district} ज़िले की e-NAM वाली मंडियाँ",
+  "bg.soil": "{district} ज़िले में मिट्टी की नमी",
+
+  // Pie chart
+  "pie.title": "{district} ज़िले में खेती की ज़मीन किन फसलों में है?",
+  "pie.units": "लाख हेक्टेयर में (1 लाख = 1,00,000)",
+  "pie.cropMissing": "इन सरकारी आँकड़ों में {crop} नहीं है।",
+  "pie.source": "DES / MoSPI",
+  "pie.dataCovers": "जानकारी का साल {year}",
+  "pie.tooltip": "{value} लाख हेक्टेयर",
+};
+
+export default hi;

@@ -4,24 +4,39 @@ import CropSelector from "./components/CropSelector";
 import DataDisplayPanel from "./components/DataDisplayPanel";
 import SimulationPanel from "./components/SimulationPanel";
 import WeatherNotePanel from "./components/WeatherNotePanel";
+import BackgroundInfoPanel from "./components/BackgroundInfoPanel";
+import AtAGlancePanel from "./components/AtAGlancePanel";
+import Warning from "./components/Warning";
 import SystemStateBar from "./components/SystemStateBar";
 import CropAreaPieChart from "./components/CropAreaPieChart";
-import { fetchCrops, fetchDistrictView, fetchDistricts } from "./data_adapter/aiaicApi";
-
-const ESTATES = [
-  { id: "maharashtra", label: "Maharashtra" },
-  { id: "mp", label: "Madhya Pradesh" },
-];
+import LanguageSelector from "./components/LanguageSelector";
+import { useLanguage, useT } from "./i18n/LanguageContext";
+import { DEFAULT_STATE, STATES, statesFromServed } from "./config/states";
+import {
+  fetchCrops,
+  fetchDistrictView,
+  fetchDistricts,
+  fetchEnamMandis,
+  fetchServedStates,
+  fetchSoilMoisture,
+  fetchWeatherForecast,
+} from "./data_adapter/aiaicApi";
 
 export default function App() {
-  const [estate, setEstate] = useState("maharashtra"); // "maharashtra" or "mp"
+  // The language the backend answers in (the chosen one when it supports it, otherwise English)
+  const { apiLang, showsEnglishNote } = useLanguage();
+  const t = useT();
+  const [states, setStates] = useState(STATES); // the states offered: src/config/states.js, narrowed by /catalog
+  const [estate, setEstate] = useState(DEFAULT_STATE); // the state code sent to the backend
   const [districts, setDistricts] = useState([]);
-  const [district, setDistrict] = useState(""); // a district NAME, as AIAIC lists it (e.g. "Nashik")
+  const [district, setDistrict] = useState(""); // the district's ENGLISH name (name_en): what is sent to the backend
   const [crops, setCrops] = useState([]);
   const [crop, setCrop] = useState(""); // a crop KEY, as AIAIC lists it (e.g. "onion")
   const [listError, setListError] = useState(null);
   const [status, setStatus] = useState("idle");
   const [data, setData] = useState(null);
+  const [forecast, setForecast] = useState(null); // the district's 7-day forecast, or null when it failed
+  const [background, setBackground] = useState({ enam: null, soil: null }); // older district facts; null = failed
 
   // A change of choice clears everything that depended on the old one, here and not inside an effect.
   const chooseEstate = (next) => {
@@ -32,6 +47,8 @@ export default function App() {
     setCrop("");
     setListError(null);
     setData(null);
+    setForecast(null);
+    setBackground({ enam: null, soil: null });
     setStatus("idle");
   };
   const chooseDistrict = (next) => {
@@ -39,6 +56,8 @@ export default function App() {
     setCrops([]);
     setCrop("");
     setData(null);
+    setForecast(null);
+    setBackground({ enam: null, soil: null });
     setStatus("idle");
   };
   const chooseCrop = (next) => {
@@ -47,33 +66,78 @@ export default function App() {
     setStatus(district && next ? "loading" : "idle");
   };
 
-  // The state's districts (never a hardcoded fallback list).
+  // The states the backend serves (its /catalog). If it cannot be read, the config file's list stays.
   useEffect(() => {
     let cancelled = false;
-    fetchDistricts(estate)
+    fetchServedStates()
+      .then((served) => !cancelled && setStates(statesFromServed(served)))
+      .catch(() => {});
+    return () => {
+      cancelled = true;
+    };
+  }, []);
+
+  // The state's districts (never a hardcoded fallback list), named in the chosen language. A language change reloads
+  // the lists and the answers below; the chosen district and crop stay, since they are kept by English name and key.
+  useEffect(() => {
+    let cancelled = false;
+    fetchDistricts(estate, apiLang)
       .then((list) => !cancelled && setDistricts(list))
       .catch((e) => !cancelled && setListError(e.message));
     return () => {
       cancelled = true;
     };
-  }, [estate]);
+  }, [estate, apiLang]);
 
   // The crops for THIS district, in AIAIC's order: what is grown or traded here, not every crop in the state.
   useEffect(() => {
     if (!district) return undefined;
     let cancelled = false;
-    fetchCrops(estate, district)
+    fetchCrops(estate, district, apiLang)
       .then((list) => !cancelled && setCrops(list))
       .catch((e) => !cancelled && setListError(e.message));
     return () => {
       cancelled = true;
     };
-  }, [estate, district]);
+  }, [estate, district, apiLang]);
+
+  // The district's weather forecast: the same for every crop, so it is fetched once per district. A failure leaves it
+  // empty, and the weather card falls back to the backend's note.
+  useEffect(() => {
+    if (!district) return undefined;
+    let cancelled = false;
+    fetchWeatherForecast({ state: estate, district, lang: apiLang })
+      .then((f) => !cancelled && setForecast(f))
+      .catch(() => !cancelled && setForecast(null));
+    return () => {
+      cancelled = true;
+    };
+  }, [estate, district, apiLang]);
+
+  // Older background facts for the district (e-NAM mandis, soil moisture). Each one that fails stays empty, and the
+  // card hides that part.
+  useEffect(() => {
+    if (!district) return undefined;
+    let cancelled = false;
+    Promise.allSettled([
+      fetchEnamMandis({ state: estate, district, lang: apiLang }),
+      fetchSoilMoisture({ state: estate, district, lang: apiLang }),
+    ]).then(([enam, soil]) => {
+      if (cancelled) return;
+      setBackground({
+        enam: enam.status === "fulfilled" ? enam.value : null,
+        soil: soil.status === "fulfilled" ? soil.value : null,
+      });
+    });
+    return () => {
+      cancelled = true;
+    };
+  }, [estate, district, apiLang]);
 
   useEffect(() => {
     if (!district || !crop) return undefined;
     let cancelled = false; // ignore answers that arrive after the selection changed
-    fetchDistrictView({ state: estate, district, crop })
+    fetchDistrictView({ state: estate, district, crop, lang: apiLang })
       .then((payload) => {
         if (cancelled) return;
         setData(payload);
@@ -87,51 +151,56 @@ export default function App() {
     return () => {
       cancelled = true;
     };
-  }, [district, crop, estate]);
+  }, [district, crop, estate, apiLang]);
 
-  const cropName = (crops.find((c) => c.key === crop) || {}).name || crop;
+  // Names to SHOW, in the chosen language. The English names stay for matching the backend's English-only data.
+  const districtName = (districts.find((d) => d.name_en === district) || {}).name || district;
+  const cropRow = crops.find((c) => c.key === crop) || {};
+  const cropName = cropRow.name || crop;
+  const cropNameEn = cropRow.name_en || crop;
+  const stateName = (s) => (s ? t(s.nameKey, {}, s.fallbackName || s.code) : "");
+  const currentState = states.find((s) => s.code === estate) || STATES.find((s) => s.code === estate);
   const uncalibrated = data?.market?.[0]?.uncalibrated_warning;
 
   return (
-    <div className="min-h-screen bg-gray-50 p-6">
+    <div className="page min-h-screen p-4 sm:p-6">
       {/* Header */}
-      <div className="max-w-5xl mx-auto mb-6">
-        <h1 className="text-2xl font-bold text-green-700">AIAIC District Intelligence Dashboard</h1>
-        <p className="text-sm text-gray-400 mt-1">
-          Agricultural Intelligence - {ESTATES.find((e) => e.id === estate)?.label}
-        </p>
+      <div className="page-column mb-6 flex flex-wrap items-start justify-between gap-4">
+        <div>
+          <h1 className="text-2xl font-bold text-green-700">{t("app.title")}</h1>
+          <p className="text-sm text-gray-400 mt-1">{t("app.subtitle", { state: stateName(currentState) })}</p>
+          {showsEnglishNote && <p className="card-small">{t("app.englishNote")}</p>}
+        </div>
+        <LanguageSelector />
       </div>
 
       {/* List error: said, never replaced by a hardcoded list */}
       {listError && (
-        <div className="max-w-5xl mx-auto mb-4 bg-red-50 border border-red-200 rounded-lg p-4">
-          <p className="text-sm text-red-600">Could not load the district or crop list: {listError}</p>
+        <div className="page-column mb-4">
+          <Warning text={t("app.listError", { error: listError })} />
         </div>
       )}
 
       {/* Backend's own "not farmer-ready" warning */}
       {status === "success" && uncalibrated && (
-        <div className="max-w-5xl mx-auto mb-4 bg-yellow-50 border border-yellow-300 rounded-lg p-4">
-          <p className="text-sm font-semibold text-yellow-800">
-            ⚠️ Needs to be approved by agronomists before in use.
-          </p>
-          <p className="text-xs text-yellow-700 mt-1">{uncalibrated}</p>
+        <div className="page-column mb-4">
+          <Warning text={`${t("app.uncalibratedLead")} ${uncalibrated}`} />
         </div>
       )}
 
       {/* Selectors */}
-      <div className="max-w-5xl mx-auto bg-white rounded-xl shadow p-5 mb-4">
+      <div className="page-column card mb-4">
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
           <div>
-            <label className="text-xs font-bold text-gray-400 uppercase tracking-wider">State</label>
+            <label className="field-label">{t("field.state")}</label>
             <select
               value={estate}
               onChange={(e) => chooseEstate(e.target.value)}
-              className="mt-1 w-full border border-gray-200 rounded-lg p-2 text-gray-800 focus:outline-none focus:ring-2 focus:ring-green-500"
+              className="field-select"
             >
-              {ESTATES.map((s) => (
-                <option key={s.id} value={s.id}>
-                  {s.label}
+              {states.map((s) => (
+                <option key={s.code} value={s.code}>
+                  {stateName(s)}
                 </option>
               ))}
             </select>
@@ -141,38 +210,40 @@ export default function App() {
         </div>
       </div>
 
-      <div className="max-w-5xl mx-auto mb-4">
-        <SystemStateBar status={status} district={district} crop={cropName} />
+      <div className="page-column mb-4">
+        <SystemStateBar status={status} district={districtName} crop={cropName} />
       </div>
 
       {status === "loading" && (
-        <div className="max-w-5xl mx-auto flex justify-center py-12">
+        <div className="page-column flex justify-center py-12">
           <div className="animate-spin rounded-full h-10 w-10 border-4 border-green-500 border-t-transparent" />
         </div>
       )}
 
       {status === "success" && (
-        <div className="max-w-5xl mx-auto flex flex-col gap-5">
-          <DataDisplayPanel data={data} crop={cropName} />
-          <SimulationPanel data={data} />
-          <WeatherNotePanel data={data} />
-          <CropAreaPieChart data={data} crop={cropName} />
+        <div className="page-column card-stack">
+          <AtAGlancePanel data={data} />
+          <DataDisplayPanel data={data} crop={cropName} cropEn={cropNameEn} districtName={districtName} card="price" />
+          <SimulationPanel data={data} districtName={districtName} />
+          <DataDisplayPanel data={data} crop={cropName} cropEn={cropNameEn} districtName={districtName} card="water" />
+          <DataDisplayPanel data={data} crop={cropName} cropEn={cropNameEn} districtName={districtName} card="harvest" />
+          <WeatherNotePanel data={data} forecast={forecast} />
+          <BackgroundInfoPanel enam={background.enam} soil={background.soil} districtName={districtName} />
+          <CropAreaPieChart data={data} crop={cropName} cropEn={cropNameEn} districtName={districtName} />
         </div>
       )}
 
       {status === "idle" && (
-        <div className="max-w-5xl mx-auto text-center py-16">
-          <p className="text-lg font-medium text-gray-400">
-            Select district and crop above to load district intelligence
+        <div className="page-column text-center py-16">
+          <p className="card-title" style={{ color: "var(--color-muted)" }}>
+            {t("app.idle")}
           </p>
         </div>
       )}
 
       {status === "error" && (
-        <div className="max-w-5xl mx-auto text-center py-16">
-          <p className="text-lg font-medium text-red-400">
-            Could not load data. Please try a different selection.
-          </p>
+        <div className="page-column text-center py-16">
+          <Warning text={t("app.loadError")} />
         </div>
       )}
     </div>

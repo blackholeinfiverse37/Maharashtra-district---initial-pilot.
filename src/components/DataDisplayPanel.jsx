@@ -1,42 +1,43 @@
-export default function DataDisplayPanel({ data, crop }) {
+import Warning from "./Warning";
+import { freshnessStatus, freshnessKey } from "./freshness";
+import { useLanguage, useT } from "../i18n/LanguageContext";
+import { formatDate as fmtDate, formatNumber as fmtNumber } from "../i18n/format";
+import { talukasWorseThanDistrict } from "../config/waterCategories";
+
+// One of three cards ("harvest", "price" or "water"), chosen by `card`, so the page can give each its own row.
+// `crop` and `districtName` are the names to SHOW (in the chosen language, as the dropdowns show them); `cropEn` is the
+// crop's English name, used only to find the crop in the backend's English-only government data.
+export default function DataDisplayPanel({ data, crop, cropEn, districtName, card }) {
+  const { locale } = useLanguage();
+  const t = useT();
   if (!data) return null;
 
-  // "2026-09-25T00:00:00" -> "25 Sep 2026"
-  const formatDate = (iso) => {
-    if (!iso) return null;
-    const d = new Date(iso);
-    if (isNaN(d.getTime())) return null;
-    return d.toLocaleDateString("en-IN", { day: "numeric", month: "short", year: "numeric" });
-  };
+  // Dates and numbers in the chosen language's format: "25 Sep 2026", "1,600"
+  const formatDate = (value) => fmtDate(value, locale);
+  const formatNumber = (n, options) => fmtNumber(n, locale, options);
 
-  // 1600 -> "1,600"
-  const formatNumber = (n) => (typeof n === "number" ? n.toLocaleString("en-IN") : null);
-
-  // Turn technical freshness words into plain English
-  const freshnessWords = { FRESH: "Up to date", AGING: "Getting old", STALE: "Out of date" };
-  const freshnessLabel = (source) => {
-    if (!source) return "";
-    const status = (source.real_world_freshness || source.freshness || "").toUpperCase();
-    return freshnessWords[status] || status;
-  };
-  const isStale = (source) =>
-    (source?.real_world_freshness || source?.freshness || "").toLowerCase() === "stale";
+  // " (Up to date)", " (Getting old)", " (Old)", or nothing when the age is not known
+  const freshnessLabel = (source) => (freshnessKey(source) ? ` (${t(freshnessKey(source))})` : "");
+  const isStale = (source) => freshnessStatus(source) === "stale";
 
   // ---- Yield ----
   const cropService = data.crop?.[0];
   const apy = cropService?.supporting_evidence?.district_crop_apy;
   const allCrops = apy?.crops || [];
   const matchingCropRow = allCrops.find(
-    (c) => c.crop && c.crop.toLowerCase() === (crop || "").toLowerCase()
+    (c) => c.crop && c.crop.toLowerCase() === (cropEn || crop || "").toLowerCase()
   );
   const yieldKgHa = matchingCropRow?.yield_kg_ha;
-  const yieldTHa = yieldKgHa ? (yieldKgHa / 1000).toFixed(2) : null;
+  const yieldTHa = yieldKgHa
+    ? formatNumber(yieldKgHa / 1000, { minimumFractionDigits: 2, maximumFractionDigits: 2 })
+    : null;
   const yieldPeriod = apy?.year || null;
+  // The crops this government data holds for the district, each once, in the backend's order
+  const cropsInData = [...new Set(allCrops.map((c) => c.crop).filter(Boolean))];
 
   // ---- Market ----
   const marketService = data.market?.[0];
   const mandiPrice = formatNumber(marketService?.average_case?.value);
-  const marketPlace = marketService?.subject?.region || "the state";
   const marketAdvice = marketService?.recommendation_detail;
   const marketSource = marketService?.sources_used?.[0];
 
@@ -45,168 +46,159 @@ export default function DataDisplayPanel({ data, crop }) {
   const waterStressPct = waterService?.supporting_evidence?.stage_of_extraction_pct;
   const waterSource = waterService?.sources_used?.[0];
   const waterCategory = waterService?.supporting_evidence?.groundwater_status;
+  // The backend's code ("safe", "semi_critical", …) as a plain word in the chosen language, the same words as the
+  // taluka list below; an unknown code as sent
+  const waterCategoryWord = waterCategory ? t(`water.cat.${waterCategory}`, {}, waterCategory) : waterCategory;
 
-  const region = waterService?.subject?.region || cropService?.subject?.region || "this district";
+  // When a service sends no answer, the backend says why in na_reasons.<service>.text; a card then shows that reason
+  // and none of its usual lines. Without a reason from the backend, a plain line of our own is shown.
+  const noAnswer = (service, key) => data.na_reasons?.[service]?.text || t(key);
+
+  // The district as the dropdown shows it; the backend's English name only if the page did not pass one
+  const region =
+    districtName ||
+    waterService?.subject?.region ||
+    cropService?.subject?.region ||
+    marketService?.subject?.region ||
+    data.storage?.[0]?.subject?.region ||
+    t("common.thisDistrict");
 
   // Talukas hiding inside the district average, built from CGWB's own taluka list (the same assessment as the
   // district figure). The backend's taluka line is only a fallback: it cites a different survey (GSDA 2023).
+  // Only talukas in a MORE severe category than the district (and saline ones) are named as "worse"
+  // (src/config/waterCategories.js); when none is, a plain line says so instead.
   const cgwbUnits = waterService?.supporting_evidence?.cgwb_units_2025;
   const stressedUnits = cgwbUnits?.stressed_units || [];
-  const categoryLabels = {
-    over_exploited: "Over-exploited",
-    critical: "Critical",
-    semi_critical: "Semi-critical",
-    saline: "Saline",
-  };
-  const unitGroups = Object.entries(categoryLabels)
-    .map(([category, label]) => {
-      const names = stressedUnits
+  const worseUnits = talukasWorseThanDistrict(stressedUnits, waterCategory);
+  const categories = ["over_exploited", "critical", "semi_critical", "saline"];
+  const unitGroups = categories
+    .map((category) => {
+      const names = worseUnits
         .filter((u) => u.category === category)
         .map((u) => u.shown || u.unit);
-      return names.length ? `${label}: ${names.join(", ")}.` : null;
+      return names.length ? t("water.talukaGroup", { label: t(`water.cat.${category}`), names: names.join(", ") }) : null;
     })
     .filter(Boolean);
-  const cgwbDate = cgwbUnits?.observed_at
-    ? new Date(cgwbUnits.observed_at).toLocaleDateString("en-IN", {
-        day: "numeric",
-        month: "long",
-        year: "numeric",
-      })
-    : null;
+  const cgwbDate = fmtDate(cgwbUnits?.observed_at, locale, { month: "long" });
   const backendTalukaLine = (waterService?.explainability || []).find((line) =>
     line.toLowerCase().includes("taluka")
   );
   const talukaWarning = unitGroups.length
-    ? `The district figure can hide your taluka. ${region} is '${waterCategory}' as a whole, but that is an average. ` +
-      `In the CGWB assessment${cgwbDate ? ` as on ${cgwbDate}` : ""}, these talukas are worse. ` +
-      `${unitGroups.join(" ")} ` +
-      "If you farm in one of them, the district answer does not describe your water."
-    : backendTalukaLine;
+    ? [
+        t("water.talukaIntro", { district: region, category: waterCategoryWord }),
+        cgwbDate ? t("water.talukaAssessmentOn", { date: cgwbDate }) : t("water.talukaAssessment"),
+        unitGroups.join(" "),
+        t("water.talukaOutro"),
+      ].join(" ")
+    : stressedUnits.length
+      ? null // stressed talukas exist, but none is worse than the district: the plain line below is shown instead
+      : backendTalukaLine;
+  const noTalukaWorse = stressedUnits.length > 0 && unitGroups.length === 0;
 
-  return (
-    <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-      {/* Yield Card */}
-      <div className="bg-white p-5 rounded-xl border border-green-200 shadow-sm">
-        <h3 className="text-sm font-semibold text-gray-600">
-          Average harvest of {crop} in {region}:
-        </h3>
-        {yieldTHa ? (
+  const cards = {
+    harvest: (
+      <div className="card">
+        <h3 className="card-title">{t("harvest.title", { crop, district: region })}</h3>
+        {!cropService ? (
+          <p className="card-text">{noAnswer("crop", "harvest.noData")}</p>
+        ) : yieldTHa ? (
           <>
-            <p className="text-2xl font-bold text-gray-800 mt-2">
-              {yieldTHa}{" "}
-              <span className="text-sm font-normal text-gray-500">tonnes per hectare</span>
+            <p className="card-number">
+              {yieldTHa} <span className="card-unit">{t("harvest.unit")}</span>
             </p>
-            <p className="text-xs text-gray-500 mt-1">(1 hectare is about 2.5 acres)</p>
+            <p className="card-small">{t("harvest.hectareNote")}</p>
           </>
         ) : (
           <>
-            <p className="text-2xl font-bold text-gray-800 mt-2">No record found</p>
-            <p className="text-xs text-orange-600 mt-2">
-              ⚠️ The government crop data has no harvest figure for {crop} in {region}. It mainly
-              covers cereals, millets and pulses. A missing record does not mean the crop is not
-              grown here.
-            </p>
+            <p className="card-sentence">{t("harvest.noRecord")}</p>
+            <Warning
+              text={[
+                t("harvest.missing", { crop, district: region }),
+                cropsInData.length ? t("harvest.coversOnly", { crops: cropsInData.join(", ") }) : null,
+                t("harvest.notAbsent"),
+              ]
+                .filter(Boolean)
+                .join(" ")}
+            />
+            {apy?.coverage_note && <p className="card-small">{t("harvest.aboutData", { note: apy.coverage_note })}</p>}
           </>
         )}
-        <p className="text-xs text-gray-400 mt-3">
-          Where this comes from: DES / MoSPI (government crop statistics)
-        </p>
-        {yieldTHa && yieldPeriod && (
-          <p className="text-xs text-gray-500 mt-1">
-            Data covers: {yieldPeriod} (updated once a year)
-          </p>
-        )}
+        {cropService && <p className="card-small">{t("common.whereFrom", { source: t("harvest.source") })}</p>}
+        {yieldTHa && yieldPeriod && <p className="card-small">{t("harvest.dataCovers", { period: yieldPeriod })}</p>}
       </div>
-
-      {/* Mandi Price Card */}
-      <div className="bg-white p-5 rounded-xl border border-blue-200 shadow-sm">
-        <h3 className="text-sm font-semibold text-gray-600">
-          Best price for {crop} across {marketPlace} markets:
-        </h3>
-        {mandiPrice ? (
-          <>
-            <p className="text-2xl font-bold text-gray-800 mt-2">
-              ₹{mandiPrice}{" "}
-              <span className="text-sm font-normal text-gray-500">per quintal</span>
-            </p>
-            <p className="text-xs text-gray-500 mt-1">(1 quintal = 100 kg)</p>
-          </>
+    ),
+    price: (
+      <div className="card">
+        <h3 className="card-title">{t("price.title", { crop, district: region })}</h3>
+        {!marketService ? (
+          <p className="card-text">{noAnswer("market", "price.noData")}</p>
         ) : (
-          <p className="text-2xl font-bold text-gray-800 mt-2">No recent price found</p>
-        )}
-        {marketAdvice && (
-          <p className="text-sm text-blue-600 mt-2 font-medium">
-            Market paying the most: {marketAdvice.replace(/^Sell at /, "")}
-          </p>
-        )}
-        <p className="text-xs text-gray-500 mt-1">
-          This price is before transport costs, which are not included.
-        </p>
-        <p className="text-xs text-gray-400 mt-3">
-          Where this comes from: {marketSource?.source_name || "Unknown"} (
-          {freshnessLabel(marketSource)})
-        </p>
-        {formatDate(marketSource?.observed_at) && (
-          <p className="text-xs text-gray-500 mt-1">
-            Price is from: {formatDate(marketSource.observed_at)}
-          </p>
-        )}
-        {formatDate(marketService?.last_refresh) && (
-          <p className="text-xs text-gray-400">
-            Last checked by our system: {formatDate(marketService.last_refresh)}
-          </p>
-        )}
-      </div>
-
-      {/* Water Stress Card */}
-      <div className="bg-white p-5 rounded-xl border border-orange-200 shadow-sm">
-        <h3 className="text-sm font-semibold text-gray-600">
-          Average water stress in {region}:
-        </h3>
-        {typeof waterStressPct === "number" ? (
           <>
-            <p className="text-2xl font-bold text-gray-800 mt-2">{waterStressPct}%</p>
-            <p className="text-xs text-gray-500 mt-1">
-              Each year, nature refills the groundwater. About {waterStressPct}% of that refill
-              is being taken out.
-            </p>
-            {waterCategory && (
-              <p className="text-xs text-gray-500 mt-1">
-                Category for the district (worked out by AIAIC from the extraction stage): {waterCategory}
+            {mandiPrice ? (
+              <>
+                <p className="card-number">
+                  ₹{mandiPrice} <span className="card-unit">{t("common.perQuintal")}</span>
+                </p>
+                <p className="card-small">{t("price.quintalNote")}</p>
+              </>
+            ) : (
+              <p className="card-sentence">{t("price.noRecent")}</p>
+            )}
+            {marketAdvice && (
+              <p className="card-text font-semibold">
+                {t("price.payingMost", { mandi: marketAdvice.replace(/^Sell at /, "") })}
               </p>
             )}
+            <p className="card-small">{t("price.beforeTransport")}</p>
+            <p className="card-small">
+              {t("common.whereFrom", { source: marketSource?.source_name || t("common.unknown") })}
+              {freshnessLabel(marketSource)}
+            </p>
+            {formatDate(marketSource?.observed_at) && (
+              <p className="card-small">{t("price.priceFrom", { date: formatDate(marketSource.observed_at) })}</p>
+            )}
+            {formatDate(marketService?.last_refresh) && (
+              <p className="card-small">{t("common.lastChecked", { date: formatDate(marketService.last_refresh) })}</p>
+            )}
           </>
-        ) : (
-          <p className="text-2xl font-bold text-gray-800 mt-2">Not available</p>
         )}
-        {waterService?.abstained && (
-          <p className="text-xs text-orange-600 mt-2">
-            ⚠️ Our system chose not to give a water recommendation, because the data is too old
-            to trust.
-          </p>
-        )}
-        <p className="text-xs text-gray-400 mt-3">
-          Where this comes from: {waterSource?.source_name || "Unknown"} (
-          {freshnessLabel(waterSource)})
-        </p>
-        {formatDate(waterSource?.observed_at) && (
-          <p className="text-xs text-gray-500 mt-1">
-            Data is from: {formatDate(waterSource.observed_at)}
-          </p>
-        )}
-        {formatDate(waterService?.last_refresh) && (
-          <p className="text-xs text-gray-400">
-            Last checked by our system: {formatDate(waterService.last_refresh)}
-          </p>
-        )}
-        {isStale(waterSource) && (
-          <p className="text-xs text-orange-600 mt-2">
-            ⚠️ This is the newest official survey available, but it is old. Please check local
-            conditions before acting on it.
-          </p>
-        )}
-        {talukaWarning && <p className="text-xs text-orange-600 mt-2">⚠️ {talukaWarning}</p>}
       </div>
-    </div>
-  );
+    ),
+    water: (
+      <div className="card">
+        <h3 className="card-title">{t("water.title", { district: region })}</h3>
+        {!waterService ? (
+          <p className="card-text">{noAnswer("water", "water.noData")}</p>
+        ) : (
+          <>
+            {formatNumber(waterStressPct) ? (
+              <>
+                <p className="card-number">{formatNumber(waterStressPct)}%</p>
+                <p className="card-small">{t("water.refill", { pct: formatNumber(waterStressPct) })}</p>
+                {waterCategory && <p className="card-small">{t("water.category", { category: waterCategoryWord })}</p>}
+              </>
+            ) : (
+              <p className="card-sentence">{t("water.notAvailable")}</p>
+            )}
+            {waterService.abstained && <Warning text={t("water.abstained")} />}
+            <p className="card-small">
+              {t("common.whereFrom", { source: waterSource?.source_name || t("common.unknown") })}
+              {freshnessLabel(waterSource)}
+            </p>
+            {formatDate(waterSource?.observed_at) && (
+              <p className="card-small">{t("water.dataIsFrom", { date: formatDate(waterSource.observed_at) })}</p>
+            )}
+            {formatDate(waterService.last_refresh) && (
+              <p className="card-small">{t("common.lastChecked", { date: formatDate(waterService.last_refresh) })}</p>
+            )}
+            {isStale(waterSource) && <Warning text={t("water.stale")} />}
+            {talukaWarning && <Warning text={talukaWarning} />}
+            {noTalukaWorse && <p className="card-small">{t("water.talukaNoneWorse")}</p>}
+          </>
+        )}
+      </div>
+    ),
+  };
+
+  return cards[card] || null;
 }

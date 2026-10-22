@@ -23,19 +23,27 @@ async function getJson(path, params = {}) {
   return r.json()
 }
 
-// [{ key, name }] for a state ("maharashtra" or "mp").
-export async function fetchDistricts(state) {
-  const d = await getJson('/places/districts', { state, lang: 'en' })
-  return (d.districts || []).map((x) => ({ key: x.key, name: x.name_en || x.name }))
+// Every call takes `lang` (the language the backend should answer in; English when not given). Names come back in
+// two forms: `name` in that language, to SHOW, and `name_en`, which is what is always SENT back to the backend.
+
+// [{ key, name, name_en }] for a state ("maharashtra" or "mp").
+export async function fetchDistricts(state, lang = 'en') {
+  const d = await getJson('/places/districts', { state, lang })
+  return (d.districts || []).map((x) => ({
+    key: x.key,
+    name: x.name || x.name_en || x.key,
+    name_en: x.name_en || x.name || x.key,
+  }))
 }
 
-// [{ key, name, basis }] for one district: the crops AIAIC offers first, in its order.
-export async function fetchCrops(state, district) {
-  const d = await getJson('/places/crops', { state, district, lang: 'en' })
+// [{ key, name, name_en, basis }] for one district: the crops AIAIC offers first, in its order.
+export async function fetchCrops(state, district, lang = 'en') {
+  const d = await getJson('/places/crops', { state, district, lang })
   const byKey = Object.fromEntries((d.crops || []).map((c) => [c.crop, c]))
   return (d.first_page || []).map((key) => ({
     key,
-    name: (byKey[key] && (byKey[key].name_en || byKey[key].name)) || key,
+    name: (byKey[key] && (byKey[key].name || byKey[key].name_en)) || key,
+    name_en: (byKey[key] && (byKey[key].name_en || byKey[key].name)) || key,
     basis: byKey[key] ? byKey[key].basis : null,
   }))
 }
@@ -43,8 +51,8 @@ export async function fetchCrops(state, district) {
 // { market: [item], storage: [item], water: [item], crop: [item], weather: [item] } where each item is the
 // service's answer with its `summary` attached: the same shape the panels already read. Plus `na_reasons`: the
 // server's own reason, per service, when it returns no answer (e.g. { weather: { code, text } }).
-export async function fetchDistrictView({ state, district, crop }) {
-  const payload = await getJson('/view/unified', { crop, region: district, state, lang: 'en' })
+export async function fetchDistrictView({ state, district, crop, lang = 'en' }) {
+  const payload = await getJson('/view/unified', { crop, region: district, state, lang })
   return {
     ...Object.fromEntries(
       Object.entries(payload.services || {}).map(([service, items]) => [
@@ -54,6 +62,58 @@ export async function fetchDistrictView({ state, district, crop }) {
     ),
     na_reasons: payload.na_reasons || {},
   }
+}
+
+// The 7-day weather forecast for one district (it does not depend on the crop): the server's own summary, its days
+// and its source, as sent.
+export async function fetchWeatherForecast({ state, district, lang = 'en' }) {
+  return getJson('/weather/forecast', { district, state, lang })
+}
+
+// Background facts for one district (older data, not about the crop), each as the server sends it:
+// the mandis that were on e-NAM, and a past year's soil moisture.
+export async function fetchEnamMandis({ state, district, lang = 'en' }) {
+  return getJson('/places/enam-mandis', { district, state, lang })
+}
+export async function fetchSoilMoisture({ state, district, lang = 'en' }) {
+  return getJson('/places/soil-moisture', { district, state, lang })
+}
+
+// The states the backend serves, as its /catalog lists them (e.g. ["madhya pradesh", "maharashtra"]); [] when it
+// lists none. Each served name is also accepted as the `state` of the other calls.
+export async function fetchServedStates() {
+  const d = await getJson('/catalog', { lang: 'en' })
+  const served = d?.states?.served
+  return Array.isArray(served) ? served.filter((s) => typeof s === 'string' && s) : []
+}
+
+// The language codes the backend accepts as `lang`, read from its own /openapi.json: the parameter's `enum` when it has
+// one, otherwise the "en | hi | mr" list its description gives. An empty list means "could not tell".
+export async function fetchBackendLanguages() {
+  const spec = await getJson('/openapi.json')
+  const codes = new Set()
+  // "Summary language: en (default) | hi | mr." -> en, hi, mr
+  const fromList = (text) => {
+    for (const run of (typeof text === 'string' && text.match(/\b[a-z]{2,3}\b(?: \(default\))?(?:\s*\|\s*[a-z]{2,3}\b)+/g)) || []) {
+      for (const part of run.replace(/\(default\)/g, '').split('|')) {
+        const code = part.trim()
+        if (/^[a-z]{2,3}$/.test(code)) codes.add(code)
+      }
+    }
+  }
+  for (const ops of Object.values(spec?.paths || {})) {
+    for (const p of ops?.get?.parameters || []) {
+      if (p?.name !== 'lang') continue
+      const schemas = [p.schema, ...(p.schema?.anyOf || [])]
+      for (const s of schemas) for (const code of s?.enum || []) if (typeof code === 'string') codes.add(code)
+    }
+  }
+  if (codes.size === 0) {
+    for (const ops of Object.values(spec?.paths || {})) {
+      for (const p of ops?.get?.parameters || []) if (p?.name === 'lang') fromList(p.description || p.schema?.description)
+    }
+  }
+  return [...codes]
 }
 
 // The engine fills best/average/worst with a FIXED band (e.g. plus or minus 2% of one price) when it has no measured

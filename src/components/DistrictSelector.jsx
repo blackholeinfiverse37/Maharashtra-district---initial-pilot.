@@ -1,16 +1,20 @@
-// DistrictSelector.jsx: the state's districts, as AIAIC lists them (current names).
+// DistrictSelector.jsx: the state's districts, as AIAIC lists them (current names). Each name is shown in the chosen
+// language; the value is always the English name (name_en), which is what the backend is sent.
+import { useT } from "../i18n/LanguageContext";
+
 export default function DistrictSelector({ options = [], value, onChange }) {
+  const t = useT();
   return (
     <div>
-      <label className="text-xs font-bold text-gray-400 uppercase tracking-wider">District</label>
+      <label className="field-label">{t("field.district")}</label>
       <select
         value={value}
         onChange={(e) => onChange(e.target.value)}
-        className="mt-1 w-full border border-gray-200 rounded-lg p-2 text-gray-800 focus:outline-none focus:ring-2 focus:ring-green-500"
+        className="field-select"
       >
-        <option value="">Select district</option>
+        <option value="">{t("field.selectDistrict")}</option>
         {options.map((d) => (
-          <option key={d.key} value={d.name}>
+          <option key={d.key} value={d.name_en}>
             {d.name}
           </option>
         ))}

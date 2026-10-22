@@ -1,1 +1,235 @@
 @import "tailwindcss";
+
+/* The page font, with fallbacks for every Indian script the language list can hold. Only fonts that are normally
+   installed are named (Noto families on Android/Linux, Windows' Indic fonts, Apple's system fonts); nothing is
+   downloaded. Each line covers one script: the browser uses the first font that has the letter. */
+@theme {
+  --font-sans:
+    system-ui, -apple-system, "Segoe UI", Roboto, "Noto Sans", Arial,
+    "Noto Sans Devanagari", "Nirmala UI", Mangal, "Kohinoor Devanagari", /* Hindi, Marathi */
+    "Noto Sans Gujarati", Shruti, "Gujarati Sangam MN", /* Gujarati */
+    "Noto Sans Kannada", Tunga, "Kannada Sangam MN", /* Kannada */
+    "Noto Sans Telugu", Gautami, "Telugu Sangam MN", /* Telugu */
+    "Noto Sans Tamil", Latha, "Tamil Sangam MN", /* Tamil */
+    "Noto Sans Malayalam", Kartika, "Malayalam Sangam MN", /* Malayalam */
+    "Noto Sans Bengali", Vrinda, "Bangla Sangam MN", /* Bengali, Assamese */
+    "Noto Sans Oriya", Kalinga, "Oriya Sangam MN", /* Odia */
+    "Noto Sans Gurmukhi", Raavi, "Gurmukhi MN", /* Punjabi */
+    "Noto Nastaliq Urdu", "Noto Naskh Arabic", "Urdu Typesetting", "Segoe UI", "Geeza Pro", /* Urdu */
+    sans-serif;
+}
+
+/* The dashboard's whole look, in one place. Change a value here and every card follows. */
+:root {
+  /* Text sizes */
+  --text-title: 18px;    /* card titles (semi-bold) */
+  --text-sentence: 20px; /* an answer in words, e.g. "Sell at ..." (semi-bold) */
+  --text-number: 28px;   /* a price or percentage on its own, e.g. "₹4,300", "58%" (bold) */
+  --text-price: 18px;    /* a price line under a sentence answer (normal) */
+  --text-body: 16px;     /* normal text */
+  --text-small: 14px;    /* small grey text: labels, sources, dates, notes */
+
+  --row-gap: 16px;       /* space between rows inside one card */
+
+  /* Colours */
+  --color-text: #1f2937;         /* dark grey */
+  --color-muted: #6b7280;        /* mid grey, for small text */
+  --color-border: #e5e7eb;       /* light grey card border */
+  --color-card: #ffffff;         /* card background */
+  --color-page: #f9fafb;         /* page background */
+  --color-warning-bg: #fffbeb;   /* soft amber */
+  --color-warning-edge: #f59e0b; /* amber edge */
+  --color-link: #2563eb;         /* blue */
+
+  /* Card shape and spacing */
+  --card-radius: 12px;
+  --card-padding: 20px;
+  --card-gap: 20px;
+  --page-width: 960px;  /* the widest the page content gets */
+}
+
+@media (min-width: 640px) {
+  :root {
+    --card-padding: 24px;
+  }
+}
+
+@layer components {
+  .page {
+    background: var(--color-page);
+    color: var(--color-text);
+    font-size: var(--text-body);
+  }
+
+  /* All page content sits in one centred column, so lines never get too long on a wide screen */
+  .page-column {
+    max-width: var(--page-width);
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  /* One full-width card per row, on every screen size */
+  .card-stack {
+    display: flex;
+    flex-direction: column;
+    gap: var(--card-gap);
+  }
+  .card {
+    background: var(--color-card);
+    border: 1px solid var(--color-border);
+    border-radius: var(--card-radius);
+    padding: var(--card-padding);
+    color: var(--color-text);
+    min-width: 0;
+    overflow-wrap: anywhere; /* long names never run off a phone screen */
+  }
+
+  .card-title {
+    font-size: var(--text-title);
+    font-weight: 600;
+    line-height: 1.35;
+    color: var(--color-text);
+  }
+  /* An answer in words */
+  .card-sentence {
+    font-size: var(--text-sentence);
+    font-weight: 600;
+    line-height: 1.35;
+    color: var(--color-text);
+    margin-top: 8px;
+  }
+  /* A price or percentage on its own */
+  .card-number {
+    font-size: var(--text-number);
+    font-weight: 700;
+    line-height: 1.2;
+    color: var(--color-text);
+    margin-top: 8px;
+  }
+
+  /* "At a glance" rows */
+  .glance-row {
+    padding: calc(var(--row-gap) / 2) 0;
+  }
+  .glance-row:last-child {
+    padding-bottom: 0;
+  }
+  .glance-label {
+    font-size: var(--text-small);
+    font-weight: 500;
+    color: var(--color-muted);
+  }
+  .glance-row .card-sentence {
+    margin-top: 2px;
+  }
+  .glance-price {
+    font-size: var(--text-price);
+    font-weight: 400;
+    line-height: 1.4;
+    color: var(--color-text);
+    margin-top: 2px;
+  }
+  .card-text {
+    font-size: var(--text-body);
+    line-height: 1.5;
+    color: var(--color-text);
+    margin-top: 8px;
+  }
+  .card-small {
+    font-size: var(--text-small);
+    line-height: 1.45;
+    color: var(--color-muted);
+    margin-top: 6px;
+  }
+  .card-unit {
+    font-size: var(--text-body);
+    font-weight: 400;
+    color: var(--color-muted);
+  }
+
+  /* A smaller heading for one part inside a card */
+  .card-subtitle {
+    font-size: var(--text-body);
+    font-weight: 600;
+    color: var(--color-text);
+  }
+  /* Parts inside one card, with a line between them */
+  .info-part {
+    margin-top: var(--row-gap);
+    padding-top: var(--row-gap);
+    border-top: 1px solid var(--color-border);
+  }
+
+  /* Weather forecast: one row per day; on a phone a row wraps instead of running off the screen */
+  .forecast-list {
+    margin-top: 12px;
+    border-top: 1px solid var(--color-border);
+  }
+  .forecast-day {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    column-gap: 16px;
+    row-gap: 2px;
+    padding: 8px 0;
+    border-bottom: 1px solid var(--color-border);
+    font-size: var(--text-body);
+    color: var(--color-text);
+  }
+  .forecast-date {
+    font-weight: 600;
+    min-width: 7.5em;
+  }
+  .forecast-kind {
+    font-weight: 600;
+    min-width: 11em;
+  }
+
+  /* Warnings: soft amber box, thin amber left edge */
+  .warning {
+    background: var(--color-warning-bg);
+    border-left: 3px solid var(--color-warning-edge);
+    border-radius: 6px;
+    padding: 10px 12px;
+    margin-top: 12px;
+    font-size: var(--text-body);
+    line-height: 1.5;
+    color: var(--color-text);
+  }
+  .warning-lead {
+    font-weight: 700;
+  }
+
+  .link {
+    color: var(--color-link);
+    text-decoration: underline;
+  }
+
+  /* Form fields */
+  .field-label {
+    display: block;
+    font-size: var(--text-small);
+    font-weight: 600;
+    color: var(--color-muted);
+  }
+  .field-select {
+    margin-top: 4px;
+    width: 100%;
+    font-size: var(--text-body);
+    color: var(--color-text);
+    background: var(--color-card);
+    border: 1px solid var(--color-border);
+    border-radius: 8px;
+    padding: 8px;
+  }
+  .field-select:focus {
+    outline: 2px solid var(--color-link);
+    outline-offset: 1px;
+  }
+  .language-select {
+    min-width: 10em;
+  }
+  .field-select:disabled {
+    background: var(--color-page);
+  }
+}
