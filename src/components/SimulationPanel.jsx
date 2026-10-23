@@ -1,15 +1,16 @@
 import { fixedBandOf } from "../data_adapter/aiaicApi";
 import Warning from "./Warning";
+import EnglishOnly from "./EnglishOnly";
 import { useLanguage, useT } from "../i18n/LanguageContext";
 import { formatNumber } from "../i18n/format";
+import { actionText, mustRead, scenarioWords } from "../i18n/backendText";
 import { isNotAskedWarning, removeNotAskedReason, removeWeDidNotAsk } from "../config/backendTextCleanup";
-import { DEFAULT_LANGUAGE } from "../i18n/languages";
 
 const BAND_TEXT = { plus_minus_2_pct: "±2%", plus_minus_1_5_pct: "±1.5%" };
 
 // `districtName` is the district as the dropdown shows it (in the chosen language).
 export default function SimulationPanel({ data, districtName }) {
-  const { locale, lang } = useLanguage();
+  const { lang, apiLang, locale } = useLanguage();
   const t = useT();
   const storage = data?.storage?.[0];
 
@@ -39,23 +40,19 @@ export default function SimulationPanel({ data, districtName }) {
     return n ? `₹${n}` : t("storage.na");
   };
 
-  // The answer, without the backend's "we did not ask" wording (temporary, see src/config/backendTextCleanup.js).
-  // In English the engine's label, as before. In any other language AIAIC's own text in that language
-  // (summary.action.text), never the English label; with a sample calculation, only when it is the same answer
-  // (same code), and otherwise no headline.
-  const localAction = storage.summary?.action;
-  const localHeadline =
-    !sim || localAction?.code === sim.recommendation ? removeWeDidNotAsk(localAction?.text) || "" : "";
-  const headline =
-    lang !== DEFAULT_LANGUAGE
-      ? localHeadline
-      : sim
-        ? (sim.recommendation || "").replace(/_/g, " ").toLowerCase()
-        : (removeWeDidNotAsk(storage.recommendation_detail) || "").toLowerCase();
+  // The answer in the chosen language: the summary's action, the same line as "At a glance", without the backend's
+  // "we did not ask" wording (temporary, see src/config/backendTextCleanup.js). For the sample, the sample's own words
+  // (in Marathi and Hindi from the summary's `illustrative_scenario`). See src/i18n/backendText.js.
+  const sample = sim ? scenarioWords(storage, sim, lang, apiLang) : null;
+  const headline = sim ? sample.headline : (removeWeDidNotAsk(actionText(storage, lang)) || "").toLowerCase();
 
-  // The backend's own most important warnings, shown as written, except the one that says the farmer was not asked
-  // whether they can store, and the "because you were not asked" reason (temporary, see src/config/backendTextCleanup.js)
-  const warnings = (storage.read_these_first || []).filter((w) => !isNotAskedWarning(w)).map(removeNotAskedReason);
+  // The backend's own most important warnings, in the chosen language, except the one that says the farmer was not
+  // asked whether they can store, and the "because you were not asked" reason (temporary, see
+  // src/config/backendTextCleanup.js). A warning AIAIC has only in English is counted apart, never dropped.
+  const must = mustRead(storage, lang, apiLang);
+  const tidy = (list) => list.filter((w) => !isNotAskedWarning(w)).map(removeNotAskedReason);
+  const warnings = tidy(must.shown);
+  const warningsInEnglish = tidy(must.englishOnly);
 
   // When AIAIC has no measured spread, its engine fills best/average/worst with a FIXED band around one price.
   // That is not "a better day / a weaker day", so only the price itself is shown (review 2026-10-02).
@@ -107,11 +104,13 @@ export default function SimulationPanel({ data, districtName }) {
         </>
       )}
 
-      {sim?.note && <p className="card-text">{sim.note}</p>}
+      {sample?.note && <p className="card-text">{sample.note}</p>}
+      <EnglishOnly lines={sample?.englishOnly} />
 
       {warnings.map((w, i) => (
         <Warning key={i} text={w} />
       ))}
+      <EnglishOnly lines={warningsInEnglish} />
     </div>
   );
 }

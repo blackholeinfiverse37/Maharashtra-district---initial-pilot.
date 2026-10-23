@@ -1,17 +1,19 @@
 import Warning from "./Warning";
+import EnglishOnly from "./EnglishOnly";
 import { freshnessStatus, freshnessKey } from "./freshness";
 import { useLanguage, useT } from "../i18n/LanguageContext";
 import { formatDate as fmtDate, formatNumber as fmtNumber } from "../i18n/format";
 import { talukasWorseThanDistrict } from "../config/waterCategories";
-import { DEFAULT_LANGUAGE } from "../i18n/languages";
+import { chosenMandi, desCrops, isEnglish, sourceName } from "../i18n/backendText";
 
 // One of three cards ("harvest", "price" or "water"), chosen by `card`, so the page can give each its own row.
-// `crop` and `districtName` are the names to SHOW (in the chosen language, as the dropdowns show them); `cropEn` is the
-// crop's English name, used only to find the crop in the backend's English-only government data.
-export default function DataDisplayPanel({ data, crop, cropEn, districtName, card }) {
-  const { locale, lang } = useLanguage();
+// `crop` and `districtName` are the names to SHOW (in the chosen language, as the dropdowns show them); `cropKey` is the
+// crop's key and `cropEn` its English name, used only to find the crop in the backend's English-only government data.
+export default function DataDisplayPanel({ data, crop, cropEn, cropKey, districtName, card }) {
+  const { lang, apiLang, locale } = useLanguage();
   const t = useT();
   if (!data) return null;
+  const english = isEnglish(lang);
 
   // Dates and numbers in the chosen language's format: "25 Sep 2026", "1,600"
   const formatDate = (value) => fmtDate(value, locale);
@@ -25,31 +27,31 @@ export default function DataDisplayPanel({ data, crop, cropEn, districtName, car
   const cropService = data.crop?.[0];
   const apy = cropService?.supporting_evidence?.district_crop_apy;
   const allCrops = apy?.crops || [];
-  const matchingCropRow = allCrops.find(
-    (c) => c.crop && c.crop.toLowerCase() === (cropEn || crop || "").toLowerCase()
-  );
+  // The chosen crop's row found by AIAIC's crop keys (the list's "Tur (arhar)" is DES's "Tur"), and DES's crop names
+  // and coverage note in the chosen language, from the crop answer's summary (src/i18n/backendText.js)
+  const des = desCrops(cropService, { lang, apiLang, cropKey, cropEn, crop });
+  const matchingCropRow = allCrops.find((c) => des.isChosen(c));
   const yieldKgHa = matchingCropRow?.yield_kg_ha;
   const yieldTHa = yieldKgHa
     ? formatNumber(yieldKgHa / 1000, { minimumFractionDigits: 2, maximumFractionDigits: 2 })
     : null;
   const yieldPeriod = apy?.year || null;
   // The crops this government data holds for the district, each once, in the backend's order
-  const cropsInData = [...new Set(allCrops.map((c) => c.crop).filter(Boolean))];
+  const cropsInData = [...new Set(allCrops.map((c) => c.crop).filter(Boolean))].map(des.name);
 
   // ---- Market ----
   const marketService = data.market?.[0];
   const mandiPrice = formatNumber(marketService?.average_case?.value);
-  // "Where to sell": in English the engine's label ("Sell at …", shown as "Market paying the most: …"), as before; in
-  // any other language AIAIC's own sentence in that language (summary.action.text), never the English label
-  const isEnglish = lang === DEFAULT_LANGUAGE;
-  const marketAdvice = isEnglish ? marketService?.recommendation_detail : null;
-  const marketAdviceLocal = isEnglish ? null : marketService?.summary?.action?.text;
+  // The mandi the answer chose, by name only (never the engine's English sentence)
+  const marketMandi = chosenMandi(marketService);
   const marketSource = marketService?.sources_used?.[0];
+  const marketSourceName = sourceName(marketSource, lang, t);
 
   // ---- Water ----
   const waterService = data.water?.[0];
   const waterStressPct = waterService?.supporting_evidence?.stage_of_extraction_pct;
   const waterSource = waterService?.sources_used?.[0];
+  const waterSourceName = sourceName(waterSource, lang, t);
   const waterCategory = waterService?.supporting_evidence?.groundwater_status;
   // The backend's code ("safe", "semi_critical", …) as a plain word in the chosen language, the same words as the
   // taluka list below; an unknown code as sent
@@ -88,6 +90,9 @@ export default function DataDisplayPanel({ data, crop, cropEn, districtName, car
   const backendTalukaLine = (waterService?.explainability || []).find((line) =>
     line.toLowerCase().includes("taluka")
   );
+  // In Marathi and Hindi the backend's taluka line (its English reasoning) never stands in: with CGWB's list held and
+  // no taluka worse (Bhandara: 7 of 7 safe), the plain line says so; without the list, the line is counted apart.
+  const heldWithNoneWorse = !english && !!cgwbUnits;
   const talukaWarning = unitGroups.length
     ? [
         t("water.talukaIntro", { district: region, category: waterCategoryWord }),
@@ -95,10 +100,13 @@ export default function DataDisplayPanel({ data, crop, cropEn, districtName, car
         unitGroups.join(" "),
         t("water.talukaOutro"),
       ].join(" ")
-    : stressedUnits.length
+    : stressedUnits.length || heldWithNoneWorse
       ? null // stressed talukas exist, but none is worse than the district: the plain line below is shown instead
-      : backendTalukaLine;
-  const noTalukaWorse = stressedUnits.length > 0 && unitGroups.length === 0;
+      : english
+        ? backendTalukaLine
+        : null;
+  const talukaEnglishOnly = !english && !unitGroups.length && !cgwbUnits ? backendTalukaLine : null;
+  const noTalukaWorse = unitGroups.length === 0 && (stressedUnits.length > 0 || heldWithNoneWorse);
 
   const cards = {
     harvest: (
@@ -125,7 +133,8 @@ export default function DataDisplayPanel({ data, crop, cropEn, districtName, car
                 .filter(Boolean)
                 .join(" ")}
             />
-            {apy?.coverage_note && <p className="card-small">{t("harvest.aboutData", { note: apy.coverage_note })}</p>}
+            {des.note && <p className="card-small">{t("harvest.aboutData", { note: des.note })}</p>}
+            <EnglishOnly lines={des.noteEnglishOnly} />
           </>
         )}
         {cropService && <p className="card-small">{t("common.whereFrom", { source: t("harvest.source") })}</p>}
@@ -149,15 +158,12 @@ export default function DataDisplayPanel({ data, crop, cropEn, districtName, car
             ) : (
               <p className="card-sentence">{t("price.noRecent")}</p>
             )}
-            {marketAdvice && (
-              <p className="card-text font-semibold">
-                {t("price.payingMost", { mandi: marketAdvice.replace(/^Sell at /, "") })}
-              </p>
+            {marketMandi && (
+              <p className="card-text font-semibold">{t("price.payingMost", { mandi: marketMandi })}</p>
             )}
-            {marketAdviceLocal && <p className="card-text font-semibold">{marketAdviceLocal}</p>}
             <p className="card-small">{t("price.beforeTransport")}</p>
-            <p className="card-small">
-              {t("common.whereFrom", { source: marketSource?.source_name || t("common.unknown") })}
+            <p className="card-small" title={marketSourceName.title || undefined}>
+              {t("common.whereFrom", { source: marketSourceName.text || t("common.unknown") })}
               {freshnessLabel(marketSource)}
             </p>
             {formatDate(marketSource?.observed_at) && (
@@ -187,8 +193,8 @@ export default function DataDisplayPanel({ data, crop, cropEn, districtName, car
               <p className="card-sentence">{t("water.notAvailable")}</p>
             )}
             {waterService.abstained && <Warning text={t("water.abstained")} />}
-            <p className="card-small">
-              {t("common.whereFrom", { source: waterSource?.source_name || t("common.unknown") })}
+            <p className="card-small" title={waterSourceName.title || undefined}>
+              {t("common.whereFrom", { source: waterSourceName.text || t("common.unknown") })}
               {freshnessLabel(waterSource)}
             </p>
             {formatDate(waterSource?.observed_at) && (
@@ -200,6 +206,7 @@ export default function DataDisplayPanel({ data, crop, cropEn, districtName, car
             {isStale(waterSource) && <Warning text={t("water.stale")} />}
             {talukaWarning && <Warning text={talukaWarning} />}
             {noTalukaWorse && <p className="card-small">{t("water.talukaNoneWorse")}</p>}
+            <EnglishOnly lines={talukaEnglishOnly} />
           </>
         )}
       </div>

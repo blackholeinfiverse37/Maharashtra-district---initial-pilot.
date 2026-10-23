@@ -1,0 +1,1917 @@
+{
+ "_recorded": {
+  "record": "AIAIC's own answer to GET /view/unified {\"state\": \"mp\", \"lang\": \"hi\", \"crop\": \"soybean\", \"region\": \"Indore\", \"per_service\": 1}, recorded 2026-10-23T04:58:21+00:00 from AIAIC's local stack; in AIAIC's repository: aiaic-frontend/src/test/recorded_platform/view_unified_soybean_indore_mp_hi.json. Kept here: the storage answer only",
+  "summary": "Built from that record by AIAIC's own presentation.build_summary (operator audience, as /view/unified serves this page) on 2026-10-23, push 2, in en, mr and hi. Not re-asked from a server; never edited by hand. Rebuild with reports/push2_2026-10-23/G_build_gauri_fixtures.py in AIAIC's repository.",
+  "na_reasons": "AIAIC's own sentence for the weather service (scope.weather.kharif_only), in each language."
+ },
+ "intelligence": {
+  "storage": [
+   {
+    "recommendation": "SELL_NOW",
+    "confidence": "high",
+    "sources_used": [
+     {
+      "source_id": "agmarknet_daily_prices",
+      "source_name": "Agmarknet — Current Daily Price of Various Commodities from Various Markets (Mandi)",
+      "signal": "market",
+      "tier": "primary_official",
+      "observed_at": "2026-09-25T00:00:00",
+      "freshness": "fresh",
+      "observed_age_days": 28.21,
+      "real_world_freshness": "stale",
+      "freshness_basis": "decision_clock",
+      "license": "GODL-India",
+      "attribution": "Source: Directorate of Marketing & Inspection (Agmarknet), Ministry of Agriculture & Farmers Welfare, Government of India, via data.gov.in (Government Open Data License – India).",
+      "source_url": "https://api.data.gov.in/resource/9ef84268-d588-465a-a308-a864a43d0070",
+      "synthetic": false
+     }
+    ],
+    "last_refresh": null,
+    "explainability": [
+     "You don't have accessible storage, so the realistic option is to sell at about ₹5200/quintal. Storing to wait for a better price isn't available to you here.",
+     "0. step0:precheck: fairness inputs validated at the contract boundary; scanning for distress.",
+     "1. step1:normalize: signals assessed for freshness/source/confidence; conflicts detected: none",
+     "2. step2:sufficiency: required signals present and usable.",
+     "3. decision:loan_check: loan_due_soon=False (window=21d).",
+     "4. decision:no_storage: No usable storage (no accessible warehouse, or zero storage months) -> storing is not an option; selling is the realistic choice.",
+     "5. step4:confidence: data_quality=0.90 (weakest required & mean present), spread_factor=1.00, spread_frac=0.04, conflicts=0 -> score=0.90 -> high",
+     "6. guardrail:fairness: protected attributes absent; only feasibility attributes considered.",
+     "7. step7:band_policy: high band -> recommendation delivered with all three cases.",
+     "8. step8:validation_gate: validation gate passed.",
+     "Best case: Mandi variation could give about ₹5304/quintal.",
+     "Average case: Most likely about ₹5200/quintal today.",
+     "Worst case: On a weaker day about ₹5096/quintal.",
+     "Those rupee figures are Tarana APMC's prices, not Indore's — Tarana APMC is the median mandi for soybean statewide and is what this sell-vs-store call is priced from. Check the price-and-selling card for what Indore itself reported.",
+     "Hold-vs-sell needs warehouse cost, spoilage, and price-recovery data; none are in the real sources, so the engine recommends selling now (or abstains) — it never fabricates a store case.",
+     "CWC storage-tariff reference for Soyabean: about Rs 16.14/quintal/month (Rs 11.3 after the 30% farmer rebate) — a real CWC published rate, not your warehouse's; a starting anchor, then enter your actual rate.",
+     "Scope: this sell-now-vs-store call is CROP-LEVEL. It is priced off a representative (median) mandi for soybean across the state — Tarana APMC (Ujjain district) — which is a REFERENCE price, not a recommendation to travel there. You asked about Indore, so storage availability below is for Indore district.",
+     "WDRA-registered warehouses in Indore: 19 active of 52 registered (~141,772 MT active capacity). Real operating storage EXISTS in your district (WDRA public directory); this is district availability, not a per-farmer booking or the storage cost.",
+     "Warehouse infrastructure in Indore (AIF projects, UNCALIBRATED context): 15 storage projects — 15 cold-storage. Storage infrastructure EXISTS in your district; the next step to evaluate holding is a warehouse/FPO quote for storage cost + spoilage (still not in open data).",
+     "What this crop has sold for (real, committed Agmarknet percentiles over 966 trading days, 2024-01-01 to 2026-08-26, about 2.7 years): about Rs 4150.0/4317.5/4609.5 per quintal (low/typical/high across those days). That is how the statewide daily median price moved from day to day over that whole period — a record of PAST prices, not today's price and not a forecast. Today's price is stated separately on this card.",
+     "BUT THAT IS A HOLD STARTING IN SEPTEMBER. If your Soyabean is not harvested and in hand yet, that is not a choice you have. Starting from October instead, the same record shows 3 months gaining about +12.8% in a typical year and at least +3.9% in 3 years out of 4. Which of the two applies depends on when you harvest - and we do not know your harvest date, so we are not choosing for you.",
+     "Storage history (23 years of government mandi prices, Agmarknet): holding Soyabean from September for 4 months — past years DISAGREED: a typical year gained 7.9%, but in 1 year out of 4 it lost 4.5% or more, and in 1 year out of 4 it gained 12.3% or more. The years were split roughly evenly between the two. The record does not settle whether to store. Do NOT hold from September for 1 month (about 3.9% down) — that period lost value in 3 years out of 4. This is what past years did — it is not a forecast of this year.",
+     "ILLUSTRATIVE storage scenario (assumed 1.0%/month spoilage over 4 months, real CWC cost + real seasonal recovery): the engine would SELL_NOW. This is a labelled demonstration with assumed spoilage/horizon — NOT this item's recommendation and NOT farmer-ready.",
+     "Price-waiting justification: below-MSP today is a reason to *consider* holding, IF affordable warehouse storage and a plausible price recovery existed (not in the data).",
+     "Actionable: Indore has registered/operating warehouse storage and today's price is below MSP — ask a local WDRA-registered warehouse/FPO for a storage-cost quote to evaluate holding (the engine still won't recommend it without those numbers)."
+    ],
+    "known_unknowns": [
+     "Engine runs on UNCALIBRATED illustrative defaults — this is a demonstration of operation on real evidence, NOT farmer-ready advice. Thresholds must be calibrated on real data and reviewed by an agronomist + agricultural economist before any farmer is advised.",
+     "Engine is using ILLUSTRATIVE, UNCALIBRATED default thresholds ('DEFAULT_ILLUSTRATIVE_UNCALIBRATED'). Outputs are for development/simulation only and must NOT be shown to a farmer until thresholds are calibrated and reviewed.",
+     "No loan context provided — assuming no urgent repayment deadline.",
+     "PRICE IS NOT INDORE'S: the rupee figures on this card are Tarana APMC (Ujjain district) — the median mandi for soybean statewide — because that is the representative price this sell-vs-store call is built on. They are NOT Indore prices. Check the price-and-selling card for what your own district reported.",
+     "No warehouse/e-NWR economics (storage cost per quintal-month, spoilage rate, loan-to-value, interest) are available in the real sources, so the engine cannot recommend HOLDING — it sells now or abstains rather than invent a store case. To evaluate holding, consult a registered warehouse / FPO for these figures.",
+     "YOU WERE NOT ASKED WHETHER YOU CAN STORE. This answer assumes you cannot, and that assumption is the whole reason it says sell now — while our own records show active registered warehouses in Indore. If you can reach a warehouse, cold store, an FPO's storage or your own safe dry space, this answer may not be yours: ask again with that in mind, and get a storage quote first.",
+     "Whether storing Soyabean from September pays is NOT settled by the record: past years split between gains and losses over the same period.",
+     "The storage figures above start in September. We do NOT hold a harvest date for Soyabean, so we cannot tell whether that hold is one you can make. From October the same record reads very differently (+12.8% median over 3 months).",
+     "Holding Soyabean from September came out worse, not better, over 1 month. A shorter hold looking good does not make a longer one safe.",
+     "The storage-history figures for Soyabean are the change in MANDI PRICE only. Storage charges, weight loss, quality loss and the cost of waiting for the money are NOT deducted — your actual return is lower, and a small gain can still be a loss.",
+     "PRICE BELOW MSP: spot price (5200/q, which is Tarana APMC's price and NOT Indore's) is below MSP (5328/q, MY 2025-26). A farmer might consider waiting/holding for a better price — but see the storage-economics caveat above; this is context, not a hold recommendation.",
+     "IF YOU CAN STORE, THIS IS NOT YOUR ANSWER. Holding 4 months from this month changed the price by about +7.9% in a typical year, and Indore has active registered warehouses. Get a storage-cost quote before deciding; the recommendation above assumes you have no storage because you were not asked.",
+     "THE BEST AND WORST CASES ON THIS CARD ARE NOT AN ESTIMATE OF RISK. For selling now, the engine sets them at 2% either side of the price you can get now, whatever range this crop's past prices had. They are arithmetic, not an assessment of how badly this could go — do not read the 'worst case' as the worst that can happen. Judge what you can afford on the price you can get and your own costs."
+    ],
+    "supporting_evidence": {
+     "decision_id": "dec_8e3e9d9bd6e2b1d891ff5738148b404c",
+     "confidence_score": 0.9,
+     "guardrails_triggered": [],
+     "recency": {
+      "market": "fresh"
+     },
+     "source_id": "agmarknet_daily_prices",
+     "signal_kind": "market",
+     "source_name": "Agmarknet — Current Daily Price of Various Commodities from Various Markets (Mandi)",
+     "license": "GODL-India",
+     "attribution": "Source: Directorate of Marketing & Inspection (Agmarknet), Ministry of Agriculture & Farmers Welfare, Government of India, via data.gov.in (Government Open Data License – India).",
+     "source_url": "https://api.data.gov.in/resource/9ef84268-d588-465a-a308-a864a43d0070",
+     "access_method": "data.gov.in REST API (api-key), resource 9ef84268-d588-465a-a308-a864a43d0070",
+     "record_ids": [
+      "agmarknet_madhya-pradesh_ujjain_tarana-apmc_soyabean_soyabeen_faq_25-0_50eb0d7d"
+     ],
+     "record_count": 1,
+     "observation_dates": [
+      "2026-09-25"
+     ],
+     "derived": false,
+     "representative_mandi": "Tarana APMC",
+     "representative_mandi_district": "Ujjain",
+     "spot_price": 5200.0,
+     "msp": 5328.0,
+     "msp_marketing_year": "2025-26",
+     "msp_in_force_year": "2025-26",
+     "msp_season_missing": false,
+     "msp_source_id": "cacp_msp_current",
+     "below_msp": true,
+     "cost_of_production": 2805.0,
+     "cost_year": "2022-23",
+     "below_cost": false,
+     "warehouse_available": true,
+     "storage_assumed_unavailable": true,
+     "storability": "dry",
+     "storage_kind": "dry",
+     "cwc_storage_tariff_reference": {
+      "commodity": "SOYABEAN",
+      "storage_cost_rs_per_q_month": 16.14,
+      "after_30pct_farmer_rebate_rs_per_q_month": 11.3,
+      "category": "A",
+      "source": "CWC Commodity-Basis tariff 2024-25 (cewacor.nic.in)",
+      "uncalibrated": true,
+      "note": "national CWC published rate, NOT the farmer's specific warehouse; a starting anchor only"
+     },
+     "scope_note": {
+      "requested_region": "Indore",
+      "reference_mandi": "Tarana APMC",
+      "reference_mandi_district": "Ujjain",
+      "storage_district_used": "Indore",
+      "decision_level": "crop (representative mandi price)",
+      "asked_in_district": "Indore",
+      "price_outside_asked_district": true
+     },
+     "wdra_registered_warehouses": {
+      "district": "Indore",
+      "n_registered": 52,
+      "n_active": 19,
+      "active_capacity_mt": 141772.0,
+      "has_active_registered_warehouse": true,
+      "source": "WDRA public registered-warehouse directory (curated, PII-free)",
+      "uncalibrated": true,
+      "note": "real district WDRA-registered warehouses — not a per-farmer booking or the storage cost"
+     },
+     "district_warehouse_infrastructure": {
+      "district": "Indore",
+      "has_storage_infrastructure": true,
+      "n_cold_storage": 15,
+      "n_warehouse": 0,
+      "n_silo": 0,
+      "n_storage_facilities": 15,
+      "amount_sanctioned_lakh": 1271.45,
+      "source": "data.gov.in AIF State/UT-wise projects (curated via warehouse-prep)",
+      "uncalibrated": true,
+      "note": "district-level AIF facility presence — NOT per-farmer availability or storage economics"
+     },
+     "seasonal_price_recovery": {
+      "commodity": "Soyabean",
+      "p25": 4150.0,
+      "p50": 4317.5,
+      "p75": 4609.5,
+      "n_dates": 966,
+      "span_days": 968,
+      "window_from": "2024-01-01",
+      "window_first_date": "2024-01-01",
+      "window_last_date": "2026-08-26",
+      "source": "Agmarknet variety-wise daily prices (curated seasonal percentiles)",
+      "uncalibrated": true,
+      "covers": "2024-01-01 to 2026-08-26, about 2.7 years",
+      "distribution_over": "trading days",
+      "note": "how the STATEWIDE DAILY MEDIAN price for this crop varied from day to day over 2024-01-01 to 2026-08-26, about 2.7 years. A distribution of PAST prices across trading days — NOT today's price, NOT a later price, and NOT a forecast."
+     },
+     "seasonal_storage_uplift": {
+      "commodity": "Soyabean",
+      "years_covered": [
+       2001,
+       2026
+      ],
+      "start_month": 9,
+      "horizons": [
+       {
+        "horizon_months": 1,
+        "uplift_pct_p25": -7.2,
+        "uplift_pct_p50": -3.87,
+        "uplift_pct_p75": -1.55,
+        "n_years": 24,
+        "verdict": "consistently_lost"
+       },
+       {
+        "horizon_months": 2,
+        "uplift_pct_p25": -5.8,
+        "uplift_pct_p50": 0.23,
+        "uplift_pct_p75": 9.13,
+        "n_years": 24,
+        "verdict": "mixed"
+       },
+       {
+        "horizon_months": 3,
+        "uplift_pct_p25": -6.41,
+        "uplift_pct_p50": 2.68,
+        "uplift_pct_p75": 9.71,
+        "n_years": 23,
+        "verdict": "mixed"
+       },
+       {
+        "horizon_months": 4,
+        "uplift_pct_p25": -4.53,
+        "uplift_pct_p50": 7.9,
+        "uplift_pct_p75": 12.33,
+        "n_years": 23,
+        "verdict": "mixed"
+       }
+      ],
+      "source": "Agmarknet variety-wise daily prices (curated realised storage uplift)",
+      "uncalibrated": true,
+      "forecast": false,
+      "note": "what past years DID over this hold, not what this year will do; p25 is the weaker quarter of years and is shown so the downside stays visible next to the median."
+     },
+     "illustrative_storage_scenario": {
+      "illustrative": true,
+      "abstained": false,
+      "recommendation": "SELL_NOW",
+      "confidence_band": "high",
+      "best_case": {
+       "value": 5304.0,
+       "narrative": "Mandi variation could give about ₹5304/quintal."
+      },
+      "average_case": {
+       "value": 5200.0,
+       "narrative": "About ₹5200/quintal today (a near-certain outcome)."
+      },
+      "worst_case": {
+       "value": 5096.0,
+       "narrative": "On a weaker day about ₹5096/quintal."
+      },
+      "real_inputs": {
+       "current_price": 5200.0,
+       "msp": 5328.0,
+       "seasonal_recovery": {
+        "p25": 4150.0,
+        "p50": 4317.5,
+        "p75": 4609.5
+       },
+       "storage_cost_rs_per_q_month": 16.14,
+       "storage_cost_is_real_cwc_rate": true
+      },
+      "assumptions": {
+       "spoilage_pct_per_month": 1.0,
+       "max_storage_months": 4,
+       "storage_horizon_months": 4,
+       "warehouse_available": true
+      },
+      "decision_id": "dec_995c5eba1806a3c2a68e1739fcbc5380",
+      "uncalibrated": true,
+      "note": "ILLUSTRATIVE ONLY — spoilage and horizon are ASSUMED (open data does not publish them); current price, MSP, seasonal recovery and CWC storage cost are real. This is NOT the recommendation for this item and NOT farmer-ready. Use the Warehouse Advisor with YOUR warehouse's real spoilage / horizon for an actual decision."
+     },
+     "hold_paid_in_a_typical_year": true,
+     "case_band_is_manufactured": {
+      "band_half_width_frac": 0.02,
+      "reason": "sell_now_vs_store's sell-now cases (sell_now_cases, and the no-storage branch): best = price now x 1.02 and worst = price now x 0.98, set whether or not the crop has seasonal_price_percentiles (those price only the STORE cases)",
+      "confidence_note": "the case spread_frac printed in the confidence trace is therefore ~0.04 on every card of this kind and contributes nothing to the score",
+      "name_collision": "the trace's spread_frac is the CASE spread; the spread_frac field beside this one is the spread between mandi PRICES. Two quantities, one name."
+     }
+    },
+    "service": "storage",
+    "subject": {
+     "crop": "soybean",
+     "region": "Indore",
+     "reference_mandi": "Tarana APMC"
+    },
+    "recommendation_detail": "Sell now (no storage available)",
+    "abstained": false,
+    "best_case": {
+     "label": "best",
+     "value": 5304.0,
+     "unit": "INR_per_quintal",
+     "narrative": "Mandi variation could give about ₹5304/quintal. (this is Tarana APMC's price, not Indore's)"
+    },
+    "average_case": {
+     "label": "average",
+     "value": 5200.0,
+     "unit": "INR_per_quintal",
+     "narrative": "Most likely about ₹5200/quintal today. (this is Tarana APMC's price, not Indore's)"
+    },
+    "worst_case": {
+     "label": "worst",
+     "value": 5096.0,
+     "unit": "INR_per_quintal",
+     "narrative": "On a weaker day about ₹5096/quintal. (this is Tarana APMC's price, not Indore's)"
+    },
+    "calibrated": false,
+    "uncalibrated_warning": "Engine runs on UNCALIBRATED illustrative defaults — this is a demonstration of operation on real evidence, NOT farmer-ready advice. Thresholds must be calibrated on real data and reviewed by an agronomist + agricultural economist before any farmer is advised.",
+    "engine_version": "0.1.0",
+    "intelligence_version": "1.4.0",
+    "module": "sell_now_vs_store",
+    "decision_id": "dec_8e3e9d9bd6e2b1d891ff5738148b404c",
+    "generated_at": null,
+    "read_these_first": [
+     "PRICE IS NOT INDORE'S: the rupee figures on this card are Tarana APMC (Ujjain district) — the median mandi for soybean statewide — because that is the representative price this sell-vs-store call is built on. They are NOT Indore prices. Check the price-and-selling card for what your own district reported.",
+     "THE BEST AND WORST CASES ON THIS CARD ARE NOT AN ESTIMATE OF RISK. For selling now, the engine sets them at 2% either side of the price you can get now, whatever range this crop's past prices had. They are arithmetic, not an assessment of how badly this could go — do not read the 'worst case' as the worst that can happen. Judge what you can afford on the price you can get and your own costs.",
+     "IF YOU CAN STORE, THIS IS NOT YOUR ANSWER. Holding 4 months from this month changed the price by about +7.9% in a typical year, and Indore has active registered warehouses. Get a storage-cost quote before deciding; the recommendation above assumes you have no storage because you were not asked.",
+     "YOU WERE NOT ASKED WHETHER YOU CAN STORE. This answer assumes you cannot, and that assumption is the whole reason it says sell now — while our own records show active registered warehouses in Indore. If you can reach a warehouse, cold store, an FPO's storage or your own safe dry space, this answer may not be yours: ask again with that in mind, and get a storage quote first."
+    ]
+   }
+  ]
+ },
+ "summary": {
+  "en": {
+   "storage": [
+    {
+     "summary_version": "1",
+     "service": "storage",
+     "action": {
+      "code": "SELL_NOW",
+      "text": "Sell now, unless you can store (we did not ask)",
+      "tone": "act"
+     },
+     "subject": {
+      "crop": "soybean",
+      "place": "Indore",
+      "crop_key": "soybean",
+      "region_key": "Indore",
+      "names_translated": true
+     },
+     "confidence": {
+      "engine_band": "high",
+      "shown_band": "low",
+      "shown_text": "Low confidence",
+      "cap_reasons": [
+       "The prices are 28 days old, too old to act on until you check the current rate at your mandi, so confidence is shown as low."
+      ]
+     },
+     "key_numbers": [
+      {
+       "key": "spot_price",
+       "label": "Latest price",
+       "value": 5200.0,
+       "text": "₹5,200",
+       "unit": "INR/q"
+      },
+      {
+       "key": "msp",
+       "label": "MSP",
+       "value": 5328.0,
+       "text": "₹5,328",
+       "unit": "INR/q"
+      },
+      {
+       "key": "cost_of_production",
+       "label": "Cost of production",
+       "value": 2805.0,
+       "text": "₹2,805",
+       "unit": "INR/q"
+      }
+     ],
+     "key_findings": [
+      "The latest price, observed 2026-09-25, is below the MSP of ₹5,328/q (2025-26)."
+     ],
+     "one_line_reason": "Latest price ₹5,200/q at Tarana APMC (Ujjain district), observed 2026-09-25. This price is not from Indore district: that mandi is the state's middle-priced mandi for this crop. Prices are 28 days old.",
+     "na_reason": null,
+     "sections": [
+      {
+       "id": "summary",
+       "title": "Summary",
+       "items": [
+        {
+         "kind": "text",
+         "text": "BUT THAT IS A HOLD STARTING IN SEPTEMBER. If your Soyabean is not harvested and in hand yet, that is not a choice you have. Starting from October instead, the same record shows 3 months gaining about +12.8% in a typical year and at least +3.9% in 3 years out of 4. Which of the two applies depends on when you harvest - and we do not know your harvest date, so we are not choosing for you.",
+         "lang": "en",
+         "priority": true,
+         "data": {}
+        },
+        {
+         "kind": "text",
+         "text": "Latest price ₹5,200/q at Tarana APMC (Ujjain district), observed 2026-09-25. This price is not from Indore district: that mandi is the state's middle-priced mandi for this crop.",
+         "lang": "en",
+         "priority": false,
+         "data": {}
+        },
+        {
+         "kind": "text",
+         "text": "The latest price, observed 2026-09-25, is below the MSP of ₹5,328/q (2025-26).",
+         "lang": "en",
+         "priority": false,
+         "data": {}
+        },
+        {
+         "kind": "case_band",
+         "text": "No price range is held for this crop: the best and worst cases were set at a fixed percentage either side of one figure, so we cannot say how low it could go.",
+         "lang": "en",
+         "priority": false,
+         "data": {
+          "fixed_band": "plus_minus_2_pct",
+          "value": 5200.0,
+          "unit": "INR_per_quintal"
+         }
+        }
+       ]
+      },
+      {
+       "id": "actions",
+       "title": "What to do",
+       "items": [
+        {
+         "kind": "action",
+         "text": "Do this: Sell now, unless you can store (we did not ask).",
+         "lang": "en",
+         "priority": false,
+         "data": {}
+        },
+        {
+         "kind": "step",
+         "text": "Check today's price at the mandi before you travel.",
+         "lang": "en",
+         "priority": false,
+         "data": {}
+        },
+        {
+         "kind": "step",
+         "text": "Not sure? Call the Kisan Call Centre on 1800-180-1551 (free).",
+         "lang": "en",
+         "priority": false,
+         "data": {}
+        }
+       ]
+      },
+      {
+       "id": "calculations",
+       "title": "Calculations",
+       "items": []
+      },
+      {
+       "id": "sources",
+       "title": "Sources",
+       "items": [
+        {
+         "kind": "source",
+         "text": "Agmarknet — Current Daily Price of Various Commodities from Various Markets (Mandi) (2026-09-25)",
+         "lang": "en",
+         "priority": false,
+         "data": {
+          "observed_on": "2026-09-25",
+          "age_days": 28.21,
+          "freshness": "stale",
+          "source_id": "agmarknet_daily_prices",
+          "tier": "primary_official",
+          "url": "https://api.data.gov.in/resource/9ef84268-d588-465a-a308-a864a43d0070",
+          "license": "GODL-India"
+         }
+        }
+       ]
+      },
+      {
+       "id": "reasoning",
+       "title": "Reasoning",
+       "items": [
+        {
+         "kind": "step",
+         "text": "We did not ask whether you can store. If you cannot, selling now at about ₹5,200 per quintal is the realistic choice.",
+         "lang": "en",
+         "priority": false,
+         "data": {}
+        },
+        {
+         "kind": "step",
+         "text": "Best case: Mandi variation could give about ₹5304/quintal.",
+         "lang": "en",
+         "priority": false,
+         "data": {}
+        },
+        {
+         "kind": "step",
+         "text": "Average case: Most likely about ₹5200/quintal today.",
+         "lang": "en",
+         "priority": false,
+         "data": {}
+        },
+        {
+         "kind": "step",
+         "text": "Worst case: On a weaker day about ₹5096/quintal.",
+         "lang": "en",
+         "priority": false,
+         "data": {}
+        },
+        {
+         "kind": "step",
+         "text": "Those rupee figures are Tarana APMC's prices, not Indore's — Tarana APMC is the median mandi for soybean statewide and is what this sell-vs-store call is priced from. Check the price-and-selling card for what Indore itself reported.",
+         "lang": "en",
+         "priority": false,
+         "data": {}
+        },
+        {
+         "kind": "step",
+         "text": "Hold-vs-sell needs warehouse cost, spoilage, and price-recovery data; none are in the real sources, so the engine recommends selling now (or abstains) — it never fabricates a store case.",
+         "lang": "en",
+         "priority": false,
+         "data": {}
+        },
+        {
+         "kind": "step",
+         "text": "CWC storage-tariff reference for Soyabean: about Rs 16.14/quintal/month (Rs 11.3 after the 30% farmer rebate) — a real CWC published rate, not your warehouse's; a starting anchor, then enter your actual rate.",
+         "lang": "en",
+         "priority": false,
+         "data": {}
+        },
+        {
+         "kind": "step",
+         "text": "Scope: this sell-now-vs-store call is CROP-LEVEL. It is priced off a representative (median) mandi for soybean across the state — Tarana APMC (Ujjain district) — which is a REFERENCE price, not a recommendation to travel there. You asked about Indore, so storage availability below is for Indore district.",
+         "lang": "en",
+         "priority": false,
+         "data": {}
+        },
+        {
+         "kind": "step",
+         "text": "WDRA-registered warehouses in Indore: 19 active of 52 registered (~141,772 MT active capacity). Real operating storage EXISTS in your district (WDRA public directory); this is district availability, not a per-farmer booking or the storage cost.",
+         "lang": "en",
+         "priority": false,
+         "data": {}
+        },
+        {
+         "kind": "step",
+         "text": "Warehouse infrastructure in Indore (AIF projects, UNCALIBRATED context): 15 storage projects — 15 cold-storage. Storage infrastructure EXISTS in your district; the next step to evaluate holding is a warehouse/FPO quote for storage cost + spoilage (still not in open data).",
+         "lang": "en",
+         "priority": false,
+         "data": {}
+        },
+        {
+         "kind": "step",
+         "text": "What this crop has sold for (real, committed Agmarknet percentiles over 966 trading days, 2024-01-01 to 2026-08-26, about 2.7 years): about Rs 4150.0/4317.5/4609.5 per quintal (low/typical/high across those days). That is how the statewide daily median price moved from day to day over that whole period — a record of PAST prices, not today's price and not a forecast. Today's price is stated separately on this card.",
+         "lang": "en",
+         "priority": false,
+         "data": {}
+        },
+        {
+         "kind": "step",
+         "text": "BUT THAT IS A HOLD STARTING IN SEPTEMBER. If your Soyabean is not harvested and in hand yet, that is not a choice you have. Starting from October instead, the same record shows 3 months gaining about +12.8% in a typical year and at least +3.9% in 3 years out of 4. Which of the two applies depends on when you harvest - and we do not know your harvest date, so we are not choosing for you.",
+         "lang": "en",
+         "priority": false,
+         "data": {}
+        },
+        {
+         "kind": "step",
+         "text": "Storage history (23 years of government mandi prices, Agmarknet): holding Soyabean from September for 4 months — past years DISAGREED: a typical year gained 7.9%, but in 1 year out of 4 it lost 4.5% or more, and in 1 year out of 4 it gained 12.3% or more. The years were split roughly evenly between the two. The record does not settle whether to store. Do NOT hold from September for 1 month (about 3.9% down) — that period lost value in 3 years out of 4. This is what past years did — it is not a forecast of this year.",
+         "lang": "en",
+         "priority": false,
+         "data": {}
+        },
+        {
+         "kind": "step",
+         "text": "Price-waiting justification: below-MSP today is a reason to *consider* holding, IF affordable warehouse storage and a plausible price recovery existed (not in the data).",
+         "lang": "en",
+         "priority": false,
+         "data": {}
+        },
+        {
+         "kind": "step",
+         "text": "Actionable: Indore has registered/operating warehouse storage and today's price is below MSP — ask a local WDRA-registered warehouse/FPO for a storage-cost quote to evaluate holding (the engine still won't recommend it without those numbers).",
+         "lang": "en",
+         "priority": false,
+         "data": {}
+        }
+       ]
+      },
+      {
+       "id": "details",
+       "title": "Details",
+       "items": [
+        {
+         "kind": "kv",
+         "text": "Latest price: ₹5,200",
+         "lang": "en",
+         "priority": false,
+         "data": {
+          "key": "spot_price",
+          "label": "Latest price",
+          "value": 5200.0,
+          "text": "₹5,200",
+          "unit": "INR/q"
+         }
+        },
+        {
+         "kind": "kv",
+         "text": "MSP: ₹5,328",
+         "lang": "en",
+         "priority": false,
+         "data": {
+          "key": "msp",
+          "label": "MSP",
+          "value": 5328.0,
+          "text": "₹5,328",
+          "unit": "INR/q"
+         }
+        },
+        {
+         "kind": "kv",
+         "text": "Cost of production: ₹2,805",
+         "lang": "en",
+         "priority": false,
+         "data": {
+          "key": "cost_of_production",
+          "label": "Cost of production",
+          "value": 2805.0,
+          "text": "₹2,805",
+          "unit": "INR/q"
+         }
+        },
+        {
+         "kind": "step",
+         "text": "0. step0:precheck: fairness inputs validated at the contract boundary; scanning for distress.",
+         "lang": "en",
+         "priority": false,
+         "data": {
+          "engine_trace": true
+         }
+        },
+        {
+         "kind": "step",
+         "text": "1. step1:normalize: signals assessed for freshness/source/confidence; conflicts detected: none",
+         "lang": "en",
+         "priority": false,
+         "data": {
+          "engine_trace": true
+         }
+        },
+        {
+         "kind": "step",
+         "text": "2. step2:sufficiency: required signals present and usable.",
+         "lang": "en",
+         "priority": false,
+         "data": {
+          "engine_trace": true
+         }
+        },
+        {
+         "kind": "step",
+         "text": "3. decision:loan_check: loan_due_soon=False (window=21d).",
+         "lang": "en",
+         "priority": false,
+         "data": {
+          "engine_trace": true
+         }
+        },
+        {
+         "kind": "step",
+         "text": "4. decision:no_storage: No usable storage (no accessible warehouse, or zero storage months) -> storing is not an option; selling is the realistic choice.",
+         "lang": "en",
+         "priority": false,
+         "data": {
+          "engine_trace": true
+         }
+        },
+        {
+         "kind": "step",
+         "text": "5. step4:confidence: data_quality=0.90 (weakest required & mean present), spread_factor=1.00, spread_frac=0.04, conflicts=0 -> score=0.90 -> high",
+         "lang": "en",
+         "priority": false,
+         "data": {
+          "engine_trace": true
+         }
+        },
+        {
+         "kind": "step",
+         "text": "6. guardrail:fairness: protected attributes absent; only feasibility attributes considered.",
+         "lang": "en",
+         "priority": false,
+         "data": {
+          "engine_trace": true
+         }
+        },
+        {
+         "kind": "step",
+         "text": "7. step7:band_policy: high band -> recommendation delivered with all three cases.",
+         "lang": "en",
+         "priority": false,
+         "data": {
+          "engine_trace": true
+         }
+        },
+        {
+         "kind": "step",
+         "text": "8. step8:validation_gate: validation gate passed.",
+         "lang": "en",
+         "priority": false,
+         "data": {
+          "engine_trace": true
+         }
+        },
+        {
+         "kind": "step",
+         "text": "You don't have accessible storage, so the realistic option is to sell at about ₹5200/quintal. Storing to wait for a better price isn't available to you here.",
+         "lang": "en",
+         "priority": false,
+         "data": {
+          "engine_assumption": "storage_unavailable",
+          "label": "The engine's own words, an assumption we did not ask you about:"
+         }
+        },
+        {
+         "kind": "step",
+         "text": "ILLUSTRATIVE storage scenario (assumed 1.0%/month spoilage over 4 months, real CWC cost + real seasonal recovery): the engine would SELL_NOW. This is a labelled demonstration with assumed spoilage/horizon — NOT this item's recommendation and NOT farmer-ready.",
+         "lang": "en",
+         "priority": false,
+         "data": {
+          "illustrative": true
+         }
+        },
+        {
+         "kind": "text",
+         "text": "Not yet checked by farm scientists: use as guidance, not a guarantee.",
+         "lang": "en",
+         "priority": false,
+         "data": {}
+        }
+       ]
+      },
+      {
+       "id": "caveats",
+       "title": "Read before you act",
+       "items": [
+        {
+         "kind": "caveat",
+         "text": "The prices are 28 days old, too old to act on until you check the current rate at your mandi, so confidence is shown as low.",
+         "lang": "en",
+         "priority": true,
+         "data": {}
+        },
+        {
+         "kind": "caveat",
+         "text": "PRICE IS NOT INDORE'S: the rupee figures on this card are Tarana APMC (Ujjain district) — the median mandi for soybean statewide — because that is the representative price this sell-vs-store call is built on. They are NOT Indore prices. Check the price-and-selling card for what your own district reported.",
+         "lang": "en",
+         "priority": true,
+         "data": {}
+        },
+        {
+         "kind": "caveat",
+         "text": "YOU WERE NOT ASKED WHETHER YOU CAN STORE. This answer assumes you cannot, and that assumption is the whole reason it says sell now — while our own records show active registered warehouses in Indore. If you can reach a warehouse, cold store, an FPO's storage or your own safe dry space, this answer may not be yours: ask again with that in mind, and get a storage quote first.",
+         "lang": "en",
+         "priority": true,
+         "data": {}
+        },
+        {
+         "kind": "caveat",
+         "text": "IF YOU CAN STORE, THIS IS NOT YOUR ANSWER. Holding 4 months from this month changed the price by about +7.9% in a typical year, and Indore has active registered warehouses. Get a storage-cost quote before deciding; the recommendation above assumes you have no storage because you were not asked.",
+         "lang": "en",
+         "priority": true,
+         "data": {}
+        },
+        {
+         "kind": "caveat",
+         "text": "THE BEST AND WORST CASES ON THIS CARD ARE NOT AN ESTIMATE OF RISK. For selling now, the engine sets them at 2% either side of the price you can get now, whatever range this crop's past prices had. They are arithmetic, not an assessment of how badly this could go — do not read the 'worst case' as the worst that can happen. Judge what you can afford on the price you can get and your own costs.",
+         "lang": "en",
+         "priority": true,
+         "data": {}
+        },
+        {
+         "kind": "caveat",
+         "text": "Engine runs on UNCALIBRATED illustrative defaults — this is a demonstration of operation on real evidence, NOT farmer-ready advice. Thresholds must be calibrated on real data and reviewed by an agronomist + agricultural economist before any farmer is advised.",
+         "lang": "en",
+         "priority": false,
+         "data": {}
+        },
+        {
+         "kind": "caveat",
+         "text": "Engine is using ILLUSTRATIVE, UNCALIBRATED default thresholds ('DEFAULT_ILLUSTRATIVE_UNCALIBRATED'). Outputs are for development/simulation only and must NOT be shown to a farmer until thresholds are calibrated and reviewed.",
+         "lang": "en",
+         "priority": false,
+         "data": {}
+        },
+        {
+         "kind": "caveat",
+         "text": "No loan context provided — assuming no urgent repayment deadline.",
+         "lang": "en",
+         "priority": false,
+         "data": {}
+        },
+        {
+         "kind": "caveat",
+         "text": "No warehouse/e-NWR economics (storage cost per quintal-month, spoilage rate, loan-to-value, interest) are available in the real sources, so the engine cannot recommend HOLDING — it sells now or abstains rather than invent a store case. To evaluate holding, consult a registered warehouse / FPO for these figures.",
+         "lang": "en",
+         "priority": false,
+         "data": {}
+        },
+        {
+         "kind": "caveat",
+         "text": "Whether storing Soyabean from September pays is NOT settled by the record: past years split between gains and losses over the same period.",
+         "lang": "en",
+         "priority": false,
+         "data": {}
+        },
+        {
+         "kind": "caveat",
+         "text": "The storage figures above start in September. We do NOT hold a harvest date for Soyabean, so we cannot tell whether that hold is one you can make. From October the same record reads very differently (+12.8% median over 3 months).",
+         "lang": "en",
+         "priority": false,
+         "data": {}
+        },
+        {
+         "kind": "caveat",
+         "text": "Holding Soyabean from September came out worse, not better, over 1 month. A shorter hold looking good does not make a longer one safe.",
+         "lang": "en",
+         "priority": false,
+         "data": {}
+        },
+        {
+         "kind": "caveat",
+         "text": "The storage-history figures for Soyabean are the change in MANDI PRICE only. Storage charges, weight loss, quality loss and the cost of waiting for the money are NOT deducted — your actual return is lower, and a small gain can still be a loss.",
+         "lang": "en",
+         "priority": false,
+         "data": {}
+        },
+        {
+         "kind": "caveat",
+         "text": "PRICE BELOW MSP: spot price (5200/q, which is Tarana APMC's price and NOT Indore's) is below MSP (5328/q, MY 2025-26). A farmer might consider waiting/holding for a better price — but see the storage-economics caveat above; this is context, not a hold recommendation.",
+         "lang": "en",
+         "priority": false,
+         "data": {}
+        }
+       ]
+      }
+     ],
+     "showcase_eligible": false,
+     "showcase_block_reason": "low_confidence",
+     "decision_id": "dec_8e3e9d9bd6e2b1d891ff5738148b404c",
+     "translation": {
+      "lang": "en",
+      "templated": true,
+      "fell_back_to_english": [],
+      "machine_translated_sections": [],
+      "english_only_sections": [],
+      "pending_native_review": false
+     },
+     "illustrative_scenario": {
+      "code": "SELL_NOW",
+      "abstained": false,
+      "text": "Sell now",
+      "note": "ILLUSTRATIVE ONLY — spoilage and horizon are ASSUMED (open data does not publish them); current price, MSP, seasonal recovery and CWC storage cost are real. This is NOT the recommendation for this item and NOT farmer-ready. Use the Warehouse Advisor with YOUR warehouse's real spoilage / horizon for an actual decision.",
+      "note_lang": "en"
+     }
+    }
+   ]
+  },
+  "mr": {
+   "storage": [
+    {
+     "summary_version": "1",
+     "service": "storage",
+     "action": {
+      "code": "SELL_NOW",
+      "text": "आता विका, साठवण करता येत नसेल तर (हे आम्ही विचारले नाही)",
+      "tone": "act"
+     },
+     "subject": {
+      "crop": "सोयाबीन",
+      "place": "इंदौर",
+      "crop_key": "soybean",
+      "region_key": "Indore",
+      "names_translated": true
+     },
+     "confidence": {
+      "engine_band": "high",
+      "shown_band": "low",
+      "shown_text": "कमी खात्री",
+      "cap_reasons": [
+       "भाव 28 दिवस जुने आहेत; तुमच्या बाजार समितीतील सध्याचा भाव माहीत नसताना यावर निर्णय घेऊ नये, म्हणून विश्वास कमी दाखवला आहे."
+      ]
+     },
+     "key_numbers": [
+      {
+       "key": "spot_price",
+       "label": "अलीकडचा भाव",
+       "value": 5200.0,
+       "text": "₹5,200",
+       "unit": "INR/q"
+      },
+      {
+       "key": "msp",
+       "label": "हमीभाव (MSP)",
+       "value": 5328.0,
+       "text": "₹5,328",
+       "unit": "INR/q"
+      },
+      {
+       "key": "cost_of_production",
+       "label": "उत्पादन खर्च",
+       "value": 2805.0,
+       "text": "₹2,805",
+       "unit": "INR/q"
+      }
+     ],
+     "key_findings": [
+      "25/9/2026 रोजी नोंदवलेला अलीकडचा भाव हमीभावापेक्षा (₹5,328/क्विंटल, 2025-26) कमी आहे."
+     ],
+     "one_line_reason": "अलीकडचा भाव ₹5,200/क्विंटल, Tarana APMC (उज्जैन जिल्हा) येथे, 25/9/2026 रोजी नोंदवलेला. हा भाव इंदौर जिल्ह्याचा नाही: ती मंडी या पिकासाठी राज्यातील मधल्या भावाची मंडी आहे. भाव 28 दिवस जुने आहेत.",
+     "na_reason": null,
+     "sections": [
+      {
+       "id": "summary",
+       "title": "सारांश",
+       "items": [
+        {
+         "kind": "text",
+         "text": "पण ही साठवणूक सप्टेंबर मध्ये सुरू होते. सोयाबीन ची काढणी होऊन माल अजून तुमच्या हातात आलेला नसेल, तर हा पर्याय तुमच्याकडे नाही. त्याऐवजी ऑक्टोबर पासून सुरू केल्यास, हीच नोंद दाखवते की 3 महिने साठवल्यावर सामान्य वर्षी सुमारे +12.8% आणि 4 पैकी 3 वर्षांत किमान +3.9% फायदा झाला. यापैकी कोणते लागू होते हे तुमची काढणी कधी होते यावर अवलंबून आहे - आणि तुमची काढणीची तारीख आम्हाला माहीत नाही, म्हणून आम्ही तुमच्यासाठी निवड करत नाही.",
+         "lang": "mr",
+         "priority": true,
+         "data": {}
+        },
+        {
+         "kind": "text",
+         "text": "अलीकडचा भाव ₹5,200/क्विंटल, Tarana APMC (उज्जैन जिल्हा) येथे, 25/9/2026 रोजी नोंदवलेला. हा भाव इंदौर जिल्ह्याचा नाही: ती मंडी या पिकासाठी राज्यातील मधल्या भावाची मंडी आहे.",
+         "lang": "mr",
+         "priority": false,
+         "data": {}
+        },
+        {
+         "kind": "text",
+         "text": "25/9/2026 रोजी नोंदवलेला अलीकडचा भाव हमीभावापेक्षा (₹5,328/क्विंटल, 2025-26) कमी आहे.",
+         "lang": "mr",
+         "priority": false,
+         "data": {}
+        },
+        {
+         "kind": "case_band",
+         "text": "या पिकासाठी भावाची कोणतीही श्रेणी आमच्याकडे नाही: सर्वोत्तम व सर्वात वाईट स्थिती एकाच आकड्याच्या दोन्ही बाजूंना ठरावीक टक्क्यावर ठेवली आहे, म्हणून भाव किती घसरू शकतो हे आम्ही सांगू शकत नाही.",
+         "lang": "mr",
+         "priority": false,
+         "data": {
+          "fixed_band": "plus_minus_2_pct",
+          "value": 5200.0,
+          "unit": "INR_per_quintal"
+         }
+        }
+       ]
+      },
+      {
+       "id": "actions",
+       "title": "काय करावे",
+       "items": [
+        {
+         "kind": "action",
+         "text": "हे करा: आता विका, साठवण करता येत नसेल तर (हे आम्ही विचारले नाही).",
+         "lang": "mr",
+         "priority": false,
+         "data": {}
+        },
+        {
+         "kind": "step",
+         "text": "प्रवास करण्यापूर्वी बाजारातील आजचा भाव तपासा.",
+         "lang": "mr",
+         "priority": false,
+         "data": {}
+        },
+        {
+         "kind": "step",
+         "text": "खात्री नाही? किसान कॉल सेंटरला 1800-180-1551 वर (मोफत) फोन करा.",
+         "lang": "mr",
+         "priority": false,
+         "data": {}
+        }
+       ]
+      },
+      {
+       "id": "calculations",
+       "title": "हिशोब",
+       "items": []
+      },
+      {
+       "id": "sources",
+       "title": "स्रोत",
+       "items": [
+        {
+         "kind": "source",
+         "text": "Agmarknet — Current Daily Price of Various Commodities from Various Markets (Mandi) (2026-09-25)",
+         "lang": "en",
+         "priority": false,
+         "data": {
+          "observed_on": "2026-09-25",
+          "age_days": 28.21,
+          "freshness": "stale",
+          "source_id": "agmarknet_daily_prices",
+          "tier": "primary_official",
+          "url": "https://api.data.gov.in/resource/9ef84268-d588-465a-a308-a864a43d0070",
+          "license": "GODL-India"
+         }
+        }
+       ]
+      },
+      {
+       "id": "reasoning",
+       "title": "कारणमीमांसा",
+       "items": [
+        {
+         "kind": "step",
+         "text": "तुम्ही साठवण करू शकता का, हे आम्ही विचारले नाही. करू शकत नसल्यास, आता सुमारे ₹5,200 प्रति क्विंटल दराने विकणे हा व्यवहार्य पर्याय आहे.",
+         "lang": "mr",
+         "priority": false,
+         "data": {}
+        },
+        {
+         "kind": "step",
+         "text": "सर्वात चांगली स्थिती: बाजार समित्यांमधील भावांच्या फरकामुळे सुमारे ₹5304/क्विंटल मिळू शकतात.",
+         "lang": "mr",
+         "priority": false,
+         "data": {}
+        },
+        {
+         "kind": "step",
+         "text": "बहुधा: सध्या सुमारे ₹5200/क्विंटल.",
+         "lang": "mr",
+         "priority": false,
+         "data": {}
+        },
+        {
+         "kind": "step",
+         "text": "सर्वात वाईट स्थिती: भाव कमी असलेल्या दिवशी सुमारे ₹5096/क्विंटल.",
+         "lang": "mr",
+         "priority": false,
+         "data": {}
+        },
+        {
+         "kind": "step",
+         "text": "ते रुपयांचे आकडे Tarana APMC चे भाव आहेत, इंदौर चे नव्हेत — Tarana APMC ही राज्यभरात सोयाबीन साठी मधला भाव देणारी बाजार समिती आहे, आणि विकायचे की साठवायचे हा निर्णय तिच्याच भावावरून काढला आहे. खुद्द इंदौर मध्ये काय भाव नोंदवला गेला ते भाव आणि विक्रीच्या कार्डवर पाहा.",
+         "lang": "mr",
+         "priority": false,
+         "data": {}
+        },
+        {
+         "kind": "step",
+         "text": "साठवायचे की विकायचे हे ठरवण्यासाठी गोदामाचा खर्च, नासाडी आणि भाव पुन्हा वाढण्याची माहिती लागते; यापैकी काहीही खऱ्या स्रोतांमध्ये नाही, म्हणून इंजिन आत्ता विकण्याची शिफारस करते (किंवा उत्तर देत नाही) — ते साठवणुकीची बाजू कधीही मनाने रचत नाही.",
+         "lang": "mr",
+         "priority": false,
+         "data": {}
+        },
+        {
+         "kind": "step",
+         "text": "सोयाबीन साठी CWC च्या साठवण दराचा संदर्भ: सुमारे ₹16.14/क्विंटल/महिना (शेतकऱ्यांच्या 30% सवलतीनंतर ₹11.3) — CWC ने प्रसिद्ध केलेला खरा दर, तुमच्या गोदामाचा नव्हे; सुरुवातीचा आधार म्हणून घ्या, मग तुमचा प्रत्यक्ष दर भरा.",
+         "lang": "mr",
+         "priority": false,
+         "data": {}
+        },
+        {
+         "kind": "step",
+         "text": "व्याप्ती: आत्ता विकायचे की साठवायचे हा निर्णय पीक-पातळीवरचा आहे. तो राज्यभरात सोयाबीन साठी प्रातिनिधिक (मधला भाव देणाऱ्या) बाजार समितीच्या भावावर आधारित आहे — Tarana APMC (उज्जैन जिल्हा) — हा फक्त संदर्भासाठीचा भाव आहे, तिथे जाण्याची शिफारस नाही. तुम्ही इंदौर बद्दल विचारले, म्हणून खालील साठवण सुविधांची उपलब्धता इंदौर जिल्ह्याची आहे.",
+         "lang": "mr",
+         "priority": false,
+         "data": {}
+        },
+        {
+         "kind": "step",
+         "text": "इंदौर मधील डब्ल्यूडीआरए-नोंदणीकृत गोदामे: 52 नोंदणीकृतपैकी 19 सक्रिय (सक्रिय क्षमता सुमारे 141,772 मेट्रिक टन). तुमच्या जिल्ह्यात प्रत्यक्ष कार्यरत साठवण सुविधा आहे (डब्ल्यूडीआरए ची सार्वजनिक यादी); ही जिल्ह्याची उपलब्धता आहे, प्रत्येक शेतकऱ्यासाठीचे आरक्षण किंवा साठवण खर्च नव्हे.",
+         "lang": "mr",
+         "priority": false,
+         "data": {}
+        },
+        {
+         "kind": "step",
+         "text": "इंदौर मधील गोदाम सुविधा (AIF प्रकल्प, अजून न तपासलेला संदर्भ): 15 साठवण प्रकल्प — त्यांपैकी 15 शीतगृह. तुमच्या जिल्ह्यात साठवण सुविधा आहेत; साठवून ठेवण्याचा विचार तपासण्याची पुढची पायरी म्हणजे गोदाम किंवा शेतकरी उत्पादक कंपनीकडून (FPO) साठवण खर्च + नासाडी यांचा दर घेणे (हे अजूनही खुल्या माहितीत नाही).",
+         "lang": "mr",
+         "priority": false,
+         "data": {}
+        },
+        {
+         "kind": "step",
+         "text": "हे पीक किती भावाने विकले गेले (Agmarknet ची खरी, नोंदवलेली शततमके, 1/1/2024 ते 26/8/2026 या 966 व्यापार दिवसांतील, सुमारे 2.7 वर्षे): प्रति क्विंटल सुमारे ₹4150.0/4317.5/4609.5 (त्या दिवसांतील कमी/सामान्य/जास्त). त्या संपूर्ण काळात राज्यभरातील दैनंदिन मधला भाव दिवसेंदिवस कसा बदलला ते हे आहे — मागील भावांची नोंद, सध्याचा भाव नव्हे आणि अंदाजही नव्हे. सध्याचा भाव या कार्डवर वेगळा दिला आहे.",
+         "lang": "mr",
+         "priority": false,
+         "data": {}
+        },
+        {
+         "kind": "step",
+         "text": "पण ही साठवणूक सप्टेंबर मध्ये सुरू होते. सोयाबीन ची काढणी होऊन माल अजून तुमच्या हातात आलेला नसेल, तर हा पर्याय तुमच्याकडे नाही. त्याऐवजी ऑक्टोबर पासून सुरू केल्यास, हीच नोंद दाखवते की 3 महिने साठवल्यावर सामान्य वर्षी सुमारे +12.8% आणि 4 पैकी 3 वर्षांत किमान +3.9% फायदा झाला. यापैकी कोणते लागू होते हे तुमची काढणी कधी होते यावर अवलंबून आहे - आणि तुमची काढणीची तारीख आम्हाला माहीत नाही, म्हणून आम्ही तुमच्यासाठी निवड करत नाही.",
+         "lang": "mr",
+         "priority": false,
+         "data": {}
+        },
+        {
+         "kind": "step",
+         "text": "साठवणुकीचा इतिहास (23 वर्षांचे सरकारी बाजारभाव, Agmarknet): सप्टेंबर पासून सोयाबीन 4 महिने साठवणे — मागील वर्षे एकमत नव्हती: सामान्य वर्षी 7.9% फायदा झाला, पण 4 पैकी 1 वर्षी 4.5% किंवा जास्त तोटा झाला, आणि 4 पैकी 1 वर्षी 12.3% किंवा जास्त फायदा झाला. दोन्ही प्रकारची वर्षे साधारण सारख्याच प्रमाणात होती. साठवावे की नाही हे या नोंदीवरून ठरत नाही. सप्टेंबर पासून 1 महिना (सुमारे 3.9% घट) साठवून ठेवू नका — त्या कालावधीत 4 पैकी 3 वर्षांत मूल्य घटले. मागील वर्षांत जे झाले ते हे आहे — हा या वर्षाचा अंदाज नाही.",
+         "lang": "mr",
+         "priority": false,
+         "data": {}
+        },
+        {
+         "kind": "step",
+         "text": "भावासाठी थांबण्याचे कारण: सध्या भाव हमीभावापेक्षा कमी असणे हे साठवण्याचा *विचार* करण्याचे कारण आहे, पण तेव्हाच जेव्हा परवडणारी गोदाम साठवण आणि भाव पुन्हा वाढण्याची वाजवी शक्यता असेल (ही माहिती आमच्याकडे नाही).",
+         "lang": "mr",
+         "priority": false,
+         "data": {}
+        },
+        {
+         "kind": "step",
+         "text": "करता येण्याजोगे: इंदौर मध्ये नोंदणीकृत/कार्यरत गोदामे आहेत आणि सध्याचा भाव हमीभावापेक्षा (MSP) कमी आहे — साठवून ठेवण्याचा विचार तपासण्यासाठी जवळच्या डब्ल्यूडीआरए-नोंदणीकृत गोदामाकडून किंवा शेतकरी उत्पादक कंपनीकडून (FPO) साठवण खर्चाचा दर मागा (ते आकडे मिळाल्याशिवाय इंजिन तरीही साठवण्याची शिफारस करणार नाही).",
+         "lang": "mr",
+         "priority": false,
+         "data": {}
+        }
+       ]
+      },
+      {
+       "id": "details",
+       "title": "तपशील",
+       "items": [
+        {
+         "kind": "kv",
+         "text": "अलीकडचा भाव: ₹5,200",
+         "lang": "mr",
+         "priority": false,
+         "data": {
+          "key": "spot_price",
+          "label": "अलीकडचा भाव",
+          "value": 5200.0,
+          "text": "₹5,200",
+          "unit": "INR/q"
+         }
+        },
+        {
+         "kind": "kv",
+         "text": "हमीभाव (MSP): ₹5,328",
+         "lang": "mr",
+         "priority": false,
+         "data": {
+          "key": "msp",
+          "label": "हमीभाव (MSP)",
+          "value": 5328.0,
+          "text": "₹5,328",
+          "unit": "INR/q"
+         }
+        },
+        {
+         "kind": "kv",
+         "text": "उत्पादन खर्च: ₹2,805",
+         "lang": "mr",
+         "priority": false,
+         "data": {
+          "key": "cost_of_production",
+          "label": "उत्पादन खर्च",
+          "value": 2805.0,
+          "text": "₹2,805",
+          "unit": "INR/q"
+         }
+        },
+        {
+         "kind": "step",
+         "text": "0. step0:precheck: fairness inputs validated at the contract boundary; scanning for distress.",
+         "lang": "en",
+         "priority": false,
+         "data": {
+          "engine_trace": true
+         }
+        },
+        {
+         "kind": "step",
+         "text": "1. step1:normalize: signals assessed for freshness/source/confidence; conflicts detected: none",
+         "lang": "en",
+         "priority": false,
+         "data": {
+          "engine_trace": true
+         }
+        },
+        {
+         "kind": "step",
+         "text": "2. step2:sufficiency: required signals present and usable.",
+         "lang": "en",
+         "priority": false,
+         "data": {
+          "engine_trace": true
+         }
+        },
+        {
+         "kind": "step",
+         "text": "3. decision:loan_check: loan_due_soon=False (window=21d).",
+         "lang": "en",
+         "priority": false,
+         "data": {
+          "engine_trace": true
+         }
+        },
+        {
+         "kind": "step",
+         "text": "4. decision:no_storage: No usable storage (no accessible warehouse, or zero storage months) -> storing is not an option; selling is the realistic choice.",
+         "lang": "en",
+         "priority": false,
+         "data": {
+          "engine_trace": true
+         }
+        },
+        {
+         "kind": "step",
+         "text": "5. step4:confidence: data_quality=0.90 (weakest required & mean present), spread_factor=1.00, spread_frac=0.04, conflicts=0 -> score=0.90 -> high",
+         "lang": "en",
+         "priority": false,
+         "data": {
+          "engine_trace": true
+         }
+        },
+        {
+         "kind": "step",
+         "text": "6. guardrail:fairness: protected attributes absent; only feasibility attributes considered.",
+         "lang": "en",
+         "priority": false,
+         "data": {
+          "engine_trace": true
+         }
+        },
+        {
+         "kind": "step",
+         "text": "7. step7:band_policy: high band -> recommendation delivered with all three cases.",
+         "lang": "en",
+         "priority": false,
+         "data": {
+          "engine_trace": true
+         }
+        },
+        {
+         "kind": "step",
+         "text": "8. step8:validation_gate: validation gate passed.",
+         "lang": "en",
+         "priority": false,
+         "data": {
+          "engine_trace": true
+         }
+        },
+        {
+         "kind": "step",
+         "text": "You don't have accessible storage, so the realistic option is to sell at about ₹5200/quintal. Storing to wait for a better price isn't available to you here.",
+         "lang": "en",
+         "priority": false,
+         "data": {
+          "engine_assumption": "storage_unavailable",
+          "label": "इंजिनचे स्वतःचे शब्द, तुम्हाला न विचारता केलेले गृहीतक:"
+         }
+        },
+        {
+         "kind": "step",
+         "text": "ILLUSTRATIVE storage scenario (assumed 1.0%/month spoilage over 4 months, real CWC cost + real seasonal recovery): the engine would SELL_NOW. This is a labelled demonstration with assumed spoilage/horizon — NOT this item's recommendation and NOT farmer-ready.",
+         "lang": "en",
+         "priority": false,
+         "data": {
+          "illustrative": true
+         }
+        },
+        {
+         "kind": "text",
+         "text": "अद्याप कृषी शास्त्रज्ञांनी तपासलेले नाही: मार्गदर्शन म्हणून वापरा, हमी म्हणून नाही.",
+         "lang": "mr",
+         "priority": false,
+         "data": {}
+        }
+       ]
+      },
+      {
+       "id": "caveats",
+       "title": "कृती करण्यापूर्वी वाचा",
+       "items": [
+        {
+         "kind": "caveat",
+         "text": "भाव 28 दिवस जुने आहेत; तुमच्या बाजार समितीतील सध्याचा भाव माहीत नसताना यावर निर्णय घेऊ नये, म्हणून विश्वास कमी दाखवला आहे.",
+         "lang": "mr",
+         "priority": true,
+         "data": {}
+        },
+        {
+         "kind": "caveat",
+         "text": "हा भाव इंदौर चा नाही: या कार्डवरील रुपयांचे आकडे Tarana APMC (उज्जैन जिल्हा) चे आहेत — राज्यभरात सोयाबीन साठी मधला भाव देणारी बाजार समिती — कारण विकायचे की साठवायचे हा निर्णय याच प्रातिनिधिक भावावर आधारित आहे. ते इंदौर चे भाव नाहीत. तुमच्या स्वतःच्या जिल्ह्यात काय भाव नोंदवला गेला ते भाव आणि विक्रीच्या कार्डवर पाहा.",
+         "lang": "mr",
+         "priority": true,
+         "data": {}
+        },
+        {
+         "kind": "caveat",
+         "text": "तुम्ही साठवू शकता का, हे तुम्हाला विचारलेले नाही. हे उत्तर असे गृहीत धरते की तुम्ही साठवू शकत नाही, आणि 'आत्ता विका' असे सांगण्याचे संपूर्ण कारण हेच गृहीतक आहे — तर आमच्याच नोंदींनुसार इंदौर मध्ये सक्रिय नोंदणीकृत गोदामे आहेत. तुम्हाला गोदाम, शीतगृह, शेतकरी उत्पादक कंपनीची (FPO) साठवण किंवा तुमची स्वतःची सुरक्षित कोरडी जागा उपलब्ध असेल, तर हे उत्तर कदाचित तुमच्यासाठी नसेल: हे लक्षात ठेवून पुन्हा विचारा, आणि आधी साठवण खर्चाचा दर घ्या.",
+         "lang": "mr",
+         "priority": true,
+         "data": {}
+        },
+        {
+         "kind": "caveat",
+         "text": "तुम्ही साठवू शकत असाल, तर हे तुमचे उत्तर नाही. या महिन्यापासून 4 महिने साठवल्यावर सामान्य वर्षी भाव सुमारे +7.9% बदलला, आणि इंदौर मध्ये सक्रिय नोंदणीकृत गोदामे आहेत. ठरवण्यापूर्वी साठवण खर्चाचा दर घ्या; तुम्हाला विचारलेले नसल्यामुळे वरील शिफारस असे गृहीत धरते की तुमच्याकडे साठवणुकीची सोय नाही.",
+         "lang": "mr",
+         "priority": true,
+         "data": {}
+        },
+        {
+         "kind": "caveat",
+         "text": "या कार्डवरील सर्वात चांगली आणि सर्वात वाईट स्थिती हा धोक्याचा अंदाज नाही. आत्ता विकण्यासाठी, इंजिन त्या तुम्हाला आत्ता मिळू शकणाऱ्या भावाच्या दोन्ही बाजूंना 2% वर ठेवते, या पिकाच्या मागील भावांची श्रेणी काहीही असली तरी. त्या फक्त हिशोबाने काढलेल्या आहेत, परिस्थिती किती बिघडू शकते याचे मूल्यांकन नाही — 'सर्वात वाईट स्थिती' म्हणजे होऊ शकणारी सर्वात वाईट गोष्ट असे समजू नका. तुम्हाला मिळू शकणाऱ्या भावावर आणि तुमच्या स्वतःच्या खर्चावर तुम्हाला काय परवडते ते ठरवा.",
+         "lang": "mr",
+         "priority": true,
+         "data": {}
+        },
+        {
+         "kind": "caveat",
+         "text": "Engine runs on UNCALIBRATED illustrative defaults — this is a demonstration of operation on real evidence, NOT farmer-ready advice. Thresholds must be calibrated on real data and reviewed by an agronomist + agricultural economist before any farmer is advised.",
+         "lang": "en",
+         "priority": false,
+         "data": {}
+        },
+        {
+         "kind": "caveat",
+         "text": "Engine is using ILLUSTRATIVE, UNCALIBRATED default thresholds ('DEFAULT_ILLUSTRATIVE_UNCALIBRATED'). Outputs are for development/simulation only and must NOT be shown to a farmer until thresholds are calibrated and reviewed.",
+         "lang": "en",
+         "priority": false,
+         "data": {}
+        },
+        {
+         "kind": "caveat",
+         "text": "कर्जाची माहिती दिलेली नाही — म्हणून कर्ज फेडण्याची कोणतीही तातडीची मुदत नाही असे गृहीत धरले आहे.",
+         "lang": "mr",
+         "priority": false,
+         "data": {}
+        },
+        {
+         "kind": "caveat",
+         "text": "गोदाम/e-NWR चा आर्थिक हिशोब (प्रति क्विंटल प्रति महिना साठवण खर्च, नासाडीचा दर, मालाच्या मूल्याच्या तुलनेत मिळणाऱ्या कर्जाचे प्रमाण, व्याज) खऱ्या स्रोतांमध्ये उपलब्ध नाही, म्हणून इंजिन साठवण्याची शिफारस करू शकत नाही — साठवणुकीची बाजू मनाने रचण्याऐवजी ते आत्ता विकण्याचे सांगते किंवा उत्तर देत नाही. साठवणुकीचा विचार तपासण्यासाठी हे आकडे नोंदणीकृत गोदाम किंवा शेतकरी उत्पादक कंपनीकडून (FPO) घ्या.",
+         "lang": "mr",
+         "priority": false,
+         "data": {}
+        },
+        {
+         "kind": "caveat",
+         "text": "सप्टेंबर पासून सोयाबीन साठवणे फायद्याचे ठरते की नाही हे या नोंदीवरून ठरत नाही: त्याच कालावधीत मागील वर्षांपैकी काहींमध्ये फायदा तर काहींमध्ये तोटा झाला.",
+         "lang": "mr",
+         "priority": false,
+         "data": {}
+        },
+        {
+         "kind": "caveat",
+         "text": "वरील साठवणुकीचे आकडे सप्टेंबर पासून सुरू होतात. सोयाबीन च्या काढणीची तारीख आमच्याकडे नाही, म्हणून त्या महिन्यापासून साठवणूक करणे तुम्हाला शक्य आहे की नाही हे आम्ही सांगू शकत नाही. ऑक्टोबर पासून हीच नोंद खूप वेगळे चित्र दाखवते (3 महिन्यांसाठी मधला बदल +12.8%).",
+         "lang": "mr",
+         "priority": false,
+         "data": {}
+        },
+        {
+         "kind": "caveat",
+         "text": "सप्टेंबर पासून सोयाबीन 1 महिना साठवल्यावर परिणाम चांगला नव्हे, तर वाईट झाला. कमी काळ साठवणे चांगले दिसले तरी त्यामुळे जास्त काळ साठवणे सुरक्षित ठरत नाही.",
+         "lang": "mr",
+         "priority": false,
+         "data": {}
+        },
+        {
+         "kind": "caveat",
+         "text": "सोयाबीन च्या साठवणूक-इतिहासाचे आकडे फक्त बाजारभावातील बदल आहेत. साठवणुकीचे शुल्क, वजनातील घट, दर्जातील घट आणि पैशासाठी थांबण्याचा खर्च यातून वजा केलेले नाहीत — तुम्हाला प्रत्यक्षात मिळणारे कमी असेल, आणि थोडा फायदा दिसला तरी तो प्रत्यक्षात तोटा ठरू शकतो.",
+         "lang": "mr",
+         "priority": false,
+         "data": {}
+        },
+        {
+         "kind": "caveat",
+         "text": "भाव हमीभावापेक्षा कमी: अलीकडचा भाव (5200/क्विंटल, जो Tarana APMC चा भाव आहे, इंदौर चा नव्हे) हमीभावापेक्षा (5328/क्विंटल, विपणन वर्ष 2025-26) कमी आहे. शेतकरी चांगल्या भावासाठी थांबण्याचा/साठवण्याचा विचार करू शकतो — पण वरील साठवणुकीच्या आर्थिक हिशोबाबद्दलची सावधगिरीची सूचना पाहा; ही फक्त पार्श्वभूमी आहे, साठवण्याची शिफारस नाही.",
+         "lang": "mr",
+         "priority": false,
+         "data": {}
+        }
+       ]
+      }
+     ],
+     "showcase_eligible": false,
+     "showcase_block_reason": "low_confidence",
+     "decision_id": "dec_8e3e9d9bd6e2b1d891ff5738148b404c",
+     "translation": {
+      "lang": "mr",
+      "templated": true,
+      "fell_back_to_english": [],
+      "machine_translated_sections": [],
+      "english_only_sections": [
+       "sources",
+       "details",
+       "caveats"
+      ],
+      "pending_native_review": true
+     },
+     "illustrative_scenario": {
+      "code": "SELL_NOW",
+      "abstained": false,
+      "text": "आता विका",
+      "note": "फक्त उदाहरणादाखल — नासाडी आणि साठवणुकीचा कालावधी गृहीत धरलेले आहेत (खुली माहिती ते प्रसिद्ध करत नाही); सध्याचा भाव, हमीभाव (MSP), हंगामात भाव पुन्हा वाढण्याचे आकडे आणि CWC चा साठवण खर्च खरे आहेत. ही या उत्तराची शिफारस नाही आणि शेतकऱ्यासाठी तयार सल्ला नाही. प्रत्यक्ष निर्णयासाठी तुमच्या गोदामाची खरी नासाडी आणि कालावधी घेऊन गोदाम सल्लागार वापरा.",
+      "note_lang": "mr"
+     }
+    }
+   ]
+  },
+  "hi": {
+   "storage": [
+    {
+     "summary_version": "1",
+     "service": "storage",
+     "action": {
+      "code": "SELL_NOW",
+      "text": "अभी बेचें, अगर आप भंडारण नहीं कर सकते (यह हमने नहीं पूछा)",
+      "tone": "act"
+     },
+     "subject": {
+      "crop": "सोयाबीन",
+      "place": "इंदौर",
+      "crop_key": "soybean",
+      "region_key": "Indore",
+      "names_translated": true
+     },
+     "confidence": {
+      "engine_band": "high",
+      "shown_band": "low",
+      "shown_text": "कम भरोसा",
+      "cap_reasons": [
+       "भाव 28 दिन पुराने हैं; अपनी मंडी का मौजूदा भाव जाने बिना इन पर निर्णय लेना ठीक नहीं, इसलिए भरोसा कम दिखाया गया है।"
+      ]
+     },
+     "key_numbers": [
+      {
+       "key": "spot_price",
+       "label": "नवीनतम भाव",
+       "value": 5200.0,
+       "text": "₹5,200",
+       "unit": "INR/q"
+      },
+      {
+       "key": "msp",
+       "label": "न्यूनतम समर्थन मूल्य (MSP)",
+       "value": 5328.0,
+       "text": "₹5,328",
+       "unit": "INR/q"
+      },
+      {
+       "key": "cost_of_production",
+       "label": "उत्पादन लागत",
+       "value": 2805.0,
+       "text": "₹2,805",
+       "unit": "INR/q"
+      }
+     ],
+     "key_findings": [
+      "25/9/2026 को दर्ज नवीनतम भाव न्यूनतम समर्थन मूल्य (₹5,328/क्विंटल, 2025-26) से कम है।"
+     ],
+     "one_line_reason": "नवीनतम भाव ₹5,200/क्विंटल, Tarana APMC (उज्जैन ज़िला) में, 25/9/2026 को दर्ज। यह भाव इंदौर ज़िले का नहीं है: वह मंडी इस फसल के लिए राज्य की बीच के भाव वाली मंडी है। भाव 28 दिन पुराने हैं।",
+     "na_reason": null,
+     "sections": [
+      {
+       "id": "summary",
+       "title": "सारांश",
+       "items": [
+        {
+         "kind": "text",
+         "text": "लेकिन यह सितंबर से शुरू होने वाला भंडारण है। अगर आपकी सोयाबीन की फ़सल अभी कटकर हाथ में नहीं आई है, तो यह विकल्प आपके पास नहीं है। इसके बजाय अक्टूबर से शुरू करने पर, वही रिकॉर्ड दिखाता है कि 3 महीने रखने पर सामान्य साल में लगभग +12.8% और 4 में से 3 सालों में कम से कम +3.9% बढ़ा। इन दोनों में से कौन-सा लागू होगा, यह इस पर निर्भर है कि आप कटाई कब करते हैं - और आपकी कटाई की तारीख़ हमें पता नहीं, इसलिए हम आपके लिए चुनाव नहीं कर रहे।",
+         "lang": "hi",
+         "priority": true,
+         "data": {}
+        },
+        {
+         "kind": "text",
+         "text": "नवीनतम भाव ₹5,200/क्विंटल, Tarana APMC (उज्जैन ज़िला) में, 25/9/2026 को दर्ज। यह भाव इंदौर ज़िले का नहीं है: वह मंडी इस फसल के लिए राज्य की बीच के भाव वाली मंडी है।",
+         "lang": "hi",
+         "priority": false,
+         "data": {}
+        },
+        {
+         "kind": "text",
+         "text": "25/9/2026 को दर्ज नवीनतम भाव न्यूनतम समर्थन मूल्य (₹5,328/क्विंटल, 2025-26) से कम है।",
+         "lang": "hi",
+         "priority": false,
+         "data": {}
+        },
+        {
+         "kind": "case_band",
+         "text": "इस फसल का कोई भाव-दायरा हमारे पास नहीं है: सबसे अच्छी और सबसे खराब स्थिति एक ही आंकड़े के दोनों ओर तय प्रतिशत पर रखी गई है, इसलिए हम नहीं कह सकते कि भाव कितना गिर सकता है।",
+         "lang": "hi",
+         "priority": false,
+         "data": {
+          "fixed_band": "plus_minus_2_pct",
+          "value": 5200.0,
+          "unit": "INR_per_quintal"
+         }
+        }
+       ]
+      },
+      {
+       "id": "actions",
+       "title": "क्या करें",
+       "items": [
+        {
+         "kind": "action",
+         "text": "यह करें: अभी बेचें, अगर आप भंडारण नहीं कर सकते (यह हमने नहीं पूछा)।",
+         "lang": "hi",
+         "priority": false,
+         "data": {}
+        },
+        {
+         "kind": "step",
+         "text": "यात्रा से पहले मंडी का आज का भाव जाँच लें।",
+         "lang": "hi",
+         "priority": false,
+         "data": {}
+        },
+        {
+         "kind": "step",
+         "text": "पक्का नहीं? किसान कॉल सेंटर को 1800-180-1551 पर (मुफ़्त) फ़ोन करें।",
+         "lang": "hi",
+         "priority": false,
+         "data": {}
+        }
+       ]
+      },
+      {
+       "id": "calculations",
+       "title": "हिसाब",
+       "items": []
+      },
+      {
+       "id": "sources",
+       "title": "स्रोत",
+       "items": [
+        {
+         "kind": "source",
+         "text": "Agmarknet — Current Daily Price of Various Commodities from Various Markets (Mandi) (2026-09-25)",
+         "lang": "en",
+         "priority": false,
+         "data": {
+          "observed_on": "2026-09-25",
+          "age_days": 28.21,
+          "freshness": "stale",
+          "source_id": "agmarknet_daily_prices",
+          "tier": "primary_official",
+          "url": "https://api.data.gov.in/resource/9ef84268-d588-465a-a308-a864a43d0070",
+          "license": "GODL-India"
+         }
+        }
+       ]
+      },
+      {
+       "id": "reasoning",
+       "title": "कारण",
+       "items": [
+        {
+         "kind": "step",
+         "text": "आप भंडारण कर सकते हैं या नहीं, यह हमने नहीं पूछा। अगर नहीं कर सकते, तो अभी लगभग ₹5,200 प्रति क्विंटल पर बेचना ही व्यावहारिक विकल्प है।",
+         "lang": "hi",
+         "priority": false,
+         "data": {}
+        },
+        {
+         "kind": "step",
+         "text": "सबसे अच्छी स्थिति: मंडियों के भाव के फ़र्क से लगभग ₹5304/क्विंटल मिल सकता है।",
+         "lang": "hi",
+         "priority": false,
+         "data": {}
+        },
+        {
+         "kind": "step",
+         "text": "सबसे संभावित: अभी लगभग ₹5200/क्विंटल।",
+         "lang": "hi",
+         "priority": false,
+         "data": {}
+        },
+        {
+         "kind": "step",
+         "text": "सबसे खराब स्थिति: कमज़ोर दिन पर लगभग ₹5096/क्विंटल।",
+         "lang": "hi",
+         "priority": false,
+         "data": {}
+        },
+        {
+         "kind": "step",
+         "text": "रुपयों के वे आँकड़े Tarana APMC के भाव हैं, इंदौर के नहीं — सोयाबीन के लिए पूरे राज्य में Tarana APMC बीच के भाव वाली मंडी है, और बेचें-या-रखें का यह फ़ैसला उसी के भाव पर बना है। इंदौर में ख़ुद क्या भाव दर्ज हुआ, यह भाव-और-बिक्री वाले कार्ड में देखें।",
+         "lang": "hi",
+         "priority": false,
+         "data": {}
+        },
+        {
+         "kind": "step",
+         "text": "रखें-या-बेचें के लिए गोदाम खर्च, खराबी और भाव सुधरने के आँकड़े चाहिए; असली स्रोतों में इनमें से कोई नहीं है, इसलिए इंजन अभी बेचने की सिफ़ारिश करता है (या उत्तर नहीं देता) — वह भंडारण के पक्ष में कभी कुछ गढ़ता नहीं।",
+         "lang": "hi",
+         "priority": false,
+         "data": {}
+        },
+        {
+         "kind": "step",
+         "text": "सोयाबीन के लिए CWC की भंडारण दर का संदर्भ: लगभग ₹16.14/क्विंटल/माह (किसानों की 30% छूट के बाद ₹11.3) — CWC की प्रकाशित असली दर, आपके गोदाम की नहीं; शुरुआत के लिए एक आधार, फिर अपनी असली दर भरें।",
+         "lang": "hi",
+         "priority": false,
+         "data": {}
+        },
+        {
+         "kind": "step",
+         "text": "दायरा: अभी-बेचें-या-रखें का यह फ़ैसला फ़सल-स्तर का है। इसका भाव पूरे राज्य में सोयाबीन की एक प्रतिनिधि (बीच के भाव वाली) मंडी से लिया गया है — Tarana APMC (उज्जैन ज़िला) — जो एक संदर्भ भाव है, वहाँ जाने की सिफ़ारिश नहीं। आपने इंदौर के बारे में पूछा, इसलिए नीचे भंडारण की उपलब्धता इंदौर ज़िले की है।",
+         "lang": "hi",
+         "priority": false,
+         "data": {}
+        },
+        {
+         "kind": "step",
+         "text": "इंदौर में डब्ल्यूडीआरए-पंजीकृत गोदाम: 52 पंजीकृत में से 19 चालू (~141,772 मीट्रिक टन चालू क्षमता)। आपके ज़िले में असली चालू भंडारण मौजूद है (डब्ल्यूडीआरए की सार्वजनिक सूची); यह ज़िले में उपलब्धता है, किसी एक किसान की बुकिंग या भंडारण खर्च नहीं।",
+         "lang": "hi",
+         "priority": false,
+         "data": {}
+        },
+        {
+         "kind": "step",
+         "text": "इंदौर में गोदाम का ढाँचा (AIF परियोजनाएँ, बिना परखा संदर्भ): भंडारण की 15 परियोजनाएँ — 15 ठंडे भंडार की। आपके ज़िले में भंडारण का ढाँचा मौजूद है; रोककर रखने का आकलन करने का अगला कदम है गोदाम/FPO से भंडारण खर्च + खराबी का भाव पूछना (यह अभी भी खुले आँकड़ों में नहीं है)।",
+         "lang": "hi",
+         "priority": false,
+         "data": {}
+        },
+        {
+         "kind": "step",
+         "text": "यह फ़सल किस भाव पर बिकी है (असली, Agmarknet के रखे गए आँकड़ों के प्रतिशतक, 966 कारोबारी दिनों पर, 1/1/2024 से 26/8/2026 तक, लगभग 2.7 साल): लगभग ₹4150.0/4317.5/4609.5 प्रति क्विंटल (उन दिनों में कम/सामान्य/ऊँचा)। यानी उस पूरी अवधि में राज्य का रोज़ का बीच का भाव दिन-प्रतिदिन कैसे ऊपर-नीचे हुआ — यह पिछले भावों का रिकॉर्ड है, अभी का भाव नहीं और पूर्वानुमान भी नहीं। अभी का भाव इस कार्ड पर अलग से बताया गया है।",
+         "lang": "hi",
+         "priority": false,
+         "data": {}
+        },
+        {
+         "kind": "step",
+         "text": "लेकिन यह सितंबर से शुरू होने वाला भंडारण है। अगर आपकी सोयाबीन की फ़सल अभी कटकर हाथ में नहीं आई है, तो यह विकल्प आपके पास नहीं है। इसके बजाय अक्टूबर से शुरू करने पर, वही रिकॉर्ड दिखाता है कि 3 महीने रखने पर सामान्य साल में लगभग +12.8% और 4 में से 3 सालों में कम से कम +3.9% बढ़ा। इन दोनों में से कौन-सा लागू होगा, यह इस पर निर्भर है कि आप कटाई कब करते हैं - और आपकी कटाई की तारीख़ हमें पता नहीं, इसलिए हम आपके लिए चुनाव नहीं कर रहे।",
+         "lang": "hi",
+         "priority": false,
+         "data": {}
+        },
+        {
+         "kind": "step",
+         "text": "भंडारण का इतिहास (23 साल के सरकारी मंडी भाव, Agmarknet): सितंबर से 4 महीने तक सोयाबीन रखना — पिछले साल एकमत नहीं थे: सामान्य साल में भाव 7.9% बढ़ा, लेकिन 4 में से 1 साल में 4.5% या उससे ज़्यादा घटा, और 4 में से 1 साल में 12.3% या उससे ज़्यादा बढ़ा। दोनों तरह के साल लगभग बराबर बँटे थे। यह रिकॉर्ड तय नहीं करता कि भंडारण करें या नहीं। सितंबर से 1 महीने (लगभग 3.9% नीचे) के लिए न रखें — उस अवधि में 4 में से 3 सालों में भाव घटा। यह पिछले सालों में हुआ — यह इस साल का पूर्वानुमान नहीं है।",
+         "lang": "hi",
+         "priority": false,
+         "data": {}
+        },
+        {
+         "kind": "step",
+         "text": "भाव के लिए रुकने का कारण: अभी MSP से कम भाव रोककर रखने के बारे में *सोचने* का कारण है, अगर किफ़ायती गोदाम भंडारण और भाव सुधरने की ठीक-ठाक संभावना होती (जो आँकड़ों में नहीं है)।",
+         "lang": "hi",
+         "priority": false,
+         "data": {}
+        },
+        {
+         "kind": "step",
+         "text": "आप यह कर सकते हैं: इंदौर में पंजीकृत/चालू गोदाम भंडारण है और अभी का भाव MSP से कम है — रोककर रखने का आकलन करने के लिए पास के डब्ल्यूडीआरए-पंजीकृत गोदाम/FPO से पूछें कि भंडारण का खर्च कितना होगा (उन आँकड़ों के बिना इंजन फिर भी इसकी सिफ़ारिश नहीं करेगा)।",
+         "lang": "hi",
+         "priority": false,
+         "data": {}
+        }
+       ]
+      },
+      {
+       "id": "details",
+       "title": "विवरण",
+       "items": [
+        {
+         "kind": "kv",
+         "text": "नवीनतम भाव: ₹5,200",
+         "lang": "hi",
+         "priority": false,
+         "data": {
+          "key": "spot_price",
+          "label": "नवीनतम भाव",
+          "value": 5200.0,
+          "text": "₹5,200",
+          "unit": "INR/q"
+         }
+        },
+        {
+         "kind": "kv",
+         "text": "न्यूनतम समर्थन मूल्य (MSP): ₹5,328",
+         "lang": "hi",
+         "priority": false,
+         "data": {
+          "key": "msp",
+          "label": "न्यूनतम समर्थन मूल्य (MSP)",
+          "value": 5328.0,
+          "text": "₹5,328",
+          "unit": "INR/q"
+         }
+        },
+        {
+         "kind": "kv",
+         "text": "उत्पादन लागत: ₹2,805",
+         "lang": "hi",
+         "priority": false,
+         "data": {
+          "key": "cost_of_production",
+          "label": "उत्पादन लागत",
+          "value": 2805.0,
+          "text": "₹2,805",
+          "unit": "INR/q"
+         }
+        },
+        {
+         "kind": "step",
+         "text": "0. step0:precheck: fairness inputs validated at the contract boundary; scanning for distress.",
+         "lang": "en",
+         "priority": false,
+         "data": {
+          "engine_trace": true
+         }
+        },
+        {
+         "kind": "step",
+         "text": "1. step1:normalize: signals assessed for freshness/source/confidence; conflicts detected: none",
+         "lang": "en",
+         "priority": false,
+         "data": {
+          "engine_trace": true
+         }
+        },
+        {
+         "kind": "step",
+         "text": "2. step2:sufficiency: required signals present and usable.",
+         "lang": "en",
+         "priority": false,
+         "data": {
+          "engine_trace": true
+         }
+        },
+        {
+         "kind": "step",
+         "text": "3. decision:loan_check: loan_due_soon=False (window=21d).",
+         "lang": "en",
+         "priority": false,
+         "data": {
+          "engine_trace": true
+         }
+        },
+        {
+         "kind": "step",
+         "text": "4. decision:no_storage: No usable storage (no accessible warehouse, or zero storage months) -> storing is not an option; selling is the realistic choice.",
+         "lang": "en",
+         "priority": false,
+         "data": {
+          "engine_trace": true
+         }
+        },
+        {
+         "kind": "step",
+         "text": "5. step4:confidence: data_quality=0.90 (weakest required & mean present), spread_factor=1.00, spread_frac=0.04, conflicts=0 -> score=0.90 -> high",
+         "lang": "en",
+         "priority": false,
+         "data": {
+          "engine_trace": true
+         }
+        },
+        {
+         "kind": "step",
+         "text": "6. guardrail:fairness: protected attributes absent; only feasibility attributes considered.",
+         "lang": "en",
+         "priority": false,
+         "data": {
+          "engine_trace": true
+         }
+        },
+        {
+         "kind": "step",
+         "text": "7. step7:band_policy: high band -> recommendation delivered with all three cases.",
+         "lang": "en",
+         "priority": false,
+         "data": {
+          "engine_trace": true
+         }
+        },
+        {
+         "kind": "step",
+         "text": "8. step8:validation_gate: validation gate passed.",
+         "lang": "en",
+         "priority": false,
+         "data": {
+          "engine_trace": true
+         }
+        },
+        {
+         "kind": "step",
+         "text": "You don't have accessible storage, so the realistic option is to sell at about ₹5200/quintal. Storing to wait for a better price isn't available to you here.",
+         "lang": "en",
+         "priority": false,
+         "data": {
+          "engine_assumption": "storage_unavailable",
+          "label": "इंजन के अपने शब्द, आपसे पूछे बिना किया गया अनुमान:"
+         }
+        },
+        {
+         "kind": "step",
+         "text": "ILLUSTRATIVE storage scenario (assumed 1.0%/month spoilage over 4 months, real CWC cost + real seasonal recovery): the engine would SELL_NOW. This is a labelled demonstration with assumed spoilage/horizon — NOT this item's recommendation and NOT farmer-ready.",
+         "lang": "en",
+         "priority": false,
+         "data": {
+          "illustrative": true
+         }
+        },
+        {
+         "kind": "text",
+         "text": "अभी तक कृषि वैज्ञानिकों द्वारा जाँचा नहीं गया: इसे मार्गदर्शन मानें, गारंटी नहीं।",
+         "lang": "hi",
+         "priority": false,
+         "data": {}
+        }
+       ]
+      },
+      {
+       "id": "caveats",
+       "title": "कदम उठाने से पहले पढ़ें",
+       "items": [
+        {
+         "kind": "caveat",
+         "text": "भाव 28 दिन पुराने हैं; अपनी मंडी का मौजूदा भाव जाने बिना इन पर निर्णय लेना ठीक नहीं, इसलिए भरोसा कम दिखाया गया है।",
+         "lang": "hi",
+         "priority": true,
+         "data": {}
+        },
+        {
+         "kind": "caveat",
+         "text": "भाव इंदौर का नहीं है: इस कार्ड पर रुपयों के आँकड़े Tarana APMC (उज्जैन ज़िला) के हैं — सोयाबीन के लिए पूरे राज्य में बीच के भाव वाली मंडी — क्योंकि बेचें-या-रखें का यह फ़ैसला इसी प्रतिनिधि भाव पर बना है। ये इंदौर के भाव नहीं हैं। आपके अपने ज़िले में क्या भाव दर्ज हुआ, यह भाव-और-बिक्री वाले कार्ड में देखें।",
+         "lang": "hi",
+         "priority": true,
+         "data": {}
+        },
+        {
+         "kind": "caveat",
+         "text": "आपसे पूछा नहीं गया कि आप भंडारण कर सकते हैं या नहीं। यह उत्तर मानकर चलता है कि आप नहीं कर सकते, और अभी बेचने की बात पूरी तरह इसी मान्यता पर टिकी है — जबकि हमारे अपने रिकॉर्ड इंदौर में चालू पंजीकृत गोदाम दिखाते हैं। अगर आप किसी गोदाम, ठंडे भंडार, FPO के भंडार या अपनी सुरक्षित सूखी जगह तक पहुँच सकते हैं, तो शायद यह उत्तर आपके लिए नहीं है: यह बात ध्यान में रखकर फिर से पूछें, और पहले भंडारण का खर्च पूछ लें।",
+         "lang": "hi",
+         "priority": true,
+         "data": {}
+        },
+        {
+         "kind": "caveat",
+         "text": "अगर आप भंडारण कर सकते हैं, तो यह आपका उत्तर नहीं है। इस महीने से 4 महीने तक रखने पर सामान्य साल में भाव लगभग +7.9% बदला, और इंदौर में चालू पंजीकृत गोदाम हैं। फ़ैसला करने से पहले भंडारण का खर्च पूछ लें; ऊपर की सिफ़ारिश मानकर चलती है कि आपके पास भंडारण नहीं है, क्योंकि आपसे पूछा नहीं गया।",
+         "lang": "hi",
+         "priority": true,
+         "data": {}
+        },
+        {
+         "kind": "caveat",
+         "text": "इस कार्ड पर सबसे अच्छी और सबसे खराब स्थिति जोखिम का अनुमान नहीं हैं। अभी बेचने के लिए इंजन उन्हें अभी मिल सकने वाले भाव के दोनों ओर 2% पर रखता है, इस फ़सल के पिछले भावों का दायरा चाहे जो रहा हो। ये केवल हिसाब हैं, इस बात का आकलन नहीं कि हालात कितने बिगड़ सकते हैं — 'सबसे खराब स्थिति' को सबसे बुरा होने वाला नतीजा न समझें। आप क्या सह सकते हैं, यह उस भाव से तय करें जो आपको मिल सकता है, और अपने खर्च से।",
+         "lang": "hi",
+         "priority": true,
+         "data": {}
+        },
+        {
+         "kind": "caveat",
+         "text": "Engine runs on UNCALIBRATED illustrative defaults — this is a demonstration of operation on real evidence, NOT farmer-ready advice. Thresholds must be calibrated on real data and reviewed by an agronomist + agricultural economist before any farmer is advised.",
+         "lang": "en",
+         "priority": false,
+         "data": {}
+        },
+        {
+         "kind": "caveat",
+         "text": "Engine is using ILLUSTRATIVE, UNCALIBRATED default thresholds ('DEFAULT_ILLUSTRATIVE_UNCALIBRATED'). Outputs are for development/simulation only and must NOT be shown to a farmer until thresholds are calibrated and reviewed.",
+         "lang": "en",
+         "priority": false,
+         "data": {}
+        },
+        {
+         "kind": "caveat",
+         "text": "कर्ज़ की कोई जानकारी नहीं दी गई — मानकर चल रहे हैं कि कर्ज़ चुकाने की कोई जल्दी वाली आख़िरी तारीख़ नहीं है।",
+         "lang": "hi",
+         "priority": false,
+         "data": {}
+        },
+        {
+         "kind": "caveat",
+         "text": "असली स्रोतों में गोदाम/e-NWR का कोई आर्थिक हिसाब (प्रति क्विंटल-माह भंडारण खर्च, खराबी की दर, रसीद के मूल्य पर कर्ज़ का अनुपात, ब्याज) उपलब्ध नहीं है, इसलिए इंजन रोककर रखने की सिफ़ारिश नहीं कर सकता — वह भंडारण का पक्ष गढ़ने के बजाय अभी बेचने को कहता है या उत्तर नहीं देता। रोककर रखने का आकलन करने के लिए ये आँकड़े किसी पंजीकृत गोदाम / FPO से लें।",
+         "lang": "hi",
+         "priority": false,
+         "data": {}
+        },
+        {
+         "kind": "caveat",
+         "text": "सितंबर से सोयाबीन रखना फ़ायदेमंद है या नहीं, यह रिकॉर्ड से तय नहीं होता: उसी अवधि में पिछले सालों में कभी फ़ायदा हुआ, कभी नुकसान।",
+         "lang": "hi",
+         "priority": false,
+         "data": {}
+        },
+        {
+         "kind": "caveat",
+         "text": "ऊपर के भंडारण आँकड़े सितंबर से शुरू होते हैं। सोयाबीन की कटाई की तारीख़ हमारे पास नहीं है, इसलिए हम नहीं बता सकते कि उस महीने से रखना आपके लिए संभव है या नहीं। अक्टूबर से वही रिकॉर्ड बहुत अलग दिखता है (3 महीने रखने पर बीच का बदलाव +12.8%)।",
+         "lang": "hi",
+         "priority": false,
+         "data": {}
+        },
+        {
+         "kind": "caveat",
+         "text": "सितंबर से सोयाबीन को 1 महीने रखने पर नतीजा बेहतर नहीं, बदतर रहा। कम समय तक रखना अच्छा दिखे, तो भी इससे ज़्यादा समय तक रखना सुरक्षित नहीं हो जाता।",
+         "lang": "hi",
+         "priority": false,
+         "data": {}
+        },
+        {
+         "kind": "caveat",
+         "text": "सोयाबीन के भंडारण-इतिहास के आँकड़े केवल मंडी भाव में बदलाव हैं। भंडारण शुल्क, वज़न का नुकसान, गुणवत्ता का नुकसान और पैसे के लिए इंतज़ार की कीमत इनमें से नहीं घटाए गए — आपकी असली कमाई इससे कम होगी, और थोड़ा फ़ायदा भी असल में नुकसान हो सकता है।",
+         "lang": "hi",
+         "priority": false,
+         "data": {}
+        },
+        {
+         "kind": "caveat",
+         "text": "भाव MSP से कम: मौजूदा भाव (5200/क्विंटल, जो Tarana APMC का भाव है, इंदौर का नहीं) MSP (5328/क्विंटल, विपणन वर्ष 2025-26) से कम है। किसान बेहतर भाव के लिए रुकने/रोककर रखने के बारे में सोच सकता है — लेकिन ऊपर भंडारण के हिसाब वाली चेतावनी देखें; यह केवल संदर्भ है, रोककर रखने की सिफ़ारिश नहीं।",
+         "lang": "hi",
+         "priority": false,
+         "data": {}
+        }
+       ]
+      }
+     ],
+     "showcase_eligible": false,
+     "showcase_block_reason": "low_confidence",
+     "decision_id": "dec_8e3e9d9bd6e2b1d891ff5738148b404c",
+     "translation": {
+      "lang": "hi",
+      "templated": true,
+      "fell_back_to_english": [],
+      "machine_translated_sections": [],
+      "english_only_sections": [
+       "sources",
+       "details",
+       "caveats"
+      ],
+      "pending_native_review": true
+     },
+     "illustrative_scenario": {
+      "code": "SELL_NOW",
+      "abstained": false,
+      "text": "अभी बेचें",
+      "note": "केवल उदाहरण के तौर पर — खराबी और भंडारण की अवधि मान ली गई हैं (खुले आँकड़े इन्हें प्रकाशित नहीं करते); मौजूदा भाव, न्यूनतम समर्थन मूल्य (MSP), मौसम में भाव फिर बढ़ने के आँकड़े और CWC का भंडारण खर्च असली हैं। यह इस उत्तर की सिफ़ारिश नहीं है और किसान के लिए तैयार सलाह नहीं है। असली फ़ैसले के लिए अपने गोदाम की असली खराबी और अवधि के साथ गोदाम सलाहकार इस्तेमाल करें।",
+      "note_lang": "hi"
+     }
+    }
+   ]
+  }
+ },
+ "na_reasons": {
+  "en": {},
+  "mr": {},
+  "hi": {}
+ }
+}

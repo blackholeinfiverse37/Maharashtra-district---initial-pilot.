@@ -21,6 +21,7 @@ const DEV_NOTE = "Engine runs on UNCALIBRATED illustrative defaults — NOT farm
 const view = {
   market: [
     {
+      recommendation: "SELL_AT_MANDI",
       recommendation_detail: ENGINE_LABEL,
       uncalibrated_warning: DEV_NOTE,
       average_case: { value: 1000 },
@@ -51,14 +52,17 @@ afterEach(() => {
 test("where to sell: Marathi shows AIAIC's Marathi text, never the English label; English is unchanged", () => {
   render(inLanguage("mr", <AtAGlancePanel data={view} />));
   expect(screen.getByText(MARATHI_ACTION)).toBeTruthy();
+  // The price card names the chosen mandi under the dashboard's Marathi label (Hemanth's version)
   render(inLanguage("mr", <DataDisplayPanel data={view} crop="पीक" districtName="जिल्हा" card="price" />));
-  expect(screen.getAllByText(MARATHI_ACTION).length).toBe(2);
+  expect(screen.getByText(mr["price.payingMost"].replace("{mandi}", "APMC Test"))).toBeTruthy();
   expect(document.body.textContent).not.toContain("Sell at");
   cleanup();
 
-  render(inLanguage("en", <AtAGlancePanel data={view} />));
+  // English: AIAIC's English summary says the same as the engine's label
+  const viewEn = { ...view, market: [{ ...view.market[0], summary: { action: { code: "SELL_AT_MANDI", text: ENGINE_LABEL } } }] };
+  render(inLanguage("en", <AtAGlancePanel data={viewEn} />));
   expect(screen.getByText(ENGINE_LABEL)).toBeTruthy();
-  render(inLanguage("en", <DataDisplayPanel data={view} crop="Crop" districtName="District" card="price" />));
+  render(inLanguage("en", <DataDisplayPanel data={viewEn} crop="Crop" districtName="District" card="price" />));
   expect(screen.getByText("Market paying the most: APMC Test")).toBeTruthy();
   expect(document.body.textContent).not.toContain(MARATHI_ACTION);
 });
@@ -102,11 +106,15 @@ test("warning box: Marathi shows only the translated lead; English keeps the ful
 });
 
 test("storage headline: Marathi shows AIAIC's Marathi answer, never the English label; English is unchanged", () => {
-  const storage = (extra = {}) => ({
+  const ACTION = {
+    mr: "आता विका, साठवण करता येत नसेल तर (हे आम्ही विचारले नाही)",
+    en: "Sell now, unless you can store (we did not ask)",
+  };
+  const storage = (extra = {}, lang = "mr") => ({
     storage: [
       {
         recommendation_detail: "Sell now (no storage available)",
-        summary: { action: { code: "SELL_NOW", text: "आता विका, साठवण करता येत नसेल तर (हे आम्ही विचारले नाही)" } },
+        summary: { action: { code: "SELL_NOW", text: ACTION[lang] } },
         average_case: { value: 1000 },
         ...extra,
       },
@@ -119,17 +127,17 @@ test("storage headline: Marathi shows AIAIC's Marathi answer, never the English 
   expect(document.body.textContent).not.toMatch(/sell now/i);
   cleanup();
 
-  // Marathi with a sample calculation of the same answer: the same Marathi text; of a different answer: no headline
-  render(inLanguage("mr", <SimulationPanel data={storage({ supporting_evidence: { illustrative_storage_scenario: { recommendation: "SELL_NOW" } } })} />));
-  expect(screen.getByText("आता विका, साठवण करता येत नसेल तर")).toBeTruthy();
-  cleanup();
-  const other = render(inLanguage("mr", <SimulationPanel data={storage({ supporting_evidence: { illustrative_storage_scenario: { recommendation: "STORE" } } })} />));
-  expect(other.container.querySelector(".card-sentence")).toBeNull(); // no headline line at all
-  expect(document.body.textContent).not.toMatch(/store|sell now/i);
-  cleanup();
+  // Marathi with a sample calculation: the sample's own words come from AIAIC's summary (`illustrative_scenario`);
+  // whatever it shows, never the engine's English label
+  for (const recommendation of ["SELL_NOW", "STORE"]) {
+    render(inLanguage("mr", <SimulationPanel data={storage({ supporting_evidence: { illustrative_storage_scenario: { recommendation } } })} />));
+    expect(document.querySelector(".card-sentence")?.textContent || "").not.toMatch(/sell now|store/i);
+    cleanup();
+  }
 
-  // English: exactly as before
-  render(inLanguage("en", <SimulationPanel data={storage()} districtName="District" />));
-  expect(screen.getByText("sell now (no storage available)")).toBeTruthy();
+  // English: the summary's English action, without the "we did not ask" bracket (Hemanth's version reads the summary
+  // in English too; before, this line showed the engine's label "sell now (no storage available)")
+  render(inLanguage("en", <SimulationPanel data={storage({}, "en")} districtName="District" />));
+  expect(screen.getByText("sell now, unless you can store")).toBeTruthy();
   expect(document.body.textContent).not.toContain("आता विका");
 });

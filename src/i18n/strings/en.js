@@ -7,6 +7,7 @@ const en = {
   "app.englishNote": "Some text is shown in English.",
   "app.reviewNote": "Translation is being reviewed.",
   "app.listError": "Could not load the district or crop list: {error}",
+  "app.listErrorPlain": "Could not load the district or crop list.",
   "app.uncalibratedLead": "Not yet approved by agronomists. Use it as a guide only.",
   "app.idle": "Choose a district and a crop above to see advice for your area",
   "app.loadError": "Could not load the information. Please try another district or crop.",
@@ -39,6 +40,13 @@ const en = {
   "common.unknown": "Unknown",
   "common.perQuintal": "per quintal",
   "common.pricePerQuintal": "₹{price} per quintal",
+  // A Marathi or Hindi page: the lines AIAIC has only in English, counted, behind a tap (src/components/EnglishOnly.jsx)
+  "common.englishOnly": "More, in English only ({n})",
+
+  // A source's short name on a Marathi or Hindi page, by its id (the English page shows the publisher's own title)
+  "source.agmarknet_daily_prices": "Agmarknet (government mandi prices)",
+  "source.cgwb_groundwater": "CGWB (Central Ground Water Board)",
+  "source.cgwb_groundwater_mp": "CGWB (Central Ground Water Board)",
 
   // How old a source is
   "fresh.fresh": "Up to date",
@@ -147,6 +155,8 @@ const en = {
   "bg.title": "Background information (older data)",
   "bg.enam": "Mandis on e-NAM in {district}",
   "bg.soil": "Soil moisture in {district}",
+  "bg.enamSource": "e-NAM directory (SFAC)",
+  "bg.soilSource": "NWIC (National Water Informatics Centre)",
 
   // Pie chart
   "pie.title": "How is farmland used in {district}?",

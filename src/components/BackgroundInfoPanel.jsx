@@ -3,6 +3,7 @@
 
 import { useLanguage, useT } from "../i18n/LanguageContext";
 import { formatDate } from "../i18n/format";
+import { isEnglish } from "../i18n/backendText";
 
 function Part({ title, children, dateLine, source }) {
   return (
@@ -10,22 +11,29 @@ function Part({ title, children, dateLine, source }) {
       <h4 className="card-subtitle">{title}</h4>
       {children}
       {dateLine && <p className="card-small">{dateLine}</p>}
-      {source && <p className="card-small">{source}</p>}
+      {source?.text && (
+        <p className="card-small" title={source.title || undefined}>
+          {source.text}
+        </p>
+      )}
     </div>
   );
 }
 
 // `districtName` is the district as the dropdown shows it (in the chosen language).
 export default function BackgroundInfoPanel({ enam, soil, districtName }) {
-  const { locale } = useLanguage();
+  const { lang, locale } = useLanguage();
   const t = useT();
   // "2021-03-31" -> "31 Mar 2021", in the chosen language (a plain day is read as that local day)
   const formatDay = (value) => formatDate(value, locale);
 
-  // Each source's name (or, when the response lists several files, their shared publisher), once each
-  const sourceLine = (sources, field) => {
+  // Each source's name (or, when the response lists several files, their shared publisher), once each. In Marathi and
+  // Hindi the part's own short name for its source (`shortKey`), with the publisher's words kept as the tooltip.
+  const sourceLine = (sources, field, shortKey) => {
     const names = [...new Set((Array.isArray(sources) ? sources : []).map((s) => s?.[field]).filter(Boolean))];
-    return names.length ? t("common.whereFrom", { source: names.join("; ") }) : null;
+    if (!names.length) return null;
+    if (isEnglish(lang)) return { text: t("common.whereFrom", { source: names.join("; ") }), title: null };
+    return { text: t("common.whereFrom", { source: t(shortKey) }), title: names.join("; ") };
   };
 
   // Part 1: e-NAM mandis
@@ -49,7 +57,7 @@ export default function BackgroundInfoPanel({ enam, soil, districtName }) {
         <Part
           title={t("bg.enam", { district: districtName || enam.district || t("common.thisDistrict") })}
           dateLine={enamDay ? t("common.dataFrom", { date: enamDay }) : null}
-          source={sourceLine(enam.sources, "name")}
+          source={sourceLine(enam.sources, "name", "bg.enamSource")}
         >
           <p className="card-text">{mandis.join(", ")}</p>
         </Part>
@@ -65,7 +73,7 @@ export default function BackgroundInfoPanel({ enam, soil, districtName }) {
                 ? t("common.dataFrom", { date: soilLast })
                 : null
           }
-          source={sourceLine(soil.sources, "publisher")}
+          source={sourceLine(soil.sources, "publisher", "bg.soilSource")}
         >
           <p className="card-text">{soilSentence}</p>
         </Part>

@@ -13,8 +13,8 @@ import SystemStateBar from "./components/SystemStateBar";
 import CropAreaPieChart from "./components/CropAreaPieChart";
 import LanguageSelector from "./components/LanguageSelector";
 import { useLanguage, useT } from "./i18n/LanguageContext";
+import { isEnglish } from "./i18n/backendText";
 import { DEFAULT_STATE, STATES, statesFromServed } from "./config/states";
-import { DEFAULT_LANGUAGE } from "./i18n/languages";
 import {
   fetchCrops,
   fetchDistrictView,
@@ -29,8 +29,12 @@ import {
 
 export default function App() {
   // The language the backend answers in (the chosen one when it supports it, otherwise English)
-  const { apiLang, showsEnglishNote, lang } = useLanguage();
+  const { lang, apiLang, showsEnglishNote } = useLanguage();
   const t = useT();
+  // The browser tab's title in the chosen language too (index.html holds the English one)
+  useEffect(() => {
+    document.title = t("app.title");
+  }, [t]);
   const [states, setStates] = useState(STATES); // the states offered: src/config/states.js, narrowed by /catalog
   const [estate, setEstate] = useState(DEFAULT_STATE); // the state code sent to the backend
   const [districts, setDistricts] = useState([]);
@@ -225,19 +229,18 @@ export default function App() {
         <LanguageSelector />
       </div>
 
-      {/* List error: said, never replaced by a hardcoded list */}
+      {/* List error: said, never replaced by a hardcoded list. The technical detail (English) in English only. */}
       {listError && (
         <div className="page-column mb-4">
-          <Warning text={t("app.listError", { error: listError })} />
+          <Warning text={isEnglish(lang) ? t("app.listError", { error: listError }) : t("app.listErrorPlain")} />
         </div>
       )}
 
-      {/* Backend's own "not farmer-ready" warning */}
+      {/* Backend's own "not farmer-ready" warning. Its note is AIAIC's note to developers, always in English: in
+          Marathi and Hindi only the lead, which says the same in the chosen language. */}
       {status === "success" && uncalibrated && (
         <div className="page-column mb-4">
-          {/* AIAIC's uncalibrated_warning is its note to developers and always English: in English the lead and the full
-              note, in any other language only the lead, which is already in that language */}
-          <Warning text={lang === DEFAULT_LANGUAGE ? `${t("app.uncalibratedLead")} ${uncalibrated}` : t("app.uncalibratedLead")} />
+          <Warning text={isEnglish(lang) ? `${t("app.uncalibratedLead")} ${uncalibrated}` : t("app.uncalibratedLead")} />
         </div>
       )}
 
@@ -280,7 +283,14 @@ export default function App() {
           <TopMandisPanel data={data} districtNames={districtNamesShown} />
           <SimulationPanel data={data} districtName={districtName} />
           <DataDisplayPanel data={data} crop={cropName} cropEn={cropNameEn} districtName={districtName} card="water" />
-          <DataDisplayPanel data={data} crop={cropName} cropEn={cropNameEn} districtName={districtName} card="harvest" />
+          <DataDisplayPanel
+            data={data}
+            crop={cropName}
+            cropEn={cropNameEn}
+            cropKey={crop}
+            districtName={districtName}
+            card="harvest"
+          />
           <WeatherNotePanel data={data} forecast={forecast} />
           <WeatherMapPanel
             outlook={outlook}
@@ -289,7 +299,7 @@ export default function App() {
             onSelectDistrict={chooseDistrictOnMap}
           />
           <BackgroundInfoPanel enam={background.enam} soil={background.soil} districtName={districtName} />
-          <CropAreaPieChart data={data} crop={cropName} cropEn={cropNameEn} districtName={districtName} />
+          <CropAreaPieChart data={data} crop={cropName} cropEn={cropNameEn} cropKey={crop} districtName={districtName} />
         </div>
       )}
 

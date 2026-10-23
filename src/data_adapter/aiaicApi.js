@@ -52,15 +52,19 @@ export async function fetchCrops(state, district, lang = 'en') {
 // service's answer with its `summary` attached: the same shape the panels already read. Plus `na_reasons`: the
 // server's own reason, per service, when it returns no answer (e.g. { weather: { code, text } }).
 export async function fetchDistrictView({ state, district, crop, lang = 'en' }) {
-  const payload = await getJson('/view/unified', { crop, region: district, state, lang })
+  return toDistrictView(await getJson('/view/unified', { crop, region: district, state, lang }))
+}
+
+// The same shape from a /view/unified answer already in hand (the tests read recorded answers through it).
+export function toDistrictView(payload) {
   return {
     ...Object.fromEntries(
-      Object.entries(payload.services || {}).map(([service, items]) => [
+      Object.entries(payload?.services || {}).map(([service, items]) => [
         service,
         (items || []).map((i) => ({ ...(i.intelligence || {}), summary: i.summary || null })),
       ]),
     ),
-    na_reasons: payload.na_reasons || {},
+    na_reasons: payload?.na_reasons || {},
   }
 }
 

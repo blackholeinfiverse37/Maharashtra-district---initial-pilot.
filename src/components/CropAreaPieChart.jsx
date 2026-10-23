@@ -2,6 +2,7 @@
 import { freshnessKey } from "./freshness";
 import { useLanguage, useT } from "../i18n/LanguageContext";
 import { formatNumber } from "../i18n/format";
+import { desCrops } from "../i18n/backendText";
 import { PieChart, Pie, Cell, Tooltip, Legend, ResponsiveContainer } from "recharts";
 
 // Twelve distinguishable colours: a district's crop list is usually longer than six, and a repeated colour makes
@@ -9,10 +10,11 @@ import { PieChart, Pie, Cell, Tooltip, Legend, ResponsiveContainer } from "recha
 const COLORS = ["#4e79a7", "#f28e2b", "#e15759", "#76b7b2", "#59a14f", "#edc948",
                 "#b07aa1", "#ff9da7", "#9c755f", "#bab0ac", "#1f3a93", "#8cd17d"];
 
-// `crop` and `districtName` are the names to SHOW; `cropEn` is the crop's English name, used to look for it in the
-// English-only chart data.
-export default function CropAreaPieChart({ data, crop, cropEn, districtName }) {
-  const { locale } = useLanguage();
+// `crop` and `districtName` are the names to SHOW; `cropKey` (the crop's key) and `cropEn` (its English name) are used
+// to look for it in the English-only chart data. Each crop is drawn under its name in the chosen language, from the
+// crop answer's summary (src/i18n/backendText.js); DES's own name when the summary gives none.
+export default function CropAreaPieChart({ data, crop, cropEn, cropKey, districtName }) {
+  const { lang, apiLang, locale } = useLanguage();
   const t = useT();
   const num = (v) => formatNumber(v, locale);
   const cropService = data?.crop?.[0];
@@ -30,8 +32,10 @@ export default function CropAreaPieChart({ data, crop, cropEn, districtName }) {
     }
   });
 
-  const chartData = Object.entries(byCrop).map(([crop, area]) => ({
-    name: crop,
+  const des = desCrops(cropService, { lang, apiLang, cropKey, cropEn, crop });
+  const chartData = Object.entries(byCrop).map(([desName, area]) => ({
+    name: des.name(desName),
+    desName,
     value: Math.round(area * 100) / 100,
   }));
 
@@ -39,9 +43,7 @@ export default function CropAreaPieChart({ data, crop, cropEn, districtName }) {
 
   // Say so when the selected crop is missing from this government data (e.g. Nashik has no Onion row), so the chart
   // is not read as covering it. No crop passed in: no note.
-  const lookFor = cropEn || crop;
-  const cropMissing =
-    lookFor && !chartData.some((d) => d.name.toLowerCase() === lookFor.toLowerCase());
+  const cropMissing = (cropKey || cropEn || crop) && !chartData.some((d) => des.isChosen({ crop: d.desName }));
 
   const freshness = freshnessKey(source);
 

@@ -7,6 +7,7 @@ const hi = {
   "app.englishNote": "कुछ बातें अंग्रेज़ी में दिखाई गई हैं।",
   "app.reviewNote": "अनुवाद की जाँच चल रही है।",
   "app.listError": "ज़िले या फसल की सूची नहीं खुल पाई: {error}",
+  "app.listErrorPlain": "ज़िले या फसल की सूची नहीं खुल पाई।",
   "app.uncalibratedLead": "कृषि विशेषज्ञों ने अभी इसे मंज़ूरी नहीं दी है। इसे सिर्फ़ मार्गदर्शन के लिए देखें।",
   "app.idle": "अपने इलाके की सलाह देखने के लिए ऊपर ज़िला और फसल चुनें",
   "app.loadError": "जानकारी नहीं खुल पाई। कृपया दूसरा ज़िला या फसल चुनकर देखें।",
@@ -39,6 +40,12 @@ const hi = {
   "common.unknown": "पता नहीं",
   "common.perQuintal": "प्रति क्विंटल",
   "common.pricePerQuintal": "₹{price} प्रति क्विंटल",
+  "common.englishOnly": "और जानकारी, केवल अंग्रेज़ी में ({n})",
+
+  // A source's short name (by its id)
+  "source.agmarknet_daily_prices": "Agmarknet (सरकारी मंडी भाव)",
+  "source.cgwb_groundwater": "CGWB (केंद्रीय भूजल बोर्ड)",
+  "source.cgwb_groundwater_mp": "CGWB (केंद्रीय भूजल बोर्ड)",
 
   // How old a source is
   "fresh.fresh": "ताज़ा",
@@ -147,6 +154,8 @@ const hi = {
   "bg.title": "और जानकारी (पुराने आँकड़े)",
   "bg.enam": "{district} ज़िले की e-NAM वाली मंडियाँ",
   "bg.soil": "{district} ज़िले में मिट्टी की नमी",
+  "bg.enamSource": "e-NAM निर्देशिका (SFAC)",
+  "bg.soilSource": "NWIC (राष्ट्रीय जल सूचना विज्ञान केंद्र)",
 
   // Pie chart
   "pie.title": "{district} ज़िले में खेती की ज़मीन किन फसलों में है?",

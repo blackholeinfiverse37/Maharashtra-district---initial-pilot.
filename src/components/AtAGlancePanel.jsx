@@ -5,10 +5,10 @@ import { useLanguage, useT } from "../i18n/LanguageContext";
 import { formatDate as fmtDate, formatNumber as fmtNumber } from "../i18n/format";
 import { removeWeDidNotAsk } from "../config/backendTextCleanup";
 import { talukasWorseThanDistrict } from "../config/waterCategories";
-import { DEFAULT_LANGUAGE } from "../i18n/languages";
+import { actionText } from "../i18n/backendText";
 
 export default function AtAGlancePanel({ data }) {
-  const { locale, lang } = useLanguage();
+  const { lang, locale } = useLanguage();
   const t = useT();
   // "2026-10-21T00:00:00" -> "21 Oct 2026", in the chosen language
   const formatDate = (value) => fmtDate(value, locale);
@@ -35,9 +35,9 @@ export default function AtAGlancePanel({ data }) {
     {
       id: "sell",
       label: t("glance.whereToSell"),
-      // In English the engine's label, as before; in any other language AIAIC's own text in that language
-      // (summary.action.text, like the storage and water rows), never the English label
-      text: lang === DEFAULT_LANGUAGE ? market?.recommendation_detail || market?.summary?.action?.text : market?.summary?.action?.text,
+      // the summary's action, in the chosen language ("Sell at APMC Lasalgaon" / "APMC Lasalgaon येथे विका"), as the
+      // storage and water rows below; the engine's English label never on a Marathi or Hindi page
+      text: actionText(market, lang),
       price: price ? t("common.pricePerQuintal", { price }) : null,
       date: dateLine(market?.sources_used?.[0]),
     },

@@ -7,6 +7,7 @@ const mr = {
   "app.englishNote": "काही मजकूर इंग्रजीत दाखवला आहे.",
   "app.reviewNote": "भाषांतराची तपासणी सुरू आहे.",
   "app.listError": "जिल्हा किंवा पिकांची यादी उघडता आली नाही: {error}",
+  "app.listErrorPlain": "जिल्हा किंवा पिकांची यादी उघडता आली नाही.",
   "app.uncalibratedLead": "कृषी तज्ज्ञांनी अजून याला मान्यता दिलेली नाही. फक्त मार्गदर्शन म्हणून वापरा.",
   "app.idle": "तुमच्या भागाचा सल्ला पाहण्यासाठी वर जिल्हा आणि पीक निवडा",
   "app.loadError": "माहिती उघडता आली नाही. कृपया दुसरा जिल्हा किंवा पीक निवडून पाहा.",
@@ -39,6 +40,12 @@ const mr = {
   "common.unknown": "माहीत नाही",
   "common.perQuintal": "प्रति क्विंटल",
   "common.pricePerQuintal": "₹{price} प्रति क्विंटल",
+  "common.englishOnly": "आणखी माहिती, फक्त इंग्रजीत ({n})",
+
+  // A source's short name (by its id)
+  "source.agmarknet_daily_prices": "Agmarknet (सरकारी बाजारभाव)",
+  "source.cgwb_groundwater": "CGWB (केंद्रीय भूजल मंडळ)",
+  "source.cgwb_groundwater_mp": "CGWB (केंद्रीय भूजल मंडळ)",
 
   // How old a source is
   "fresh.fresh": "ताजी",
@@ -147,6 +154,8 @@ const mr = {
   "bg.title": "अधिक माहिती (जुनी आकडेवारी)",
   "bg.enam": "{district} जिल्ह्यातील e-NAM वरील बाजार समित्या",
   "bg.soil": "{district} जिल्ह्यातील जमिनीतील ओलावा",
+  "bg.enamSource": "e-NAM निर्देशिका (SFAC)",
+  "bg.soilSource": "NWIC (राष्ट्रीय जल माहिती विज्ञान केंद्र)",
 
   // Pie chart
   "pie.title": "{district} जिल्ह्यात शेतजमीन कोणत्या पिकांखाली आहे?",

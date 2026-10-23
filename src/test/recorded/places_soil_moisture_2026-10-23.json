@@ -1,0 +1,1507 @@
+{
+ "_recorded": {
+  "nashik_en": "AIAIC's own answer to GET /places/soil-moisture {\"district\": \"Nashik\", \"state\": \"mh\", \"lang\": \"en\"}, recorded 2026-10-21T04:19:44+00:00 from AIAIC's local stack; in AIAIC's repository: aiaic-frontend/src/test/recorded_platform/places_soil_moisture_nashik_mh_en.json. Never edited by hand.",
+  "nashik_mr": "AIAIC's own answer to GET /places/soil-moisture {\"district\": \"Nashik\", \"state\": \"mh\", \"lang\": \"mr\"}, recorded 2026-10-23T00:08:41+00:00 from AIAIC's local stack; in AIAIC's repository: aiaic-frontend/src/test/recorded_platform/places_soil_moisture_nashik_mh_mr.json. Never edited by hand.",
+  "indore_hi": "AIAIC's own answer to GET /places/soil-moisture {\"district\": \"Indore\", \"state\": \"mp\", \"lang\": \"hi\"}, recorded 2026-10-23T00:08:42+00:00 from AIAIC's local stack; in AIAIC's repository: aiaic-frontend/src/test/recorded_platform/places_soil_moisture_indore_mp_hi.json. Never edited by hand."
+ },
+ "nashik_en": {
+  "state": "maharashtra",
+  "district": "Nashik",
+  "district_key": "nashik",
+  "lang": "en",
+  "years": [
+   2020
+  ],
+  "title": "Soil moisture at 15 cm in 2020",
+  "caveat": "2020 only: one past year, not what is usual, and not this season. The record ends on 2020-09-23.",
+  "sources": [
+   {
+    "name": "Daily Data of Soil Moisture: sm_Maharashtra_2020.csv",
+    "publisher": "National Water Informatics Centre (Ministry of Jal Shakti), per the data.gov.in catalogue",
+    "url": "https://www.data.gov.in/resource/soil-moisture-maharashtra-2020",
+    "catalogue": "https://www.data.gov.in/catalog/daily-data-soil-moisture",
+    "obtained_through": "AIKosh (https://aikosh.indiaai.gov.in), downloaded by the owner on 20 Oct 2026",
+    "license": "GODL (Government Open Data License - India), as the AIKosh page states",
+    "observed": "2020-01-01 to 2020-09-23",
+    "sha256": "25884b2efcf3720c572ff3f4b362e02690fac93cb01434ff490a07d8588b2b7d"
+   },
+   {
+    "name": "Daily Data of Soil Moisture: sm_MadhyaPradesh_2020.csv",
+    "publisher": "National Water Informatics Centre (Ministry of Jal Shakti), per the data.gov.in catalogue",
+    "url": "https://www.data.gov.in/resource/soil-moisture-madhya-pradesh-2020",
+    "catalogue": "https://www.data.gov.in/catalog/daily-data-soil-moisture",
+    "obtained_through": "AIKosh (https://aikosh.indiaai.gov.in), downloaded by the owner on 20 Oct 2026",
+    "license": "GODL (Government Open Data License - India), as the AIKosh page states",
+    "observed": "2020-01-01 to 2020-09-23",
+    "sha256": "54fb622532b685173ab9f8c346aaabd453795112f738a6757e3b780e05a08f06"
+   }
+  ],
+  "pending_native_review": false,
+  "held": true,
+  "covered": true,
+  "headline": "In 2020 the soil at 15 cm in Nashik was between 8.3% and 43.7% (volume, as published) from 2020-01-01 to 2020-09-23.",
+  "this_week": {
+   "iso_week": 43,
+   "held": false,
+   "days_held": 0,
+   "text": "The 2020 record holds no days for this week (week 43): it ends on 2020-09-23."
+  },
+  "season": {
+   "year": 2020,
+   "days_held": 248,
+   "first_day": "2020-01-01",
+   "last_day": "2020-09-23",
+   "days_missing": 19,
+   "volume_pct_min": 8.32,
+   "volume_pct_p25": 9.24,
+   "volume_pct_median": 10.46,
+   "volume_pct_p75": 35.82,
+   "volume_pct_max": 43.66
+  },
+  "weeks": [
+   {
+    "year": 2020,
+    "iso_week": 1,
+    "week_monday": "2019-12-30",
+    "week_sunday": "2020-01-05",
+    "days_held": 5,
+    "volume_pct_mean": 9.22,
+    "volume_pct_min": 8.73,
+    "volume_pct_max": 9.75
+   },
+   {
+    "year": 2020,
+    "iso_week": 2,
+    "week_monday": "2020-01-06",
+    "week_sunday": "2020-01-12",
+    "days_held": 7,
+    "volume_pct_mean": 10.34,
+    "volume_pct_min": 8.44,
+    "volume_pct_max": 10.97
+   },
+   {
+    "year": 2020,
+    "iso_week": 3,
+    "week_monday": "2020-01-13",
+    "week_sunday": "2020-01-19",
+    "days_held": 7,
+    "volume_pct_mean": 10.02,
+    "volume_pct_min": 9.71,
+    "volume_pct_max": 10.36
+   },
+   {
+    "year": 2020,
+    "iso_week": 4,
+    "week_monday": "2020-01-20",
+    "week_sunday": "2020-01-26",
+    "days_held": 7,
+    "volume_pct_mean": 9.44,
+    "volume_pct_min": 9.26,
+    "volume_pct_max": 9.64
+   },
+   {
+    "year": 2020,
+    "iso_week": 5,
+    "week_monday": "2020-01-27",
+    "week_sunday": "2020-02-02",
+    "days_held": 7,
+    "volume_pct_mean": 9.06,
+    "volume_pct_min": 8.93,
+    "volume_pct_max": 9.2
+   },
+   {
+    "year": 2020,
+    "iso_week": 6,
+    "week_monday": "2020-02-03",
+    "week_sunday": "2020-02-09",
+    "days_held": 7,
+    "volume_pct_mean": 8.79,
+    "volume_pct_min": 8.69,
+    "volume_pct_max": 8.89
+   },
+   {
+    "year": 2020,
+    "iso_week": 7,
+    "week_monday": "2020-02-10",
+    "week_sunday": "2020-02-16",
+    "days_held": 7,
+    "volume_pct_mean": 8.6,
+    "volume_pct_min": 8.53,
+    "volume_pct_max": 8.67
+   },
+   {
+    "year": 2020,
+    "iso_week": 8,
+    "week_monday": "2020-02-17",
+    "week_sunday": "2020-02-23",
+    "days_held": 7,
+    "volume_pct_mean": 8.47,
+    "volume_pct_min": 8.43,
+    "volume_pct_max": 8.52
+   },
+   {
+    "year": 2020,
+    "iso_week": 9,
+    "week_monday": "2020-02-24",
+    "week_sunday": "2020-03-01",
+    "days_held": 7,
+    "volume_pct_mean": 8.4,
+    "volume_pct_min": 8.38,
+    "volume_pct_max": 8.42
+   },
+   {
+    "year": 2020,
+    "iso_week": 10,
+    "week_monday": "2020-03-02",
+    "week_sunday": "2020-03-08",
+    "days_held": 7,
+    "volume_pct_mean": 8.36,
+    "volume_pct_min": 8.35,
+    "volume_pct_max": 8.39
+   },
+   {
+    "year": 2020,
+    "iso_week": 11,
+    "week_monday": "2020-03-09",
+    "week_sunday": "2020-03-15",
+    "days_held": 7,
+    "volume_pct_mean": 8.34,
+    "volume_pct_min": 8.33,
+    "volume_pct_max": 8.34
+   },
+   {
+    "year": 2020,
+    "iso_week": 12,
+    "week_monday": "2020-03-16",
+    "week_sunday": "2020-03-22",
+    "days_held": 7,
+    "volume_pct_mean": 8.32,
+    "volume_pct_min": 8.32,
+    "volume_pct_max": 8.33
+   },
+   {
+    "year": 2020,
+    "iso_week": 13,
+    "week_monday": "2020-03-23",
+    "week_sunday": "2020-03-29",
+    "days_held": 7,
+    "volume_pct_mean": 10.04,
+    "volume_pct_min": 8.32,
+    "volume_pct_max": 10.77
+   },
+   {
+    "year": 2020,
+    "iso_week": 14,
+    "week_monday": "2020-03-30",
+    "week_sunday": "2020-04-05",
+    "days_held": 7,
+    "volume_pct_mean": 10.16,
+    "volume_pct_min": 9.99,
+    "volume_pct_max": 10.37
+   },
+   {
+    "year": 2020,
+    "iso_week": 15,
+    "week_monday": "2020-04-06",
+    "week_sunday": "2020-04-12",
+    "days_held": 7,
+    "volume_pct_mean": 9.86,
+    "volume_pct_min": 9.79,
+    "volume_pct_max": 9.95
+   },
+   {
+    "year": 2020,
+    "iso_week": 16,
+    "week_monday": "2020-04-13",
+    "week_sunday": "2020-04-19",
+    "days_held": 7,
+    "volume_pct_mean": 9.78,
+    "volume_pct_min": 9.74,
+    "volume_pct_max": 9.87
+   },
+   {
+    "year": 2020,
+    "iso_week": 17,
+    "week_monday": "2020-04-20",
+    "week_sunday": "2020-04-26",
+    "days_held": 7,
+    "volume_pct_mean": 9.78,
+    "volume_pct_min": 9.75,
+    "volume_pct_max": 9.82
+   },
+   {
+    "year": 2020,
+    "iso_week": 18,
+    "week_monday": "2020-04-27",
+    "week_sunday": "2020-05-03",
+    "days_held": 7,
+    "volume_pct_mean": 9.91,
+    "volume_pct_min": 9.73,
+    "volume_pct_max": 10.08
+   },
+   {
+    "year": 2020,
+    "iso_week": 19,
+    "week_monday": "2020-05-04",
+    "week_sunday": "2020-05-10",
+    "days_held": 7,
+    "volume_pct_mean": 9.98,
+    "volume_pct_min": 9.95,
+    "volume_pct_max": 10.05
+   },
+   {
+    "year": 2020,
+    "iso_week": 20,
+    "week_monday": "2020-05-11",
+    "week_sunday": "2020-05-17",
+    "days_held": 7,
+    "volume_pct_mean": 15.27,
+    "volume_pct_min": 10.18,
+    "volume_pct_max": 19.88
+   },
+   {
+    "year": 2020,
+    "iso_week": 21,
+    "week_monday": "2020-05-18",
+    "week_sunday": "2020-05-24",
+    "days_held": 5,
+    "volume_pct_mean": 16.59,
+    "volume_pct_min": 15.86,
+    "volume_pct_max": 17.39
+   },
+   {
+    "year": 2020,
+    "iso_week": 22,
+    "week_monday": "2020-05-25",
+    "week_sunday": "2020-05-31",
+    "days_held": 7,
+    "volume_pct_mean": 14.95,
+    "volume_pct_min": 14.42,
+    "volume_pct_max": 15.55
+   },
+   {
+    "year": 2020,
+    "iso_week": 23,
+    "week_monday": "2020-06-01",
+    "week_sunday": "2020-06-07",
+    "days_held": 7,
+    "volume_pct_mean": 24.86,
+    "volume_pct_min": 20.68,
+    "volume_pct_max": 39.81
+   },
+   {
+    "year": 2020,
+    "iso_week": 24,
+    "week_monday": "2020-06-08",
+    "week_sunday": "2020-06-14",
+    "days_held": 7,
+    "volume_pct_mean": 28.69,
+    "volume_pct_min": 21.91,
+    "volume_pct_max": 35.79
+   },
+   {
+    "year": 2020,
+    "iso_week": 25,
+    "week_monday": "2020-06-15",
+    "week_sunday": "2020-06-21",
+    "days_held": 7,
+    "volume_pct_mean": 33.74,
+    "volume_pct_min": 30.45,
+    "volume_pct_max": 36.7
+   },
+   {
+    "year": 2020,
+    "iso_week": 26,
+    "week_monday": "2020-06-22",
+    "week_sunday": "2020-06-28",
+    "days_held": 7,
+    "volume_pct_mean": 33.47,
+    "volume_pct_min": 28.4,
+    "volume_pct_max": 38.31
+   },
+   {
+    "year": 2020,
+    "iso_week": 27,
+    "week_monday": "2020-06-29",
+    "week_sunday": "2020-07-05",
+    "days_held": 2,
+    "volume_pct_mean": 36.6,
+    "volume_pct_min": 34.44,
+    "volume_pct_max": 38.76
+   },
+   {
+    "year": 2020,
+    "iso_week": 28,
+    "week_monday": "2020-07-06",
+    "week_sunday": "2020-07-12",
+    "days_held": 1,
+    "volume_pct_mean": 33.73,
+    "volume_pct_min": 33.73,
+    "volume_pct_max": 33.73
+   },
+   {
+    "year": 2020,
+    "iso_week": 29,
+    "week_monday": "2020-07-13",
+    "week_sunday": "2020-07-19",
+    "days_held": 1,
+    "volume_pct_mean": 31.84,
+    "volume_pct_min": 31.84,
+    "volume_pct_max": 31.84
+   },
+   {
+    "year": 2020,
+    "iso_week": 30,
+    "week_monday": "2020-07-20",
+    "week_sunday": "2020-07-26",
+    "days_held": 7,
+    "volume_pct_mean": 37.03,
+    "volume_pct_min": 33.48,
+    "volume_pct_max": 39.98
+   },
+   {
+    "year": 2020,
+    "iso_week": 31,
+    "week_monday": "2020-07-27",
+    "week_sunday": "2020-08-02",
+    "days_held": 7,
+    "volume_pct_mean": 40.13,
+    "volume_pct_min": 37.49,
+    "volume_pct_max": 41.9
+   },
+   {
+    "year": 2020,
+    "iso_week": 32,
+    "week_monday": "2020-08-03",
+    "week_sunday": "2020-08-09",
+    "days_held": 7,
+    "volume_pct_mean": 36.99,
+    "volume_pct_min": 33.48,
+    "volume_pct_max": 39.29
+   },
+   {
+    "year": 2020,
+    "iso_week": 33,
+    "week_monday": "2020-08-10",
+    "week_sunday": "2020-08-16",
+    "days_held": 7,
+    "volume_pct_mean": 38.97,
+    "volume_pct_min": 32.41,
+    "volume_pct_max": 43.16
+   },
+   {
+    "year": 2020,
+    "iso_week": 34,
+    "week_monday": "2020-08-17",
+    "week_sunday": "2020-08-23",
+    "days_held": 7,
+    "volume_pct_mean": 40.87,
+    "volume_pct_min": 38.44,
+    "volume_pct_max": 42.95
+   },
+   {
+    "year": 2020,
+    "iso_week": 35,
+    "week_monday": "2020-08-24",
+    "week_sunday": "2020-08-30",
+    "days_held": 7,
+    "volume_pct_mean": 38.22,
+    "volume_pct_min": 33.7,
+    "volume_pct_max": 42.84
+   },
+   {
+    "year": 2020,
+    "iso_week": 36,
+    "week_monday": "2020-08-31",
+    "week_sunday": "2020-09-06",
+    "days_held": 7,
+    "volume_pct_mean": 38.2,
+    "volume_pct_min": 34.25,
+    "volume_pct_max": 42.76
+   },
+   {
+    "year": 2020,
+    "iso_week": 37,
+    "week_monday": "2020-09-07",
+    "week_sunday": "2020-09-13",
+    "days_held": 7,
+    "volume_pct_mean": 42.2,
+    "volume_pct_min": 40.79,
+    "volume_pct_max": 43.02
+   },
+   {
+    "year": 2020,
+    "iso_week": 38,
+    "week_monday": "2020-09-14",
+    "week_sunday": "2020-09-20",
+    "days_held": 7,
+    "volume_pct_mean": 42.71,
+    "volume_pct_min": 41.66,
+    "volume_pct_max": 43.35
+   },
+   {
+    "year": 2020,
+    "iso_week": 39,
+    "week_monday": "2020-09-21",
+    "week_sunday": "2020-09-27",
+    "days_held": 3,
+    "volume_pct_mean": 43.55,
+    "volume_pct_min": 43.36,
+    "volume_pct_max": 43.66
+   }
+  ],
+  "gaps": [
+   {
+    "from": "2020-05-18",
+    "days": 2,
+    "to": "2020-05-19"
+   },
+   {
+    "from": "2020-06-29",
+    "days": 3,
+    "to": "2020-07-01"
+   },
+   {
+    "from": "2020-07-04",
+    "days": 2,
+    "to": "2020-07-05"
+   },
+   {
+    "from": "2020-07-07",
+    "days": 12,
+    "to": "2020-07-18"
+   }
+  ],
+  "flags": [
+   "one_year_only",
+   "ends_2020-09-23",
+   "mid_july_gap"
+  ],
+  "notes": [
+   "A district average from a model (the publisher's keywords say VIC model), not a measurement of any field.",
+   "The record does not define its measures; only the volume percentage is shown, as published.",
+   "Days the record does not hold are left empty, never filled: 19 days in 2020, the longest from 2020-07-07 to 2020-07-18."
+  ],
+  "extraction": {
+   "checks_run": [
+    "sha256 known",
+    "header",
+    "state name",
+    "date format",
+    "no (date, district) twice",
+    "every date holds every district",
+    "hand table and canon() agree",
+    "volume percentage 0-100"
+   ],
+   "checks_failed": []
+  },
+  "trace": {
+   "request_id": "18daca96de8b4965aba6bd4d0edda1b4",
+   "decision_ids": [],
+   "price_day": "not held",
+   "price_from": "not held",
+   "datasets": "not held",
+   "build": "unknown"
+  }
+ },
+ "nashik_mr": {
+  "state": "maharashtra",
+  "district": "नाशिक",
+  "district_key": "nashik",
+  "lang": "mr",
+  "years": [
+   2020
+  ],
+  "title": "2020 मधील 15 सेंमी खोलीवरील मातीतील ओलावा",
+  "caveat": "फक्त 2020: एकच मागील वर्ष, नेहमीचे नव्हे, आणि हा हंगामही नव्हे. ही नोंद 23/9/2020 रोजी संपते.",
+  "sources": [
+   {
+    "name": "Daily Data of Soil Moisture: sm_Maharashtra_2020.csv",
+    "publisher": "National Water Informatics Centre (Ministry of Jal Shakti), per the data.gov.in catalogue",
+    "url": "https://www.data.gov.in/resource/soil-moisture-maharashtra-2020",
+    "catalogue": "https://www.data.gov.in/catalog/daily-data-soil-moisture",
+    "obtained_through": "AIKosh (https://aikosh.indiaai.gov.in), downloaded by the owner on 20 Oct 2026",
+    "license": "GODL (Government Open Data License - India), as the AIKosh page states",
+    "observed": "2020-01-01 to 2020-09-23",
+    "sha256": "25884b2efcf3720c572ff3f4b362e02690fac93cb01434ff490a07d8588b2b7d"
+   },
+   {
+    "name": "Daily Data of Soil Moisture: sm_MadhyaPradesh_2020.csv",
+    "publisher": "National Water Informatics Centre (Ministry of Jal Shakti), per the data.gov.in catalogue",
+    "url": "https://www.data.gov.in/resource/soil-moisture-madhya-pradesh-2020",
+    "catalogue": "https://www.data.gov.in/catalog/daily-data-soil-moisture",
+    "obtained_through": "AIKosh (https://aikosh.indiaai.gov.in), downloaded by the owner on 20 Oct 2026",
+    "license": "GODL (Government Open Data License - India), as the AIKosh page states",
+    "observed": "2020-01-01 to 2020-09-23",
+    "sha256": "54fb622532b685173ab9f8c346aaabd453795112f738a6757e3b780e05a08f06"
+   }
+  ],
+  "pending_native_review": true,
+  "held": true,
+  "covered": true,
+  "headline": "2020 मध्ये नाशिक मधील 15 सेंमी खोलीवरील मातीतील ओलावा 1/1/2020 ते 23/9/2020 या काळात 8.3% ते 43.7% (आकारमानानुसार, प्रकाशित केल्याप्रमाणे) होता.",
+  "this_week": {
+   "iso_week": 43,
+   "held": false,
+   "days_held": 0,
+   "text": "2020 च्या नोंदीत या आठवड्याचे (आठवडा 43) एकही दिवस नाहीत: ती 23/9/2020 रोजी संपते."
+  },
+  "season": {
+   "year": 2020,
+   "days_held": 248,
+   "first_day": "2020-01-01",
+   "last_day": "2020-09-23",
+   "days_missing": 19,
+   "volume_pct_min": 8.32,
+   "volume_pct_p25": 9.24,
+   "volume_pct_median": 10.46,
+   "volume_pct_p75": 35.82,
+   "volume_pct_max": 43.66
+  },
+  "weeks": [
+   {
+    "year": 2020,
+    "iso_week": 1,
+    "week_monday": "2019-12-30",
+    "week_sunday": "2020-01-05",
+    "days_held": 5,
+    "volume_pct_mean": 9.22,
+    "volume_pct_min": 8.73,
+    "volume_pct_max": 9.75
+   },
+   {
+    "year": 2020,
+    "iso_week": 2,
+    "week_monday": "2020-01-06",
+    "week_sunday": "2020-01-12",
+    "days_held": 7,
+    "volume_pct_mean": 10.34,
+    "volume_pct_min": 8.44,
+    "volume_pct_max": 10.97
+   },
+   {
+    "year": 2020,
+    "iso_week": 3,
+    "week_monday": "2020-01-13",
+    "week_sunday": "2020-01-19",
+    "days_held": 7,
+    "volume_pct_mean": 10.02,
+    "volume_pct_min": 9.71,
+    "volume_pct_max": 10.36
+   },
+   {
+    "year": 2020,
+    "iso_week": 4,
+    "week_monday": "2020-01-20",
+    "week_sunday": "2020-01-26",
+    "days_held": 7,
+    "volume_pct_mean": 9.44,
+    "volume_pct_min": 9.26,
+    "volume_pct_max": 9.64
+   },
+   {
+    "year": 2020,
+    "iso_week": 5,
+    "week_monday": "2020-01-27",
+    "week_sunday": "2020-02-02",
+    "days_held": 7,
+    "volume_pct_mean": 9.06,
+    "volume_pct_min": 8.93,
+    "volume_pct_max": 9.2
+   },
+   {
+    "year": 2020,
+    "iso_week": 6,
+    "week_monday": "2020-02-03",
+    "week_sunday": "2020-02-09",
+    "days_held": 7,
+    "volume_pct_mean": 8.79,
+    "volume_pct_min": 8.69,
+    "volume_pct_max": 8.89
+   },
+   {
+    "year": 2020,
+    "iso_week": 7,
+    "week_monday": "2020-02-10",
+    "week_sunday": "2020-02-16",
+    "days_held": 7,
+    "volume_pct_mean": 8.6,
+    "volume_pct_min": 8.53,
+    "volume_pct_max": 8.67
+   },
+   {
+    "year": 2020,
+    "iso_week": 8,
+    "week_monday": "2020-02-17",
+    "week_sunday": "2020-02-23",
+    "days_held": 7,
+    "volume_pct_mean": 8.47,
+    "volume_pct_min": 8.43,
+    "volume_pct_max": 8.52
+   },
+   {
+    "year": 2020,
+    "iso_week": 9,
+    "week_monday": "2020-02-24",
+    "week_sunday": "2020-03-01",
+    "days_held": 7,
+    "volume_pct_mean": 8.4,
+    "volume_pct_min": 8.38,
+    "volume_pct_max": 8.42
+   },
+   {
+    "year": 2020,
+    "iso_week": 10,
+    "week_monday": "2020-03-02",
+    "week_sunday": "2020-03-08",
+    "days_held": 7,
+    "volume_pct_mean": 8.36,
+    "volume_pct_min": 8.35,
+    "volume_pct_max": 8.39
+   },
+   {
+    "year": 2020,
+    "iso_week": 11,
+    "week_monday": "2020-03-09",
+    "week_sunday": "2020-03-15",
+    "days_held": 7,
+    "volume_pct_mean": 8.34,
+    "volume_pct_min": 8.33,
+    "volume_pct_max": 8.34
+   },
+   {
+    "year": 2020,
+    "iso_week": 12,
+    "week_monday": "2020-03-16",
+    "week_sunday": "2020-03-22",
+    "days_held": 7,
+    "volume_pct_mean": 8.32,
+    "volume_pct_min": 8.32,
+    "volume_pct_max": 8.33
+   },
+   {
+    "year": 2020,
+    "iso_week": 13,
+    "week_monday": "2020-03-23",
+    "week_sunday": "2020-03-29",
+    "days_held": 7,
+    "volume_pct_mean": 10.04,
+    "volume_pct_min": 8.32,
+    "volume_pct_max": 10.77
+   },
+   {
+    "year": 2020,
+    "iso_week": 14,
+    "week_monday": "2020-03-30",
+    "week_sunday": "2020-04-05",
+    "days_held": 7,
+    "volume_pct_mean": 10.16,
+    "volume_pct_min": 9.99,
+    "volume_pct_max": 10.37
+   },
+   {
+    "year": 2020,
+    "iso_week": 15,
+    "week_monday": "2020-04-06",
+    "week_sunday": "2020-04-12",
+    "days_held": 7,
+    "volume_pct_mean": 9.86,
+    "volume_pct_min": 9.79,
+    "volume_pct_max": 9.95
+   },
+   {
+    "year": 2020,
+    "iso_week": 16,
+    "week_monday": "2020-04-13",
+    "week_sunday": "2020-04-19",
+    "days_held": 7,
+    "volume_pct_mean": 9.78,
+    "volume_pct_min": 9.74,
+    "volume_pct_max": 9.87
+   },
+   {
+    "year": 2020,
+    "iso_week": 17,
+    "week_monday": "2020-04-20",
+    "week_sunday": "2020-04-26",
+    "days_held": 7,
+    "volume_pct_mean": 9.78,
+    "volume_pct_min": 9.75,
+    "volume_pct_max": 9.82
+   },
+   {
+    "year": 2020,
+    "iso_week": 18,
+    "week_monday": "2020-04-27",
+    "week_sunday": "2020-05-03",
+    "days_held": 7,
+    "volume_pct_mean": 9.91,
+    "volume_pct_min": 9.73,
+    "volume_pct_max": 10.08
+   },
+   {
+    "year": 2020,
+    "iso_week": 19,
+    "week_monday": "2020-05-04",
+    "week_sunday": "2020-05-10",
+    "days_held": 7,
+    "volume_pct_mean": 9.98,
+    "volume_pct_min": 9.95,
+    "volume_pct_max": 10.05
+   },
+   {
+    "year": 2020,
+    "iso_week": 20,
+    "week_monday": "2020-05-11",
+    "week_sunday": "2020-05-17",
+    "days_held": 7,
+    "volume_pct_mean": 15.27,
+    "volume_pct_min": 10.18,
+    "volume_pct_max": 19.88
+   },
+   {
+    "year": 2020,
+    "iso_week": 21,
+    "week_monday": "2020-05-18",
+    "week_sunday": "2020-05-24",
+    "days_held": 5,
+    "volume_pct_mean": 16.59,
+    "volume_pct_min": 15.86,
+    "volume_pct_max": 17.39
+   },
+   {
+    "year": 2020,
+    "iso_week": 22,
+    "week_monday": "2020-05-25",
+    "week_sunday": "2020-05-31",
+    "days_held": 7,
+    "volume_pct_mean": 14.95,
+    "volume_pct_min": 14.42,
+    "volume_pct_max": 15.55
+   },
+   {
+    "year": 2020,
+    "iso_week": 23,
+    "week_monday": "2020-06-01",
+    "week_sunday": "2020-06-07",
+    "days_held": 7,
+    "volume_pct_mean": 24.86,
+    "volume_pct_min": 20.68,
+    "volume_pct_max": 39.81
+   },
+   {
+    "year": 2020,
+    "iso_week": 24,
+    "week_monday": "2020-06-08",
+    "week_sunday": "2020-06-14",
+    "days_held": 7,
+    "volume_pct_mean": 28.69,
+    "volume_pct_min": 21.91,
+    "volume_pct_max": 35.79
+   },
+   {
+    "year": 2020,
+    "iso_week": 25,
+    "week_monday": "2020-06-15",
+    "week_sunday": "2020-06-21",
+    "days_held": 7,
+    "volume_pct_mean": 33.74,
+    "volume_pct_min": 30.45,
+    "volume_pct_max": 36.7
+   },
+   {
+    "year": 2020,
+    "iso_week": 26,
+    "week_monday": "2020-06-22",
+    "week_sunday": "2020-06-28",
+    "days_held": 7,
+    "volume_pct_mean": 33.47,
+    "volume_pct_min": 28.4,
+    "volume_pct_max": 38.31
+   },
+   {
+    "year": 2020,
+    "iso_week": 27,
+    "week_monday": "2020-06-29",
+    "week_sunday": "2020-07-05",
+    "days_held": 2,
+    "volume_pct_mean": 36.6,
+    "volume_pct_min": 34.44,
+    "volume_pct_max": 38.76
+   },
+   {
+    "year": 2020,
+    "iso_week": 28,
+    "week_monday": "2020-07-06",
+    "week_sunday": "2020-07-12",
+    "days_held": 1,
+    "volume_pct_mean": 33.73,
+    "volume_pct_min": 33.73,
+    "volume_pct_max": 33.73
+   },
+   {
+    "year": 2020,
+    "iso_week": 29,
+    "week_monday": "2020-07-13",
+    "week_sunday": "2020-07-19",
+    "days_held": 1,
+    "volume_pct_mean": 31.84,
+    "volume_pct_min": 31.84,
+    "volume_pct_max": 31.84
+   },
+   {
+    "year": 2020,
+    "iso_week": 30,
+    "week_monday": "2020-07-20",
+    "week_sunday": "2020-07-26",
+    "days_held": 7,
+    "volume_pct_mean": 37.03,
+    "volume_pct_min": 33.48,
+    "volume_pct_max": 39.98
+   },
+   {
+    "year": 2020,
+    "iso_week": 31,
+    "week_monday": "2020-07-27",
+    "week_sunday": "2020-08-02",
+    "days_held": 7,
+    "volume_pct_mean": 40.13,
+    "volume_pct_min": 37.49,
+    "volume_pct_max": 41.9
+   },
+   {
+    "year": 2020,
+    "iso_week": 32,
+    "week_monday": "2020-08-03",
+    "week_sunday": "2020-08-09",
+    "days_held": 7,
+    "volume_pct_mean": 36.99,
+    "volume_pct_min": 33.48,
+    "volume_pct_max": 39.29
+   },
+   {
+    "year": 2020,
+    "iso_week": 33,
+    "week_monday": "2020-08-10",
+    "week_sunday": "2020-08-16",
+    "days_held": 7,
+    "volume_pct_mean": 38.97,
+    "volume_pct_min": 32.41,
+    "volume_pct_max": 43.16
+   },
+   {
+    "year": 2020,
+    "iso_week": 34,
+    "week_monday": "2020-08-17",
+    "week_sunday": "2020-08-23",
+    "days_held": 7,
+    "volume_pct_mean": 40.87,
+    "volume_pct_min": 38.44,
+    "volume_pct_max": 42.95
+   },
+   {
+    "year": 2020,
+    "iso_week": 35,
+    "week_monday": "2020-08-24",
+    "week_sunday": "2020-08-30",
+    "days_held": 7,
+    "volume_pct_mean": 38.22,
+    "volume_pct_min": 33.7,
+    "volume_pct_max": 42.84
+   },
+   {
+    "year": 2020,
+    "iso_week": 36,
+    "week_monday": "2020-08-31",
+    "week_sunday": "2020-09-06",
+    "days_held": 7,
+    "volume_pct_mean": 38.2,
+    "volume_pct_min": 34.25,
+    "volume_pct_max": 42.76
+   },
+   {
+    "year": 2020,
+    "iso_week": 37,
+    "week_monday": "2020-09-07",
+    "week_sunday": "2020-09-13",
+    "days_held": 7,
+    "volume_pct_mean": 42.2,
+    "volume_pct_min": 40.79,
+    "volume_pct_max": 43.02
+   },
+   {
+    "year": 2020,
+    "iso_week": 38,
+    "week_monday": "2020-09-14",
+    "week_sunday": "2020-09-20",
+    "days_held": 7,
+    "volume_pct_mean": 42.71,
+    "volume_pct_min": 41.66,
+    "volume_pct_max": 43.35
+   },
+   {
+    "year": 2020,
+    "iso_week": 39,
+    "week_monday": "2020-09-21",
+    "week_sunday": "2020-09-27",
+    "days_held": 3,
+    "volume_pct_mean": 43.55,
+    "volume_pct_min": 43.36,
+    "volume_pct_max": 43.66
+   }
+  ],
+  "gaps": [
+   {
+    "from": "2020-05-18",
+    "days": 2,
+    "to": "2020-05-19"
+   },
+   {
+    "from": "2020-06-29",
+    "days": 3,
+    "to": "2020-07-01"
+   },
+   {
+    "from": "2020-07-04",
+    "days": 2,
+    "to": "2020-07-05"
+   },
+   {
+    "from": "2020-07-07",
+    "days": 12,
+    "to": "2020-07-18"
+   }
+  ],
+  "flags": [
+   "one_year_only",
+   "ends_2020-09-23",
+   "mid_july_gap"
+  ],
+  "notes": [
+   "हा एका प्रारूपातून (model) काढलेला जिल्ह्याचा सरासरी आकडा आहे (प्रकाशकाच्या शब्दांत VIC model), कोणत्याही शेताचे मोजमाप नव्हे.",
+   "या नोंदीत तिची मापे स्पष्ट केलेली नाहीत; फक्त आकारमान टक्केवारी, प्रकाशित केल्याप्रमाणे, दाखवली आहे.",
+   "नोंदीत नसलेले दिवस रिकामेच ठेवले आहेत, कधीही भरलेले नाहीत: 2020 मधील 19 दिवस, सर्वात मोठा खंड 7/7/2020 ते 18/7/2020."
+  ],
+  "extraction": {
+   "checks_run": [
+    "sha256 known",
+    "header",
+    "state name",
+    "date format",
+    "no (date, district) twice",
+    "every date holds every district",
+    "hand table and canon() agree",
+    "volume percentage 0-100"
+   ],
+   "checks_failed": []
+  },
+  "trace": {
+   "request_id": "d986fe6494f047e78136e384a983df36",
+   "decision_ids": [],
+   "price_day": "not held",
+   "price_from": "not held",
+   "datasets": "not held",
+   "build": "unknown"
+  }
+ },
+ "indore_hi": {
+  "state": "madhya pradesh",
+  "district": "इंदौर",
+  "district_key": "indore",
+  "lang": "hi",
+  "years": [
+   2020
+  ],
+  "title": "2020 में 15 सेमी गहराई पर मिट्टी की नमी",
+  "caveat": "केवल 2020: एक बीता हुआ साल, सामान्य नहीं, और यह मौसम भी नहीं। यह रिकॉर्ड 23/9/2020 को ख़त्म होता है।",
+  "sources": [
+   {
+    "name": "Daily Data of Soil Moisture: sm_Maharashtra_2020.csv",
+    "publisher": "National Water Informatics Centre (Ministry of Jal Shakti), per the data.gov.in catalogue",
+    "url": "https://www.data.gov.in/resource/soil-moisture-maharashtra-2020",
+    "catalogue": "https://www.data.gov.in/catalog/daily-data-soil-moisture",
+    "obtained_through": "AIKosh (https://aikosh.indiaai.gov.in), downloaded by the owner on 20 Oct 2026",
+    "license": "GODL (Government Open Data License - India), as the AIKosh page states",
+    "observed": "2020-01-01 to 2020-09-23",
+    "sha256": "25884b2efcf3720c572ff3f4b362e02690fac93cb01434ff490a07d8588b2b7d"
+   },
+   {
+    "name": "Daily Data of Soil Moisture: sm_MadhyaPradesh_2020.csv",
+    "publisher": "National Water Informatics Centre (Ministry of Jal Shakti), per the data.gov.in catalogue",
+    "url": "https://www.data.gov.in/resource/soil-moisture-madhya-pradesh-2020",
+    "catalogue": "https://www.data.gov.in/catalog/daily-data-soil-moisture",
+    "obtained_through": "AIKosh (https://aikosh.indiaai.gov.in), downloaded by the owner on 20 Oct 2026",
+    "license": "GODL (Government Open Data License - India), as the AIKosh page states",
+    "observed": "2020-01-01 to 2020-09-23",
+    "sha256": "54fb622532b685173ab9f8c346aaabd453795112f738a6757e3b780e05a08f06"
+   }
+  ],
+  "pending_native_review": true,
+  "held": true,
+  "covered": true,
+  "headline": "2020 में इंदौर में 15 सेमी गहराई पर मिट्टी की नमी 1/1/2020 से 23/9/2020 तक 20.4% से 46.0% (आयतन के अनुसार, जैसा प्रकाशित) के बीच रही।",
+  "this_week": {
+   "iso_week": 43,
+   "held": false,
+   "days_held": 0,
+   "text": "2020 के रिकॉर्ड में इस सप्ताह (सप्ताह 43) का कोई दिन नहीं है: यह 23/9/2020 को ख़त्म होता है।"
+  },
+  "season": {
+   "year": 2020,
+   "days_held": 248,
+   "first_day": "2020-01-01",
+   "last_day": "2020-09-23",
+   "days_missing": 19,
+   "volume_pct_min": 20.38,
+   "volume_pct_p25": 22.37,
+   "volume_pct_median": 23.6,
+   "volume_pct_p75": 40.1,
+   "volume_pct_max": 46.0
+  },
+  "weeks": [
+   {
+    "year": 2020,
+    "iso_week": 1,
+    "week_monday": "2019-12-30",
+    "week_sunday": "2020-01-05",
+    "days_held": 5,
+    "volume_pct_mean": 21.77,
+    "volume_pct_min": 20.85,
+    "volume_pct_max": 22.77
+   },
+   {
+    "year": 2020,
+    "iso_week": 2,
+    "week_monday": "2020-01-06",
+    "week_sunday": "2020-01-12",
+    "days_held": 7,
+    "volume_pct_mean": 22.97,
+    "volume_pct_min": 20.38,
+    "volume_pct_max": 23.59
+   },
+   {
+    "year": 2020,
+    "iso_week": 3,
+    "week_monday": "2020-01-13",
+    "week_sunday": "2020-01-19",
+    "days_held": 7,
+    "volume_pct_mean": 23.07,
+    "volume_pct_min": 22.82,
+    "volume_pct_max": 23.57
+   },
+   {
+    "year": 2020,
+    "iso_week": 4,
+    "week_monday": "2020-01-20",
+    "week_sunday": "2020-01-26",
+    "days_held": 7,
+    "volume_pct_mean": 22.74,
+    "volume_pct_min": 22.5,
+    "volume_pct_max": 23.3
+   },
+   {
+    "year": 2020,
+    "iso_week": 5,
+    "week_monday": "2020-01-27",
+    "week_sunday": "2020-02-02",
+    "days_held": 7,
+    "volume_pct_mean": 22.37,
+    "volume_pct_min": 22.23,
+    "volume_pct_max": 22.57
+   },
+   {
+    "year": 2020,
+    "iso_week": 6,
+    "week_monday": "2020-02-03",
+    "week_sunday": "2020-02-09",
+    "days_held": 7,
+    "volume_pct_mean": 22.1,
+    "volume_pct_min": 22.01,
+    "volume_pct_max": 22.19
+   },
+   {
+    "year": 2020,
+    "iso_week": 7,
+    "week_monday": "2020-02-10",
+    "week_sunday": "2020-02-16",
+    "days_held": 7,
+    "volume_pct_mean": 21.91,
+    "volume_pct_min": 21.86,
+    "volume_pct_max": 21.98
+   },
+   {
+    "year": 2020,
+    "iso_week": 8,
+    "week_monday": "2020-02-17",
+    "week_sunday": "2020-02-23",
+    "days_held": 7,
+    "volume_pct_mean": 21.8,
+    "volume_pct_min": 21.77,
+    "volume_pct_max": 21.84
+   },
+   {
+    "year": 2020,
+    "iso_week": 9,
+    "week_monday": "2020-02-24",
+    "week_sunday": "2020-03-01",
+    "days_held": 7,
+    "volume_pct_mean": 21.75,
+    "volume_pct_min": 21.73,
+    "volume_pct_max": 21.77
+   },
+   {
+    "year": 2020,
+    "iso_week": 10,
+    "week_monday": "2020-03-02",
+    "week_sunday": "2020-03-08",
+    "days_held": 7,
+    "volume_pct_mean": 21.72,
+    "volume_pct_min": 21.71,
+    "volume_pct_max": 21.73
+   },
+   {
+    "year": 2020,
+    "iso_week": 11,
+    "week_monday": "2020-03-09",
+    "week_sunday": "2020-03-15",
+    "days_held": 7,
+    "volume_pct_mean": 21.69,
+    "volume_pct_min": 21.68,
+    "volume_pct_max": 21.7
+   },
+   {
+    "year": 2020,
+    "iso_week": 12,
+    "week_monday": "2020-03-16",
+    "week_sunday": "2020-03-22",
+    "days_held": 7,
+    "volume_pct_mean": 21.67,
+    "volume_pct_min": 21.67,
+    "volume_pct_max": 21.68
+   },
+   {
+    "year": 2020,
+    "iso_week": 13,
+    "week_monday": "2020-03-23",
+    "week_sunday": "2020-03-29",
+    "days_held": 7,
+    "volume_pct_mean": 22.77,
+    "volume_pct_min": 21.67,
+    "volume_pct_max": 24.14
+   },
+   {
+    "year": 2020,
+    "iso_week": 14,
+    "week_monday": "2020-03-30",
+    "week_sunday": "2020-04-05",
+    "days_held": 7,
+    "volume_pct_mean": 23.54,
+    "volume_pct_min": 23.31,
+    "volume_pct_max": 23.79
+   },
+   {
+    "year": 2020,
+    "iso_week": 15,
+    "week_monday": "2020-04-06",
+    "week_sunday": "2020-04-12",
+    "days_held": 7,
+    "volume_pct_mean": 23.06,
+    "volume_pct_min": 22.89,
+    "volume_pct_max": 23.24
+   },
+   {
+    "year": 2020,
+    "iso_week": 16,
+    "week_monday": "2020-04-13",
+    "week_sunday": "2020-04-19",
+    "days_held": 7,
+    "volume_pct_mean": 22.85,
+    "volume_pct_min": 22.74,
+    "volume_pct_max": 23.17
+   },
+   {
+    "year": 2020,
+    "iso_week": 17,
+    "week_monday": "2020-04-20",
+    "week_sunday": "2020-04-26",
+    "days_held": 7,
+    "volume_pct_mean": 22.89,
+    "volume_pct_min": 22.75,
+    "volume_pct_max": 23.08
+   },
+   {
+    "year": 2020,
+    "iso_week": 18,
+    "week_monday": "2020-04-27",
+    "week_sunday": "2020-05-03",
+    "days_held": 7,
+    "volume_pct_mean": 22.62,
+    "volume_pct_min": 22.53,
+    "volume_pct_max": 22.76
+   },
+   {
+    "year": 2020,
+    "iso_week": 19,
+    "week_monday": "2020-05-04",
+    "week_sunday": "2020-05-10",
+    "days_held": 7,
+    "volume_pct_mean": 22.8,
+    "volume_pct_min": 22.47,
+    "volume_pct_max": 24.62
+   },
+   {
+    "year": 2020,
+    "iso_week": 20,
+    "week_monday": "2020-05-11",
+    "week_sunday": "2020-05-17",
+    "days_held": 7,
+    "volume_pct_mean": 25.38,
+    "volume_pct_min": 24.19,
+    "volume_pct_max": 26.24
+   },
+   {
+    "year": 2020,
+    "iso_week": 21,
+    "week_monday": "2020-05-18",
+    "week_sunday": "2020-05-24",
+    "days_held": 5,
+    "volume_pct_mean": 24.91,
+    "volume_pct_min": 24.67,
+    "volume_pct_max": 25.19
+   },
+   {
+    "year": 2020,
+    "iso_week": 22,
+    "week_monday": "2020-05-25",
+    "week_sunday": "2020-05-31",
+    "days_held": 7,
+    "volume_pct_mean": 24.35,
+    "volume_pct_min": 24.14,
+    "volume_pct_max": 24.58
+   },
+   {
+    "year": 2020,
+    "iso_week": 23,
+    "week_monday": "2020-06-01",
+    "week_sunday": "2020-06-07",
+    "days_held": 7,
+    "volume_pct_mean": 32.41,
+    "volume_pct_min": 29.26,
+    "volume_pct_max": 42.44
+   },
+   {
+    "year": 2020,
+    "iso_week": 24,
+    "week_monday": "2020-06-08",
+    "week_sunday": "2020-06-14",
+    "days_held": 7,
+    "volume_pct_mean": 36.56,
+    "volume_pct_min": 30.79,
+    "volume_pct_max": 43.74
+   },
+   {
+    "year": 2020,
+    "iso_week": 25,
+    "week_monday": "2020-06-15",
+    "week_sunday": "2020-06-21",
+    "days_held": 7,
+    "volume_pct_mean": 39.8,
+    "volume_pct_min": 37.19,
+    "volume_pct_max": 42.2
+   },
+   {
+    "year": 2020,
+    "iso_week": 26,
+    "week_monday": "2020-06-22",
+    "week_sunday": "2020-06-28",
+    "days_held": 7,
+    "volume_pct_mean": 40.96,
+    "volume_pct_min": 38.43,
+    "volume_pct_max": 43.19
+   },
+   {
+    "year": 2020,
+    "iso_week": 27,
+    "week_monday": "2020-06-29",
+    "week_sunday": "2020-07-05",
+    "days_held": 2,
+    "volume_pct_mean": 43.71,
+    "volume_pct_min": 43.28,
+    "volume_pct_max": 44.14
+   },
+   {
+    "year": 2020,
+    "iso_week": 28,
+    "week_monday": "2020-07-06",
+    "week_sunday": "2020-07-12",
+    "days_held": 1,
+    "volume_pct_mean": 42.8,
+    "volume_pct_min": 42.8,
+    "volume_pct_max": 42.8
+   },
+   {
+    "year": 2020,
+    "iso_week": 29,
+    "week_monday": "2020-07-13",
+    "week_sunday": "2020-07-19",
+    "days_held": 1,
+    "volume_pct_mean": 36.8,
+    "volume_pct_min": 36.8,
+    "volume_pct_max": 36.8
+   },
+   {
+    "year": 2020,
+    "iso_week": 30,
+    "week_monday": "2020-07-20",
+    "week_sunday": "2020-07-26",
+    "days_held": 7,
+    "volume_pct_mean": 38.65,
+    "volume_pct_min": 35.06,
+    "volume_pct_max": 42.44
+   },
+   {
+    "year": 2020,
+    "iso_week": 31,
+    "week_monday": "2020-07-27",
+    "week_sunday": "2020-08-02",
+    "days_held": 7,
+    "volume_pct_mean": 42.74,
+    "volume_pct_min": 41.37,
+    "volume_pct_max": 45.29
+   },
+   {
+    "year": 2020,
+    "iso_week": 32,
+    "week_monday": "2020-08-03",
+    "week_sunday": "2020-08-09",
+    "days_held": 7,
+    "volume_pct_mean": 42.36,
+    "volume_pct_min": 39.94,
+    "volume_pct_max": 44.81
+   },
+   {
+    "year": 2020,
+    "iso_week": 33,
+    "week_monday": "2020-08-10",
+    "week_sunday": "2020-08-16",
+    "days_held": 7,
+    "volume_pct_mean": 39.0,
+    "volume_pct_min": 37.74,
+    "volume_pct_max": 40.03
+   },
+   {
+    "year": 2020,
+    "iso_week": 34,
+    "week_monday": "2020-08-17",
+    "week_sunday": "2020-08-23",
+    "days_held": 7,
+    "volume_pct_mean": 44.17,
+    "volume_pct_min": 42.62,
+    "volume_pct_max": 46.0
+   },
+   {
+    "year": 2020,
+    "iso_week": 35,
+    "week_monday": "2020-08-24",
+    "week_sunday": "2020-08-30",
+    "days_held": 7,
+    "volume_pct_mean": 43.3,
+    "volume_pct_min": 40.02,
+    "volume_pct_max": 45.92
+   },
+   {
+    "year": 2020,
+    "iso_week": 36,
+    "week_monday": "2020-08-31",
+    "week_sunday": "2020-09-06",
+    "days_held": 7,
+    "volume_pct_mean": 40.47,
+    "volume_pct_min": 37.56,
+    "volume_pct_max": 43.3
+   },
+   {
+    "year": 2020,
+    "iso_week": 37,
+    "week_monday": "2020-09-07",
+    "week_sunday": "2020-09-13",
+    "days_held": 7,
+    "volume_pct_mean": 41.37,
+    "volume_pct_min": 36.32,
+    "volume_pct_max": 45.92
+   },
+   {
+    "year": 2020,
+    "iso_week": 38,
+    "week_monday": "2020-09-14",
+    "week_sunday": "2020-09-20",
+    "days_held": 7,
+    "volume_pct_mean": 45.54,
+    "volume_pct_min": 45.14,
+    "volume_pct_max": 45.89
+   },
+   {
+    "year": 2020,
+    "iso_week": 39,
+    "week_monday": "2020-09-21",
+    "week_sunday": "2020-09-27",
+    "days_held": 3,
+    "volume_pct_mean": 45.62,
+    "volume_pct_min": 44.95,
+    "volume_pct_max": 45.96
+   }
+  ],
+  "gaps": [
+   {
+    "from": "2020-05-18",
+    "days": 2,
+    "to": "2020-05-19"
+   },
+   {
+    "from": "2020-06-29",
+    "days": 3,
+    "to": "2020-07-01"
+   },
+   {
+    "from": "2020-07-04",
+    "days": 2,
+    "to": "2020-07-05"
+   },
+   {
+    "from": "2020-07-07",
+    "days": 12,
+    "to": "2020-07-18"
+   }
+  ],
+  "flags": [
+   "one_year_only",
+   "ends_2020-09-23",
+   "mid_july_gap"
+  ],
+  "notes": [
+   "यह एक मॉडल से निकला ज़िले का औसत है (प्रकाशक के शब्दों में VIC model), किसी खेत का माप नहीं।",
+   "रिकॉर्ड अपने मापों को परिभाषित नहीं करता; केवल आयतन प्रतिशत, जैसा प्रकाशित, दिखाया गया है।",
+   "जो दिन रिकॉर्ड में नहीं हैं, उन्हें ख़ाली छोड़ा गया है, कभी भरा नहीं गया: 2020 में 19 दिन, सबसे लंबा अंतराल 7/7/2020 से 18/7/2020।"
+  ],
+  "extraction": {
+   "checks_run": [
+    "sha256 known",
+    "header",
+    "state name",
+    "date format",
+    "no (date, district) twice",
+    "every date holds every district",
+    "hand table and canon() agree",
+    "volume percentage 0-100"
+   ],
+   "checks_failed": []
+  },
+  "trace": {
+   "request_id": "35e4e713ed2b42d9a30e66435850dc43",
+   "decision_ids": [],
+   "price_day": "not held",
+   "price_from": "not held",
+   "datasets": "not held",
+   "build": "unknown"
+  }
+ }
+}
