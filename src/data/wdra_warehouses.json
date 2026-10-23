@@ -1,0 +1,4267 @@
+{
+ "download_date": "2026-10-24",
+ "source_last_updated": "2026-10-21",
+ "source": "WDRA (Warehousing Development and Regulatory Authority), public list of registered warehouses",
+ "warehouses": [
+  {
+   "id": "4570910",
+   "name": "SRIYAMI FARMERS PRODUCER COMPANY LIMITED",
+   "address": "Gat no 1890, AP Manerajuri, Gavhan Manerajuri Road",
+   "district": "Sangli",
+   "state": "Maharashtra",
+   "capacity_mt": 655,
+   "valid_upto": "2031-06-08",
+   "status": "Active"
+  },
+  {
+   "id": "7064611",
+   "name": "M/s wadekar Warehousing",
+   "address": "C54 MIDC KHANAPUR, NANDED HIGHWAY ROAD",
+   "district": "Nanded",
+   "state": "Maharashtra",
+   "capacity_mt": 2244,
+   "valid_upto": "2029-10-03",
+   "status": "Active"
+  },
+  {
+   "id": "6748800",
+   "name": "submarket Patoda ( APMC Yeola)",
+   "address": "SUb Market yard, Yeola Road",
+   "district": "Nashik",
+   "state": "Maharashtra",
+   "capacity_mt": 1170,
+   "valid_upto": "2028-06-29",
+   "status": "Suspended"
+  },
+  {
+   "id": "7035181",
+   "name": "Aroma Organice Agro Producer Co Ltd",
+   "address": "Gat no 258, Bhokaramba, Renapur",
+   "district": "Latur",
+   "state": "Maharashtra",
+   "capacity_mt": 2160,
+   "valid_upto": "2030-03-09",
+   "status": "Inactive"
+  },
+  {
+   "id": "6998371",
+   "name": "AULTUS WAREHOUSING AND COLD STORAGE",
+   "address": "SR NO-314,PLOT NO-4 PUNE MARBLE SOC, PUNE",
+   "district": "Pune",
+   "state": "Maharashtra",
+   "capacity_mt": 1432,
+   "valid_upto": "2029-11-25",
+   "status": "Inactive"
+  },
+  {
+   "id": "7074248",
+   "name": "Aai Ekveera Cold Storage",
+   "address": "Gat No.-376/2, Naigao Budruk",
+   "district": "Dhule",
+   "state": "Maharashtra",
+   "capacity_mt": 6202,
+   "valid_upto": "2030-04-21",
+   "status": "Active"
+  },
+  {
+   "id": "7106552",
+   "name": "KATPUR AGRO PRODUCER COMPANY LTD",
+   "address": "Latur road Market yard",
+   "district": "Dharashiv",
+   "state": "Maharashtra",
+   "capacity_mt": 1000,
+   "valid_upto": "2028-07-26",
+   "status": "Inactive"
+  },
+  {
+   "id": "7048507",
+   "name": "Agricultural Produce Market Committee Akkalkot",
+   "address": "Bagehalli Road",
+   "district": "Solapur",
+   "state": "Maharashtra",
+   "capacity_mt": 1195,
+   "valid_upto": "2030-03-23",
+   "status": "Inactive"
+  },
+  {
+   "id": "6839526",
+   "name": "Agricultural Produce Market Committee Baramati",
+   "address": "Indapur Road, Market Yard",
+   "district": "Pune",
+   "state": "Maharashtra",
+   "capacity_mt": 1147,
+   "valid_upto": "2029-01-17",
+   "status": "Inactive"
+  },
+  {
+   "id": "6998918",
+   "name": "Agriculture Produce Market Committee Baramati, Jalochi subyard",
+   "address": "Jalochi subyard, Jalochi-Pimpali road",
+   "district": "Pune",
+   "state": "Maharashtra",
+   "capacity_mt": 1147,
+   "valid_upto": "2029-11-27",
+   "status": "Inactive"
+  },
+  {
+   "id": "6749162",
+   "name": "",
+   "address": "Tuljapur Road, Market yard",
+   "district": "Solapur",
+   "state": "Maharashtra",
+   "capacity_mt": 1147,
+   "valid_upto": "2028-06-29",
+   "status": "Inactive"
+  },
+  {
+   "id": "6840060",
+   "name": "Agricultural Produce Market Committee Kurduwadi",
+   "address": "APMC Kurduwadi Market yard, Tembhurni Road",
+   "district": "Solapur",
+   "state": "Maharashtra",
+   "capacity_mt": 1147,
+   "valid_upto": "2029-01-17",
+   "status": "Inactive"
+  },
+  {
+   "id": "6865174",
+   "name": "Agricultural Produce Market Committee Manchar",
+   "address": "Market yard Manchar",
+   "district": "Pune",
+   "state": "Maharashtra",
+   "capacity_mt": 1147,
+   "valid_upto": "2029-02-18",
+   "status": "Inactive"
+  },
+  {
+   "id": "6748172",
+   "name": "Agricultural Produce Market Committee Nandura",
+   "address": "TQ NANDURA, DIST BULDHANA",
+   "district": "Buldhana",
+   "state": "Maharashtra",
+   "capacity_mt": 1000,
+   "valid_upto": "2028-06-29",
+   "status": "Inactive"
+  },
+  {
+   "id": "6739981",
+   "name": "APMC Balapur",
+   "address": "Sub Yard Wadegaon, Balapur Patur Road",
+   "district": "Akola",
+   "state": "Maharashtra",
+   "capacity_mt": 1147,
+   "valid_upto": "2028-06-18",
+   "status": "Inactive"
+  },
+  {
+   "id": "6756092",
+   "name": "",
+   "address": "Digras APMC Market Yard, Shivaji Chowk",
+   "district": "Yavatmal",
+   "state": "Maharashtra",
+   "capacity_mt": 1,
+   "valid_upto": "2028-07-13",
+   "status": "Inactive"
+  },
+  {
+   "id": "6717847",
+   "name": "APMC,gondpimpri",
+   "address": "apmc,gondpimpri",
+   "district": "Chandrapur",
+   "state": "Maharashtra",
+   "capacity_mt": 1147,
+   "valid_upto": "2028-05-18",
+   "status": "Inactive"
+  },
+  {
+   "id": "6706147",
+   "name": "APMC, bramhpuri",
+   "address": "APMC, bramhpuri",
+   "district": "Chandrapur",
+   "state": "Maharashtra",
+   "capacity_mt": 1147,
+   "valid_upto": "2028-03-30",
+   "status": "Inactive"
+  },
+  {
+   "id": "7082886",
+   "name": "",
+   "address": "APMC narkhed TQ.narkhed",
+   "district": "Nagpur",
+   "state": "Maharashtra",
+   "capacity_mt": 1147,
+   "valid_upto": "2030-04-29",
+   "status": "Inactive"
+  },
+  {
+   "id": "6690127",
+   "name": "APMC ,Amgaon",
+   "address": "agriculture produce market committee,amgaon",
+   "district": "Gondia",
+   "state": "Maharashtra",
+   "capacity_mt": 1147,
+   "valid_upto": "2028-02-27",
+   "status": "Inactive"
+  },
+  {
+   "id": "6687784",
+   "name": "APMC,Goregaon",
+   "address": "agriculture produce market committee,goregaon",
+   "district": "Gondia",
+   "state": "Maharashtra",
+   "capacity_mt": 1147,
+   "valid_upto": "2028-02-21",
+   "status": "Inactive"
+  },
+  {
+   "id": "6852305",
+   "name": "Agriculture produce market committee, Hinganghat",
+   "address": "APMC, Hinganghat",
+   "district": "Wardha",
+   "state": "Maharashtra",
+   "capacity_mt": 1000,
+   "valid_upto": "2029-02-05",
+   "status": "Inactive"
+  },
+  {
+   "id": "6825848",
+   "name": "APMC Parshiwani",
+   "address": "agriculture market committee, parshiwani",
+   "district": "Nagpur",
+   "state": "Maharashtra",
+   "capacity_mt": 1147,
+   "valid_upto": "2028-12-25",
+   "status": "Inactive"
+  },
+  {
+   "id": "6699482",
+   "name": "agriculture produce market committee,sindewahi",
+   "address": "apmc,sub market yard ,navargaon",
+   "district": "Chandrapur",
+   "state": "Maharashtra",
+   "capacity_mt": 1147,
+   "valid_upto": "2028-03-26",
+   "status": "Inactive"
+  },
+  {
+   "id": "4580610",
+   "name": "APMC Hinganghat Cold Storage",
+   "address": "Plot No. 1 and 2, Survey No. 44, 45/1 and 45/2",
+   "district": "Wardha",
+   "state": "Maharashtra",
+   "capacity_mt": 5280,
+   "valid_upto": "2031-09-03",
+   "status": "Active"
+  },
+  {
+   "id": "6691745",
+   "name": "APMC ,CHIMUR",
+   "address": "APMC ,CHIMUR",
+   "district": "Chandrapur",
+   "state": "Maharashtra",
+   "capacity_mt": 1147,
+   "valid_upto": "2028-03-02",
+   "status": "Inactive"
+  },
+  {
+   "id": "4585892",
+   "name": "Agrobaba Producer Company Limited",
+   "address": "Gut No 116",
+   "district": "Ahilyanagar",
+   "state": "Maharashtra",
+   "capacity_mt": 1274,
+   "valid_upto": "2031-10-08",
+   "status": "Active"
+  },
+  {
+   "id": "7001431",
+   "name": "",
+   "address": "",
+   "district": "Kolhapur",
+   "state": "Maharashtra",
+   "capacity_mt": 1808,
+   "valid_upto": "2029-12-08",
+   "status": "Active"
+  },
+  {
+   "id": "7163165",
+   "name": "",
+   "address": "70, TASGAON, MANERAJURI ROAD, VILLAGE- CHINCHNI, TALUKA- TASGAON",
+   "district": "Sangli",
+   "state": "Maharashtra",
+   "capacity_mt": 1707,
+   "valid_upto": "2030-04-23",
+   "status": "Inactive"
+  },
+  {
+   "id": "4579938",
+   "name": "",
+   "address": "PART - A, GAT NO. 409/2, KHAPA",
+   "district": "Bhandara",
+   "state": "Maharashtra",
+   "capacity_mt": 2510,
+   "valid_upto": "2031-08-31",
+   "status": "Active"
+  },
+  {
+   "id": "4581392",
+   "name": "Raikantwar Trading Company",
+   "address": "Gat No.90 At Post Dagdapur, Biloli Dist Nanded",
+   "district": "Nanded",
+   "state": "Maharashtra",
+   "capacity_mt": 2344,
+   "valid_upto": "2031-09-10",
+   "status": "Active"
+  },
+  {
+   "id": "6691299",
+   "name": "APMC,chandrapur",
+   "address": "APMC,datala road ,chandrapur",
+   "district": "Chandrapur",
+   "state": "Maharashtra",
+   "capacity_mt": 1147,
+   "valid_upto": "2028-02-28",
+   "status": "Inactive"
+  },
+  {
+   "id": "6688238",
+   "name": "APMC ,lakhani",
+   "address": "agriculture produce market commitee,lakhani",
+   "district": "Bhandara",
+   "state": "Maharashtra",
+   "capacity_mt": 1147,
+   "valid_upto": "2028-02-22",
+   "status": "Inactive"
+  },
+  {
+   "id": "6692289",
+   "name": "APMC Pauni",
+   "address": "Bhaitalawa ward Pauni, Pauni",
+   "district": "Bhandara",
+   "state": "Maharashtra",
+   "capacity_mt": 1000,
+   "valid_upto": "2028-03-05",
+   "status": "Inactive"
+  },
+  {
+   "id": "6689400",
+   "name": "agriculture produce market committee,pombhurna",
+   "address": "apmc,pombhurna,aksapur road,pombhurna",
+   "district": "Chandrapur",
+   "state": "Maharashtra",
+   "capacity_mt": 1147,
+   "valid_upto": "2028-02-26",
+   "status": "Inactive"
+  },
+  {
+   "id": "6693360",
+   "name": "APMC SELOO",
+   "address": "SUKLI STATION ROAD",
+   "district": "Wardha",
+   "state": "Maharashtra",
+   "capacity_mt": 1000,
+   "valid_upto": "2028-03-06",
+   "status": "Inactive"
+  },
+  {
+   "id": "6827737",
+   "name": "APMC submarket, seloo",
+   "address": "sukli station road ,seloo",
+   "district": "Wardha",
+   "state": "Maharashtra",
+   "capacity_mt": 1000,
+   "valid_upto": "2028-12-25",
+   "status": "Inactive"
+  },
+  {
+   "id": "6691562",
+   "name": "APMC ,tumsar",
+   "address": "agriculture produce market committee ,tumsar",
+   "district": "Bhandara",
+   "state": "Maharashtra",
+   "capacity_mt": 1147,
+   "valid_upto": "2028-03-02",
+   "status": "Inactive"
+  },
+  {
+   "id": "6694715",
+   "name": "apmc, varora",
+   "address": "apmc, sub market yard mandheli",
+   "district": "Chandrapur",
+   "state": "Maharashtra",
+   "capacity_mt": 1147,
+   "valid_upto": "2028-03-13",
+   "status": "Inactive"
+  },
+  {
+   "id": "6680318",
+   "name": "APMC Armori",
+   "address": "Agriculture market Committee,sub market yard kurkheda",
+   "district": "Gadchiroli",
+   "state": "Maharashtra",
+   "capacity_mt": 1147,
+   "valid_upto": "2028-02-05",
+   "status": "Inactive"
+  },
+  {
+   "id": "6759872",
+   "name": "",
+   "address": "Apmc barshi takli mahan road near railway station barshi takli.",
+   "district": "Akola",
+   "state": "Maharashtra",
+   "capacity_mt": 1000,
+   "valid_upto": "2028-07-19",
+   "status": "Inactive"
+  },
+  {
+   "id": "6699300",
+   "name": "APMC Bhiwapur",
+   "address": "at post bhiwapur ta bhiwapur, nakshi road",
+   "district": "Nagpur",
+   "state": "Maharashtra",
+   "capacity_mt": 1000,
+   "valid_upto": "2028-03-26",
+   "status": "Inactive"
+  },
+  {
+   "id": "7010796",
+   "name": "APMC Devala",
+   "address": "New Market yard, Deola-Kalwan Road",
+   "district": "Nashik",
+   "state": "Maharashtra",
+   "capacity_mt": 1000,
+   "valid_upto": "2030-01-19",
+   "status": "Inactive"
+  },
+  {
+   "id": "7001076",
+   "name": "Apmc Dondaicha",
+   "address": "Nandurbar Road, Station Area",
+   "district": "Dhule",
+   "state": "Maharashtra",
+   "capacity_mt": 1000,
+   "valid_upto": "2029-12-08",
+   "status": "Inactive"
+  },
+  {
+   "id": "6982714",
+   "name": "APMC Karjat",
+   "address": "Dahiwal tarfe Tal. Karjat",
+   "district": "Raigad",
+   "state": "Maharashtra",
+   "capacity_mt": 1000,
+   "valid_upto": "2029-09-30",
+   "status": "Inactive"
+  },
+  {
+   "id": "6700652",
+   "name": "APMC Korpana",
+   "address": "APMC korpana TQ.Korpana",
+   "district": "Chandrapur",
+   "state": "Maharashtra",
+   "capacity_mt": 1000,
+   "valid_upto": "2028-03-27",
+   "status": "Inactive"
+  },
+  {
+   "id": "6689319",
+   "name": "APMC,lakhandur",
+   "address": "APMC, lakhandur",
+   "district": "Bhandara",
+   "state": "Maharashtra",
+   "capacity_mt": 1147,
+   "valid_upto": "2028-02-26",
+   "status": "Inactive"
+  },
+  {
+   "id": "6713887",
+   "name": "APMC Lasalgaon",
+   "address": "Vinchur",
+   "district": "Nashik",
+   "state": "Maharashtra",
+   "capacity_mt": 1000,
+   "valid_upto": "2028-04-30",
+   "status": "Inactive"
+  },
+  {
+   "id": "6763742",
+   "name": "APMC Malegaon",
+   "address": "Main Market Yard Camp Road",
+   "district": "Nashik",
+   "state": "Maharashtra",
+   "capacity_mt": 1000,
+   "valid_upto": "2028-07-26",
+   "status": "Inactive"
+  },
+  {
+   "id": "6694350",
+   "name": "APMC pulgaov sub market yard Devali",
+   "address": "Devali TQ.Devali",
+   "district": "Wardha",
+   "state": "Maharashtra",
+   "capacity_mt": 1000,
+   "valid_upto": "2028-03-13",
+   "status": "Inactive"
+  },
+  {
+   "id": "7135080",
+   "name": "APMC Rahata",
+   "address": "at. Sakuri",
+   "district": "Ahilyanagar",
+   "state": "Maharashtra",
+   "capacity_mt": 1000,
+   "valid_upto": "2030-08-20",
+   "status": "Inactive"
+  },
+  {
+   "id": "6961387",
+   "name": "",
+   "address": "Pune-Shirdi Road, Wadgaon pan",
+   "district": "Ahilyanagar",
+   "state": "Maharashtra",
+   "capacity_mt": 1000,
+   "valid_upto": "2029-07-27",
+   "status": "Inactive"
+  },
+  {
+   "id": "6705511",
+   "name": "APMC, sawali",
+   "address": "APMC, sawali",
+   "district": "Chandrapur",
+   "state": "Maharashtra",
+   "capacity_mt": 1147,
+   "valid_upto": "2028-03-30",
+   "status": "Inactive"
+  },
+  {
+   "id": "6861215",
+   "name": "APMC Shrigonda",
+   "address": "Market Yard Shrigonda, Duand-Jamkhed Road",
+   "district": "Ahilyanagar",
+   "state": "Maharashtra",
+   "capacity_mt": 1000,
+   "valid_upto": "2029-02-13",
+   "status": "Inactive"
+  },
+  {
+   "id": "6709836",
+   "name": "APMC, sironcha",
+   "address": "APMC ,sironcha",
+   "district": "Gadchiroli",
+   "state": "Maharashtra",
+   "capacity_mt": 1147,
+   "valid_upto": "2028-04-16",
+   "status": "Inactive"
+  },
+  {
+   "id": "6681399",
+   "name": "APMC Umared Warehouse",
+   "address": "AT Apmc Umared sub market yard champa nagpur umared road",
+   "district": "Nagpur",
+   "state": "Maharashtra",
+   "capacity_mt": 1146,
+   "valid_upto": "2028-02-10",
+   "status": "Inactive"
+  },
+  {
+   "id": "6701288",
+   "name": "APMC aheri",
+   "address": "APMC aheri,aheri",
+   "district": "Gadchiroli",
+   "state": "Maharashtra",
+   "capacity_mt": 1147,
+   "valid_upto": "2028-03-27",
+   "status": "Inactive"
+  },
+  {
+   "id": "6704704",
+   "name": "APMC,arjuni morgaon",
+   "address": "APMC, arjuni morgaon",
+   "district": "Gondia",
+   "state": "Maharashtra",
+   "capacity_mt": 1147,
+   "valid_upto": "2028-03-30",
+   "status": "Inactive"
+  },
+  {
+   "id": "6816391",
+   "name": "APMC Mandhal",
+   "address": "agriculture produce markrt committee ,Mandhal",
+   "district": "Nagpur",
+   "state": "Maharashtra",
+   "capacity_mt": 1147,
+   "valid_upto": "2028-12-14",
+   "status": "Inactive"
+  },
+  {
+   "id": "6701106",
+   "name": "apmc,nagbhid",
+   "address": "apmc,nagbhid, apmc nagbhid,nagbhid",
+   "district": "Chandrapur",
+   "state": "Maharashtra",
+   "capacity_mt": 1147,
+   "valid_upto": "2028-03-27",
+   "status": "Inactive"
+  },
+  {
+   "id": "4556856",
+   "name": "",
+   "address": "At post. Kolpa, Latur - Nanded Highway Road",
+   "district": "Latur",
+   "state": "Maharashtra",
+   "capacity_mt": 2000,
+   "valid_upto": "2031-01-31",
+   "status": "Active"
+  },
+  {
+   "id": "6761670",
+   "name": "",
+   "address": "A.PM.C. Arni Tq. Arni.Dist.yawatmal",
+   "district": "Yavatmal",
+   "state": "Maharashtra",
+   "capacity_mt": 1147,
+   "valid_upto": "2028-07-24",
+   "status": "Inactive"
+  },
+  {
+   "id": "7118433",
+   "name": "Alok Rural Godown",
+   "address": "Gat No 265 , NH 61, GADI ROAD",
+   "district": "Beed",
+   "state": "Maharashtra",
+   "capacity_mt": 4847,
+   "valid_upto": "2030-07-22",
+   "status": "Inactive"
+  },
+  {
+   "id": "6846901",
+   "name": "B T KADLAG CONSTRUCTION PVT LTD",
+   "address": "Godown No 1 and 2, Gat no 558, Nanegao, Palse",
+   "district": "Nashik",
+   "state": "Maharashtra",
+   "capacity_mt": 7598,
+   "valid_upto": "2029-01-28",
+   "status": "Active"
+  },
+  {
+   "id": "6775357",
+   "name": "",
+   "address": "AT BABHULGAON DHAMANGAON RODE BABHULGAON, AT BABHULGAON DHAMANGAON RODE BABHULGAON",
+   "district": "Yavatmal",
+   "state": "Maharashtra",
+   "capacity_mt": 1147,
+   "valid_upto": "2028-08-22",
+   "status": "Inactive"
+  },
+  {
+   "id": "7089998",
+   "name": "BARAFWALA AGRO PROCESSORS",
+   "address": "GATE NO 807, 818,819, DADDI ROAD, KALAVIKATTI, GADHINGLAJ, KOLHAPUR",
+   "district": "Kolhapur",
+   "state": "Maharashtra",
+   "capacity_mt": 2678,
+   "valid_upto": "2030-05-14",
+   "status": "Inactive"
+  },
+  {
+   "id": "7188097",
+   "name": "Basant Agro Tech (I) Limited -Sanjivani Cold Storage (Unit 2)",
+   "address": "Gat No 55 Kumbhari Road, Near Pragati Dal Mill",
+   "district": "Akola",
+   "state": "Maharashtra",
+   "capacity_mt": 4079,
+   "valid_upto": "2031-01-07",
+   "status": "Active"
+  },
+  {
+   "id": "7106644",
+   "name": "Basant Agro Tech (I) Limited - Sanjivani Cold Storage (Unit 1)",
+   "address": "Gat No 55 Kumbhari Road, Near Pragati Dal Mill",
+   "district": "Akola",
+   "state": "Maharashtra",
+   "capacity_mt": 5024,
+   "valid_upto": "2030-06-25",
+   "status": "Active"
+  },
+  {
+   "id": "4586056",
+   "name": "",
+   "address": "A/P - Belhe Ahilyanagar - Kalyan Road",
+   "district": "Pune",
+   "state": "Maharashtra",
+   "capacity_mt": 500,
+   "valid_upto": "2031-10-08",
+   "status": "Active"
+  },
+  {
+   "id": "4573456",
+   "name": "R K Warehousing Corporation",
+   "address": "Survey no 343, tanang tal miraj dist sangli",
+   "district": "Sangli",
+   "state": "Maharashtra",
+   "capacity_mt": 10771,
+   "valid_upto": "2031-06-30",
+   "status": "Active"
+  },
+  {
+   "id": "6888846",
+   "name": "BLACKSTONE LOGISTICS PRIVATE LIMITED",
+   "address": "Akola Bypass, Temburna Phata Khamgoan",
+   "district": "Buldhana",
+   "state": "Maharashtra",
+   "capacity_mt": 35000,
+   "valid_upto": "2028-09-17",
+   "status": "Inactive"
+  },
+  {
+   "id": "4573356",
+   "name": "Aditya Warehousing Corporation",
+   "address": "G. No. 4 &amp;amp;amp;amp; 5 Gat No.178/2, A/P Tanang , Tal. Miraj",
+   "district": "Sangli",
+   "state": "Maharashtra",
+   "capacity_mt": 3239,
+   "valid_upto": "2031-06-30",
+   "status": "Active"
+  },
+  {
+   "id": "7013139",
+   "name": "",
+   "address": "GAT NO.27/3, MULEGAON, SOLAPUR HYDERABAD ROAD, SOLAPUR",
+   "district": "Solapur",
+   "state": "Maharashtra",
+   "capacity_mt": 6505,
+   "valid_upto": "2030-01-27",
+   "status": "Active"
+  },
+  {
+   "id": "3431640",
+   "name": "",
+   "address": "DESHMUKH FILE IN FRONT OF APMC MARKET AKOLA, AKOLA",
+   "district": "Akola",
+   "state": "Maharashtra",
+   "capacity_mt": 17420,
+   "valid_upto": "2031-05-04",
+   "status": "Active"
+  },
+  {
+   "id": "2751640",
+   "name": "",
+   "address": "Near APMC/Turbhe Railway station, vashi",
+   "district": "Thane",
+   "state": "Maharashtra",
+   "capacity_mt": 57009,
+   "valid_upto": "2031-07-29",
+   "status": "Active"
+  },
+  {
+   "id": "4581038",
+   "name": "",
+   "address": "PLOT NO 91 MIDC AREA, CHIKALTHANA",
+   "district": "Chhatrapati Sambhajinagar",
+   "state": "Maharashtra",
+   "capacity_mt": 6182,
+   "valid_upto": "2031-09-08",
+   "status": "Active"
+  },
+  {
+   "id": "6869853",
+   "name": "",
+   "address": "Krishna Nagar Post Office, New Cotton Market Road,Amravati",
+   "district": "Amravati",
+   "state": "Maharashtra",
+   "capacity_mt": 28920,
+   "valid_upto": "2029-02-21",
+   "status": "Active"
+  },
+  {
+   "id": "6797229",
+   "name": "",
+   "address": "MOHTA MILL COMPLEX, BEHIND APMC MARKET",
+   "district": "Akola",
+   "state": "Maharashtra",
+   "capacity_mt": 27400,
+   "valid_upto": "2028-10-29",
+   "status": "Active"
+  },
+  {
+   "id": "6828008",
+   "name": "",
+   "address": "CENTRAL WAREHOUSE- WARDHAMAN NAGAR, NAGPUR",
+   "district": "Nagpur",
+   "state": "Maharashtra",
+   "capacity_mt": 17850,
+   "valid_upto": "2028-12-26",
+   "status": "Active"
+  },
+  {
+   "id": "6825665",
+   "name": "",
+   "address": "DHAMANGAON ROAD, NEAR OCTROI CHECK POST",
+   "district": "Yavatmal",
+   "state": "Maharashtra",
+   "capacity_mt": 23714,
+   "valid_upto": "2028-12-25",
+   "status": "Active"
+  },
+  {
+   "id": "6871834",
+   "name": "Central Warehousing Corporation Central Warehouse CFS Ambad",
+   "address": "Plot No C-901, MIDC Industrial Area Ambad, Nasik",
+   "district": "Nashik",
+   "state": "Maharashtra",
+   "capacity_mt": 15825,
+   "valid_upto": "2029-02-25",
+   "status": "Active"
+  },
+  {
+   "id": "6789481",
+   "name": "",
+   "address": "P-8 , Block C , MIDC Area Miraj, District Sangli",
+   "district": "Sangli",
+   "state": "Maharashtra",
+   "capacity_mt": 10000,
+   "valid_upto": "2028-01-10",
+   "status": "Active"
+  },
+  {
+   "id": "4586338",
+   "name": "Central Warehousing Corporation Nanded - Martala",
+   "address": "Gut No 169/2, Kaudgaon Road, Martala, Nanded",
+   "district": "Nanded",
+   "state": "Maharashtra",
+   "capacity_mt": 18084,
+   "valid_upto": "2031-10-13",
+   "status": "Active"
+  },
+  {
+   "id": "4565238",
+   "name": "",
+   "address": "Plote No.B-28-29, Mundipar MIDC,Gondia-441614",
+   "district": "Gondia",
+   "state": "Maharashtra",
+   "capacity_mt": 16264,
+   "valid_upto": "2031-04-29",
+   "status": "Active"
+  },
+  {
+   "id": "4563856",
+   "name": "",
+   "address": "Sawra TolI Murry Road Gondia -441614",
+   "district": "Gondia",
+   "state": "Maharashtra",
+   "capacity_mt": 11550,
+   "valid_upto": "2031-04-16",
+   "status": "Active"
+  },
+  {
+   "id": "3931646",
+   "name": "",
+   "address": "chincholi, ambernath",
+   "district": "Thane",
+   "state": "Maharashtra",
+   "capacity_mt": 9650,
+   "valid_upto": "2031-03-19",
+   "status": "Active"
+  },
+  {
+   "id": "4131668",
+   "name": "",
+   "address": "CENTRAL WAREHOUSE NASHIK ROAD, DEOLALI GAON, OPP.URDU SCHOOL, NASIK ROAD -422101",
+   "district": "Nashik",
+   "state": "Maharashtra",
+   "capacity_mt": 20182,
+   "valid_upto": "2031-03-21",
+   "status": "Active"
+  },
+  {
+   "id": "6995401",
+   "name": "",
+   "address": "SHAHU MARKET YARD, KOLHAPUR",
+   "district": "Kolhapur",
+   "state": "Maharashtra",
+   "capacity_mt": 14145,
+   "valid_upto": "2029-11-19",
+   "status": "Active"
+  },
+  {
+   "id": "6826564",
+   "name": "",
+   "address": "3RD LANE, MARKET YARD, SANGLI",
+   "district": "Sangli",
+   "state": "Maharashtra",
+   "capacity_mt": 16060,
+   "valid_upto": "2028-12-25",
+   "status": "Active"
+  },
+  {
+   "id": "4131649",
+   "name": "",
+   "address": "A-3,MIDC,Gokulshirgaon,Kolhapur",
+   "district": "Kolhapur",
+   "state": "Maharashtra",
+   "capacity_mt": 20000,
+   "valid_upto": "2031-03-19",
+   "status": "Active"
+  },
+  {
+   "id": "2531646",
+   "name": "",
+   "address": "Manik Nagar Near Railway Colony, Miraj",
+   "district": "Sangli",
+   "state": "Maharashtra",
+   "capacity_mt": 80000,
+   "valid_upto": "2031-04-27",
+   "status": "Active"
+  },
+  {
+   "id": "6989644",
+   "name": "",
+   "address": "Gat No. 76, A/P Vasumbe",
+   "district": "Sangli",
+   "state": "Maharashtra",
+   "capacity_mt": 1000,
+   "valid_upto": "2029-10-28",
+   "status": "Active"
+  },
+  {
+   "id": "4559538",
+   "name": "",
+   "address": "gate no 19, Hisssa no 31/2 B, opposite shah lulla mahanager",
+   "district": "Sangli",
+   "state": "Maharashtra",
+   "capacity_mt": 2305,
+   "valid_upto": "2031-03-13",
+   "status": "Active"
+  },
+  {
+   "id": "6785075",
+   "name": "",
+   "address": "Gat no. 69 Chorwa Ghalgaon Vaijapur Gangapur Road",
+   "district": "Chhatrapati Sambhajinagar",
+   "state": "Maharashtra",
+   "capacity_mt": 1947,
+   "valid_upto": "2028-09-24",
+   "status": "Inactive"
+  },
+  {
+   "id": "7079015",
+   "name": "KESONA WAREHOUSING CORPORATION",
+   "address": "AT DHARWATI TANDA, DHARMAPURI ROAD, PARLI",
+   "district": "Beed",
+   "state": "Maharashtra",
+   "capacity_mt": 17500,
+   "valid_upto": "2030-04-27",
+   "status": "Inactive"
+  },
+  {
+   "id": "7065600",
+   "name": "",
+   "address": "GUT NO 71,72",
+   "district": "Parbhani",
+   "state": "Maharashtra",
+   "capacity_mt": 30000,
+   "valid_upto": "2030-01-06",
+   "status": "Inactive"
+  },
+  {
+   "id": "6719736",
+   "name": "",
+   "address": "Village & Post Wakla, Taluka Vaijapur",
+   "district": "Chhatrapati Sambhajinagar",
+   "state": "Maharashtra",
+   "capacity_mt": 962,
+   "valid_upto": "2028-05-23",
+   "status": "Active"
+  },
+  {
+   "id": "7109077",
+   "name": "",
+   "address": "AT DHRMAPURI",
+   "district": "Parbhani",
+   "state": "Maharashtra",
+   "capacity_mt": 8000,
+   "valid_upto": "2030-06-29",
+   "status": "Active"
+  },
+  {
+   "id": "4557638",
+   "name": "M/s.Hingmire Trading Company",
+   "address": "Plot No.32 Market Yard Tasgaon",
+   "district": "Sangli",
+   "state": "Maharashtra",
+   "capacity_mt": 1200,
+   "valid_upto": "2031-02-16",
+   "status": "Active"
+  },
+  {
+   "id": "4572674",
+   "name": "",
+   "address": "sonari, jamner jalgaon",
+   "district": "Jalgaon",
+   "state": "Maharashtra",
+   "capacity_mt": 5069,
+   "valid_upto": "2031-06-29",
+   "status": "Active"
+  },
+  {
+   "id": "7168651",
+   "name": "Jics Logistic Limited c/o Om Harihar corporation",
+   "address": "House no. 220, building no. K-5, Gala no. 5/1 Survey No. 31, Hissa No. 01, Harihar Complex, Vadunavghar, Bhiwandi-421302",
+   "district": "Thane",
+   "state": "Maharashtra",
+   "capacity_mt": 2975,
+   "valid_upto": "2030-11-09",
+   "status": "Active"
+  },
+  {
+   "id": "4575774",
+   "name": "JICS LOGISTIC LIMITED C/O SHIVAM CORPORATION",
+   "address": "Shivam Corporation Building No. S-15 , Gala No. 13 Village Vadunavghar, Tehsil Bhiwandi Thane, Maharastra-421302",
+   "district": "Thane",
+   "state": "Maharashtra",
+   "capacity_mt": 248,
+   "valid_upto": "2031-07-23",
+   "status": "Inactive"
+  },
+  {
+   "id": "4568338",
+   "name": "JICS LOGISTIC LIMITED C/O WHITESPACE LOGISTICS PVT LTD",
+   "address": "SURVEY NO 41/8,41/5,42/2,42/3 AT KALAMBUSARE VILLAGE, POST CHIRNER,TALUKA URAN, NAVI MUMBAI-400702",
+   "district": "Raigad",
+   "state": "Maharashtra",
+   "capacity_mt": 3980,
+   "valid_upto": "2031-05-21",
+   "status": "Active"
+  },
+  {
+   "id": "7110158",
+   "name": "",
+   "address": "Plot No. A 16 K. H. No. 175/1/3/15/A-16, Mouza Mahalgaon Navkar Logistic Park Bhandara Road Tah Kamptee",
+   "district": "Nagpur",
+   "state": "Maharashtra",
+   "capacity_mt": 2550,
+   "valid_upto": "2030-01-07",
+   "status": "Inactive"
+  },
+  {
+   "id": "7097645",
+   "name": "Kamal Industries",
+   "address": "E-20, MIDC, KHAMGAON",
+   "district": "Buldhana",
+   "state": "Maharashtra",
+   "capacity_mt": 1100,
+   "valid_upto": "2029-08-28",
+   "status": "Inactive"
+  },
+  {
+   "id": "6972541",
+   "name": "Khemananad Dudh And krishi Producer Company Ltd",
+   "address": "347/2/1 At Kharda, SONEGAON ROAD",
+   "district": "Ahilyanagar",
+   "state": "Maharashtra",
+   "capacity_mt": 2977,
+   "valid_upto": "2029-08-28",
+   "status": "Active"
+  },
+  {
+   "id": "6830707",
+   "name": "Khemanand Dudh and Krishi Producer Company Ltd",
+   "address": "297/2, SHIRDI BYPASS ROAD",
+   "district": "Ahilyanagar",
+   "state": "Maharashtra",
+   "capacity_mt": 2000,
+   "valid_upto": "2028-12-31",
+   "status": "Active"
+  },
+  {
+   "id": "7123565",
+   "name": "KHURANA WAREHOUSING",
+   "address": "PLOT NO C26, MIDC AREA LIMBALA MAKTA",
+   "district": "Hingoli",
+   "state": "Maharashtra",
+   "capacity_mt": 3300,
+   "valid_upto": "2030-08-04",
+   "status": "Inactive"
+  },
+  {
+   "id": "6987390",
+   "name": "",
+   "address": "Survey No. 436/1, 3, 4, 5, Mouza- Gumthala, Bhandara Road, Nagpur",
+   "district": "Nagpur",
+   "state": "Maharashtra",
+   "capacity_mt": 4419,
+   "valid_upto": "2027-10-17",
+   "status": "Inactive"
+  },
+  {
+   "id": "6938799",
+   "name": "KIRTI ENTERPRISES PVT LTD",
+   "address": "GAT NO. 396/2, 397/1, OLD DHAMANGOAN ROAD",
+   "district": "Jalgaon",
+   "state": "Maharashtra",
+   "capacity_mt": 13440,
+   "valid_upto": "2028-12-06",
+   "status": "Inactive"
+  },
+  {
+   "id": "7133739",
+   "name": "Kirti Oil Industries Pvt bLtd",
+   "address": "Gat No.58/2 Old Shegaon Road Jambh Chowk Chandrapur To Nagpur Highway",
+   "district": "Wardha",
+   "state": "Maharashtra",
+   "capacity_mt": 12549,
+   "valid_upto": "2030-08-19",
+   "status": "Inactive"
+  },
+  {
+   "id": "7099351",
+   "name": "Kirti Oil Industries Pvt Ltd",
+   "address": "Gat No.46 Latur To Ambegogai Road Satephal oad",
+   "district": "Beed",
+   "state": "Maharashtra",
+   "capacity_mt": 13914,
+   "valid_upto": "2030-05-28",
+   "status": "Inactive"
+  },
+  {
+   "id": "7103583",
+   "name": "Kirti Oil Industries Pvt Ltd",
+   "address": "Gat No.304/2 Akola to Boragaon Manju Road Old Bypass Ajmera furniture opposite",
+   "district": "Akola",
+   "state": "Maharashtra",
+   "capacity_mt": 15824,
+   "valid_upto": "2030-06-10",
+   "status": "Inactive"
+  },
+  {
+   "id": "7103492",
+   "name": "Kirti Oil Industries Pvt Ltd",
+   "address": "Gat No.93/2 Latur to Umerga Road Mane Petrol pump Side",
+   "district": "Dharashiv",
+   "state": "Maharashtra",
+   "capacity_mt": 9659,
+   "valid_upto": "2030-06-10",
+   "status": "Inactive"
+  },
+  {
+   "id": "7098908",
+   "name": "Kirti Oil Industries Pvt Ltd",
+   "address": "Gat No.94/1 Udgir to Yanki Manki Laxmi WH oppsiteRoad",
+   "district": "Latur",
+   "state": "Maharashtra",
+   "capacity_mt": 12880,
+   "valid_upto": "2030-05-28",
+   "status": "Inactive"
+  },
+  {
+   "id": "7104664",
+   "name": "Kirti Oil Industries Pvt Ltd",
+   "address": "Gat No.95 Barshi Kurduwadi Road Wangarwadi",
+   "district": "Solapur",
+   "state": "Maharashtra",
+   "capacity_mt": 14598,
+   "valid_upto": "2030-06-18",
+   "status": "Inactive"
+  },
+  {
+   "id": "7099179",
+   "name": "Kirti Oil Industries Pvt Ltd",
+   "address": "Gt No 38/2 Karanja Lad To Manglurpir Road Washim Road",
+   "district": "Washim",
+   "state": "Maharashtra",
+   "capacity_mt": 16966,
+   "valid_upto": "2030-05-28",
+   "status": "Inactive"
+  },
+  {
+   "id": "7161813",
+   "name": "Kirti Oil Industries Pvt Ltd",
+   "address": "Gat No 20 Akola to Khamgaon Highway Pimpari Gavali Chawak",
+   "district": "Buldhana",
+   "state": "Maharashtra",
+   "capacity_mt": 14911,
+   "valid_upto": "2030-10-08",
+   "status": "Inactive"
+  },
+  {
+   "id": "7098635",
+   "name": "Kirti Oil Industries Pvt Ltd",
+   "address": "Gat No.729 Parbhani To Manwat Road Road Pedgaon Phata Road Pedgaon",
+   "district": "Parbhani",
+   "state": "Maharashtra",
+   "capacity_mt": 12965,
+   "valid_upto": "2030-05-28",
+   "status": "Inactive"
+  },
+  {
+   "id": "6761852",
+   "name": "",
+   "address": "At. Post-Wavi, Sinner Road",
+   "district": "Nashik",
+   "state": "Maharashtra",
+   "capacity_mt": 1000,
+   "valid_upto": "2028-07-24",
+   "status": "Inactive"
+  },
+  {
+   "id": "6786156",
+   "name": "KRUSHI UTPANNA BAZAR SAMITI MOTALA",
+   "address": "At.Po.Motala Ta.Motala Dist.Buldana, At.Po.Motala",
+   "district": "Buldhana",
+   "state": "Maharashtra",
+   "capacity_mt": 1147,
+   "valid_upto": "2028-09-25",
+   "status": "Inactive"
+  },
+  {
+   "id": "7155427",
+   "name": "Krushichandrama Agro Producer Company Ltd",
+   "address": "At Post Mamdapur (Pa) Tq Ambajogai Dist Beed",
+   "district": "Beed",
+   "state": "Maharashtra",
+   "capacity_mt": 2000,
+   "valid_upto": "2030-03-25",
+   "status": "Inactive"
+  },
+  {
+   "id": "4573010",
+   "name": "Laxmisopan Agriculture produce marketing company warehouse",
+   "address": "3809 raut chal, ashok nagar barshi solapur 413401",
+   "district": "Solapur",
+   "state": "Maharashtra",
+   "capacity_mt": 4000,
+   "valid_upto": "2031-06-30",
+   "status": "Active"
+  },
+  {
+   "id": "1002757",
+   "name": "LTC Commercial Company Private Limited C/o Sau Archana Naresh Bhutada & Sau Sarikar Dinesh Bhutada",
+   "address": "Godown No. 1 & 2, Gut No. 24, Vadali Satwai, Hiwarkhed Road, Akot",
+   "district": "Akola",
+   "state": "Maharashtra",
+   "capacity_mt": 4892,
+   "valid_upto": "2027-11-20",
+   "status": "Inactive"
+  },
+  {
+   "id": "1002732",
+   "name": "LTC Commercial Company Private Limited C/o Basant Agro Tech (India) Limited",
+   "address": "Godown No. 1 & 2, Survey No. 82, Shivni, Shivapur",
+   "district": "Akola",
+   "state": "Maharashtra",
+   "capacity_mt": 2910,
+   "valid_upto": "2027-11-29",
+   "status": "Inactive"
+  },
+  {
+   "id": "6832596",
+   "name": "Renuka Oil Industries",
+   "address": "Gat No-34/1 At Village Dabha",
+   "district": "Amravati",
+   "state": "Maharashtra",
+   "capacity_mt": 25000,
+   "valid_upto": "2029-01-04",
+   "status": "Inactive"
+  },
+  {
+   "id": "4559074",
+   "name": "M/S. GADIYA COLD STORAGE",
+   "address": "PLOT NO A-191/1, MIDC, SHIRRAMPUR INDUSTRIAL",
+   "district": "Ahilyanagar",
+   "state": "Maharashtra",
+   "capacity_mt": 6000,
+   "valid_upto": "2031-03-11",
+   "status": "Active"
+  },
+  {
+   "id": "6982623",
+   "name": "Ganraj Warehousing Company",
+   "address": "Near Karad railway station, Ogalewadi, Karad",
+   "district": "Satara",
+   "state": "Maharashtra",
+   "capacity_mt": 10000,
+   "valid_upto": "2029-09-30",
+   "status": "Inactive"
+  },
+  {
+   "id": "6580591",
+   "name": "MAHARASHTRA STATE WAREHOUSING CORPORATION, JAWALA BAZAR",
+   "address": "APMC YARD, JAWALA BAZAR",
+   "district": "Hingoli",
+   "state": "Maharashtra",
+   "capacity_mt": 3600,
+   "valid_upto": "2027-05-25",
+   "status": "Active"
+  },
+  {
+   "id": "6585186",
+   "name": "",
+   "address": "EKONDI ROAD, MARKET YARD",
+   "district": "Dharashiv",
+   "state": "Maharashtra",
+   "capacity_mt": 3377,
+   "valid_upto": "2027-05-29",
+   "status": "Active"
+  },
+  {
+   "id": "6578975",
+   "name": "",
+   "address": "MIDC Area, Nanded Road, AHMEDPUR",
+   "district": "Latur",
+   "state": "Maharashtra",
+   "capacity_mt": 5100,
+   "valid_upto": "2027-05-24",
+   "status": "Active"
+  },
+  {
+   "id": "6583835",
+   "name": "",
+   "address": "Maharashtra State Warehousing Corporation, Nandore Naka, Near APMC, Manor Road",
+   "district": "Thane",
+   "state": "Maharashtra",
+   "capacity_mt": 5000,
+   "valid_upto": "2027-05-28",
+   "status": "Active"
+  },
+  {
+   "id": "6575286",
+   "name": "",
+   "address": "Near Fly oevr Bridge, Rami Raod Dondaicha",
+   "district": "Dhule",
+   "state": "Maharashtra",
+   "capacity_mt": 11613,
+   "valid_upto": "2027-05-18",
+   "status": "Active"
+  },
+  {
+   "id": "6575104",
+   "name": "",
+   "address": "S. No. 8/2, 9/2, 9/1 Vani Road Warvade, Shivar",
+   "district": "Dhule",
+   "state": "Maharashtra",
+   "capacity_mt": 14576,
+   "valid_upto": "2027-05-14",
+   "status": "Active"
+  },
+  {
+   "id": "6580054",
+   "name": "Maharashtra State Warehousing Corporation, Risod",
+   "address": "APMC, Market Yard, Risod",
+   "district": "Washim",
+   "state": "Maharashtra",
+   "capacity_mt": 2000,
+   "valid_upto": "2027-05-25",
+   "status": "Active"
+  },
+  {
+   "id": "6586895",
+   "name": "",
+   "address": "SHINDKHED RAJA ROAD, BORKHEDI DTST. JALNA, SHINDKHED RAJA ROAD, BORKHEDI DTST. JALNA",
+   "district": "Jalna",
+   "state": "Maharashtra",
+   "capacity_mt": 33611,
+   "valid_upto": "2027-05-29",
+   "status": "Active"
+  },
+  {
+   "id": "6580328",
+   "name": "Maharashtra State Warehousing Corporation",
+   "address": "Agricultural Produce Market Committee, Gokul Nagar , Gadchiroli",
+   "district": "Gadchiroli",
+   "state": "Maharashtra",
+   "capacity_mt": 4000,
+   "valid_upto": "2027-05-25",
+   "status": "Active"
+  },
+  {
+   "id": "6580682",
+   "name": "MAHARASHTRA STATE WAREHOUSING CORPORATION, LATUR A1",
+   "address": "Plot No. A!, Old MIDC Area, Barshi Road, LATUR",
+   "district": "Latur",
+   "state": "Maharashtra",
+   "capacity_mt": 16650,
+   "valid_upto": "2027-05-25",
+   "status": "Active"
+  },
+  {
+   "id": "6586085",
+   "name": "MAHARASHTRA STATE WAREHOUSING CORPORATION, MURUM",
+   "address": "APMC Market Yard, MURUM",
+   "district": "Dharashiv",
+   "state": "Maharashtra",
+   "capacity_mt": 3600,
+   "valid_upto": "2027-05-29",
+   "status": "Active"
+  },
+  {
+   "id": "6587257",
+   "name": "",
+   "address": "APMC Market Yard",
+   "district": "Ahilyanagar",
+   "state": "Maharashtra",
+   "capacity_mt": 2000,
+   "valid_upto": "2027-05-29",
+   "status": "Active"
+  },
+  {
+   "id": "6578793",
+   "name": "",
+   "address": "APMC, MARKET YARD, BASMATH",
+   "district": "Hingoli",
+   "state": "Maharashtra",
+   "capacity_mt": 7200,
+   "valid_upto": "2027-05-23",
+   "status": "Active"
+  },
+  {
+   "id": "6579510",
+   "name": "",
+   "address": "583/B Marketyard ,Gultekadi Pune 411 037",
+   "district": "Pune",
+   "state": "Maharashtra",
+   "capacity_mt": 5100,
+   "valid_upto": "2027-05-25",
+   "status": "Active"
+  },
+  {
+   "id": "6589501",
+   "name": "MAHARASHTRA STATE WAREHOUSING CORPORATION, PARBHANI-CITY",
+   "address": "Behind Zilha Parishad Parbhani, Near DSM Collage, PARBHANI",
+   "district": "Parbhani",
+   "state": "Maharashtra",
+   "capacity_mt": 6000,
+   "valid_upto": "2027-05-31",
+   "status": "Active"
+  },
+  {
+   "id": "6591572",
+   "name": "",
+   "address": "Plot No 31/1, Paranda Road, Kurduwadi MIDC",
+   "district": "Solapur",
+   "state": "Maharashtra",
+   "capacity_mt": 16680,
+   "valid_upto": "2027-06-06",
+   "status": "Active"
+  },
+  {
+   "id": "6589592",
+   "name": "",
+   "address": "PLOT NO.47,48, MIDC AREA BEED TQ.DIST.BEED",
+   "district": "Beed",
+   "state": "Maharashtra",
+   "capacity_mt": 8726,
+   "valid_upto": "2027-05-31",
+   "status": "Active"
+  },
+  {
+   "id": "6591663",
+   "name": "",
+   "address": "Near p-7 Midc Avdhan Dhule, Near Balaji weighbridge",
+   "district": "Dhule",
+   "state": "Maharashtra",
+   "capacity_mt": 22650,
+   "valid_upto": "2027-06-06",
+   "status": "Active"
+  },
+  {
+   "id": "6757173",
+   "name": "",
+   "address": "MSWC, APMC Area, Nath Road, Narala Godown Paithan",
+   "district": "Chhatrapati Sambhajinagar",
+   "state": "Maharashtra",
+   "capacity_mt": 1580,
+   "valid_upto": "2028-07-13",
+   "status": "Active"
+  },
+  {
+   "id": "6783187",
+   "name": "",
+   "address": "MSWC, B-97, MIDC Area, Tal.Paithan, Dist. Aurangabad.",
+   "district": "Chhatrapati Sambhajinagar",
+   "state": "Maharashtra",
+   "capacity_mt": 1580,
+   "valid_upto": "2028-09-19",
+   "status": "Active"
+  },
+  {
+   "id": "6634059",
+   "name": "Maharashtra State Warehousing Corporation, Wardha MIDC",
+   "address": "MIDC Area, Sewagram Road, Wardha MIDC",
+   "district": "Wardha",
+   "state": "Maharashtra",
+   "capacity_mt": 15000,
+   "valid_upto": "2027-09-21",
+   "status": "Active"
+  },
+  {
+   "id": "6584916",
+   "name": "",
+   "address": "AJANTHA ROAD, MIDC B-6 JALGAON",
+   "district": "Jalgaon",
+   "state": "Maharashtra",
+   "capacity_mt": 16600,
+   "valid_upto": "2027-05-29",
+   "status": "Active"
+  },
+  {
+   "id": "6594451",
+   "name": "",
+   "address": "MSWC, Georai Road, Near Jining Presing, Post, PhulePimpalgaon, Majalgaon - 431131",
+   "district": "Beed",
+   "state": "Maharashtra",
+   "capacity_mt": 12640,
+   "valid_upto": "2027-06-12",
+   "status": "Active"
+  },
+  {
+   "id": "6603005",
+   "name": "",
+   "address": "Marketyard, Akluj",
+   "district": "Solapur",
+   "state": "Maharashtra",
+   "capacity_mt": 8600,
+   "valid_upto": "2027-07-18",
+   "status": "Active"
+  },
+  {
+   "id": "6589956",
+   "name": "MAHARASHTRA STATE WAREHOUSING CORPORATION, KINWAT",
+   "address": "Mahur Rd., Co. Op. Cotton Ginning & Pressing Soc. Ltd. Kinwat, Tq. Kinwat, KINWAT",
+   "district": "Nanded",
+   "state": "Maharashtra",
+   "capacity_mt": 3150,
+   "valid_upto": "2027-05-31",
+   "status": "Active"
+  },
+  {
+   "id": "6720452",
+   "name": "Maharashtra State Warehousing Corporation, Tiosa",
+   "address": "APMC Market Year, Satargaon Road, Tiosa",
+   "district": "Amravati",
+   "state": "Maharashtra",
+   "capacity_mt": 2780,
+   "valid_upto": "2028-05-25",
+   "status": "Active"
+  },
+  {
+   "id": "6586804",
+   "name": "",
+   "address": "Maharashtra State Warehousing Corporation, Survey No. 437, Plot No. 465, Raigad Bazar, APMC Market Yard, Panvel",
+   "district": "Raigad",
+   "state": "Maharashtra",
+   "capacity_mt": 8100,
+   "valid_upto": "2027-05-29",
+   "status": "Active"
+  },
+  {
+   "id": "6582035",
+   "name": "",
+   "address": "MARKET YARD, KOTAMGAON ROAD",
+   "district": "Nashik",
+   "state": "Maharashtra",
+   "capacity_mt": 4000,
+   "valid_upto": "2027-05-27",
+   "status": "Active"
+  },
+  {
+   "id": "6575641",
+   "name": "Maharashtra State Warehousing Corporation, Warud",
+   "address": "Nagpur Road, Roshankhed Phata",
+   "district": "Amravati",
+   "state": "Maharashtra",
+   "capacity_mt": 7650,
+   "valid_upto": "2027-05-18",
+   "status": "Active"
+  },
+  {
+   "id": "6578074",
+   "name": "MAHARASHTRA STATE WAREHOUSING CORPORATION, SAILU",
+   "address": "PATHRI ROAD, SAILU",
+   "district": "Parbhani",
+   "state": "Maharashtra",
+   "capacity_mt": 7650,
+   "valid_upto": "2027-05-23",
+   "status": "Active"
+  },
+  {
+   "id": "6592026",
+   "name": "",
+   "address": "MSWC, APMC Area, Kannad, Kannad, Aurangabad-431103",
+   "district": "Chhatrapati Sambhajinagar",
+   "state": "Maharashtra",
+   "capacity_mt": 3000,
+   "valid_upto": "2027-06-06",
+   "status": "Active"
+  },
+  {
+   "id": "6580955",
+   "name": "",
+   "address": "PUNE-NASHIK HIGHWAY, NEAR PANJARPOL",
+   "district": "Pune",
+   "state": "Maharashtra",
+   "capacity_mt": 13800,
+   "valid_upto": "2027-05-25",
+   "status": "Active"
+  },
+  {
+   "id": "6577985",
+   "name": "Maharashtra State Warehousing Corporation, Sindkhed Raja",
+   "address": "APMC, Market Yard, Sindkhed Raja",
+   "district": "Buldhana",
+   "state": "Maharashtra",
+   "capacity_mt": 4550,
+   "valid_upto": "2027-05-23",
+   "status": "Active"
+  },
+  {
+   "id": "6598593",
+   "name": "",
+   "address": "APMC MARKET YARD, KASODA",
+   "district": "Jalgaon",
+   "state": "Maharashtra",
+   "capacity_mt": 2000,
+   "valid_upto": "2027-06-29",
+   "status": "Active"
+  },
+  {
+   "id": "6613806",
+   "name": "MAHARASHTRA STATE WAREHOUSING CORPORATION, RENAPUR",
+   "address": "APMC MARKET YARD, RENAPUR",
+   "district": "Latur",
+   "state": "Maharashtra",
+   "capacity_mt": 4200,
+   "valid_upto": "2027-08-09",
+   "status": "Active"
+  },
+  {
+   "id": "6576631",
+   "name": "MAHARASHTRA STATE WAREHOUSING CORPORATION, HINGOLI MALHARWADI",
+   "address": "Jawala Palshi Road, Siddharth Nagar, HINGOLI",
+   "district": "Hingoli",
+   "state": "Maharashtra",
+   "capacity_mt": 8600,
+   "valid_upto": "2027-05-22",
+   "status": "Active"
+  },
+  {
+   "id": "6583561",
+   "name": "Maharashtra state warehousing corporation Butiboritibori",
+   "address": "Maharashtra state warehousing corporation, PLot No.26A, Indorama Road, Butibori",
+   "district": "Nagpur",
+   "state": "Maharashtra",
+   "capacity_mt": 4800,
+   "valid_upto": "2027-05-28",
+   "status": "Active"
+  },
+  {
+   "id": "6721625",
+   "name": "Maharashtra State Warehousing Corporation, Daryapur",
+   "address": "Mauze-Banosa, Near ITI, Daryapur",
+   "district": "Amravati",
+   "state": "Maharashtra",
+   "capacity_mt": 6000,
+   "valid_upto": "2028-05-25",
+   "status": "Active"
+  },
+  {
+   "id": "6612188",
+   "name": "MAHARASHTRA STATE WAREHOUSING CORPORATION, JINTUR",
+   "address": "WARUD ROAD, JINTUR",
+   "district": "Parbhani",
+   "state": "Maharashtra",
+   "capacity_mt": 5220,
+   "valid_upto": "2027-08-07",
+   "status": "Active"
+  },
+  {
+   "id": "6584551",
+   "name": "",
+   "address": "Maharashtra State Warehousing Corporation, Plot No. L-4, MIDC Area, IGPL Road, Taloja",
+   "district": "Raigad",
+   "state": "Maharashtra",
+   "capacity_mt": 18600,
+   "valid_upto": "2027-05-29",
+   "status": "Active"
+  },
+  {
+   "id": "6594097",
+   "name": "",
+   "address": "APMC MARKET YARD KOPARGAON",
+   "district": "Ahilyanagar",
+   "state": "Maharashtra",
+   "capacity_mt": 8360,
+   "valid_upto": "2027-06-12",
+   "status": "Active"
+  },
+  {
+   "id": "6596704",
+   "name": "",
+   "address": "APMC MARKET, Opp. Sai Mandi, Main Road, Navapur",
+   "district": "Nandurbar",
+   "state": "Maharashtra",
+   "capacity_mt": 4000,
+   "valid_upto": "2027-06-21",
+   "status": "Active"
+  },
+  {
+   "id": "6667539",
+   "name": "",
+   "address": "PACHORA APMC",
+   "district": "Jalgaon",
+   "state": "Maharashtra",
+   "capacity_mt": 5400,
+   "valid_upto": "2027-12-26",
+   "status": "Active"
+  },
+  {
+   "id": "6666721",
+   "name": "Maharashtra State Warehousing Corporation, Hinganghat (APMC)",
+   "address": "Shivaji Market (APMC), Hydrabad Highway, Hinganghat",
+   "district": "Wardha",
+   "state": "Maharashtra",
+   "capacity_mt": 9920,
+   "valid_upto": "2027-12-25",
+   "status": "Active"
+  },
+  {
+   "id": "6667448",
+   "name": "Maharashtra State Warehousing Corporation , Hinganghat",
+   "address": "Nagpur Hydrabad Highway, Hinganghat",
+   "district": "Wardha",
+   "state": "Maharashtra",
+   "capacity_mt": 6780,
+   "valid_upto": "2027-12-26",
+   "status": "Active"
+  },
+  {
+   "id": "6633788",
+   "name": "Maharashtra State Warehousing Corporation, Hinganghat",
+   "address": "Nagpur Hydarabad Highway, Hinganghat",
+   "district": "Wardha",
+   "state": "Maharashtra",
+   "capacity_mt": 19050,
+   "valid_upto": "2027-09-21",
+   "status": "Active"
+  },
+  {
+   "id": "6633606",
+   "name": "Maharashtra State Warehousing Corporation, Pusad",
+   "address": "Dhankeshwar Road, Washim Road",
+   "district": "Yavatmal",
+   "state": "Maharashtra",
+   "capacity_mt": 8000,
+   "valid_upto": "2027-09-21",
+   "status": "Active"
+  },
+  {
+   "id": "6631444",
+   "name": "",
+   "address": "MSWC, APMC Area, Wadigodri, Wadigodri, Jalna 431205",
+   "district": "Jalna",
+   "state": "Maharashtra",
+   "capacity_mt": 3160,
+   "valid_upto": "2027-09-19",
+   "status": "Active"
+  },
+  {
+   "id": "6756811",
+   "name": "",
+   "address": "Bhoom Road, APMC Marketyard",
+   "district": "Ahilyanagar",
+   "state": "Maharashtra",
+   "capacity_mt": 3000,
+   "valid_upto": "2028-07-13",
+   "status": "Active"
+  },
+  {
+   "id": "7182157",
+   "name": "",
+   "address": "Plot No.B-50, MIDC Area, In front of Garvare company",
+   "district": "Satara",
+   "state": "Maharashtra",
+   "capacity_mt": 11400,
+   "valid_upto": "2030-12-21",
+   "status": "Active"
+  },
+  {
+   "id": "6596258",
+   "name": "",
+   "address": "LONAND SATARA ROAD, KAPAD GAON, LONAND",
+   "district": "Satara",
+   "state": "Maharashtra",
+   "capacity_mt": 20197,
+   "valid_upto": "2027-06-19",
+   "status": "Active"
+  },
+  {
+   "id": "6746556",
+   "name": "",
+   "address": "MSWC, Opp power house, Aurangabad Rd, Vaijapur",
+   "district": "Chhatrapati Sambhajinagar",
+   "state": "Maharashtra",
+   "capacity_mt": 6320,
+   "valid_upto": "2028-06-26",
+   "status": "Active"
+  },
+  {
+   "id": "6583298",
+   "name": "DONDAICHA APMC",
+   "address": "APMC MARKET YARD, SHINKHEDA ROAD DONDAICHA APMC",
+   "district": "Dhule",
+   "state": "Maharashtra",
+   "capacity_mt": 4760,
+   "valid_upto": "2027-05-28",
+   "status": "Active"
+  },
+  {
+   "id": "6586986",
+   "name": "",
+   "address": "At Tambmal, Lonand - Phaltan Road, Post Farandwadi, Tal. Phalan",
+   "district": "Satara",
+   "state": "Maharashtra",
+   "capacity_mt": 8920,
+   "valid_upto": "2027-05-29",
+   "status": "Active"
+  },
+  {
+   "id": "6588511",
+   "name": "",
+   "address": "APMC Market Yard, SHIRUR ANANTPAL",
+   "district": "Latur",
+   "state": "Maharashtra",
+   "capacity_mt": 3000,
+   "valid_upto": "2027-05-31",
+   "status": "Active"
+  },
+  {
+   "id": "6584460",
+   "name": "",
+   "address": "Market Yard Tasgaon",
+   "district": "Sangli",
+   "state": "Maharashtra",
+   "capacity_mt": 3480,
+   "valid_upto": "2027-05-29",
+   "status": "Active"
+  },
+  {
+   "id": "6588875",
+   "name": "",
+   "address": "Market Yard Vairag",
+   "district": "Solapur",
+   "state": "Maharashtra",
+   "capacity_mt": 2000,
+   "valid_upto": "2027-05-31",
+   "status": "Active"
+  },
+  {
+   "id": "6574743",
+   "name": "",
+   "address": "JAMB-JALGAON ROAD, JALGAON",
+   "district": "Satara",
+   "state": "Maharashtra",
+   "capacity_mt": 13860,
+   "valid_upto": "2027-05-12",
+   "status": "Active"
+  },
+  {
+   "id": "6575914",
+   "name": "",
+   "address": "P 153 NAGAPUR MIDC, AHMEDNAGAR, NEAR JIMKHANA",
+   "district": "Ahilyanagar",
+   "state": "Maharashtra",
+   "capacity_mt": 22854,
+   "valid_upto": "2027-05-18",
+   "status": "Active"
+  },
+  {
+   "id": "6584825",
+   "name": "",
+   "address": "B/10 CHINCHOLI MIDC",
+   "district": "Solapur",
+   "state": "Maharashtra",
+   "capacity_mt": 21905,
+   "valid_upto": "2027-05-29",
+   "status": "Active"
+  },
+  {
+   "id": "6586713",
+   "name": "",
+   "address": "Marketyard, Takari, Tal- Walwa",
+   "district": "Sangli",
+   "state": "Maharashtra",
+   "capacity_mt": 2980,
+   "valid_upto": "2027-05-29",
+   "status": "Active"
+  },
+  {
+   "id": "6586531",
+   "name": "",
+   "address": "Plot NO.D5, Old MIDC Satara",
+   "district": "Satara",
+   "state": "Maharashtra",
+   "capacity_mt": 8800,
+   "valid_upto": "2027-05-29",
+   "status": "Active"
+  },
+  {
+   "id": "6577621",
+   "name": "",
+   "address": "Survey No. 12 & 14 A, Dhanawadewadi, Karbude",
+   "district": "Ratnagiri",
+   "state": "Maharashtra",
+   "capacity_mt": 18103,
+   "valid_upto": "2027-05-23",
+   "status": "Active"
+  },
+  {
+   "id": "6583025",
+   "name": "",
+   "address": "Market Yard Sangli Road Ichalkaranji, Market Yard Sangli Road Ichalkaranji",
+   "district": "Kolhapur",
+   "state": "Maharashtra",
+   "capacity_mt": 3000,
+   "valid_upto": "2027-05-28",
+   "status": "Active"
+  },
+  {
+   "id": "6581045",
+   "name": "",
+   "address": "\"Jamkhed Road, Karmala 413203\", \"M.S.W.C Market Yard,\"",
+   "district": "Solapur",
+   "state": "Maharashtra",
+   "capacity_mt": 3600,
+   "valid_upto": "2027-05-25",
+   "status": "Active"
+  },
+  {
+   "id": "6588966",
+   "name": "",
+   "address": "Kudal, Kudal",
+   "district": "Sindhudurg",
+   "state": "Maharashtra",
+   "capacity_mt": 9821,
+   "valid_upto": "2027-05-31",
+   "status": "Active"
+  },
+  {
+   "id": "6584379",
+   "name": "",
+   "address": "Haknakwadi,Ahemedpur road,udgir, HAKNAKWADI",
+   "district": "Latur",
+   "state": "Maharashtra",
+   "capacity_mt": 3600,
+   "valid_upto": "2027-05-29",
+   "status": "Active"
+  },
+  {
+   "id": "6582753",
+   "name": "",
+   "address": "Market yard get no 6, Karve Naka karad",
+   "district": "Satara",
+   "state": "Maharashtra",
+   "capacity_mt": 13450,
+   "valid_upto": "2027-05-28",
+   "status": "Active"
+  },
+  {
+   "id": "6576904",
+   "name": "",
+   "address": "\"At Khadki, Post-Khandala, Tal-Nagar, Dist-Ahmednagar \"",
+   "district": "Ahilyanagar",
+   "state": "Maharashtra",
+   "capacity_mt": 8944,
+   "valid_upto": "2027-05-22",
+   "status": "Active"
+  },
+  {
+   "id": "6574651",
+   "name": "",
+   "address": "PUNE BYPASS ROAD, KEDGAON",
+   "district": "Ahilyanagar",
+   "state": "Maharashtra",
+   "capacity_mt": 16950,
+   "valid_upto": "2027-05-12",
+   "status": "Active"
+  },
+  {
+   "id": "6580773",
+   "name": "",
+   "address": "Near Manjara Sugar Factory, New MIDC Barshi Road",
+   "district": "Latur",
+   "state": "Maharashtra",
+   "capacity_mt": 21420,
+   "valid_upto": "2027-05-25",
+   "status": "Active"
+  },
+  {
+   "id": "6579064",
+   "name": "",
+   "address": "KORTI ROAD, IN FRONT OF KRUSHI OFFICE",
+   "district": "Solapur",
+   "state": "Maharashtra",
+   "capacity_mt": 16424,
+   "valid_upto": "2027-05-24",
+   "status": "Active"
+  },
+  {
+   "id": "6571509",
+   "name": "",
+   "address": "AT Post TADAWALE Kurduwadi, TAL.MHADA",
+   "district": "Solapur",
+   "state": "Maharashtra",
+   "capacity_mt": 12144,
+   "valid_upto": "2027-04-27",
+   "status": "Active"
+  },
+  {
+   "id": "6587521",
+   "name": "",
+   "address": "Miraj Pandharpur road, Tasgaon Phata, Miraj, Gat No. 2233A, Malgaon,Miraj",
+   "district": "Sangli",
+   "state": "Maharashtra",
+   "capacity_mt": 14400,
+   "valid_upto": "2027-05-29",
+   "status": "Active"
+  },
+  {
+   "id": "6577357",
+   "name": "",
+   "address": "Pandharpur Road, Market Yard, Mangalwedha",
+   "district": "Solapur",
+   "state": "Maharashtra",
+   "capacity_mt": 2000,
+   "valid_upto": "2027-05-22",
+   "status": "Active"
+  },
+  {
+   "id": "6581946",
+   "name": "",
+   "address": "MALEGAON ROAD,SATANA, SATANA",
+   "district": "Nashik",
+   "state": "Maharashtra",
+   "capacity_mt": 5850,
+   "valid_upto": "2027-05-27",
+   "status": "Active"
+  },
+  {
+   "id": "6577803",
+   "name": "",
+   "address": "MSWC, APMC Market Yard, Viha Mandava, Viha Mandava Tal. Paithan",
+   "district": "Chhatrapati Sambhajinagar",
+   "state": "Maharashtra",
+   "capacity_mt": 2000,
+   "valid_upto": "2027-05-23",
+   "status": "Active"
+  },
+  {
+   "id": "6575559",
+   "name": "Maharashtra State Warehousing Corporation, Chandrapur-MIDC",
+   "address": "MIDC Area, Plot No.35, Near HP Gas Plant",
+   "district": "Chandrapur",
+   "state": "Maharashtra",
+   "capacity_mt": 19750,
+   "valid_upto": "2027-05-18",
+   "status": "Active"
+  },
+  {
+   "id": "6584734",
+   "name": "MAHARASHTRA STATE WAREHOUSING CORPORATION, WAI BAZAR",
+   "address": "Mahur Kinwat Rd., APMC Market Yard Wai Bazar, WAI BAZAR",
+   "district": "Nanded",
+   "state": "Maharashtra",
+   "capacity_mt": 3150,
+   "valid_upto": "2027-05-29",
+   "status": "Active"
+  },
+  {
+   "id": "6586358",
+   "name": "",
+   "address": "Shrirampur MIDC Khandala",
+   "district": "Ahilyanagar",
+   "state": "Maharashtra",
+   "capacity_mt": 3600,
+   "valid_upto": "2027-05-29",
+   "status": "Active"
+  },
+  {
+   "id": "6589147",
+   "name": "",
+   "address": "PLOT NO.B-2, MIDC AREA, GANGAKHED",
+   "district": "Parbhani",
+   "state": "Maharashtra",
+   "capacity_mt": 7200,
+   "valid_upto": "2027-05-31",
+   "status": "Active"
+  },
+  {
+   "id": "6581490",
+   "name": "",
+   "address": "Near S T Stand,Brhamapuri",
+   "district": "Chandrapur",
+   "state": "Maharashtra",
+   "capacity_mt": 8600,
+   "valid_upto": "2027-05-27",
+   "status": "Active"
+  },
+  {
+   "id": "6578256",
+   "name": "",
+   "address": "Market Yard, Kalwan, KALWAN",
+   "district": "Nashik",
+   "state": "Maharashtra",
+   "capacity_mt": 3500,
+   "valid_upto": "2027-05-23",
+   "status": "Active"
+  },
+  {
+   "id": "6581136",
+   "name": "Maharashtra State Warehousing Corporation, Umarkhed",
+   "address": "Mahagaon Road, Umarkhed",
+   "district": "Yavatmal",
+   "state": "Maharashtra",
+   "capacity_mt": 8280,
+   "valid_upto": "2027-05-25",
+   "status": "Active"
+  },
+  {
+   "id": "6576813",
+   "name": "",
+   "address": "MSWC, Tirthpuri, Taluka Ghansangavi, Jalna -431209",
+   "district": "Jalna",
+   "state": "Maharashtra",
+   "capacity_mt": 1580,
+   "valid_upto": "2027-05-22",
+   "status": "Active"
+  },
+  {
+   "id": "6576995",
+   "name": "",
+   "address": "MSWC, APMC Area, Pardgaon Road, Near Railway Track, Tal.Partur, Jalna 431501",
+   "district": "Jalna",
+   "state": "Maharashtra",
+   "capacity_mt": 5840,
+   "valid_upto": "2027-05-22",
+   "status": "Active"
+  },
+  {
+   "id": "6588784",
+   "name": "MAHARASHTRA STATE WAREHOUSING CORPORATION, MANWAT",
+   "address": "NEAR GOVT. REST-HOUSE, MANWAT",
+   "district": "Parbhani",
+   "state": "Maharashtra",
+   "capacity_mt": 13050,
+   "valid_upto": "2027-05-31",
+   "status": "Active"
+  },
+  {
+   "id": "6584643",
+   "name": "",
+   "address": "MSWC, APMC Area ( Dhotar Joda), Taluka Partur, Partur, Jalna - 431507",
+   "district": "Jalna",
+   "state": "Maharashtra",
+   "capacity_mt": 2000,
+   "valid_upto": "2027-05-29",
+   "status": "Active"
+  },
+  {
+   "id": "6580864",
+   "name": "",
+   "address": "APMC MARKET YARD, APMC",
+   "district": "Nashik",
+   "state": "Maharashtra",
+   "capacity_mt": 2000,
+   "valid_upto": "2027-05-25",
+   "status": "Active"
+  },
+  {
+   "id": "6585814",
+   "name": "City Godown Jalna",
+   "address": "Near Government godown, Near Bus Stand, Raut Nagar, Jalna -431203",
+   "district": "Jalna",
+   "state": "Maharashtra",
+   "capacity_mt": 8850,
+   "valid_upto": "2027-05-29",
+   "status": "Active"
+  },
+  {
+   "id": "6579247",
+   "name": "",
+   "address": "MIDC Area, Lohara",
+   "district": "Yavatmal",
+   "state": "Maharashtra",
+   "capacity_mt": 16364,
+   "valid_upto": "2027-05-25",
+   "status": "Active"
+  },
+  {
+   "id": "6579692",
+   "name": "Maharashtra State Warehousing Corporation, Wadsa",
+   "address": "Near Police Station, Armori Road, Wadsa Desaiganj",
+   "district": "Gadchiroli",
+   "state": "Maharashtra",
+   "capacity_mt": 9050,
+   "valid_upto": "2027-05-25",
+   "status": "Active"
+  },
+  {
+   "id": "6589329",
+   "name": "",
+   "address": "Maharashtra State Warehousing Corporation, Dahivali Krushi Utpanna Bazar Samiti, Market Yard",
+   "district": "Raigad",
+   "state": "Maharashtra",
+   "capacity_mt": 1450,
+   "valid_upto": "2027-05-31",
+   "status": "Active"
+  },
+  {
+   "id": "6583744",
+   "name": "",
+   "address": "APMC MARKET YARD, NANDGAON",
+   "district": "Nashik",
+   "state": "Maharashtra",
+   "capacity_mt": 1800,
+   "valid_upto": "2027-05-28",
+   "status": "Active"
+  },
+  {
+   "id": "6576276",
+   "name": "",
+   "address": "MSWC, APMC Area, Lasur (station), Taluka- Gangapur, Aurangabad-",
+   "district": "Chhatrapati Sambhajinagar",
+   "state": "Maharashtra",
+   "capacity_mt": 4180,
+   "valid_upto": "2027-05-22",
+   "status": "Active"
+  },
+  {
+   "id": "6579338",
+   "name": "Maharashtra State Warehousing Corporation, Chandur Rly.",
+   "address": "Plot No. B, Mini MIDC, Chandur Rly.",
+   "district": "Amravati",
+   "state": "Maharashtra",
+   "capacity_mt": 5400,
+   "valid_upto": "2027-05-25",
+   "status": "Active"
+  },
+  {
+   "id": "6579601",
+   "name": "",
+   "address": "APMC, Market Yard, Tumsar",
+   "district": "Bhandara",
+   "state": "Maharashtra",
+   "capacity_mt": 7956,
+   "valid_upto": "2027-05-25",
+   "status": "Active"
+  },
+  {
+   "id": "6579429",
+   "name": "",
+   "address": "Near by DSMS Colloge, Dhamangaon, Dhamangaon",
+   "district": "Amravati",
+   "state": "Maharashtra",
+   "capacity_mt": 12043,
+   "valid_upto": "2027-05-25",
+   "status": "Active"
+  },
+  {
+   "id": "6581581",
+   "name": "Maharashtra State Warehousing Corporation, Akot",
+   "address": "APMC, Market Yard, Akot",
+   "district": "Akola",
+   "state": "Maharashtra",
+   "capacity_mt": 3870,
+   "valid_upto": "2027-05-27",
+   "status": "Active"
+  },
+  {
+   "id": "6583470",
+   "name": "Maharashtra State Warehousing Corporation Karanja Gahadge",
+   "address": "Agricultar Produce Market Committee, Nagpur Road Karanja Gahadge",
+   "district": "Wardha",
+   "state": "Maharashtra",
+   "capacity_mt": 5220,
+   "valid_upto": "2027-05-28",
+   "status": "Active"
+  },
+  {
+   "id": "6587612",
+   "name": "Maharashtra State Warehousing Corporation",
+   "address": "Agriculture Produce Market Committee, Market Yard Savner",
+   "district": "Nagpur",
+   "state": "Maharashtra",
+   "capacity_mt": 3150,
+   "valid_upto": "2027-05-29",
+   "status": "Active"
+  },
+  {
+   "id": "6582217",
+   "name": "Maharashtra State Warehousing Corporation, Nandgaon Kh.",
+   "address": "APMC, Market Yard, Amravati Road, Nadgaon Khandeshwar",
+   "district": "Amravati",
+   "state": "Maharashtra",
+   "capacity_mt": 3600,
+   "valid_upto": "2027-05-27",
+   "status": "Active"
+  },
+  {
+   "id": "6586267",
+   "name": "Maharashtra State Warehousing Corporation, Karanja Lad",
+   "address": "Mauze Shaha, Murtizapur Road, Karanja",
+   "district": "Washim",
+   "state": "Maharashtra",
+   "capacity_mt": 3600,
+   "valid_upto": "2027-05-29",
+   "status": "Active"
+  },
+  {
+   "id": "6581227",
+   "name": "Maharashtra State Warehousing Corporation, Murtizapur",
+   "address": "N.H.-6, Near Yavatmal Railway Crossing, Murtizapur",
+   "district": "Akola",
+   "state": "Maharashtra",
+   "capacity_mt": 17650,
+   "valid_upto": "2027-05-25",
+   "status": "Active"
+  },
+  {
+   "id": "6579965",
+   "name": "Maharashtra State Warehousing Corporation, Chandur Bazar",
+   "address": "APMC, Market Yard, Chandur Bazar",
+   "district": "Amravati",
+   "state": "Maharashtra",
+   "capacity_mt": 10800,
+   "valid_upto": "2027-05-25",
+   "status": "Active"
+  },
+  {
+   "id": "6582845",
+   "name": "Maharashtra State Warehousing Corporation, Arjuni Morgaon",
+   "address": "Agricultur Produce Market Committee, Arjuni Morgaon",
+   "district": "Gondia",
+   "state": "Maharashtra",
+   "capacity_mt": 7200,
+   "valid_upto": "2027-05-28",
+   "status": "Active"
+  },
+  {
+   "id": "6575823",
+   "name": "Maharashtra State Warehousing Corporation, Washim",
+   "address": "APMN, Market Yard, Near Railway Station, Washim",
+   "district": "Washim",
+   "state": "Maharashtra",
+   "capacity_mt": 10950,
+   "valid_upto": "2027-05-18",
+   "status": "Active"
+  },
+  {
+   "id": "6577175",
+   "name": "Maharashtra State Warehousing Corporation",
+   "address": "Near Railway Station, Agriculture Markeing Produce Committe Katol",
+   "district": "Nagpur",
+   "state": "Maharashtra",
+   "capacity_mt": 5850,
+   "valid_upto": "2027-05-22",
+   "status": "Active"
+  },
+  {
+   "id": "6580237",
+   "name": "Maharashtra State Warehousing Corporation, Chikhali",
+   "address": "Jalna Road, In front of Renuka Petrol Pump",
+   "district": "Buldhana",
+   "state": "Maharashtra",
+   "capacity_mt": 11200,
+   "valid_upto": "2027-05-25",
+   "status": "Active"
+  },
+  {
+   "id": "6574925",
+   "name": "",
+   "address": "PLOT NO.H14,MIDC AREA,JALGAON, JALGAON",
+   "district": "Jalgaon",
+   "state": "Maharashtra",
+   "capacity_mt": 61803,
+   "valid_upto": "2027-05-14",
+   "status": "Active"
+  },
+  {
+   "id": "6585632",
+   "name": "Maharashtra State Warehousing Corporation, Khamgaon (Warkhed)",
+   "address": "Shegaon Road, Khamgaon (Warkhed)",
+   "district": "Buldhana",
+   "state": "Maharashtra",
+   "capacity_mt": 29040,
+   "valid_upto": "2027-05-29",
+   "status": "Active"
+  },
+  {
+   "id": "6580500",
+   "name": "",
+   "address": "APMC MARKET YARD, CHOPADA",
+   "district": "Jalgaon",
+   "state": "Maharashtra",
+   "capacity_mt": 4050,
+   "valid_upto": "2027-05-25",
+   "status": "Active"
+  },
+  {
+   "id": "6582308",
+   "name": "",
+   "address": "Near by ITI,Utkheda Road,Pal Phata, RAVER",
+   "district": "Jalgaon",
+   "state": "Maharashtra",
+   "capacity_mt": 5160,
+   "valid_upto": "2027-05-27",
+   "status": "Active"
+  },
+  {
+   "id": "6578702",
+   "name": "Maharashtra State Warehousing Corporation, Deolgaon Raja",
+   "address": "MIDC Area, Shingaon Fata, Near ITI, Chikhali Road, Deolgaon Raja",
+   "district": "Buldhana",
+   "state": "Maharashtra",
+   "capacity_mt": 5000,
+   "valid_upto": "2027-05-23",
+   "status": "Active"
+  },
+  {
+   "id": "6581672",
+   "name": "",
+   "address": "BEHIND STATE BANK, MARKET YARD",
+   "district": "Nandurbar",
+   "state": "Maharashtra",
+   "capacity_mt": 5100,
+   "valid_upto": "2027-05-27",
+   "status": "Active"
+  },
+  {
+   "id": "6576722",
+   "name": "Maharashtra State Warehousing Corporation, Telhara",
+   "address": "APMC, Market Yar, Telhara",
+   "district": "Akola",
+   "state": "Maharashtra",
+   "capacity_mt": 4800,
+   "valid_upto": "2027-05-22",
+   "status": "Active"
+  },
+  {
+   "id": "6589055",
+   "name": "Maharashtra State Warehousing Corporation, Mehekar",
+   "address": "APMC, Market Yard, Dongaon Road, Mehekar",
+   "district": "Buldhana",
+   "state": "Maharashtra",
+   "capacity_mt": 10000,
+   "valid_upto": "2027-05-31",
+   "status": "Active"
+  },
+  {
+   "id": "6579874",
+   "name": "",
+   "address": "APMC MARKET YARD, CHANWAD ROAD MANMAD",
+   "district": "Nashik",
+   "state": "Maharashtra",
+   "capacity_mt": 12900,
+   "valid_upto": "2027-05-25",
+   "status": "Active"
+  },
+  {
+   "id": "6582126",
+   "name": "MAHARASHTRA STATE WAREHOUSING CORPORATION, DHARMABAD",
+   "address": "RATNALI ROAD, DHARMABAD",
+   "district": "Nanded",
+   "state": "Maharashtra",
+   "capacity_mt": 5400,
+   "valid_upto": "2027-05-27",
+   "status": "Active"
+  },
+  {
+   "id": "6577712",
+   "name": "",
+   "address": "MIDC ,BARAMATI",
+   "district": "Pune",
+   "state": "Maharashtra",
+   "capacity_mt": 15819,
+   "valid_upto": "2027-05-23",
+   "status": "Active"
+  },
+  {
+   "id": "6580146",
+   "name": "Maharashtra State Warehousing Corporation, Darwha",
+   "address": "Arni Road, Darwha",
+   "district": "Yavatmal",
+   "state": "Maharashtra",
+   "capacity_mt": 8000,
+   "valid_upto": "2027-05-25",
+   "status": "Active"
+  },
+  {
+   "id": "6598957",
+   "name": "",
+   "address": "Maharashtra State Warehousing Corporation, Sector 18, Plot No. 37, APMC, Market Yard, Vashi",
+   "district": "Thane",
+   "state": "Maharashtra",
+   "capacity_mt": 3300,
+   "valid_upto": "2027-06-30",
+   "status": "Active"
+  },
+  {
+   "id": "6578348",
+   "name": "",
+   "address": "T-6 MIDC ,MIRJOLE BLOCK, TAL & DIST. RATNAGIRI",
+   "district": "Ratnagiri",
+   "state": "Maharashtra",
+   "capacity_mt": 14260,
+   "valid_upto": "2027-05-23",
+   "status": "Active"
+  },
+  {
+   "id": "6593461",
+   "name": "MSWC Kurduwadi APMC",
+   "address": "Market Yard,Kurduwadi, Tembhurni Road",
+   "district": "Solapur",
+   "state": "Maharashtra",
+   "capacity_mt": 12000,
+   "valid_upto": "2027-06-12",
+   "status": "Active"
+  },
+  {
+   "id": "6586622",
+   "name": "",
+   "address": "Marketyard APMC, Near hotel Khan Chacha",
+   "district": "Pune",
+   "state": "Maharashtra",
+   "capacity_mt": 3600,
+   "valid_upto": "2027-05-29",
+   "status": "Active"
+  },
+  {
+   "id": "6589774",
+   "name": "",
+   "address": "Mumbai Agra Haighway",
+   "district": "Nashik",
+   "state": "Maharashtra",
+   "capacity_mt": 8050,
+   "valid_upto": "2027-05-31",
+   "status": "Active"
+  },
+  {
+   "id": "6596977",
+   "name": "",
+   "address": "MSWC, APMC Area, Beed Road, Georai , Beed- 431127",
+   "district": "Beed",
+   "state": "Maharashtra",
+   "capacity_mt": 6820,
+   "valid_upto": "2027-06-22",
+   "status": "Active"
+  },
+  {
+   "id": "6614887",
+   "name": "",
+   "address": "Plot No. 142/2, MUSALGAON MIDC MUSALGAON",
+   "district": "Nashik",
+   "state": "Maharashtra",
+   "capacity_mt": 3000,
+   "valid_upto": "2027-08-12",
+   "status": "Active"
+  },
+  {
+   "id": "6589865",
+   "name": "",
+   "address": "APMC MARKET /Takarkheda Road, AMALNER",
+   "district": "Jalgaon",
+   "state": "Maharashtra",
+   "capacity_mt": 13990,
+   "valid_upto": "2027-05-31",
+   "status": "Active"
+  },
+  {
+   "id": "6575732",
+   "name": "Maharashtra State Warehousing Corporation Amgaon",
+   "address": "Pondhwana Road Kumbhartoli, Amgaon",
+   "district": "Gondia",
+   "state": "Maharashtra",
+   "capacity_mt": 8600,
+   "valid_upto": "2027-05-18",
+   "status": "Active"
+  },
+  {
+   "id": "6583389",
+   "name": "Maharashtra State Warehousing Corporation Wardha Shivnagar",
+   "address": "Hinganghat Road Shivnagar Wardha",
+   "district": "Wardha",
+   "state": "Maharashtra",
+   "capacity_mt": 9800,
+   "valid_upto": "2027-05-28",
+   "status": "Active"
+  },
+  {
+   "id": "6580419",
+   "name": "",
+   "address": "MSWC, Aurangabad-Ajanta-Jalgaon Road, Sillod, Tal Sillod, Dist Aurangabad",
+   "district": "Chhatrapati Sambhajinagar",
+   "state": "Maharashtra",
+   "capacity_mt": 4740,
+   "valid_upto": "2027-05-25",
+   "status": "Active"
+  },
+  {
+   "id": "6585095",
+   "name": "MSWC Newasa APMC",
+   "address": "MARKE YARD NEWASA DIST: AHEMDNAGER",
+   "district": "Ahilyanagar",
+   "state": "Maharashtra",
+   "capacity_mt": 4000,
+   "valid_upto": "2027-05-29",
+   "status": "Active"
+  },
+  {
+   "id": "6578520",
+   "name": "MAHARASHTRA STATE WAREHOUSING CORPORATION, HATTA",
+   "address": "APMC MARKET YARD, HATTA",
+   "district": "Hingoli",
+   "state": "Maharashtra",
+   "capacity_mt": 6550,
+   "valid_upto": "2027-05-23",
+   "status": "Active"
+  },
+  {
+   "id": "6594360",
+   "name": "Maharashtra State Warehousing Corpration, Arvi",
+   "address": "Pulgaon Road, Arvi",
+   "district": "Wardha",
+   "state": "Maharashtra",
+   "capacity_mt": 9000,
+   "valid_upto": "2027-06-12",
+   "status": "Active"
+  },
+  {
+   "id": "6596886",
+   "name": "Maharashtra State Warehousing Corporation, Morshi",
+   "address": "Survey No. 23(Part), Mauze-Talni, Amravati Road, Pimpalkhuta Fata, Morshi",
+   "district": "Amravati",
+   "state": "Maharashtra",
+   "capacity_mt": 6750,
+   "valid_upto": "2027-06-22",
+   "status": "Active"
+  },
+  {
+   "id": "6598775",
+   "name": "Maharashtra State Warehousing Corporation, Mangrulpir",
+   "address": "APMC, Market Yard, Karanja Road, Mangrulpir",
+   "district": "Washim",
+   "state": "Maharashtra",
+   "capacity_mt": 9000,
+   "valid_upto": "2027-06-29",
+   "status": "Active"
+  },
+  {
+   "id": "6633960",
+   "name": "Maharashtra State Warehousing Corporation, Achalpur",
+   "address": "APMC, Market Yard, Achalpur",
+   "district": "Amravati",
+   "state": "Maharashtra",
+   "capacity_mt": 5000,
+   "valid_upto": "2027-09-21",
+   "status": "Active"
+  },
+  {
+   "id": "6635940",
+   "name": "Maharashtra State Warehousing Corporation, Malegaon (Washim)",
+   "address": "APMC, Near Rest House, Malegaon (Washim)",
+   "district": "Washim",
+   "state": "Maharashtra",
+   "capacity_mt": 2850,
+   "valid_upto": "2027-09-25",
+   "status": "Active"
+  },
+  {
+   "id": "6593370",
+   "name": "Maharashtra State Warehousing Corporation, Akola",
+   "address": "N-66, MIDC Area, Phase-4, Akola",
+   "district": "Akola",
+   "state": "Maharashtra",
+   "capacity_mt": 20000,
+   "valid_upto": "2027-06-12",
+   "status": "Active"
+  },
+  {
+   "id": "6635767",
+   "name": "Maharashtra State Warehousing Corporation, Khamgaon City",
+   "address": "APMC, Market Yard, Khamgaon",
+   "district": "Buldhana",
+   "state": "Maharashtra",
+   "capacity_mt": 3620,
+   "valid_upto": "2027-09-25",
+   "status": "Active"
+  },
+  {
+   "id": "6593826",
+   "name": "Maharashtra State Warehousing Corporation, Undri",
+   "address": "Chikhali Road, Undri",
+   "district": "Buldhana",
+   "state": "Maharashtra",
+   "capacity_mt": 2000,
+   "valid_upto": "2027-06-12",
+   "status": "Active"
+  },
+  {
+   "id": "6599583",
+   "name": "",
+   "address": "CHALISGAON APMC",
+   "district": "Jalgaon",
+   "state": "Maharashtra",
+   "capacity_mt": 12800,
+   "valid_upto": "2027-07-04",
+   "status": "Active"
+  },
+  {
+   "id": "6599047",
+   "name": "",
+   "address": "A.P.M.C MARKET, DHARANGAON",
+   "district": "Jalgaon",
+   "state": "Maharashtra",
+   "capacity_mt": 6600,
+   "valid_upto": "2027-06-30",
+   "status": "Active"
+  },
+  {
+   "id": "6635585",
+   "name": "Maharashtra State Warehousing Corporation, Malkapur",
+   "address": "Nandura Road, Malkapur",
+   "district": "Buldhana",
+   "state": "Maharashtra",
+   "capacity_mt": 6200,
+   "valid_upto": "2027-09-25",
+   "status": "Active"
+  },
+  {
+   "id": "6614077",
+   "name": "",
+   "address": "BHUSAWAL MIDC",
+   "district": "Jalgaon",
+   "state": "Maharashtra",
+   "capacity_mt": 7200,
+   "valid_upto": "2027-08-09",
+   "status": "Active"
+  },
+  {
+   "id": "6592208",
+   "name": "",
+   "address": "G.T.P.college Road Nandurbar, Opp Shani mandir, Nandurbar",
+   "district": "Nandurbar",
+   "state": "Maharashtra",
+   "capacity_mt": 11520,
+   "valid_upto": "2027-06-06",
+   "status": "Active"
+  },
+  {
+   "id": "6594543",
+   "name": "",
+   "address": "APMC MARKET, MUKATINAGAR ROAD BODWAD",
+   "district": "Jalgaon",
+   "state": "Maharashtra",
+   "capacity_mt": 2000,
+   "valid_upto": "2027-06-12",
+   "status": "Active"
+  },
+  {
+   "id": "6746648",
+   "name": "BHUSAVAL APMC",
+   "address": "MARKET YARD, NEAR KHACHNE MARRAIGE HALL",
+   "district": "Jalgaon",
+   "state": "Maharashtra",
+   "capacity_mt": 5400,
+   "valid_upto": "2028-06-26",
+   "status": "Active"
+  },
+  {
+   "id": "6600126",
+   "name": "",
+   "address": "YAWAL APMC, YAWAL",
+   "district": "Jalgaon",
+   "state": "Maharashtra",
+   "capacity_mt": 4250,
+   "valid_upto": "2027-07-07",
+   "status": "Active"
+  },
+  {
+   "id": "6614259",
+   "name": "DHULE APMC",
+   "address": "PAROLA ROAD, MARKET ROAD",
+   "district": "Dhule",
+   "state": "Maharashtra",
+   "capacity_mt": 6660,
+   "valid_upto": "2027-08-11",
+   "status": "Active"
+  },
+  {
+   "id": "6633879",
+   "name": "",
+   "address": "Kapurwadi,Market yard Islampur, Taluka Walwa",
+   "district": "Sangli",
+   "state": "Maharashtra",
+   "capacity_mt": 3600,
+   "valid_upto": "2027-09-21",
+   "status": "Active"
+  },
+  {
+   "id": "6594279",
+   "name": "",
+   "address": "Market yard,Near Pol Factory, Jaysingpur",
+   "district": "Kolhapur",
+   "state": "Maharashtra",
+   "capacity_mt": 5400,
+   "valid_upto": "2027-06-12",
+   "status": "Active"
+  },
+  {
+   "id": "6586176",
+   "name": "",
+   "address": "MARKET YARD ROAD",
+   "district": "Solapur",
+   "state": "Maharashtra",
+   "capacity_mt": 7280,
+   "valid_upto": "2027-05-29",
+   "status": "Active"
+  },
+  {
+   "id": "6769053",
+   "name": "",
+   "address": "M.I.D.C Area lote (P) P.29",
+   "district": "Ratnagiri",
+   "state": "Maharashtra",
+   "capacity_mt": 5830,
+   "valid_upto": "2028-07-30",
+   "status": "Active"
+  },
+  {
+   "id": "6599310",
+   "name": "",
+   "address": "Plot No. K-4 New MIDC, SATARA",
+   "district": "Satara",
+   "state": "Maharashtra",
+   "capacity_mt": 11419,
+   "valid_upto": "2027-06-30",
+   "status": "Active"
+  },
+  {
+   "id": "6698948",
+   "name": "",
+   "address": "Marketyard Koregaon,dist.Satara, APMC Koregaon",
+   "district": "Satara",
+   "state": "Maharashtra",
+   "capacity_mt": 2160,
+   "valid_upto": "2028-03-23",
+   "status": "Active"
+  },
+  {
+   "id": "6593552",
+   "name": "",
+   "address": "Akkalkot, Akkalkot",
+   "district": "Solapur",
+   "state": "Maharashtra",
+   "capacity_mt": 7704,
+   "valid_upto": "2027-06-12",
+   "status": "Active"
+  },
+  {
+   "id": "6585368",
+   "name": "MSWC PARLI CITY APMC",
+   "address": "Nath Road Industrial Area Parli-Vaijnath, Nath Road Industrial Area Parli-Vaijnath",
+   "district": "Beed",
+   "state": "Maharashtra",
+   "capacity_mt": 4976,
+   "valid_upto": "2027-05-29",
+   "status": "Active"
+  },
+  {
+   "id": "6746911",
+   "name": "MAHARASHTRA STATE WAREHOUSING CORPORATION, AUSA",
+   "address": "PLOT NO.B-11 MIDCI AUSA, AUSA",
+   "district": "Latur",
+   "state": "Maharashtra",
+   "capacity_mt": 5400,
+   "valid_upto": "2028-06-26",
+   "status": "Active"
+  },
+  {
+   "id": "6591937",
+   "name": "MAHARASHTRA STATE WAREHOUSING CORPORATION, OSMANABAD",
+   "address": "Marketyard, Near Tuljapur Naka, Osmanabad",
+   "district": "Dharashiv",
+   "state": "Maharashtra",
+   "capacity_mt": 3600,
+   "valid_upto": "2027-06-06",
+   "status": "Active"
+  },
+  {
+   "id": "6757538",
+   "name": "MAHARASHTRA STATE WAREHOUSING CORPORATION, PARANDA",
+   "address": "APMC MARKETYARD, PARANDA",
+   "district": "Dharashiv",
+   "state": "Maharashtra",
+   "capacity_mt": 3420,
+   "valid_upto": "2028-07-16",
+   "status": "Active"
+  },
+  {
+   "id": "6630818",
+   "name": "",
+   "address": "MSWC,A1MIDC Area, Loni,Nanded Road,Udgir, UDGIR",
+   "district": "Latur",
+   "state": "Maharashtra",
+   "capacity_mt": 12300,
+   "valid_upto": "2027-09-18",
+   "status": "Active"
+  },
+  {
+   "id": "6756902",
+   "name": "MAHARASHTRA STATE WAREHOUSING CORPORATION, KALLAMB",
+   "address": "A.P.M.C. MARKETYARD, KALLAMB",
+   "district": "Dharashiv",
+   "state": "Maharashtra",
+   "capacity_mt": 5400,
+   "valid_upto": "2028-07-13",
+   "status": "Active"
+  },
+  {
+   "id": "6575013",
+   "name": "",
+   "address": "PARLI BEED ROAD, TOKWADI",
+   "district": "Beed",
+   "state": "Maharashtra",
+   "capacity_mt": 15378,
+   "valid_upto": "2027-05-14",
+   "status": "Active"
+  },
+  {
+   "id": "6593735",
+   "name": "",
+   "address": "PLOT NO.8, SIDDHESHWAR MARKET YARD",
+   "district": "Solapur",
+   "state": "Maharashtra",
+   "capacity_mt": 5400,
+   "valid_upto": "2027-06-12",
+   "status": "Active"
+  },
+  {
+   "id": "6757264",
+   "name": "",
+   "address": "MSWC, B23 MIDC Area, Railway Station Road, Aurangabad",
+   "district": "Chhatrapati Sambhajinagar",
+   "state": "Maharashtra",
+   "capacity_mt": 5540,
+   "valid_upto": "2028-07-13",
+   "status": "Active"
+  },
+  {
+   "id": "6591754",
+   "name": "",
+   "address": "WAKODI RAOD, BHAWANI NAGAR, MARKET YARD, AHMEDNAGAR",
+   "district": "Ahilyanagar",
+   "state": "Maharashtra",
+   "capacity_mt": 5400,
+   "valid_upto": "2027-06-06",
+   "status": "Active"
+  },
+  {
+   "id": "6596340",
+   "name": "",
+   "address": "p -39 Block - P, MIDC Ranjangaon",
+   "district": "Pune",
+   "state": "Maharashtra",
+   "capacity_mt": 16200,
+   "valid_upto": "2027-06-19",
+   "status": "Active"
+  },
+  {
+   "id": "6767610",
+   "name": "",
+   "address": "BHOKARDAN ROAD JALNA",
+   "district": "Chhatrapati Sambhajinagar",
+   "state": "Maharashtra",
+   "capacity_mt": 29667,
+   "valid_upto": "2028-07-30",
+   "status": "Active"
+  },
+  {
+   "id": "6590046",
+   "name": "Panvel Cold Storage",
+   "address": "Maharashtra State Warehousing Corporation, Plot No. 463, Raigad Bazar, APMC Market Yard, Panvel",
+   "district": "Raigad",
+   "state": "Maharashtra",
+   "capacity_mt": 5000,
+   "valid_upto": "2027-05-31",
+   "status": "Active"
+  },
+  {
+   "id": "6599674",
+   "name": "",
+   "address": "MULANE ROAD,WANI (N), WANI",
+   "district": "Nashik",
+   "state": "Maharashtra",
+   "capacity_mt": 2000,
+   "valid_upto": "2027-07-04",
+   "status": "Active"
+  },
+  {
+   "id": "6612360",
+   "name": "MSWC Shrirampur APMC",
+   "address": "APMC MARKET YARD SHRIRAMPUR",
+   "district": "Ahilyanagar",
+   "state": "Maharashtra",
+   "capacity_mt": 6955,
+   "valid_upto": "2027-08-07",
+   "status": "Active"
+  },
+  {
+   "id": "6612451",
+   "name": "",
+   "address": "H-105 MIDC, AMBAD NASHIK",
+   "district": "Nashik",
+   "state": "Maharashtra",
+   "capacity_mt": 2880,
+   "valid_upto": "2027-08-07",
+   "status": "Active"
+  },
+  {
+   "id": "6594188",
+   "name": "",
+   "address": "Pandharipool",
+   "district": "Ahilyanagar",
+   "state": "Maharashtra",
+   "capacity_mt": 2800,
+   "valid_upto": "2027-06-12",
+   "status": "Active"
+  },
+  {
+   "id": "6577266",
+   "name": "",
+   "address": "Mohan Nagar, Chinchwad",
+   "district": "Pune",
+   "state": "Maharashtra",
+   "capacity_mt": 5100,
+   "valid_upto": "2027-05-22",
+   "status": "Active"
+  },
+  {
+   "id": "6757082",
+   "name": "",
+   "address": "APMC Marketyard, Near Water Tank",
+   "district": "Ahilyanagar",
+   "state": "Maharashtra",
+   "capacity_mt": 3000,
+   "valid_upto": "2028-07-13",
+   "status": "Active"
+  },
+  {
+   "id": "6613715",
+   "name": "",
+   "address": "Plot No. E9, SINNAR MIDC AREA, SINNAR",
+   "district": "Nashik",
+   "state": "Maharashtra",
+   "capacity_mt": 7140,
+   "valid_upto": "2027-08-09",
+   "status": "Active"
+  },
+  {
+   "id": "6614341",
+   "name": "",
+   "address": "583/B Marketyard ,Gultekadi Pune 411 037",
+   "district": "Pune",
+   "state": "Maharashtra",
+   "capacity_mt": 5400,
+   "valid_upto": "2027-08-11",
+   "status": "Active"
+  },
+  {
+   "id": "6576458",
+   "name": "",
+   "address": "APMC MarketYard, At Post Nira",
+   "district": "Pune",
+   "state": "Maharashtra",
+   "capacity_mt": 3000,
+   "valid_upto": "2027-05-22",
+   "status": "Active"
+  },
+  {
+   "id": "6606065",
+   "name": "",
+   "address": "CAMP ROAD, APMC MALEGAON, Malegaon",
+   "district": "Nashik",
+   "state": "Maharashtra",
+   "capacity_mt": 9600,
+   "valid_upto": "2027-07-21",
+   "status": "Active"
+  },
+  {
+   "id": "6612279",
+   "name": "MAHRASHTRA STATE WAREHOUSING CORPORATION, LOHA",
+   "address": "APMC MARKET YARD, LOHA",
+   "district": "Nanded",
+   "state": "Maharashtra",
+   "capacity_mt": 4800,
+   "valid_upto": "2027-08-07",
+   "status": "Active"
+  },
+  {
+   "id": "6587075",
+   "name": "",
+   "address": "MSWC, APMC market yard, Mondha Naka, Jadhavwadi, Jalgaon road, Aurangabad 431003",
+   "district": "Chhatrapati Sambhajinagar",
+   "state": "Maharashtra",
+   "capacity_mt": 15280,
+   "valid_upto": "2027-05-29",
+   "status": "Active"
+  },
+  {
+   "id": "6575468",
+   "name": "MAHARASHTRA STATE WAREHOUSING CORPORATION, HINGOLI-MIDC",
+   "address": "Plot C11, MIDC Area, Hingoli",
+   "district": "Hingoli",
+   "state": "Maharashtra",
+   "capacity_mt": 10450,
+   "valid_upto": "2027-05-18",
+   "status": "Active"
+  },
+  {
+   "id": "6594634",
+   "name": "",
+   "address": "GUT NO.57, NEAR BAJAJ HOSPITAL ,BEED BYEPASS ROAD, AURANGABAD, GUT NO.57, NEAR BAJAJ HOSPITAL ,BEED BYEPASS ROAD, AURANGABAD",
+   "district": "Chhatrapati Sambhajinagar",
+   "state": "Maharashtra",
+   "capacity_mt": 21731,
+   "valid_upto": "2027-06-12",
+   "status": "Active"
+  },
+  {
+   "id": "6746820",
+   "name": "MAHARASHTRA STATE WAREHOUSING CORPORATION, PURNA",
+   "address": "NANDED-ROAD, PURNA",
+   "district": "Parbhani",
+   "state": "Maharashtra",
+   "capacity_mt": 7510,
+   "valid_upto": "2028-06-26",
+   "status": "Active"
+  },
+  {
+   "id": "6756720",
+   "name": "MAHARASHTRA STATE WAREHOUSING CORPORATION, DEGLUR",
+   "address": "APMC MARKETYARD, BEHIND SHETKARI NIVAS, DEGLUR, Deglur",
+   "district": "Nanded",
+   "state": "Maharashtra",
+   "capacity_mt": 3600,
+   "valid_upto": "2028-07-13",
+   "status": "Active"
+  },
+  {
+   "id": "6579155",
+   "name": "",
+   "address": "21-22 MIDC PARBHANI, 21-22 MIDC",
+   "district": "Parbhani",
+   "state": "Maharashtra",
+   "capacity_mt": 27956,
+   "valid_upto": "2027-05-25",
+   "status": "Active"
+  },
+  {
+   "id": "6634505",
+   "name": "MAHARASHTRA STATE WAREHOUSING CORPORATION, NANDED-CITY",
+   "address": "NANDED-HINGOLI ROAD, VASANT NAGER",
+   "district": "Nanded",
+   "state": "Maharashtra",
+   "capacity_mt": 5640,
+   "valid_upto": "2027-09-22",
+   "status": "Active"
+  },
+  {
+   "id": "6589238",
+   "name": "",
+   "address": "Plot No.B- 14-15 MIDC Area, Nanded",
+   "district": "Nanded",
+   "state": "Maharashtra",
+   "capacity_mt": 31209,
+   "valid_upto": "2027-05-31",
+   "status": "Active"
+  },
+  {
+   "id": "6635858",
+   "name": "Maharashtra State Warehousing Corporation, Wani (Yavatmal)",
+   "address": "Chandrapur Road, Wani (Yavatmal)",
+   "district": "Yavatmal",
+   "state": "Maharashtra",
+   "capacity_mt": 8550,
+   "valid_upto": "2027-09-25",
+   "status": "Active"
+  },
+  {
+   "id": "6634869",
+   "name": "Maharashtra State Warehousing Corporation, Wadi Hingana",
+   "address": "Plot No. 32 Near firth India, MIDC Area, Wadi Hingana",
+   "district": "Nagpur",
+   "state": "Maharashtra",
+   "capacity_mt": 23535,
+   "valid_upto": "2027-09-22",
+   "status": "Active"
+  },
+  {
+   "id": "7079288",
+   "name": "Venkatesh Industries and Cold Storage",
+   "address": "Plot no 6,7,8, MIDC Miraj",
+   "district": "Sangli",
+   "state": "Maharashtra",
+   "capacity_mt": 987,
+   "valid_upto": "2029-10-27",
+   "status": "Inactive"
+  },
+  {
+   "id": "7155963",
+   "name": "Sugar Stock Godown No.02",
+   "address": "At. Mangrul, Post. Mangrul",
+   "district": "Dharashiv",
+   "state": "Maharashtra",
+   "capacity_mt": 4146,
+   "valid_upto": "2030-09-25",
+   "status": "Inactive"
+  },
+  {
+   "id": "6627939",
+   "name": "SHREE GANRAJ WARE HOUSING COMPANY",
+   "address": "Opp,Karad Railway Good Shed, Karad Railway station, Oglewadi",
+   "district": "Satara",
+   "state": "Maharashtra",
+   "capacity_mt": 4000,
+   "valid_upto": "2027-09-09",
+   "status": "Inactive"
+  },
+  {
+   "id": "4576656",
+   "name": "MSM OIL INDUSTRIES PRIVATE LIMITED",
+   "address": "Plot No. D - 135, Additional MIDC, Latur, VILLAGE-Harangul Bk.",
+   "district": "Latur",
+   "state": "Maharashtra",
+   "capacity_mt": 11251,
+   "valid_upto": "2031-07-29",
+   "status": "Active"
+  },
+  {
+   "id": "1003268",
+   "name": "National Collateral Management Services Limited, NCML Own Warehouse",
+   "address": "Survey No. 122, Village - Shisha, Taluka - Akola",
+   "district": "Akola",
+   "state": "Maharashtra",
+   "capacity_mt": 15200,
+   "valid_upto": "2027-08-21",
+   "status": "Active"
+  },
+  {
+   "id": "1004639",
+   "name": "National Collateral Management Services Limited",
+   "address": "Godown No. 1&2, Sy. No. 24/1, Telhara",
+   "district": "Akola",
+   "state": "Maharashtra",
+   "capacity_mt": 3335,
+   "valid_upto": "2027-11-26",
+   "status": "Active"
+  },
+  {
+   "id": "4577956",
+   "name": "KAILASH WAREHOUSING",
+   "address": "Godown No. 8, Gut No. 199, 200, Hyderabad Highway, TUPPA, NANDED",
+   "district": "Nanded",
+   "state": "Maharashtra",
+   "capacity_mt": 3218,
+   "valid_upto": "2031-08-12",
+   "status": "Active"
+  },
+  {
+   "id": "6547020",
+   "name": "",
+   "address": "NCML , Taluka Akot Dist : Akola Maharashtra Pin 444101",
+   "district": "Akola",
+   "state": "Maharashtra",
+   "capacity_mt": 3156,
+   "valid_upto": "2027-12-23",
+   "status": "Inactive"
+  },
+  {
+   "id": "3931645",
+   "name": "JAI WAREHOUSING CORPORATION",
+   "address": "Survey no 45/3 Magrulpir road, Barshitakli Village : Barshitakli, Taluka :Barshitakli",
+   "district": "Akola",
+   "state": "Maharashtra",
+   "capacity_mt": 6847,
+   "valid_upto": "2027-11-26",
+   "status": "Inactive"
+  },
+  {
+   "id": "7114200",
+   "name": "",
+   "address": "Survey No. 78 & 79 Village Chichghat (Rathi), Tehsil Hinganghat",
+   "district": "Wardha",
+   "state": "Maharashtra",
+   "capacity_mt": 19800,
+   "valid_upto": "2028-01-16",
+   "status": "Active"
+  },
+  {
+   "id": "5791641",
+   "name": "",
+   "address": "Survey no 9 Jogban Wadali Satwai Hiwarkhed Road Akot, Taluka :Akot",
+   "district": "Akola",
+   "state": "Maharashtra",
+   "capacity_mt": 3105,
+   "valid_upto": "2028-01-22",
+   "status": "Active"
+  },
+  {
+   "id": "4573374",
+   "name": "",
+   "address": "Bhartia Logistics Survey No. 176, Godown No. 1,2,3,4, Village Masa",
+   "district": "Akola",
+   "state": "Maharashtra",
+   "capacity_mt": 5616,
+   "valid_upto": "2031-06-30",
+   "status": "Active"
+  },
+  {
+   "id": "6910624",
+   "name": "",
+   "address": "NCML OWN WAREHOUSE GATE NO-443,OLD SERVEY NO-169/2,165/1,166/2,169/4B,AT/P-TANANG,TAL-MIRAJ,DIST-SANGLI",
+   "district": "Sangli",
+   "state": "Maharashtra",
+   "capacity_mt": 6077,
+   "valid_upto": "2028-10-10",
+   "status": "Inactive"
+  },
+  {
+   "id": "1004563",
+   "name": "National Collateral Management Services Limited",
+   "address": "Godown Premises No. 2, Sy. No. 79/1",
+   "district": "Akola",
+   "state": "Maharashtra",
+   "capacity_mt": 2615,
+   "valid_upto": "2027-12-11",
+   "status": "Inactive"
+  },
+  {
+   "id": "2471651",
+   "name": "",
+   "address": "Compartment no.1,Survey No. plot no. N-126, MIDC 4 Akola",
+   "district": "Akola",
+   "state": "Maharashtra",
+   "capacity_mt": 2668,
+   "valid_upto": "2029-02-08",
+   "status": "Active"
+  },
+  {
+   "id": "1004175",
+   "name": "National Collateral Management Services Ltd., C/O Maruti Nandan Warehouse",
+   "address": "Survey No. 52/2, Mauje Sonori, Taluka- Mutizapur",
+   "district": "Akola",
+   "state": "Maharashtra",
+   "capacity_mt": 4978,
+   "valid_upto": "2027-11-16",
+   "status": "Active"
+  },
+  {
+   "id": "6959944",
+   "name": "",
+   "address": "SURVEY NO.-10/A/2, VILLAGE- THAR , TALUKA- TELHARA",
+   "district": "Akola",
+   "state": "Maharashtra",
+   "capacity_mt": 4971,
+   "valid_upto": "2029-01-21",
+   "status": "Active"
+  },
+  {
+   "id": "6695613",
+   "name": "",
+   "address": "GUT NO 158 waldivthana Anjangaon road Akot",
+   "district": "Akola",
+   "state": "Maharashtra",
+   "capacity_mt": 3083,
+   "valid_upto": "2027-09-14",
+   "status": "Active"
+  },
+  {
+   "id": "6704613",
+   "name": "SHREE SALASAR CORPORATION",
+   "address": "HIWARKHED ROAD, TAL.",
+   "district": "Akola",
+   "state": "Maharashtra",
+   "capacity_mt": 3250,
+   "valid_upto": "2027-09-30",
+   "status": "Active"
+  },
+  {
+   "id": "7171649",
+   "name": "MARUTI NANDAN WAREHOUSE CORPORATION",
+   "address": "SURVEY NO.52/2,MAUJE SONORI,TALUKA-MURTIZAPUR, Sonori, Murtizapur",
+   "district": "Akola",
+   "state": "Maharashtra",
+   "capacity_mt": 7475,
+   "valid_upto": "2027-03-04",
+   "status": "Active"
+  },
+  {
+   "id": "7073430",
+   "name": "",
+   "address": "Survey No.102 Mouza- Kolhi, Tah- Hinganghat, Dist- Wardha",
+   "district": "Wardha",
+   "state": "Maharashtra",
+   "capacity_mt": 4815,
+   "valid_upto": "2029-10-21",
+   "status": "Active"
+  },
+  {
+   "id": "7069651",
+   "name": "",
+   "address": "SR NO 472/1/A",
+   "district": "Nandurbar",
+   "state": "Maharashtra",
+   "capacity_mt": 7500,
+   "valid_upto": "2030-04-10",
+   "status": "Inactive"
+  },
+  {
+   "id": "6741334",
+   "name": "",
+   "address": "GAT NO 474 & 475 ,GAT NO 472/1/A",
+   "district": "Nandurbar",
+   "state": "Maharashtra",
+   "capacity_mt": 16804,
+   "valid_upto": "2028-06-21",
+   "status": "Inactive"
+  },
+  {
+   "id": "6622179",
+   "name": "",
+   "address": "Gat No. 57, At Post Waki Gram Panchayat Sailu-Partur Road",
+   "district": "Parbhani",
+   "state": "Maharashtra",
+   "capacity_mt": 3500,
+   "valid_upto": "2031-06-08",
+   "status": "Active"
+  },
+  {
+   "id": "7146780",
+   "name": "Procon Farmer Producer Company",
+   "address": "Gut No 4 Kesapuri Shiwar Tq majlagaon Dist Beed",
+   "district": "Beed",
+   "state": "Maharashtra",
+   "capacity_mt": 750,
+   "valid_upto": "2030-09-07",
+   "status": "Inactive"
+  },
+  {
+   "id": "6967418",
+   "name": "",
+   "address": "23 Wahgoli Lehegaon Morshi Road",
+   "district": "Amravati",
+   "state": "Maharashtra",
+   "capacity_mt": 5000,
+   "valid_upto": "2029-08-13",
+   "status": "Inactive"
+  },
+  {
+   "id": "7008907",
+   "name": "",
+   "address": "masala Pen",
+   "district": "Washim",
+   "state": "Maharashtra",
+   "capacity_mt": 500,
+   "valid_upto": "2030-01-09",
+   "status": "Active"
+  },
+  {
+   "id": "6882187",
+   "name": "RABIA LOGISTICS PRIVATE LIMITED",
+   "address": "Dagad Umra Fata Washim Pusad Road Dhanora Kh.",
+   "district": "Washim",
+   "state": "Maharashtra",
+   "capacity_mt": 35000,
+   "valid_upto": "2028-09-07",
+   "status": "Inactive"
+  },
+  {
+   "id": "6949051",
+   "name": "RAJTARA VENTURES PRIVATE LIMITED",
+   "address": "GUT NO 76 77, NANDGAON ROAD BHAMBRI CHOWK",
+   "district": "Latur",
+   "state": "Maharashtra",
+   "capacity_mt": 12320,
+   "valid_upto": "2029-06-20",
+   "status": "Inactive"
+  },
+  {
+   "id": "6740526",
+   "name": "",
+   "address": "GUT NO.195,BHAYEGAON ROAD,JAWAHAR NAGAR,TUPPA,NANDED-431603",
+   "district": "Nanded",
+   "state": "Maharashtra",
+   "capacity_mt": 10440,
+   "valid_upto": "2028-06-21",
+   "status": "Inactive"
+  },
+  {
+   "id": "7003957",
+   "name": "",
+   "address": "CENTRAL WAREHOUSING COPORATION C 9 COLD STORAGE, INDUSTRIAL AREA AMBAD MIDC NASHIK",
+   "district": "Nashik",
+   "state": "Maharashtra",
+   "capacity_mt": 2300,
+   "valid_upto": "2029-12-18",
+   "status": "Inactive"
+  },
+  {
+   "id": "7077399",
+   "name": "S Manilal & Company",
+   "address": "Gat No. 268, Miraj Pandarpur Road",
+   "district": "Sangli",
+   "state": "Maharashtra",
+   "capacity_mt": 1540,
+   "valid_upto": "2029-10-23",
+   "status": "Inactive"
+  },
+  {
+   "id": "7077480",
+   "name": "S Manilal & Company",
+   "address": "Gat No-268, Miraj Pandarpur Road",
+   "district": "Sangli",
+   "state": "Maharashtra",
+   "capacity_mt": 6800,
+   "valid_upto": "2029-10-23",
+   "status": "Inactive"
+  },
+  {
+   "id": "7091614",
+   "name": "Saastha Warehousing Private Limited",
+   "address": "At Bhingar Post Ajiwali Taluka Panvel",
+   "district": "Raigad",
+   "state": "Maharashtra",
+   "capacity_mt": 10000,
+   "valid_upto": "2030-05-19",
+   "status": "Active"
+  },
+  {
+   "id": "6623797",
+   "name": "Laxmi Dudh Utpadak Prakriya Sangh Warehouse",
+   "address": "Jamgaon (A)",
+   "district": "Solapur",
+   "state": "Maharashtra",
+   "capacity_mt": 5000,
+   "valid_upto": "2027-08-29",
+   "status": "Inactive"
+  },
+  {
+   "id": "6790299",
+   "name": "",
+   "address": "Sr. No, 159/3 & 4, Pune-Saswad Road",
+   "district": "Pune",
+   "state": "Maharashtra",
+   "capacity_mt": 18444,
+   "valid_upto": "2028-10-10",
+   "status": "Inactive"
+  },
+  {
+   "id": "7094857",
+   "name": "Sahara Warehousing Services Godown1",
+   "address": "gut no 66, behind rukmini gases, georai tanda",
+   "district": "Chhatrapati Sambhajinagar",
+   "state": "Maharashtra",
+   "capacity_mt": 10176,
+   "valid_upto": "2028-05-25",
+   "status": "Inactive"
+  },
+  {
+   "id": "7025919",
+   "name": "Paras Industries",
+   "address": "Plot No B-171, Additional Yavatmal Industrial Area",
+   "district": "Yavatmal",
+   "state": "Maharashtra",
+   "capacity_mt": 5887,
+   "valid_upto": "2030-02-26",
+   "status": "Active"
+  },
+  {
+   "id": "4567938",
+   "name": "",
+   "address": "Gut No.63, Dhamdhari",
+   "district": "Nanded",
+   "state": "Maharashtra",
+   "capacity_mt": 1600,
+   "valid_upto": "2031-05-20",
+   "status": "Active"
+  },
+  {
+   "id": "7115371",
+   "name": "",
+   "address": "RAHOLI KHURD, TQ DIST HINGOLI",
+   "district": "Hingoli",
+   "state": "Maharashtra",
+   "capacity_mt": 5800,
+   "valid_upto": "2030-07-17",
+   "status": "Inactive"
+  },
+  {
+   "id": "4571138",
+   "name": "Sanyuga Agro FPC Warehouse",
+   "address": "Gut No 165 Ganpur Road, Mehkar By Pass Sarangpur",
+   "district": "Buldhana",
+   "state": "Maharashtra",
+   "capacity_mt": 1800,
+   "valid_upto": "2031-06-10",
+   "status": "Active"
+  },
+  {
+   "id": "4577038",
+   "name": "SAIBABA AGRO WAREHOUSE",
+   "address": "PART - C, GAT NO. 409/2, KHAPA TUMSAR",
+   "district": "Bhandara",
+   "state": "Maharashtra",
+   "capacity_mt": 2605,
+   "valid_upto": "2031-07-31",
+   "status": "Active"
+  },
+  {
+   "id": "7037435",
+   "name": "Banai Dnyaba Dhumal Agro Infratech And Value Addition Chain Telgaon(BK)",
+   "address": "NH-5489 (Khamgaon-Sangola), Loknete Sunderrao S.S.S.I,North side,Krushnainagr, Telgaon(BK),Tq-Dharur",
+   "district": "Beed",
+   "state": "Maharashtra",
+   "capacity_mt": 2000,
+   "valid_upto": "2030-03-11",
+   "status": "Active"
+  },
+  {
+   "id": "4572710",
+   "name": "",
+   "address": "391, Mohagaon Devi",
+   "district": "Bhandara",
+   "state": "Maharashtra",
+   "capacity_mt": 1795,
+   "valid_upto": "2031-06-29",
+   "status": "Active"
+  },
+  {
+   "id": "6973804",
+   "name": "SHREE JAGDAMBA LOGISTICS",
+   "address": "MALEGAON KH., TAL BARAMATI DIST PUNE",
+   "district": "Pune",
+   "state": "Maharashtra",
+   "capacity_mt": 20000,
+   "valid_upto": "2029-08-30",
+   "status": "Inactive"
+  },
+  {
+   "id": "1003128",
+   "name": "M/s Shree Shubham Logistics Limited",
+   "address": "Gat No. 94 & 95, Barshi Road, Village - Murud Akola, Tehsil - Latur",
+   "district": "Latur",
+   "state": "Maharashtra",
+   "capacity_mt": 31200,
+   "valid_upto": "2028-03-31",
+   "status": "Active"
+  },
+  {
+   "id": "2211642",
+   "name": "SHREE SHUBHAM LOGISTICS LIMITED C/O SULBHA NITIN AGRAWAL WAREHOUSE,",
+   "address": "SURVEY NO.11, PLOT NO.04, MOUJE- JOGBAN, TALUKA-AKOT, DISTRICT-AKOLA, MAHARASHTRA.",
+   "district": "Akola",
+   "state": "Maharashtra",
+   "capacity_mt": 3202,
+   "valid_upto": "2027-07-20",
+   "status": "Active"
+  },
+  {
+   "id": "2111643",
+   "name": "SHREE SHUBHAM LOGISTICS LIMITED, SAVITA ANAND AGRAWAL WAREHOUSE,",
+   "address": "SURVEY NO.11, PLOT NO.02, MOUJE-JOGBAN, TALUKA-AKOT, DISTRICT-AKOLA, MAHARASHTRA.",
+   "district": "Akola",
+   "state": "Maharashtra",
+   "capacity_mt": 3202,
+   "valid_upto": "2027-07-16",
+   "status": "Inactive"
+  },
+  {
+   "id": "6554133",
+   "name": "",
+   "address": "GODOWN NO. A, B, C, D, E, F, & G, SITUATED AT GAT NO.09, MOUZE -JOGBAN, G.P. WADALI SATWAI, HIWARKHED ROAD, AKOT.",
+   "district": "Akola",
+   "state": "Maharashtra",
+   "capacity_mt": 4357,
+   "valid_upto": "2031-09-14",
+   "status": "Inactive"
+  },
+  {
+   "id": "6564488",
+   "name": "C/O G B OIL PRODUCT AND WAREHOUSING,",
+   "address": "GODOWN NO.01, GODOWN NO.02 AND GODOWN NO.03, PLOT NO. 50/1, MOUZA-ISMAILPUR, PULGAON ROAD, ARVI, DISTRICT-WARDHA, MAHARASHTRA.",
+   "district": "Wardha",
+   "state": "Maharashtra",
+   "capacity_mt": 3114,
+   "valid_upto": "2027-03-27",
+   "status": "Inactive"
+  },
+  {
+   "id": "7145790",
+   "name": "P N GHIYA WAREHOUSING SERVICES GODOWN NO.07 AND GODOWN 08,",
+   "address": "SITUATED AT SURVEY NO. 96/1",
+   "district": "Wardha",
+   "state": "Maharashtra",
+   "capacity_mt": 2121,
+   "valid_upto": "2027-03-07",
+   "status": "Active"
+  },
+  {
+   "id": "6819817",
+   "name": "SHREE SHUBHAM LOGISTICS LIMITED",
+   "address": "CHAMBER NO.04, GAT NO.123/2/2, & 124/2, JALGAON TO AURANGABAD ROAD",
+   "district": "Jalgaon",
+   "state": "Maharashtra",
+   "capacity_mt": 2740,
+   "valid_upto": "2028-12-19",
+   "status": "Active"
+  },
+  {
+   "id": "9691658",
+   "name": "SHREE SHUBHAM LOGISTICS LIMITED C/O INDU RAMNIVAS MALPANI WAREHOUSE,",
+   "address": "WAREHOUSE A, B & C, GAT NO.4/5 JOGBAN, WADALI SATWARI, HIWARKHED ROAD, NEXT TO RAILWAY CROSSING AKOT, DISTRICT-AKOLA.",
+   "district": "Akola",
+   "state": "Maharashtra",
+   "capacity_mt": 2821,
+   "valid_upto": "2027-06-08",
+   "status": "Active"
+  },
+  {
+   "id": "6651608",
+   "name": "",
+   "address": "GAT NO.193, AT WAI, POST-CHANDIKAPUR, ANJANGAON ROAD, AKOT, DISTRICT-AKOLA, MAHARASHTRA.",
+   "district": "Akola",
+   "state": "Maharashtra",
+   "capacity_mt": 2398,
+   "valid_upto": "2027-11-15",
+   "status": "Inactive"
+  },
+  {
+   "id": "6651426",
+   "name": "",
+   "address": "GAT NO.193 AT WAI, POST - CHANDIKAPUR, ANJANGAON ROAD, AKOT, DISTRICT-AKOLA, MAHARASHTRA.",
+   "district": "Akola",
+   "state": "Maharashtra",
+   "capacity_mt": 2398,
+   "valid_upto": "2027-11-14",
+   "status": "Inactive"
+  },
+  {
+   "id": "7164874",
+   "name": "",
+   "address": "GODOWN NO.01 AND GODOWN NO.02, SITUATED AT SURVEY NO.18, PLOT NO.01, MOUZE WANI",
+   "district": "Wardha",
+   "state": "Maharashtra",
+   "capacity_mt": 4299,
+   "valid_upto": "2027-04-27",
+   "status": "Active"
+  },
+  {
+   "id": "7147952",
+   "name": "P N GHIYA WAREHOUSING SERVICES, GODOWN NO.05 AND GODOWN NO. 06,",
+   "address": "SITUATED AT SURVEY NO. 96/1",
+   "district": "Wardha",
+   "state": "Maharashtra",
+   "capacity_mt": 2637,
+   "valid_upto": "2027-03-08",
+   "status": "Inactive"
+  },
+  {
+   "id": "4491649",
+   "name": "SHREE SHUBHAM LOGISTICS LIMITED C/O PRAMILA NARENDRA GUPTA WAREHOUSE,",
+   "address": "CHAMBER NO. A, B, & C, GAT NO.73, MOUJE WADALI SATWAI, HIWARKHED ROAD, AKOT, MAHARASHTRA-444101.",
+   "district": "Akola",
+   "state": "Maharashtra",
+   "capacity_mt": 3091,
+   "valid_upto": "2031-08-17",
+   "status": "Active"
+  },
+  {
+   "id": "7172794",
+   "name": "MS SHREEJI GODOWN SERVICES,",
+   "address": "GODOWN BUILDING NO.01, GODOWN BUILDING NO.02, GODOWN BUILDING NO.03, SURVEY NO. 62/1, BORGAON MAUZA NO.125, HINGANGHAT",
+   "district": "Wardha",
+   "state": "Maharashtra",
+   "capacity_mt": 6006,
+   "valid_upto": "2027-05-26",
+   "status": "Inactive"
+  },
+  {
+   "id": "4587438",
+   "name": "Gajanan Prasad Warehouse, Godown No.06,",
+   "address": "Situated at Gat No. 196/1, A/P - Tanang, Taluka - Miraj",
+   "district": "Sangli",
+   "state": "Maharashtra",
+   "capacity_mt": 1208,
+   "valid_upto": "2031-10-21",
+   "status": "Active"
+  },
+  {
+   "id": "6651152",
+   "name": "",
+   "address": "CHAMBER NO.01 AND 02, GAT NO. 313, AKOT, DEORI ROAD, MOUJE-BALEGAON, TEHSIL-AKOT, DISTRICT-AKOLA",
+   "district": "Akola",
+   "state": "Maharashtra",
+   "capacity_mt": 4900,
+   "valid_upto": "2027-11-13",
+   "status": "Inactive"
+  },
+  {
+   "id": "7177561",
+   "name": "",
+   "address": "GODOWN NO.01, 02 & 03, SITUATED AT AHMADNAGAR, SURVEYOR NO. 533682, NEAR ITI COLLEGE, WARDHA ROAD, ARVI",
+   "district": "Wardha",
+   "state": "Maharashtra",
+   "capacity_mt": 1525,
+   "valid_upto": "2027-06-03",
+   "status": "Active"
+  },
+  {
+   "id": "7185846",
+   "name": "",
+   "address": "55/3 B Tasgaon Sangli Road Tasgaon",
+   "district": "Sangli",
+   "state": "Maharashtra",
+   "capacity_mt": 1449,
+   "valid_upto": "2030-12-29",
+   "status": "Inactive"
+  },
+  {
+   "id": "7185937",
+   "name": "Shree Dhareshwar Pre Cooling And Agrotech Cold Storage",
+   "address": "Plot No.55/4/1,Tasgaon-Sangli Road",
+   "district": "Sangli",
+   "state": "Maharashtra",
+   "capacity_mt": 2924,
+   "valid_upto": "2030-12-29",
+   "status": "Inactive"
+  },
+  {
+   "id": "4556738",
+   "name": "",
+   "address": "Gat No 261, A/p Alni, Tal. & Dist. Osmanabad",
+   "district": "Dharashiv",
+   "state": "Maharashtra",
+   "capacity_mt": 40000,
+   "valid_upto": "2031-01-30",
+   "status": "Active"
+  },
+  {
+   "id": "6962195",
+   "name": "Om shiv Ganesh Industries",
+   "address": "Survey No. 148/6, Khanapur, Trambakpur, MIDC Area Akot",
+   "district": "Akola",
+   "state": "Maharashtra",
+   "capacity_mt": 4861,
+   "valid_upto": "2029-07-27",
+   "status": "Inactive"
+  },
+  {
+   "id": "4573138",
+   "name": "",
+   "address": "B 54 SRI SIDDHESHWAR MARKET YARD, HYDERABAD ROAD, SOLAPUR",
+   "district": "Solapur",
+   "state": "Maharashtra",
+   "capacity_mt": 8524,
+   "valid_upto": "2031-06-30",
+   "status": "Active"
+  },
+  {
+   "id": "7120058",
+   "name": "SSK Agro Warehousing Services Pvt Ltd",
+   "address": "At Post Yusufwadgaon Tq Kaij Dist Beed",
+   "district": "Beed",
+   "state": "Maharashtra",
+   "capacity_mt": 2000,
+   "valid_upto": "2030-07-27",
+   "status": "Inactive"
+  },
+  {
+   "id": "1006683",
+   "name": "Star Agri Warehousing & Collateral Management Limited C/o Ramabai Nandlal Agarwal",
+   "address": "Godown No. 1 & 3, Plot No. 3, 4, 5, Survey No. 157/1, At Khanapur, Trimbakpur",
+   "district": "Akola",
+   "state": "Maharashtra",
+   "capacity_mt": 1410,
+   "valid_upto": "2028-03-24",
+   "status": "Active"
+  },
+  {
+   "id": "6511029",
+   "name": "Aditya warehousing corporation",
+   "address": "Gat No. 178/2, A/P - Tanang, Tal - Miraj, Sangli, MIRAJ",
+   "district": "Sangli",
+   "state": "Maharashtra",
+   "capacity_mt": 2001,
+   "valid_upto": "2029-06-25",
+   "status": "Active"
+  },
+  {
+   "id": "4576492",
+   "name": "SHRINIDHI AGRO PROCESSING AND COLD STORAGE",
+   "address": "GAT NO 259, A/P SAVALI, TAL- MIRAJ, DIST-SANGLI",
+   "district": "Sangli",
+   "state": "Maharashtra",
+   "capacity_mt": 1824,
+   "valid_upto": "2031-07-29",
+   "status": "Active"
+  },
+  {
+   "id": "4576738",
+   "name": "",
+   "address": "GODOWN NO 2 PLOT NO D105 MIDC INDUSTRIAL AREA NANDED MAHARASHTRA",
+   "district": "Nanded",
+   "state": "Maharashtra",
+   "capacity_mt": 3010,
+   "valid_upto": "2031-07-31",
+   "status": "Active"
+  },
+  {
+   "id": "6536221",
+   "name": "",
+   "address": "Godown No. – 1, Gat No.246, Babhulgaon, Tq & Dist. - Nanded",
+   "district": "Nanded",
+   "state": "Maharashtra",
+   "capacity_mt": 1000,
+   "valid_upto": "2031-08-07",
+   "status": "Active"
+  },
+  {
+   "id": "1006741",
+   "name": "Star Agri Warehousing & Collateral Management Limited C/O Shree Ganesh Warehousing Corporation",
+   "address": "Godown No.1 to 4 Survey no 157/2",
+   "district": "Akola",
+   "state": "Maharashtra",
+   "capacity_mt": 1356,
+   "valid_upto": "2031-10-08",
+   "status": "Active"
+  },
+  {
+   "id": "4577238",
+   "name": "",
+   "address": "GUT NO 458 BORWAND FATA SINGANAPUR, TQ DIST PARBHANI MAHARASHTRA 431521",
+   "district": "Parbhani",
+   "state": "Maharashtra",
+   "capacity_mt": 5000,
+   "valid_upto": "2031-08-05",
+   "status": "Active"
+  },
+  {
+   "id": "6537120",
+   "name": "",
+   "address": "Godown No - 3 & 4, Survey No. - 148-6, Mouje Khanapur, Trambakpur, Tq. - Akot, Dist. - Akola",
+   "district": "Akola",
+   "state": "Maharashtra",
+   "capacity_mt": 4978,
+   "valid_upto": "2031-02-27",
+   "status": "Active"
+  },
+  {
+   "id": "4091671",
+   "name": "MANOHAR COLD STORAGE & AGROTECH",
+   "address": "CHAMBER NO B,B1, Gat No. - 423, Kupwad - Tanang Road, A/p - Tanang, Tal - Miraj, Dist - Sangli",
+   "district": "Sangli",
+   "state": "Maharashtra",
+   "capacity_mt": 820,
+   "valid_upto": "2031-03-28",
+   "status": "Active"
+  },
+  {
+   "id": "7015654",
+   "name": "",
+   "address": "GODOWN NO 1 AT GUT NO 128 WADALI SATWAI, TQ AKOT DIST AKOLA 444101",
+   "district": "Akola",
+   "state": "Maharashtra",
+   "capacity_mt": 2220,
+   "valid_upto": "2030-02-02",
+   "status": "Inactive"
+  },
+  {
+   "id": "4561256",
+   "name": "TIRUPATI WAREHOUSING",
+   "address": "GUT NO 27, MALWATA TQ BASMATH DIST HINGOLI",
+   "district": "Hingoli",
+   "state": "Maharashtra",
+   "capacity_mt": 3823,
+   "valid_upto": "2031-03-23",
+   "status": "Active"
+  },
+  {
+   "id": "7123201",
+   "name": "MANOHAR COLD STORAGE & AGROTECH",
+   "address": "CHAMBER NO D, D1, GAT NO.423, KUPWAD-TANANG ROAD, A/P-TANANG .TAL-MIRAJ,DIST-SANGLI, MAHARASTRA .PIN 416410.",
+   "district": "Sangli",
+   "state": "Maharashtra",
+   "capacity_mt": 820,
+   "valid_upto": "2030-08-03",
+   "status": "Active"
+  },
+  {
+   "id": "6841951",
+   "name": "",
+   "address": "Godown No. - 2, GUT NO. 128, WADALI SATWAI, TQ. - AKOT , DIST. - AKOLA",
+   "district": "Akola",
+   "state": "Maharashtra",
+   "capacity_mt": 2223,
+   "valid_upto": "2029-01-19",
+   "status": "Active"
+  },
+  {
+   "id": "6837181",
+   "name": "JAI WAREHOUSING CORPORATION",
+   "address": "Godown No. - 1 & 2, Survey No. - 45/3, Mangrulpir Road, At. - Barshitakli, Dist. - Akola",
+   "district": "Akola",
+   "state": "Maharashtra",
+   "capacity_mt": 3363,
+   "valid_upto": "2029-01-11",
+   "status": "Active"
+  },
+  {
+   "id": "4568156",
+   "name": "SALASAR WAREHOUSING",
+   "address": "GUT NO 27 MALWATA TQ BASMATH, DIST HINGOLI 431512",
+   "district": "Hingoli",
+   "state": "Maharashtra",
+   "capacity_mt": 3820,
+   "valid_upto": "2031-05-20",
+   "status": "Active"
+  },
+  {
+   "id": "4569574",
+   "name": "MANOHAR COLD STORAGE & AGROTECH",
+   "address": "CHAMBER NO A, A1, C, C1 GAT NO.423, KUPWAD-TANANG ROAD, A/P-TANANG, TAL-MIRAJ,DIST-SANGLI, MAHARASTRA .PIN 416410.",
+   "district": "Sangli",
+   "state": "Maharashtra",
+   "capacity_mt": 1640,
+   "valid_upto": "2031-05-29",
+   "status": "Active"
+  },
+  {
+   "id": "7144447",
+   "name": "Steinweg Sharaf India Pvt Ltd C/O Sai Samarth WH Ch no 1",
+   "address": "Gut no 202, Unit No 1, Bhainsha Road Bhokar",
+   "district": "Nanded",
+   "state": "Maharashtra",
+   "capacity_mt": 875,
+   "valid_upto": "2030-09-02",
+   "status": "Active"
+  },
+  {
+   "id": "7001977",
+   "name": "Steinweg Sharaf India Pvt Ltd C/O Sai Samarth WH",
+   "address": "Gut no 202, Unit No 02, Bhainsha Road Bhokar, TQ Bhokar",
+   "district": "Nanded",
+   "state": "Maharashtra",
+   "capacity_mt": 1000,
+   "valid_upto": "2029-06-09",
+   "status": "Active"
+  },
+  {
+   "id": "4573192",
+   "name": "Steinweg Sharaf India Pvt Ltd C/O Harihar Complex WH",
+   "address": "Building H1, Wing, Gala no 2 & 3, Harihar Complex, Nasik Mumbai Highway, Sonale Village Taluka Bhiwandi",
+   "district": "Thane",
+   "state": "Maharashtra",
+   "capacity_mt": 7857,
+   "valid_upto": "2031-06-30",
+   "status": "Active"
+  },
+  {
+   "id": "7121130",
+   "name": "Steinweg Sharaf India Pvt Ltd C/O ARHAM LOGIPARC WH",
+   "address": "Godown no 3, Building no B1, Land Bearing Gramin house no 1164, Mumbai Nashik Highway Road, village Valasind, Bhiwandi",
+   "district": "Thane",
+   "state": "Maharashtra",
+   "capacity_mt": 2160,
+   "valid_upto": "2030-07-30",
+   "status": "Active"
+  },
+  {
+   "id": "7190259",
+   "name": "Steinweg Sharaf India Pvt Ltd C/O Platinum Logistics WH",
+   "address": "Survey no 70/5B & ORS, Near EFC, Veshvi Taluka Uran",
+   "district": "Raigad",
+   "state": "Maharashtra",
+   "capacity_mt": 2137,
+   "valid_upto": "2031-01-15",
+   "status": "Active"
+  },
+  {
+   "id": "4563538",
+   "name": "",
+   "address": "GAT No.92/1 Tasgaon, Manerajuri Road Matkunki",
+   "district": "Sangli",
+   "state": "Maharashtra",
+   "capacity_mt": 1250,
+   "valid_upto": "2031-04-15",
+   "status": "Active"
+  },
+  {
+   "id": "7188360",
+   "name": "",
+   "address": "CS 312/A, Plot No. 83, Balaji Nagar, Galli No. 2, Kupwad Road",
+   "district": "Sangli",
+   "state": "Maharashtra",
+   "capacity_mt": 2100,
+   "valid_upto": "2031-01-08",
+   "status": "Active"
+  },
+  {
+   "id": "7158124",
+   "name": "BRL Foods Private Limited",
+   "address": "Gat No. 59/1, 60, Kavathe Ekand, Tasgaon Sangli Road",
+   "district": "Sangli",
+   "state": "Maharashtra",
+   "capacity_mt": 2100,
+   "valid_upto": "2030-09-29",
+   "status": "Active"
+  },
+  {
+   "id": "4584410",
+   "name": "Keshri Cold Storage",
+   "address": "Gat No. 157/A, A/P. Savali, Savali, Sangli, Maharashtra",
+   "district": "Sangli",
+   "state": "Maharashtra",
+   "capacity_mt": 2300,
+   "valid_upto": "2031-09-25",
+   "status": "Active"
+  },
+  {
+   "id": "7157225",
+   "name": "Shree Siddhanath Agro Tech",
+   "address": "Tasgaon Manerajuri Road, Near Mahila Tantraniketan",
+   "district": "Sangli",
+   "state": "Maharashtra",
+   "capacity_mt": 1000,
+   "valid_upto": "2030-09-29",
+   "status": "Active"
+  },
+  {
+   "id": "4570438",
+   "name": "",
+   "address": "Tasgaon, Plot No. 28, Market Yard Tasgaon",
+   "district": "Sangli",
+   "state": "Maharashtra",
+   "capacity_mt": 700,
+   "valid_upto": "2031-06-04",
+   "status": "Active"
+  },
+  {
+   "id": "4571010",
+   "name": "ARCHISHMAN COLD STORAGE PRIVATE LIMITED",
+   "address": "Gat No. 832/2 Satara Road, Wakhari, Pandharpur, Solapur, Maharashtra.",
+   "district": "Solapur",
+   "state": "Maharashtra",
+   "capacity_mt": 1600,
+   "valid_upto": "2031-06-08",
+   "status": "Active"
+  },
+  {
+   "id": "7107907",
+   "name": "Vaishnavi Cold Storage",
+   "address": "Gat No.104 Tasgaon Manerajuri Road Next to Anand Sagar School Tasgaon",
+   "district": "Sangli",
+   "state": "Maharashtra",
+   "capacity_mt": 1500,
+   "valid_upto": "2030-06-29",
+   "status": "Inactive"
+  },
+  {
+   "id": "7118888",
+   "name": "",
+   "address": "Gat No.226/3/2, Mauja Paraswada (Dewadi)",
+   "district": "Bhandara",
+   "state": "Maharashtra",
+   "capacity_mt": 1321,
+   "valid_upto": "2030-07-24",
+   "status": "Active"
+  },
+  {
+   "id": "6856801",
+   "name": "VENKATESHWARA WAREHOUSING",
+   "address": "Gno: 374,375,376,377, vill: kalgaon",
+   "district": "Hingoli",
+   "state": "Maharashtra",
+   "capacity_mt": 10000,
+   "valid_upto": "2029-02-08",
+   "status": "Inactive"
+  },
+  {
+   "id": "7012503",
+   "name": "Vikas Agro Producer Company Limited",
+   "address": "Gat No 79, Nagzari",
+   "district": "Latur",
+   "state": "Maharashtra",
+   "capacity_mt": 2160,
+   "valid_upto": "2029-10-22",
+   "status": "Active"
+  },
+  {
+   "id": "7164155",
+   "name": "Vishwashesh Farmer Producer Company Ltd",
+   "address": "At BAgzari Post Pattiwadgaon Tq Ambajogai Dist Beed",
+   "district": "Beed",
+   "state": "Maharashtra",
+   "capacity_mt": 2000,
+   "valid_upto": "2030-04-23",
+   "status": "Inactive"
+  },
+  {
+   "id": "7000359",
+   "name": "Yamada Logistic Ltd c/o Jayalaxmi Warehouse",
+   "address": "24/7 Dabha Near Narendra Solvex, Yavatmal Road",
+   "district": "Amravati",
+   "state": "Maharashtra",
+   "capacity_mt": 3502,
+   "valid_upto": "2029-12-02",
+   "status": "Inactive"
+  },
+  {
+   "id": "6821250",
+   "name": "YAMADA LOGISTICS LIMITED C/O OMPRAKSH DEODATTA GUPTA WAREHOUSE",
+   "address": "GODOWN NO.1 ,SHET SURVEY NO. 18/2B,PLOT NO.1 & GODOWN NO.7, SHET, SURVEY NO. 18/3,PLOT NO. 7 GRAMPANCHAYAT- DORLI DOLAMBA NAGPUR ROAD",
+   "district": "Yavatmal",
+   "state": "Maharashtra",
+   "capacity_mt": 2418,
+   "valid_upto": "2028-06-20",
+   "status": "Active"
+  },
+  {
+   "id": "7001340",
+   "name": "Yamada Logistics Ltd C/O Karuna Santosh Dubey Warehouse",
+   "address": "GT NO. 44 OSMAN NAGAR ROAD, GUNDEGAON NANDED-431606",
+   "district": "Nanded",
+   "state": "Maharashtra",
+   "capacity_mt": 1553,
+   "valid_upto": "2029-12-08",
+   "status": "Inactive"
+  },
+  {
+   "id": "7002421",
+   "name": "Yamada Logistic Limited c/o anirudh vimal kumar goenka",
+   "address": "Warehouse no. 02 (part), gate no. 101/1,101/2,101/3, opposite nilons factory, jalgaon mumbai highway, village musai bujru, taluka dharangaon, dist. jalgaon.",
+   "district": "Jalgaon",
+   "state": "Maharashtra",
+   "capacity_mt": 3419,
+   "valid_upto": "2029-12-11",
+   "status": "Inactive"
+  },
+  {
+   "id": "7083967",
+   "name": "",
+   "address": "Plat No.02 Survey No.102/02, Mouja - Kohli, Tah- Hinganghat, Dist- Wardha",
+   "district": "Wardha",
+   "state": "Maharashtra",
+   "capacity_mt": 5903,
+   "valid_upto": "2029-11-01",
+   "status": "Active"
+  }
+ ]
+}

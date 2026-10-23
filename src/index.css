@@ -41,6 +41,7 @@
   --color-warning-bg: #fffbeb;   /* soft amber */
   --color-warning-edge: #f59e0b; /* amber edge */
   --color-link: #2563eb;         /* blue */
+  --color-warehouse: #6d28d9;   /* violet, for warehouse pins on the map */
 
   /* Card shape and spacing */
   --card-radius: 12px;
@@ -239,6 +240,14 @@
     border-radius: 50%;
     background: var(--color-card);
   }
+  /* Warehouses view: a solid violet pin where the district has registered warehouses, a hollow one where none */
+  .wmap-wh {
+    background: var(--color-warehouse);
+  }
+  .wmap-wh-none {
+    background: var(--color-card);
+    border: 3px solid var(--color-muted);
+  }
   .wmap-selected {
     border-color: var(--color-text);
     border-width: 3px;
@@ -312,6 +321,53 @@
     color: var(--color-text);
     border: 1px solid var(--color-text);
     border-radius: 999px;
+  }
+
+  /* A warehouse: one fact per line, with room between warehouses */
+  .wh-row {
+    padding-top: 14px;
+    padding-bottom: 14px;
+  }
+  .wh-row p + p {
+    margin-top: 4px;
+  }
+
+  /* The map's switch: two buttons side by side, the chosen one filled */
+  .map-switch {
+    display: inline-flex;
+    margin-top: 12px;
+    border: 1px solid var(--color-border);
+    border-radius: 8px;
+    overflow: hidden;
+  }
+  .map-switch button {
+    padding: 8px 18px;
+    font-size: var(--text-body);
+    font-weight: 600;
+    color: var(--color-text);
+    background: var(--color-card);
+    border: none;
+    cursor: pointer;
+  }
+  .map-switch button + button {
+    border-left: 1px solid var(--color-border);
+  }
+  .map-switch button[aria-pressed="true"] {
+    color: var(--color-card);
+    background: var(--color-text);
+  }
+
+  /* A button that reads like a link ("Show 12 more") */
+  .link-button {
+    margin-top: 8px;
+    font-size: var(--text-body);
+    font-weight: 600;
+    color: var(--color-link);
+    text-decoration: underline;
+    background: none;
+    border: none;
+    padding: 0;
+    cursor: pointer;
   }
 
   /* Warnings: soft amber box, thin amber left edge */

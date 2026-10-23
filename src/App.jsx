@@ -7,6 +7,8 @@ import WeatherNotePanel from "./components/WeatherNotePanel";
 import BackgroundInfoPanel from "./components/BackgroundInfoPanel";
 import WeatherMapPanel from "./components/WeatherMapPanel";
 import TopMandisPanel from "./components/TopMandisPanel";
+import WarehousesPanel from "./components/WarehousesPanel";
+import WDRA from "./data/wdra_warehouses.json";
 import AtAGlancePanel from "./components/AtAGlancePanel";
 import Warning from "./components/Warning";
 import SystemStateBar from "./components/SystemStateBar";
@@ -72,25 +74,6 @@ export default function App() {
     setForecast(null);
     setBackground({ enam: null, soil: null });
     setStatus("idle");
-  };
-  // A district chosen on the weather map: like the dropdown (sent by its English name), but the chosen crop is kept
-  // when the new district offers it too, so the page does not empty itself under the map.
-  const chooseDistrictOnMap = (nextEn) => {
-    if (!nextEn || nextEn === district) return;
-    fetchCrops(estate, nextEn, apiLang)
-      .then((list) => {
-        if (crop && list.some((c) => c.key === crop)) {
-          setDistrict(nextEn);
-          setCrops(list);
-          setData(null);
-          setForecast(null);
-          setBackground({ enam: null, soil: null });
-          setStatus("loading");
-        } else {
-          chooseDistrict(nextEn);
-        }
-      })
-      .catch(() => chooseDistrict(nextEn));
   };
   const chooseCrop = (next) => {
     setCrop(next);
@@ -281,6 +264,12 @@ export default function App() {
           <AtAGlancePanel data={data} />
           <DataDisplayPanel data={data} crop={cropName} cropEn={cropNameEn} districtName={districtName} card="price" />
           <TopMandisPanel data={data} districtNames={districtNamesShown} />
+          <WarehousesPanel
+            stateName={currentState?.served}
+            districtEn={district}
+            mapData={mapData}
+            districtNames={districtNamesShown}
+          />
           <SimulationPanel data={data} districtName={districtName} />
           <DataDisplayPanel data={data} crop={cropName} cropEn={cropNameEn} districtName={districtName} card="water" />
           <DataDisplayPanel
@@ -296,9 +285,10 @@ export default function App() {
             outlook={outlook}
             mapData={mapData}
             selectedDistrictEn={district}
-            onSelectDistrict={chooseDistrictOnMap}
+            warehouses={WDRA}
+            stateName={currentState?.served}
           />
-          <BackgroundInfoPanel enam={background.enam} soil={background.soil} districtName={districtName} />
+          <BackgroundInfoPanel enam={background.enam} soil={background.soil} districtName={districtName} wdraAsOn={WDRA.source_last_updated} />
           <CropAreaPieChart data={data} crop={cropName} cropEn={cropNameEn} cropKey={crop} districtName={districtName} />
         </div>
       )}

@@ -21,7 +21,8 @@ function Part({ title, children, dateLine, source }) {
 }
 
 // `districtName` is the district as the dropdown shows it (in the chosen language).
-export default function BackgroundInfoPanel({ enam, soil, districtName }) {
+// `wdraAsOn` is the date of the WDRA warehouse list the warehouse card uses, listed here among the sources.
+export default function BackgroundInfoPanel({ enam, soil, districtName, wdraAsOn }) {
   const { lang, locale } = useLanguage();
   const t = useT();
   // "2021-03-31" -> "31 Mar 2021", in the chosen language (a plain day is read as that local day)
@@ -77,6 +78,9 @@ export default function BackgroundInfoPanel({ enam, soil, districtName }) {
         >
           <p className="card-text">{soilSentence}</p>
         </Part>
+      )}
+      {formatDay(wdraAsOn) && (
+        <p className="card-small info-part">{t("bg.wdra", { source: t("wh.source"), date: formatDay(wdraAsOn) })}</p>
       )}
     </div>
   );

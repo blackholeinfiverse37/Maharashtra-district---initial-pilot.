@@ -90,6 +90,19 @@ const en = {
   "top5.place": "{district} district",
   "top5.priceOn": "price seen on {date}",
 
+  // Warehouses card
+  "wh.title": "Warehouses in and near your district",
+  "wh.at": "Warehouse at {address}",
+  "wh.noName": "Registered warehouse",
+  "wh.capacity": "Capacity: {capacity} tonnes",
+  "wh.validUpto": "Registration valid until: {date}",
+  "wh.aboutKm": "about {km} km (straight line)",
+  "wh.showMore": "Show {n} more",
+  "wh.showLess": "Show fewer",
+  "wh.note": "Registered warehouses as on {date}. Check with the warehouse before you store.",
+  "wh.source": "WDRA (Warehousing Development and Regulatory Authority)",
+  "wh.none": "No active registered warehouse is listed in or near this district.",
+
   // Water card
   "water.title": "How much groundwater is used in {district}?",
   "water.noData": "No groundwater data for this choice.",
@@ -148,13 +161,22 @@ const en = {
   "wmap.detail": "{district}: highest {temp}°C, {dry} of {days} days dry.",
   "wmap.nextRain": "Rain likely on {date}.",
   "wmap.noRain": "No rain likely in these {days} days.",
-  "wmap.hint": "Tap a pin to choose that district.",
   "wmap.tempNote": "The number next to each pin is the highest temperature expected this week, in °C.",
+  "wmap.switchLabel": "Choose the map",
+  "wmap.switchWeather": "Weather",
+  "wmap.switchWarehouses": "Warehouses",
+  "wmap.whTitle": "Where are the registered warehouses?",
+  "wmap.whPinTitle": "{district}: {count} registered warehouses, {capacity} tonnes",
+  "wmap.whSome": "Has registered warehouses",
+  "wmap.whNone": "None listed",
+  "wmap.whNote": "The number next to each pin is how many active registered warehouses the district has.",
+  "wmap.whDetail": "{district}: {count} active registered warehouses, {capacity} tonnes in all.",
 
   // Background card
   "bg.title": "Background information (older data)",
   "bg.enam": "Mandis on e-NAM in {district}",
   "bg.soil": "Soil moisture in {district}",
+  "bg.wdra": "Registered warehouse list: {source}, as on {date}",
   "bg.enamSource": "e-NAM directory (SFAC)",
   "bg.soilSource": "NWIC (National Water Informatics Centre)",
 

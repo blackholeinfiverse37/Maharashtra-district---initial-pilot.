@@ -89,6 +89,19 @@ const mr = {
   "top5.place": "{district} जिल्हा",
   "top5.priceOn": "{date} रोजीचा भाव",
 
+  // Warehouses card
+  "wh.title": "तुमच्या जिल्ह्यात आणि जवळपासची गोदामे",
+  "wh.at": "{address} येथील गोदाम",
+  "wh.noName": "नोंदणीकृत गोदाम",
+  "wh.capacity": "क्षमता: {capacity} टन",
+  "wh.validUpto": "नोंदणी वैध: {date} पर्यंत",
+  "wh.aboutKm": "सुमारे {km} किमी (सरळ अंतर)",
+  "wh.showMore": "आणखी {n} दाखवा",
+  "wh.showLess": "कमी दाखवा",
+  "wh.note": "{date} रोजीची नोंदणीकृत गोदामे. साठवण्याआधी गोदामाशी बोलून खात्री करा.",
+  "wh.source": "WDRA (वखार विकास व नियामक प्राधिकरण)",
+  "wh.none": "या जिल्ह्यात किंवा जवळपास कोणतेही सक्रिय नोंदणीकृत गोदाम यादीत नाही.",
+
   // Water card
   "water.title": "{district} जिल्ह्यात किती भूजल उपसले जात आहे?",
   "water.noData": "या निवडीसाठी भूजलाची माहिती नाही.",
@@ -147,13 +160,22 @@ const mr = {
   "wmap.detail": "{district}: कमाल {temp}°C, {days} पैकी {dry} दिवस कोरडे.",
   "wmap.nextRain": "{date} रोजी पावसाची शक्यता.",
   "wmap.noRain": "या {days} दिवसांत पावसाची शक्यता नाही.",
-  "wmap.hint": "तो जिल्हा निवडण्यासाठी त्याच्या पिनवर टॅप करा.",
   "wmap.tempNote": "प्रत्येक पिनजवळील आकडा या आठवड्यातील अपेक्षित कमाल तापमान आहे (°C मध्ये).",
+  "wmap.switchLabel": "नकाशा निवडा",
+  "wmap.switchWeather": "हवामान",
+  "wmap.switchWarehouses": "गोदामे",
+  "wmap.whTitle": "नोंदणीकृत गोदामे कुठे आहेत?",
+  "wmap.whPinTitle": "{district}: {count} नोंदणीकृत गोदामे, {capacity} टन",
+  "wmap.whSome": "नोंदणीकृत गोदामे आहेत",
+  "wmap.whNone": "यादीत एकही नाही",
+  "wmap.whNote": "प्रत्येक पिनजवळील आकडा त्या जिल्ह्यातील सक्रिय नोंदणीकृत गोदामांची संख्या आहे.",
+  "wmap.whDetail": "{district}: {count} सक्रिय नोंदणीकृत गोदामे, एकूण {capacity} टन.",
 
   // Background card
   "bg.title": "अधिक माहिती (जुनी आकडेवारी)",
   "bg.enam": "{district} जिल्ह्यातील e-NAM वरील बाजार समित्या",
   "bg.soil": "{district} जिल्ह्यातील जमिनीतील ओलावा",
+  "bg.wdra": "नोंदणीकृत गोदामांची यादी: {source}, {date} रोजी",
   "bg.enamSource": "e-NAM निर्देशिका (SFAC)",
   "bg.soilSource": "NWIC (राष्ट्रीय जल माहिती विज्ञान केंद्र)",
 

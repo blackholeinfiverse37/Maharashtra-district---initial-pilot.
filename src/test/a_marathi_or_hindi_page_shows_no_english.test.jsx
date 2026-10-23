@@ -13,6 +13,7 @@
 import { afterEach, describe, expect, test, vi } from "vitest";
 import { cleanup, fireEvent, render, screen, waitFor } from "@testing-library/react";
 import App from "../App";
+import WDRA from "../data/wdra_warehouses.json";
 import LanguageProvider from "../i18n/LanguageProvider";
 import { LanguageContext } from "../i18n/LanguageContext";
 import { languageByCode } from "../i18n/languages";
@@ -124,6 +125,8 @@ function englishWords(text, fixture) {
   for (const lang of Object.keys(fixture.summary)) {
     for (const row of fixture.summary[lang].market?.[0]?.price_compare?.rows || []) proper.add(row.mandi);
   }
+  // the warehouse card's names and addresses: WDRA's own, never translated
+  for (const w of WDRA.warehouses) [w.name, w.address].forEach((n) => n && proper.add(n));
   let rest = text;
   for (const name of [...proper].sort((a, b) => b.length - a.length)) rest = rest.split(name).join(" ");
   return (rest.match(/[A-Za-z][A-Za-z'-]*/g) || []).filter((w) => w.length > 1 && !KEPT.includes(w));

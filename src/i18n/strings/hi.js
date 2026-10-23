@@ -89,6 +89,19 @@ const hi = {
   "top5.place": "{district} ज़िला",
   "top5.priceOn": "{date} का भाव",
 
+  // Warehouses card
+  "wh.title": "आपके ज़िले में और आसपास के गोदाम",
+  "wh.at": "{address} पर गोदाम",
+  "wh.noName": "पंजीकृत गोदाम",
+  "wh.capacity": "क्षमता: {capacity} टन",
+  "wh.validUpto": "पंजीकरण मान्य: {date} तक",
+  "wh.aboutKm": "लगभग {km} किमी (सीधी दूरी)",
+  "wh.showMore": "{n} और दिखाएँ",
+  "wh.showLess": "कम दिखाएँ",
+  "wh.note": "{date} तक के पंजीकृत गोदाम। भंडारण से पहले गोदाम से बात करके पक्का कर लें।",
+  "wh.source": "WDRA (भंडारण विकास और विनियामक प्राधिकरण)",
+  "wh.none": "इस ज़िले में या आसपास कोई सक्रिय पंजीकृत गोदाम सूची में नहीं है।",
+
   // Water card
   "water.title": "{district} ज़िले में कितना भूजल निकाला जा रहा है?",
   "water.noData": "इस चुनाव के लिए भूजल की जानकारी नहीं है।",
@@ -147,13 +160,22 @@ const hi = {
   "wmap.detail": "{district}: सबसे ज़्यादा {temp}°C, {days} में से {dry} दिन सूखे।",
   "wmap.nextRain": "{date} को बारिश की संभावना।",
   "wmap.noRain": "इन {days} दिनों में बारिश की संभावना नहीं।",
-  "wmap.hint": "उस ज़िले को चुनने के लिए उसकी पिन पर टैप करें।",
   "wmap.tempNote": "हर पिन के पास लिखी संख्या इस हफ़्ते का सबसे ज़्यादा अनुमानित तापमान है (°C में)।",
+  "wmap.switchLabel": "नक्शा चुनें",
+  "wmap.switchWeather": "मौसम",
+  "wmap.switchWarehouses": "गोदाम",
+  "wmap.whTitle": "पंजीकृत गोदाम कहाँ हैं?",
+  "wmap.whPinTitle": "{district}: {count} पंजीकृत गोदाम, {capacity} टन",
+  "wmap.whSome": "पंजीकृत गोदाम हैं",
+  "wmap.whNone": "सूची में कोई नहीं",
+  "wmap.whNote": "हर पिन के पास लिखी संख्या उस ज़िले के सक्रिय पंजीकृत गोदामों की संख्या है।",
+  "wmap.whDetail": "{district}: {count} सक्रिय पंजीकृत गोदाम, कुल {capacity} टन।",
 
   // Background card
   "bg.title": "और जानकारी (पुराने आँकड़े)",
   "bg.enam": "{district} ज़िले की e-NAM वाली मंडियाँ",
   "bg.soil": "{district} ज़िले में मिट्टी की नमी",
+  "bg.wdra": "पंजीकृत गोदामों की सूची: {source}, {date} तक",
   "bg.enamSource": "e-NAM निर्देशिका (SFAC)",
   "bg.soilSource": "NWIC (राष्ट्रीय जल सूचना विज्ञान केंद्र)",
 
