@@ -279,6 +279,41 @@
     cursor: default;
   }
 
+  /* Top 5 mandis: one row per mandi; the recommended one has a dark left edge AND a written tag */
+  .mandi-list {
+    margin-top: 8px;
+  }
+  .mandi-row {
+    padding: 10px 0 10px 12px;
+    border-bottom: 1px solid var(--color-border);
+    border-left: 3px solid transparent;
+  }
+  .mandi-row:last-child {
+    border-bottom: none;
+  }
+  .mandi-row .card-text,
+  .mandi-row .card-small {
+    margin-top: 2px;
+  }
+  .mandi-chosen {
+    border-left-color: var(--color-text);
+  }
+  .mandi-name {
+    font-size: var(--text-body);
+    font-weight: 600;
+    color: var(--color-text);
+  }
+  .mandi-tag {
+    display: inline-block;
+    margin-left: 8px;
+    padding: 0 8px;
+    font-size: var(--text-small);
+    font-weight: 600;
+    color: var(--color-text);
+    border: 1px solid var(--color-text);
+    border-radius: 999px;
+  }
+
   /* Warnings: soft amber box, thin amber left edge */
   .warning {
     background: var(--color-warning-bg);

@@ -74,6 +74,14 @@ const mr = {
   "price.beforeTransport": "या भावात वाहतुकीचा खर्च धरलेला नाही.",
   "price.priceFrom": "भावाची तारीख: {date}",
 
+  // Top 5 mandis card
+  "top5.title": "कोणत्या बाजार समित्या सर्वाधिक भाव देतात?",
+  "top5.recommended": "सुचवलेली बाजार समिती",
+  "top5.inYourDistrict": "तुमच्या जिल्ह्यात",
+  "top5.aboutKm": "सुमारे {km} किमी",
+  "top5.place": "{district} जिल्हा",
+  "top5.priceOn": "{date} रोजीचा भाव",
+
   // Water card
   "water.title": "{district} जिल्ह्यात किती भूजल उपसले जात आहे?",
   "water.noData": "या निवडीसाठी भूजलाची माहिती नाही.",

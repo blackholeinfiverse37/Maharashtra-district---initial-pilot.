@@ -6,6 +6,7 @@ import SimulationPanel from "./components/SimulationPanel";
 import WeatherNotePanel from "./components/WeatherNotePanel";
 import BackgroundInfoPanel from "./components/BackgroundInfoPanel";
 import WeatherMapPanel from "./components/WeatherMapPanel";
+import TopMandisPanel from "./components/TopMandisPanel";
 import AtAGlancePanel from "./components/AtAGlancePanel";
 import Warning from "./components/Warning";
 import SystemStateBar from "./components/SystemStateBar";
@@ -13,6 +14,7 @@ import CropAreaPieChart from "./components/CropAreaPieChart";
 import LanguageSelector from "./components/LanguageSelector";
 import { useLanguage, useT } from "./i18n/LanguageContext";
 import { DEFAULT_STATE, STATES, statesFromServed } from "./config/states";
+import { DEFAULT_LANGUAGE } from "./i18n/languages";
 import {
   fetchCrops,
   fetchDistrictView,
@@ -27,7 +29,7 @@ import {
 
 export default function App() {
   // The language the backend answers in (the chosen one when it supports it, otherwise English)
-  const { apiLang, showsEnglishNote } = useLanguage();
+  const { apiLang, showsEnglishNote, lang } = useLanguage();
   const t = useT();
   const [states, setStates] = useState(STATES); // the states offered: src/config/states.js, narrowed by /catalog
   const [estate, setEstate] = useState(DEFAULT_STATE); // the state code sent to the backend
@@ -205,6 +207,8 @@ export default function App() {
   const cropRow = crops.find((c) => c.key === crop) || {};
   const cropName = cropRow.name || crop;
   const cropNameEn = cropRow.name_en || crop;
+  // English district name -> the name to show, for district names inside backend data (e.g. a mandi's district)
+  const districtNamesShown = Object.fromEntries(districts.map((d) => [d.name_en, d.name]));
   const stateName = (s) => (s ? t(s.nameKey, {}, s.fallbackName || s.code) : "");
   const currentState = states.find((s) => s.code === estate) || STATES.find((s) => s.code === estate);
   const uncalibrated = data?.market?.[0]?.uncalibrated_warning;
@@ -231,7 +235,9 @@ export default function App() {
       {/* Backend's own "not farmer-ready" warning */}
       {status === "success" && uncalibrated && (
         <div className="page-column mb-4">
-          <Warning text={`${t("app.uncalibratedLead")} ${uncalibrated}`} />
+          {/* AIAIC's uncalibrated_warning is its note to developers and always English: in English the lead and the full
+              note, in any other language only the lead, which is already in that language */}
+          <Warning text={lang === DEFAULT_LANGUAGE ? `${t("app.uncalibratedLead")} ${uncalibrated}` : t("app.uncalibratedLead")} />
         </div>
       )}
 
@@ -271,6 +277,7 @@ export default function App() {
         <div className="page-column card-stack">
           <AtAGlancePanel data={data} />
           <DataDisplayPanel data={data} crop={cropName} cropEn={cropNameEn} districtName={districtName} card="price" />
+          <TopMandisPanel data={data} districtNames={districtNamesShown} />
           <SimulationPanel data={data} districtName={districtName} />
           <DataDisplayPanel data={data} crop={cropName} cropEn={cropNameEn} districtName={districtName} card="water" />
           <DataDisplayPanel data={data} crop={cropName} cropEn={cropNameEn} districtName={districtName} card="harvest" />

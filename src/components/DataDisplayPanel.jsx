@@ -3,12 +3,13 @@ import { freshnessStatus, freshnessKey } from "./freshness";
 import { useLanguage, useT } from "../i18n/LanguageContext";
 import { formatDate as fmtDate, formatNumber as fmtNumber } from "../i18n/format";
 import { talukasWorseThanDistrict } from "../config/waterCategories";
+import { DEFAULT_LANGUAGE } from "../i18n/languages";
 
 // One of three cards ("harvest", "price" or "water"), chosen by `card`, so the page can give each its own row.
 // `crop` and `districtName` are the names to SHOW (in the chosen language, as the dropdowns show them); `cropEn` is the
 // crop's English name, used only to find the crop in the backend's English-only government data.
 export default function DataDisplayPanel({ data, crop, cropEn, districtName, card }) {
-  const { locale } = useLanguage();
+  const { locale, lang } = useLanguage();
   const t = useT();
   if (!data) return null;
 
@@ -38,7 +39,11 @@ export default function DataDisplayPanel({ data, crop, cropEn, districtName, car
   // ---- Market ----
   const marketService = data.market?.[0];
   const mandiPrice = formatNumber(marketService?.average_case?.value);
-  const marketAdvice = marketService?.recommendation_detail;
+  // "Where to sell": in English the engine's label ("Sell at …", shown as "Market paying the most: …"), as before; in
+  // any other language AIAIC's own sentence in that language (summary.action.text), never the English label
+  const isEnglish = lang === DEFAULT_LANGUAGE;
+  const marketAdvice = isEnglish ? marketService?.recommendation_detail : null;
+  const marketAdviceLocal = isEnglish ? null : marketService?.summary?.action?.text;
   const marketSource = marketService?.sources_used?.[0];
 
   // ---- Water ----
@@ -149,6 +154,7 @@ export default function DataDisplayPanel({ data, crop, cropEn, districtName, car
                 {t("price.payingMost", { mandi: marketAdvice.replace(/^Sell at /, "") })}
               </p>
             )}
+            {marketAdviceLocal && <p className="card-text font-semibold">{marketAdviceLocal}</p>}
             <p className="card-small">{t("price.beforeTransport")}</p>
             <p className="card-small">
               {t("common.whereFrom", { source: marketSource?.source_name || t("common.unknown") })}

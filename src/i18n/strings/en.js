@@ -74,6 +74,14 @@ const en = {
   "price.beforeTransport": "This price is before transport costs, which are not included.",
   "price.priceFrom": "Price is from: {date}",
 
+  // Top 5 mandis card
+  "top5.title": "Which mandis pay the most?",
+  "top5.recommended": "Recommended",
+  "top5.inYourDistrict": "in your district",
+  "top5.aboutKm": "about {km} km",
+  "top5.place": "{district} district",
+  "top5.priceOn": "price seen on {date}",
+
   // Water card
   "water.title": "How much groundwater is used in {district}?",
   "water.noData": "No groundwater data for this choice.",

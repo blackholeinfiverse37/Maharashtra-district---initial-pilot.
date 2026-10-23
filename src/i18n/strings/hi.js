@@ -74,6 +74,14 @@ const hi = {
   "price.beforeTransport": "इस भाव में ढुलाई का ख़र्च नहीं जोड़ा गया है।",
   "price.priceFrom": "भाव की तारीख़: {date}",
 
+  // Top 5 mandis card
+  "top5.title": "किन मंडियों में सबसे ज़्यादा भाव मिल रहा है?",
+  "top5.recommended": "सुझाई गई मंडी",
+  "top5.inYourDistrict": "आपके ज़िले में",
+  "top5.aboutKm": "लगभग {km} किमी",
+  "top5.place": "{district} ज़िला",
+  "top5.priceOn": "{date} का भाव",
+
   // Water card
   "water.title": "{district} ज़िले में कितना भूजल निकाला जा रहा है?",
   "water.noData": "इस चुनाव के लिए भूजल की जानकारी नहीं है।",

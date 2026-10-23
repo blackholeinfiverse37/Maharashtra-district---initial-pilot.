@@ -3,12 +3,13 @@ import Warning from "./Warning";
 import { useLanguage, useT } from "../i18n/LanguageContext";
 import { formatNumber } from "../i18n/format";
 import { isNotAskedWarning, removeNotAskedReason, removeWeDidNotAsk } from "../config/backendTextCleanup";
+import { DEFAULT_LANGUAGE } from "../i18n/languages";
 
 const BAND_TEXT = { plus_minus_2_pct: "±2%", plus_minus_1_5_pct: "±1.5%" };
 
 // `districtName` is the district as the dropdown shows it (in the chosen language).
 export default function SimulationPanel({ data, districtName }) {
-  const { locale } = useLanguage();
+  const { locale, lang } = useLanguage();
   const t = useT();
   const storage = data?.storage?.[0];
 
@@ -38,10 +39,19 @@ export default function SimulationPanel({ data, districtName }) {
     return n ? `₹${n}` : t("storage.na");
   };
 
-  // The answer, without the backend's "we did not ask" wording (temporary, see src/config/backendTextCleanup.js)
-  const headline = sim
-    ? (sim.recommendation || "").replace(/_/g, " ").toLowerCase()
-    : (removeWeDidNotAsk(storage.recommendation_detail) || "").toLowerCase();
+  // The answer, without the backend's "we did not ask" wording (temporary, see src/config/backendTextCleanup.js).
+  // In English the engine's label, as before. In any other language AIAIC's own text in that language
+  // (summary.action.text), never the English label; with a sample calculation, only when it is the same answer
+  // (same code), and otherwise no headline.
+  const localAction = storage.summary?.action;
+  const localHeadline =
+    !sim || localAction?.code === sim.recommendation ? removeWeDidNotAsk(localAction?.text) || "" : "";
+  const headline =
+    lang !== DEFAULT_LANGUAGE
+      ? localHeadline
+      : sim
+        ? (sim.recommendation || "").replace(/_/g, " ").toLowerCase()
+        : (removeWeDidNotAsk(storage.recommendation_detail) || "").toLowerCase();
 
   // The backend's own most important warnings, shown as written, except the one that says the farmer was not asked
   // whether they can store, and the "because you were not asked" reason (temporary, see src/config/backendTextCleanup.js)
@@ -60,10 +70,12 @@ export default function SimulationPanel({ data, districtName }) {
         <Warning text={t("storage.abstained")} />
       ) : (
         <>
-          <p className="card-sentence">
-            {sim ? t("storage.inSample") : t("storage.whatToDo")}
-            <strong>{headline}</strong>
-          </p>
+          {headline && (
+            <p className="card-sentence">
+              {sim ? t("storage.inSample") : t("storage.whatToDo")}
+              <strong>{headline}</strong>
+            </p>
+          )}
 
           {band ? (
             <>
