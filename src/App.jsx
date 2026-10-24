@@ -7,6 +7,7 @@ import WeatherNotePanel from "./components/WeatherNotePanel";
 import BackgroundInfoPanel from "./components/BackgroundInfoPanel";
 import WeatherMapPanel from "./components/WeatherMapPanel";
 import TopMandisPanel from "./components/TopMandisPanel";
+import TransportCostPanel from "./components/TransportCostPanel";
 import WarehousesPanel from "./components/WarehousesPanel";
 import WDRA from "./data/wdra_warehouses.json";
 import AtAGlancePanel from "./components/AtAGlancePanel";
@@ -28,6 +29,10 @@ import {
   fetchWeatherForecast,
   fetchWeatherOutlook,
 } from "./data_adapter/aiaicApi";
+
+// The "Background information (older data)" card (e-NAM mandis, soil moisture) is hidden for now; while it is hidden,
+// neither is fetched. Set to true to show it again.
+const SHOW_BACKGROUND = false;
 
 export default function App() {
   // The language the backend answers in (the chosen one when it supports it, otherwise English)
@@ -153,7 +158,7 @@ export default function App() {
   // Older background facts for the district (e-NAM mandis, soil moisture). Each one that fails stays empty, and the
   // card hides that part.
   useEffect(() => {
-    if (!district) return undefined;
+    if (!SHOW_BACKGROUND || !district) return undefined;
     let cancelled = false;
     Promise.allSettled([
       fetchEnamMandis({ state: estate, district, lang: apiLang }),
@@ -264,13 +269,14 @@ export default function App() {
           <AtAGlancePanel data={data} />
           <DataDisplayPanel data={data} crop={cropName} cropEn={cropNameEn} districtName={districtName} card="price" />
           <TopMandisPanel data={data} districtNames={districtNamesShown} />
+          <TransportCostPanel data={data} districtNames={districtNamesShown} />
           <WarehousesPanel
             stateName={currentState?.served}
             districtEn={district}
             mapData={mapData}
             districtNames={districtNamesShown}
           />
-          <SimulationPanel data={data} districtName={districtName} />
+          <SimulationPanel data={data} districtName={districtName} districtNames={districtNamesShown} />
           <DataDisplayPanel data={data} crop={cropName} cropEn={cropNameEn} districtName={districtName} card="water" />
           <DataDisplayPanel
             data={data}
@@ -288,7 +294,7 @@ export default function App() {
             warehouses={WDRA}
             stateName={currentState?.served}
           />
-          <BackgroundInfoPanel enam={background.enam} soil={background.soil} districtName={districtName} wdraAsOn={WDRA.source_last_updated} />
+          {SHOW_BACKGROUND && <BackgroundInfoPanel enam={background.enam} soil={background.soil} districtName={districtName} wdraAsOn={WDRA.source_last_updated} />}
           <CropAreaPieChart data={data} crop={cropName} cropEn={cropNameEn} cropKey={crop} districtName={districtName} />
         </div>
       )}

@@ -56,7 +56,7 @@ export default function WarehousesPanel({ stateName, districtEn, mapData, distri
           </ol>
           {found.length > FIRST && (
             <button type="button" className="link-button" onClick={() => setOpen((o) => !o)} aria-expanded={open}>
-              {open ? t("wh.showLess") : t("wh.showMore", { n: found.length - FIRST })}
+              {open ? t("wh.showLess") : t("wh.showMore")}
             </button>
           )}
         </>

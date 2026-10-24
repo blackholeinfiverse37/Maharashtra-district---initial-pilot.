@@ -88,6 +88,19 @@ const hi = {
   "top5.aboutKm": "लगभग {km} किमी",
   "top5.place": "{district} ज़िला",
   "top5.priceOn": "{date} का भाव",
+  "top5.showMore": "और दिखाएँ",
+  "top5.showLess": "कम दिखाएँ",
+  "top5.otherDayNote": "दूसरे दिनों के भाव। AIAIC ने इनकी तुलना ऊपर की मंडियों से नहीं की।",
+
+  // Transport cost card
+  "trip.title": "आपकी मंडी से ज़्यादा भाव देने वाली मंडियों तक ढुलाई",
+  "trip.introOwn": "दूसरे ज़िलों की ये मंडियाँ आपके ज़िले की सबसे ज़्यादा भाव देने वाली मंडी {base} से ज़्यादा भाव देती हैं।",
+  "trip.introNearest": "इस भाव डेटा में आपके ज़िले की कोई मंडी नहीं है। ये मंडियाँ सबसे नज़दीकी मंडी {base} (लगभग {km} किमी दूर) से ज़्यादा भाव देती हैं।",
+  "trip.paysMore": "प्रति क्विंटल ₹{adv} ज़्यादा भाव",
+  "trip.worthIf": "जाना तभी फ़ायदेमंद है जब 1 क्विंटल ले जाने का ख़र्च हर किमी ₹{rate} से कम हो।",
+  "trip.district": "{district} ज़िला",
+  "trip.aboutKm": "लगभग {km} किमी दूर",
+  "trip.note": "दूरी ज़िलों के केंद्रों के बीच सीधी रेखा में है। सड़क की दूरी ज़्यादा होती है, इसलिए अपना असली ढुलाई ख़र्च ज़रूर देखें।",
 
   // Warehouses card
   "wh.title": "आपके ज़िले में और आसपास के गोदाम",
@@ -96,7 +109,7 @@ const hi = {
   "wh.capacity": "क्षमता: {capacity} टन",
   "wh.validUpto": "पंजीकरण मान्य: {date} तक",
   "wh.aboutKm": "लगभग {km} किमी (सीधी दूरी)",
-  "wh.showMore": "{n} और दिखाएँ",
+  "wh.showMore": "और दिखाएँ",
   "wh.showLess": "कम दिखाएँ",
   "wh.note": "{date} तक के पंजीकृत गोदाम। भंडारण से पहले गोदाम से बात करके पक्का कर लें।",
   "wh.source": "WDRA (भंडारण विकास और विनियामक प्राधिकरण)",
@@ -140,6 +153,8 @@ const hi = {
   "storage.typicalDay": "आम दिन",
   "storage.weakerDay": "कमज़ोर दिन",
   "storage.priceFrom": "यहाँ इस्तेमाल किया गया भाव {mandi} का है, {district} ज़िले का नहीं।",
+  "storage.priceFromMedian": "यह भाव {mandi} ({district} ज़िला) का है, जो पूरे राज्य में इस फ़सल के बीच के भाव वाली मंडी है। यह ठीक आपके ज़िले का भाव नहीं है।",
+  "storage.priceFromMedianNoPlace": "यह भाव {mandi} का है, जो पूरे राज्य में इस फ़सल के बीच के भाव वाली मंडी है। यह ठीक आपके ज़िले का भाव नहीं है।",
   "storage.yourDistrict": "आपके",
   "storage.referenceMarket": "एक तुलना वाली मंडी",
   "storage.na": "उपलब्ध नहीं",

@@ -304,6 +304,10 @@
   .mandi-row .card-small {
     margin-top: 2px;
   }
+  /* Above the mandis whose price is from another day */
+  .mandi-other-note {
+    margin-top: 12px;
+  }
   .mandi-chosen {
     border-left-color: var(--color-text);
   }

@@ -114,7 +114,7 @@ test("five first, the rest behind 'show more'", () => {
     inLanguage("en", <WarehousesPanel stateName="Teststate" districtEn="Home" mapData={mapData} data={list} today={TODAY} />)
   );
   expect(container.querySelectorAll(".mandi-row")).toHaveLength(5);
-  fireEvent.click(screen.getByText("Show 2 more"));
+  fireEvent.click(screen.getByText("Show more"));
   expect(container.querySelectorAll(".mandi-row")).toHaveLength(7);
 });
 
@@ -126,7 +126,7 @@ test("only the nearest 10: own district first, then the closest nearby ones", ()
   const { container } = render(
     inLanguage("en", <WarehousesPanel stateName="Teststate" districtEn="Home" mapData={mapData} data={list} today={TODAY} />)
   );
-  fireEvent.click(screen.getByText("Show 5 more"));
+  fireEvent.click(screen.getByText("Show more"));
   const names = [...container.querySelectorAll(".mandi-name")].map((n) => n.textContent);
   expect(names).toHaveLength(10);
   expect(names.filter((n) => n.startsWith("Home"))).toHaveLength(8);

@@ -89,6 +89,19 @@ const en = {
   "top5.aboutKm": "about {km} km",
   "top5.place": "{district} district",
   "top5.priceOn": "price seen on {date}",
+  "top5.showMore": "Show more",
+  "top5.showLess": "Show fewer",
+  "top5.otherDayNote": "Prices from other days. AIAIC did not compare these with the mandis above.",
+
+  // Transport cost card
+  "trip.title": "Transport for mandis that pay more than your mandi",
+  "trip.introOwn": "These mandis in other districts pay more than {base}, the best-paying mandi in your district.",
+  "trip.introNearest": "Your district has no mandi in this price data. These mandis pay more than the nearest one, {base} (about {km} km away).",
+  "trip.paysMore": "Pays ₹{adv} more per quintal",
+  "trip.worthIf": "Worth going only if moving 1 quintal costs you less than ₹{rate} for every km.",
+  "trip.district": "{district} district",
+  "trip.aboutKm": "about {km} km away",
+  "trip.note": "Distances are straight lines between district centres. Roads are longer, so check what your transport really costs.",
 
   // Warehouses card
   "wh.title": "Warehouses in and near your district",
@@ -97,7 +110,7 @@ const en = {
   "wh.capacity": "Capacity: {capacity} tonnes",
   "wh.validUpto": "Registration valid until: {date}",
   "wh.aboutKm": "about {km} km (straight line)",
-  "wh.showMore": "Show {n} more",
+  "wh.showMore": "Show more",
   "wh.showLess": "Show fewer",
   "wh.note": "Registered warehouses as on {date}. Check with the warehouse before you store.",
   "wh.source": "WDRA (Warehousing Development and Regulatory Authority)",
@@ -141,6 +154,8 @@ const en = {
   "storage.typicalDay": "On a typical day",
   "storage.weakerDay": "On a weaker day",
   "storage.priceFrom": "The price used here comes from {mandi}, not from {district}.",
+  "storage.priceFromMedian": "This price is from {mandi} ({district} district), the median mandi for this crop statewide, not exactly from your district.",
+  "storage.priceFromMedianNoPlace": "This price is from {mandi}, the median mandi for this crop statewide, not exactly from your district.",
   "storage.yourDistrict": "your district",
   "storage.referenceMarket": "a reference market",
   "storage.na": "N/A",

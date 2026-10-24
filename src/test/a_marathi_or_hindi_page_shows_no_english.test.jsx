@@ -19,6 +19,7 @@ import { LanguageContext } from "../i18n/LanguageContext";
 import { languageByCode } from "../i18n/languages";
 import { STRINGS } from "../i18n/strings";
 import { toDistrictView } from "../data_adapter/aiaicApi";
+import { isNotAskedWarning, isPriceNotDistrictWarning } from "../config/backendTextCleanup";
 import DataDisplayPanel from "../components/DataDisplayPanel";
 import SimulationPanel from "../components/SimulationPanel";
 import BackgroundInfoPanel from "../components/BackgroundInfoPanel";
@@ -119,6 +120,7 @@ function englishWords(text, fixture) {
       const se = item.supporting_evidence || {};
       [se.representative_mandi, item.subject?.reference_mandi].forEach((n) => n && proper.add(n));
       for (const o of se.options || []) o?.mandi && proper.add(o.mandi); // the mandis the market answer compared
+      for (const o of se.also_in_window || []) o?.mandi && proper.add(o.mandi); // and those from other days
       for (const u of se.cgwb_units_2025?.stressed_units || []) [u.unit, u.shown].forEach((n) => n && proper.add(n));
     }
   }
@@ -171,9 +173,11 @@ describe.each(["mr", "hi"])("the whole page in %s", (lang) => {
     const summary = nashik.summary[lang].storage[0];
     const caps = new Set(summary.confidence.cap_reasons);
     const marked = summary.sections.find((s) => s.id === "caveats").items.filter((c) => c.priority && !caps.has(c.text));
-    // the one that says she was not asked is left out on purpose (src/config/backendTextCleanup.js); every other is shown
+    // two are left out on purpose (src/config/backendTextCleanup.js): the one that says she was not asked, and the long
+    // "price is not Nashik's" one, which the card says in one short line of its own; every other is shown
     const shown = marked.filter((c) => text.includes(c.text.slice(0, 40)));
-    expect(marked.length - shown.length).toBe(1);
+    expect(marked.length - shown.length).toBe(2);
+    expect(text).toContain(STRINGS[lang]["storage.priceFromMedianNoPlace"].split("{mandi}")[0]);
     expect(marked.every((c) => c.lang === lang)).toBe(true);
   });
 });
@@ -184,7 +188,9 @@ describe("the English page", () => {
     const text = visibleText(page);
     expect(text).toContain("Sell at APMC Pimpalgaon Baswant"); // the summary says the engine's own words in English
     expect(text).toContain("Engine runs on UNCALIBRATED illustrative defaults"); // the full note, in English only
-    expect(text).toContain("PRICE IS NOT NASHIK'S"); // the engine's own warnings
+    expect(text).toContain("THE BEST AND WORST CASES ON THIS CARD ARE NOT AN ESTIMATE OF RISK"); // the engine's own warnings
+    expect(text).not.toContain("PRICE IS NOT NASHIK'S"); // said in one short line instead
+    expect(text).toContain("This price is from APMC Kopargaon (Ahilyanagar district), the median mandi for this crop statewide");
     expect(text).toContain("Agmarknet — Current Daily Price of Various Commodities from Various Markets (Mandi)");
     expect(text).toContain("For this district it covers only: Rice, Wheat, Maize");
     expect(text).toContain("DES 2024-25 field-crop set");
@@ -219,7 +225,8 @@ describe("a line AIAIC has only in English", () => {
     const storage = structuredClone(view.storage[0]);
     const caveats = storage.summary.sections.find((s) => s.id === "caveats").items;
     const shout = caveats.find((c) => c.priority && !storage.summary.confidence.cap_reasons.includes(c.text));
-    const english = storage.read_these_first[0]; // the same answer, one warning as AIAIC would send it untranslated
+    // the same answer, one warning as AIAIC would send it untranslated (one the card does not leave out on purpose)
+    const english = storage.read_these_first.find((w) => !isNotAskedWarning(w) && !isPriceNotDistrictWarning(w));
     Object.assign(shout, { text: english, lang: "en" });
     const { container } = inLanguage("mr", <SimulationPanel data={{ storage: [storage] }} districtName="नाशिक" />);
     expect(visibleText(container)).not.toContain(english.slice(0, 20));

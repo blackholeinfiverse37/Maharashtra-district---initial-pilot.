@@ -3,13 +3,19 @@ import Warning from "./Warning";
 import EnglishOnly from "./EnglishOnly";
 import { useLanguage, useT } from "../i18n/LanguageContext";
 import { formatNumber } from "../i18n/format";
-import { actionText, mustRead, scenarioWords } from "../i18n/backendText";
-import { isNotAskedWarning, removeNotAskedReason, removeWeDidNotAsk } from "../config/backendTextCleanup";
+import { actionText, isEnglish, mustRead, scenarioWords } from "../i18n/backendText";
+import {
+  isNotAskedWarning,
+  isPriceNotDistrictWarning,
+  removeNotAskedReason,
+  removeWeDidNotAsk,
+} from "../config/backendTextCleanup";
 
 const BAND_TEXT = { plus_minus_2_pct: "±2%", plus_minus_1_5_pct: "±1.5%" };
 
 // `districtName` is the district as the dropdown shows it (in the chosen language).
-export default function SimulationPanel({ data, districtName }) {
+// `districtNames` maps an English district name to the name to show (the same names as the dropdown).
+export default function SimulationPanel({ data, districtName, districtNames }) {
   const { lang, apiLang, locale } = useLanguage();
   const t = useT();
   const storage = data?.storage?.[0];
@@ -50,9 +56,26 @@ export default function SimulationPanel({ data, districtName }) {
   // asked whether they can store, and the "because you were not asked" reason (temporary, see
   // src/config/backendTextCleanup.js). A warning AIAIC has only in English is counted apart, never dropped.
   const must = mustRead(storage, lang, apiLang);
-  const tidy = (list) => list.filter((w) => !isNotAskedWarning(w)).map(removeNotAskedReason);
+  const tidy = (list) =>
+    list.filter((w) => !isNotAskedWarning(w) && !isPriceNotDistrictWarning(w)).map(removeNotAskedReason);
   const warnings = tidy(must.shown);
   const warningsInEnglish = tidy(must.englishOnly);
+
+  // When the backend warns that the prices are a statewide median mandi's, not the district's, one short line says so
+  // instead of its long warning (temporary, see src/config/backendTextCleanup.js)
+  const priceNotDistrict = [...(storage.read_these_first || []), ...must.shown, ...must.englishOnly].some(
+    isPriceNotDistrictWarning
+  );
+  // The mandi's district as the dropdown shows it; on a Marathi or Hindi page an English name is left out, not shown
+  const mandiDistrictEn = storage?.supporting_evidence?.representative_mandi_district;
+  const mandiDistrict =
+    (mandiDistrictEn && districtNames?.[mandiDistrictEn]) || (isEnglish(lang) ? mandiDistrictEn : null);
+  const medianLine =
+    priceNotDistrict && storage?.supporting_evidence?.representative_mandi
+      ? mandiDistrict
+        ? t("storage.priceFromMedian", { mandi: referenceMandi, district: mandiDistrict })
+        : t("storage.priceFromMedianNoPlace", { mandi: referenceMandi })
+      : null;
 
   // When AIAIC has no measured spread, its engine fills best/average/worst with a FIXED band around one price.
   // That is not "a better day / a weaker day", so only the price itself is shown (review 2026-10-02).
@@ -100,7 +123,11 @@ export default function SimulationPanel({ data, districtName }) {
             </>
           )}
 
-          <p className="card-small">{t("storage.priceFrom", { mandi: referenceMandi, district: requestedRegion })}</p>
+          {medianLine ? (
+            <p className="warning">{medianLine}</p>
+          ) : (
+            <p className="card-small">{t("storage.priceFrom", { mandi: referenceMandi, district: requestedRegion })}</p>
+          )}
         </>
       )}
 
