@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useLanguage, useT } from "../i18n/LanguageContext";
 import { formatDate, formatNumber } from "../i18n/format";
-import { warehousesNear } from "../data/warehousesNear";
+import { listDate, warehousesNear } from "../data/warehousesNear";
 import WDRA from "../data/wdra_warehouses.json";
 
 // "Warehouses in and near your district": WDRA's public list of registered warehouses (built into the page by
@@ -22,7 +22,7 @@ export default function WarehousesPanel({ stateName, districtEn, mapData, distri
 
   const found = warehousesNear({ list: data?.warehouses, stateName, districtEn, mapData, today }).slice(0, MOST);
   const shown = open ? found : found.slice(0, FIRST);
-  const asOn = formatDate(data?.source_last_updated, locale);
+  const asOn = formatDate(listDate(data, stateName), locale);
 
   return (
     <div className="card">
@@ -61,7 +61,7 @@ export default function WarehousesPanel({ stateName, districtEn, mapData, distri
           )}
         </>
       )}
-      {asOn && <p className="card-small">{t("wh.note", { date: asOn })}</p>}
+      <p className="card-small">{asOn ? t("wh.note", { date: asOn }) : t("wh.noteNoDate")}</p>
       <p className="card-small">{t("common.whereFrom", { source: t("wh.source") })}</p>
     </div>
   );

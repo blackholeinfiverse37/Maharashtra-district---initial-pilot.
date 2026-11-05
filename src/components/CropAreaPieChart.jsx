@@ -20,10 +20,11 @@ export default function CropAreaPieChart({ data, crop, cropEn, cropKey, district
   const cropService = data?.crop?.[0];
   const region = districtName || cropService?.subject?.region || t("common.thisDistrict");
   const apy = cropService?.supporting_evidence?.district_crop_apy;
-  const crops = apy?.crops || [];
+  const crops = Array.isArray(apy?.crops) ? apy.crops.filter((c) => c && typeof c === "object") : [];
   // Only the DES crop-area source describes this chart. The crop service's first source is CGWB groundwater, so its
   // freshness must never be shown here; with no DES source, no freshness word is shown.
-  const source = (cropService?.sources_used || []).find((s) => /^des[_-]/i.test(s?.source_id || ""));
+  const sources = Array.isArray(cropService?.sources_used) ? cropService.sources_used : [];
+  const source = sources.find((s) => /^des[_-]/i.test(s?.source_id || ""));
 
   const byCrop = {};
   crops.forEach((c) => {

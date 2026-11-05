@@ -55,13 +55,17 @@ export async function fetchDistrictView({ state, district, crop, lang = 'en' }) 
   return toDistrictView(await getJson('/view/unified', { crop, region: district, state, lang }))
 }
 
-// The same shape from a /view/unified answer already in hand (the tests read recorded answers through it).
+// The same shape from a /view/unified answer already in hand (the tests read recorded answers through it). A service
+// whose answer is not a list, or an item that is not an object, is read as no answer, so only that card shows "no data".
 export function toDistrictView(payload) {
+  const services = payload?.services && typeof payload.services === 'object' ? payload.services : {}
   return {
     ...Object.fromEntries(
-      Object.entries(payload?.services || {}).map(([service, items]) => [
+      Object.entries(services).map(([service, items]) => [
         service,
-        (items || []).map((i) => ({ ...(i.intelligence || {}), summary: i.summary || null })),
+        (Array.isArray(items) ? items : [])
+          .filter((i) => i && typeof i === 'object')
+          .map((i) => ({ ...(i.intelligence || {}), summary: i.summary || null })),
       ]),
     ),
     na_reasons: payload?.na_reasons || {},

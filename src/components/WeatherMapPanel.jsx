@@ -5,7 +5,7 @@ import { useLanguage, useT } from "../i18n/LanguageContext";
 import { formatDate, formatNumber, formatWeekday } from "../i18n/format";
 import { TILE_ATTRIBUTION, TILE_MAX_ZOOM, TILE_URL } from "../config/mapTiles";
 import { norm } from "../config/geo";
-import { warehouseCountsByDistrict } from "../data/warehousesNear";
+import { listDate, warehouseCountsByDistrict } from "../data/warehousesNear";
 
 // The district map, with a switch between two views:
 //   - Weather: one small pin per district at its centre, its shape and fill saying the week's weather (dry / maybe rain
@@ -44,7 +44,7 @@ export default function WeatherMapPanel({ outlook, mapData, selectedDistrictEn, 
   // Every district with a usable centre
   const points = useMemo(
     () =>
-      (mapData?.points || [])
+      (Array.isArray(mapData?.points) ? mapData.points : [])
         .map((p) => ({ nameEn: p?.name_en, name: p?.district || p?.name_en, lat: Number(p?.lat), lon: Number(p?.lon) }))
         .filter((p) => p.nameEn && Number.isFinite(p.lat) && Number.isFinite(p.lon)),
     [mapData]
@@ -52,7 +52,8 @@ export default function WeatherMapPanel({ outlook, mapData, selectedDistrictEn, 
 
   // Weather view: the districts that have a weather line
   const weatherDistricts = useMemo(() => {
-    const byName = new Map((outlook?.districts || []).map((w) => [w?.name, w]));
+    // an outlook whose districts are not a list is read as no weather lines
+    const byName = new Map((Array.isArray(outlook?.districts) ? outlook.districts : []).map((w) => [w?.name, w]));
     return points
       .filter((p) => byName.has(p.nameEn))
       .map((p) => ({ ...p, weather: byName.get(p.nameEn), kind: kindOf(byName.get(p.nameEn)) }));
@@ -170,7 +171,7 @@ export default function WeatherMapPanel({ outlook, mapData, selectedDistrictEn, 
   const sourceName = outlook?.source?.name;
   const readOn = formatDate(outlook?.source?.read_at, locale);
   // Warehouses view: the list's date
-  const whAsOn = formatDate(warehouses?.source_last_updated, locale);
+  const whAsOn = formatDate(listDate(warehouses, stateName), locale);
 
   return (
     <div className="card">
@@ -236,7 +237,7 @@ export default function WeatherMapPanel({ outlook, mapData, selectedDistrictEn, 
               })}
             </p>
           )}
-          {whAsOn && <p className="card-small">{t("wh.note", { date: whAsOn })}</p>}
+          <p className="card-small">{whAsOn ? t("wh.note", { date: whAsOn }) : t("wh.noteNoDate")}</p>
           <p className="card-small">{t("common.whereFrom", { source: t("wh.source") })}</p>
         </>
       )}

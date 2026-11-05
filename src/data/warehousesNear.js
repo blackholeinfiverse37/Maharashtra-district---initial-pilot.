@@ -9,9 +9,17 @@ export const todayIso = () => {
   return `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, "0")}-${String(d.getDate()).padStart(2, "0")}`;
 };
 
+// The date WDRA's list for this state was last updated, "" when it is not known (or the lists are not a list, or the
+// date is not text). Each state's list has its own date.
+export function listDate(data, stateName) {
+  const lists = Array.isArray(data?.lists) ? data.lists : [];
+  const date = lists.find((l) => sameName(l?.state, stateName))?.source_last_updated ?? data?.source_last_updated;
+  return typeof date === "string" ? date : "";
+}
+
 // A warehouse the dashboard lists: Active, registration still valid today, in the chosen state
 const isListed = (w, stateName, today) =>
-  w?.status?.toLowerCase() === "active" && w.valid_upto && w.valid_upto >= today && sameName(w.state, stateName);
+  typeof w?.status === "string" && w.status.toLowerCase() === "active" && w.valid_upto && w.valid_upto >= today && sameName(w.state, stateName);
 
 export function warehousesNear({ list, stateName, districtEn, mapData, today = todayIso() }) {
   const centres = centresFrom(mapData);

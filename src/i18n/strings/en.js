@@ -41,6 +41,7 @@ const en = {
   "common.perQuintal": "per quintal",
   "common.pricePerQuintal": "₹{price} per quintal",
   // A Marathi or Hindi page: the lines AIAIC has only in English, counted, behind a tap (src/components/EnglishOnly.jsx)
+  "card.failed": "This part could not be shown. The rest of the page still works.",
   "common.englishOnly": "More, in English only ({n})",
 
   // A source's short name on a Marathi or Hindi page, by its id (the English page shows the publisher's own title)
@@ -113,6 +114,7 @@ const en = {
   "wh.showMore": "Show more",
   "wh.showLess": "Show fewer",
   "wh.note": "Registered warehouses as on {date}. Check with the warehouse before you store.",
+  "wh.noteNoDate": "Registered warehouses. Check with the warehouse before you store.",
   "wh.source": "WDRA (Warehousing Development and Regulatory Authority)",
   "wh.none": "No active registered warehouse is listed in or near this district.",
 

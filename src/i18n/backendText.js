@@ -20,7 +20,8 @@ export function actionText(item, lang) {
 // own price comparison, else the engine's fixed label "Sell at <mandi>" of a SELL_AT_MANDI answer (the rule AIAIC's
 // summary itself uses). Any other answer names no mandi, and no English sentence takes its place.
 export function chosenMandi(market) {
-  const row = (market?.summary?.price_compare?.rows || []).find((r) => r?.role === "chosen");
+  const rows = market?.summary?.price_compare?.rows;
+  const row = (Array.isArray(rows) ? rows : []).find((r) => r?.role === "chosen");
   if (row?.mandi) return row.mandi;
   const label = market?.recommendation_detail;
   if (market?.recommendation === "SELL_AT_MANDI" && typeof label === "string" && label.startsWith("Sell at ")) {
@@ -47,8 +48,10 @@ export function mustRead(item, lang, apiLang) {
   const engine = Array.isArray(item?.read_these_first) ? item.read_these_first : [];
   if (isEnglish(lang)) return { shown: [...engine], englishOnly: [] };
   if (!item?.summary) return { shown: [], englishOnly: [...engine] };
-  const caveats = ((item.summary.sections || []).find((s) => s?.id === "caveats") || {}).items || [];
-  const caps = new Set(item.summary.confidence?.cap_reasons || []);
+  // a part that is not a list is read as empty
+  const list = (v) => (Array.isArray(v) ? v : []);
+  const caveats = list(list(item.summary.sections).find((s) => s?.id === "caveats")?.items);
+  const caps = new Set(list(item.summary.confidence?.cap_reasons));
   const priority = caveats.filter((c) => c?.priority && typeof c.text === "string" && !caps.has(c.text));
   const said = apiLang || lang;
   return {
@@ -63,7 +66,8 @@ export function mustRead(item, lang, apiLang) {
 //   note, noteEnglishOnly  DES's coverage note in the page language, or the English one to count apart
 export function desCrops(cropItem, { lang, apiLang, cropKey, cropEn, crop }) {
   const block = cropItem?.summary?.district_crops;
-  const byName = new Map((block?.names || []).map((n) => [n.crop, n]));
+  const names = Array.isArray(block?.names) ? block.names.filter((n) => n && typeof n === "object") : [];
+  const byName = new Map(names.map((n) => [n.crop, n]));
   const english = isEnglish(lang);
   const apy = cropItem?.supporting_evidence?.district_crop_apy;
   const wanted = [cropKey, cropItem?.subject?.crop].filter(Boolean);
@@ -71,7 +75,7 @@ export function desCrops(cropItem, { lang, apiLang, cropKey, cropEn, crop }) {
   const isChosen = (row) => {
     const keys = byName.get(row?.crop)?.keys;
     if (Array.isArray(keys) && keys.length && wanted.length) return wanted.some((k) => keys.includes(k));
-    return !!row?.crop && row.crop.toLowerCase() === lookFor;
+    return typeof row?.crop === "string" && row.crop.toLowerCase() === lookFor;
   };
   const name = (desName) => (english ? desName : byName.get(desName)?.name || desName);
   let note = english ? apy?.coverage_note || null : null;
@@ -89,14 +93,16 @@ export function desCrops(cropItem, { lang, apiLang, cropKey, cropEn, crop }) {
 // before. Marathi and Hindi: from the summary (`illustrative_scenario`); what the summary has only in English (or, from
 // a server without it, the code and the note) is counted apart.
 export function scenarioWords(storage, sim, lang, apiLang) {
-  const codeWords = (sim?.recommendation || "").replace(/_/g, " ").toLowerCase();
-  if (isEnglish(lang)) return { headline: codeWords, note: sim?.note || null, englishOnly: [] };
+  // a code, note or text that is not text is read as none
+  const text = (v) => (typeof v === "string" && v ? v : null);
+  const codeWords = (text(sim?.recommendation) || "").replace(/_/g, " ").toLowerCase();
+  if (isEnglish(lang)) return { headline: codeWords, note: text(sim?.note), englishOnly: [] };
   const block = storage?.summary?.illustrative_scenario;
-  if (!block) return { headline: null, note: null, englishOnly: [codeWords, sim?.note].filter(Boolean) };
+  if (!block) return { headline: null, note: null, englishOnly: [codeWords, text(sim?.note)].filter(Boolean) };
   const own = block.note_lang === (apiLang || lang);
   return {
-    headline: block.text || null,
-    note: own ? block.note || null : null,
-    englishOnly: own || !block.note ? [] : [block.note],
+    headline: text(block.text),
+    note: own ? text(block.note) : null,
+    englishOnly: own || !text(block.note) ? [] : [block.note],
   };
 }

@@ -6,10 +6,12 @@ import SimulationPanel from "./components/SimulationPanel";
 import WeatherNotePanel from "./components/WeatherNotePanel";
 import BackgroundInfoPanel from "./components/BackgroundInfoPanel";
 import WeatherMapPanel from "./components/WeatherMapPanel";
+import CardBoundary from "./components/CardBoundary";
 import TopMandisPanel from "./components/TopMandisPanel";
 import TransportCostPanel from "./components/TransportCostPanel";
 import WarehousesPanel from "./components/WarehousesPanel";
 import WDRA from "./data/wdra_warehouses.json";
+import { listDate } from "./data/warehousesNear";
 import AtAGlancePanel from "./components/AtAGlancePanel";
 import Warning from "./components/Warning";
 import SystemStateBar from "./components/SystemStateBar";
@@ -266,36 +268,67 @@ export default function App() {
 
       {status === "success" && (
         <div className="page-column card-stack">
-          <AtAGlancePanel data={data} />
-          <DataDisplayPanel data={data} crop={cropName} cropEn={cropNameEn} districtName={districtName} card="price" />
-          <TopMandisPanel data={data} districtNames={districtNamesShown} />
-          <TransportCostPanel data={data} districtNames={districtNamesShown} />
-          <WarehousesPanel
-            stateName={currentState?.served}
-            districtEn={district}
-            mapData={mapData}
-            districtNames={districtNamesShown}
-          />
-          <SimulationPanel data={data} districtName={districtName} districtNames={districtNamesShown} />
-          <DataDisplayPanel data={data} crop={cropName} cropEn={cropNameEn} districtName={districtName} card="water" />
-          <DataDisplayPanel
-            data={data}
-            crop={cropName}
-            cropEn={cropNameEn}
-            cropKey={crop}
-            districtName={districtName}
-            card="harvest"
-          />
-          <WeatherNotePanel data={data} forecast={forecast} />
-          <WeatherMapPanel
-            outlook={outlook}
-            mapData={mapData}
-            selectedDistrictEn={district}
-            warehouses={WDRA}
-            stateName={currentState?.served}
-          />
-          {SHOW_BACKGROUND && <BackgroundInfoPanel enam={background.enam} soil={background.soil} districtName={districtName} wdraAsOn={WDRA.source_last_updated} />}
-          <CropAreaPieChart data={data} crop={cropName} cropEn={cropNameEn} cropKey={crop} districtName={districtName} />
+          <CardBoundary resetKey={data}>
+            <AtAGlancePanel data={data} />
+          </CardBoundary>
+          <CardBoundary resetKey={data}>
+            <DataDisplayPanel data={data} crop={cropName} cropEn={cropNameEn} districtName={districtName} card="price" />
+          </CardBoundary>
+          <CardBoundary resetKey={data}>
+            <TopMandisPanel data={data} districtNames={districtNamesShown} />
+          </CardBoundary>
+          <CardBoundary resetKey={data}>
+            <TransportCostPanel data={data} districtNames={districtNamesShown} />
+          </CardBoundary>
+          <CardBoundary resetKey={data}>
+            <WarehousesPanel
+              stateName={currentState?.served}
+              districtEn={district}
+              mapData={mapData}
+              districtNames={districtNamesShown}
+            />
+          </CardBoundary>
+          <CardBoundary resetKey={data}>
+            <SimulationPanel data={data} districtName={districtName} districtNames={districtNamesShown} />
+          </CardBoundary>
+          <CardBoundary resetKey={data}>
+            <DataDisplayPanel data={data} crop={cropName} cropEn={cropNameEn} districtName={districtName} card="water" />
+          </CardBoundary>
+          <CardBoundary resetKey={data}>
+            <DataDisplayPanel
+              data={data}
+              crop={cropName}
+              cropEn={cropNameEn}
+              cropKey={crop}
+              districtName={districtName}
+              card="harvest"
+            />
+          </CardBoundary>
+          <CardBoundary resetKey={forecast}>
+            <WeatherNotePanel data={data} forecast={forecast} />
+          </CardBoundary>
+          <CardBoundary resetKey={outlook}>
+            <WeatherMapPanel
+              outlook={outlook}
+              mapData={mapData}
+              selectedDistrictEn={district}
+              warehouses={WDRA}
+              stateName={currentState?.served}
+            />
+          </CardBoundary>
+          {SHOW_BACKGROUND && (
+            <CardBoundary resetKey={background}>
+              <BackgroundInfoPanel
+                enam={background.enam}
+                soil={background.soil}
+                districtName={districtName}
+                wdraAsOn={listDate(WDRA, currentState?.served)}
+              />
+            </CardBoundary>
+          )}
+          <CardBoundary resetKey={data}>
+            <CropAreaPieChart data={data} crop={cropName} cropEn={cropNameEn} cropKey={crop} districtName={districtName} />
+          </CardBoundary>
         </div>
       )}
 

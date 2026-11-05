@@ -26,7 +26,7 @@ export default function DataDisplayPanel({ data, crop, cropEn, cropKey, district
   // ---- Yield ----
   const cropService = data.crop?.[0];
   const apy = cropService?.supporting_evidence?.district_crop_apy;
-  const allCrops = apy?.crops || [];
+  const allCrops = Array.isArray(apy?.crops) ? apy.crops.filter((c) => c && typeof c === "object") : [];
   // The chosen crop's row found by AIAIC's crop keys (the list's "Tur (arhar)" is DES's "Tur"), and DES's crop names
   // and coverage note in the chosen language, from the crop answer's summary (src/i18n/backendText.js)
   const des = desCrops(cropService, { lang, apiLang, cropKey, cropEn, crop });
@@ -52,7 +52,8 @@ export default function DataDisplayPanel({ data, crop, cropEn, cropKey, district
   const waterStressPct = waterService?.supporting_evidence?.stage_of_extraction_pct;
   const waterSource = waterService?.sources_used?.[0];
   const waterSourceName = sourceName(waterSource, lang, t);
-  const waterCategory = waterService?.supporting_evidence?.groundwater_status;
+  const status = waterService?.supporting_evidence?.groundwater_status;
+  const waterCategory = typeof status === "string" ? status : null; // a code that is not text is read as none
   // The backend's code ("safe", "semi_critical", …) as a plain word in the chosen language, the same words as the
   // taluka list below; an unknown code as sent
   const waterCategoryWord = waterCategory ? t(`water.cat.${waterCategory}`, {}, waterCategory) : waterCategory;
@@ -87,8 +88,9 @@ export default function DataDisplayPanel({ data, crop, cropEn, cropKey, district
     })
     .filter(Boolean);
   const cgwbDate = fmtDate(cgwbUnits?.observed_at, locale, { month: "long" });
-  const backendTalukaLine = (waterService?.explainability || []).find((line) =>
-    line.toLowerCase().includes("taluka")
+  const explainability = Array.isArray(waterService?.explainability) ? waterService.explainability : [];
+  const backendTalukaLine = explainability.find((line) =>
+    typeof line === "string" && line.toLowerCase().includes("taluka")
   );
   // In Marathi and Hindi the backend's taluka line (its English reasoning) never stands in: with CGWB's list held and
   // no taluka worse (Bhandara: 7 of 7 safe), the plain line says so; without the list, the line is counted apart.
