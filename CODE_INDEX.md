@@ -1,7 +1,8 @@
 # CODE_INDEX: AIAIC District Intelligence Dashboard (prototype)
 
-Updated 2026-10-29, at commit 5be526d. What each file is for, what changed since commit b54256e, and which files
-make up each recent feature. Entry point and data flow: see `REVIEW_PACKET.md`.
+Updated 2026-11-05: the working tree after commit 5be526d (not yet committed). What each file is for, what changed
+since commit b54256e, and which files make up each recent feature. Entry point and data flow: see `REVIEW_PACKET.md`.
+Quality checks (tests, coverage, builds, bad-field test): section 4.
 
 ## 1. Files
 
@@ -20,6 +21,7 @@ src/
   components/
     AtAGlancePanel.jsx          "At a glance": the three main answers in large text for a phone
     BackgroundInfoPanel.jsx     "Background information (older data)": e-NAM mandis, soil moisture (switched off in App.jsx)
+    CardBoundary.jsx            each card's safety net: a failing card shows a short message, the others keep working
     CropAreaPieChart.jsx        the district's crop area chart (DES)
     CropSelector.jsx            the crop dropdown, filled from the backend's list for the district
     DataDisplayPanel.jsx        harvest, best mandi price, water stress and the taluka warning cards
@@ -62,14 +64,19 @@ src/
       index.js                  gathers the three string files
   test/
     a_marathi_or_hindi_page_shows_no_english.test.jsx          no English on Marathi or Hindi pages
+    aiaic_api.test.js                                          backend calls: what is sent, failed calls, bad answers
     backend_english_is_not_shown_in_marathi.test.jsx           backend English lines stay out of Marathi pages
+    bad_backend_fields.test.jsx                                fields of the wrong type are read as "no data"
+    card_boundary.test.jsx                                     one failing card does not blank the page
     district_map.test.jsx                                      map switches between weather and warehouses views
     storage_price_not_district.test.jsx                        the short storage price note replaces the long warning
     the_store_panel_never_shows_a_fixed_band_as_a_range.test.jsx   a fixed ±2% band is shown as one price
     top5_show_more.test.jsx                                    Top 5 mandis card and its "Show more"
     transport_cost_card.test.jsx                               transport cost card
     warehouses_card.test.jsx                                   warehouses card and WDRA cleaning rules
+    wdra_lists_by_state.test.js                                WDRA lists for several states, no personal columns
     we_did_not_ask_cleanup.test.js                             the temporary backend wording cleanup
+    weather_note_panel.test.jsx                                the 7-day weather forecast card
     recorded/                                                  real backend answers, saved for the tests
       places_soil_moisture_2026-10-23.json                     soil moisture answers (Nashik en/mr, Indore hi)
       view_onion_nashik_storage_2026-10-02.json                Nashik onion storage answer
@@ -136,6 +143,10 @@ instruction file for the repository, which is not listed below.
  src/test/we_did_not_ask_cleanup.test.js            |   25 +
 ```
 
+Not yet committed (2026-11-05): Madhya Pradesh warehouses, the error boundary, the bad-data fixes and the new tests
+above, `vite.config.js` (coverage settings), `package.json` and `package-lock.json` (`@vitest/coverage-v8` 5.0.1) and
+`.gitignore` (`coverage`).
+
 ## 3. Recent features and their files
 
 The weather map (3336381) and the language switch (bc21758) were committed on 2026-10-22, before b54256e, so their
@@ -148,3 +159,19 @@ first versions are not in the list above. The warehouse view on the map came lat
 | Marathi/Hindi backend text fixes | fa0b36f, b7c6d11, 5be526d | `src/i18n/backendText.js`, `src/components/EnglishOnly.jsx`, `src/config/backendTextCleanup.js`, `src/data_adapter/aiaicApi.js`, `src/components/{AtAGlancePanel,BackgroundInfoPanel,CropAreaPieChart,DataDisplayPanel,SimulationPanel}.jsx`, `src/test/a_marathi_or_hindi_page_shows_no_english.test.jsx`, `src/test/backend_english_is_not_shown_in_marathi.test.jsx`, `src/test/storage_price_not_district.test.jsx`, `src/test/we_did_not_ask_cleanup.test.js`, `src/test/recorded/*_2026-10-23.json` |
 | Weather map | 3336381 | `src/components/WeatherMapPanel.jsx`, `src/config/mapTiles.js`, `src/data_adapter/aiaicApi.js` (`/weather/outlook`), `src/App.jsx`, `src/index.css`, `package.json` (leaflet) |
 | Language switch | bc21758 | `src/components/LanguageSelector.jsx`, `src/i18n/{LanguageContext,languages,format,translate}.js`, `src/i18n/LanguageProvider.jsx`, `src/i18n/strings/{en,hi,mr,index}.js`, `src/main.jsx`, `docs/translations_for_review.csv` |
+
+## 4. Quality checks
+
+As of 2026-11-05 (details in `REVIEW_PACKET.md`, section 7):
+
+- **Tests:** 14 files, 83 tests, all passing (`npx vitest run`).
+- **Coverage:** statements 92.57%, branches 83.84%, functions 90.97%, lines 93.91% (`npx vitest run --coverage`;
+  `.js`/`.jsx` source only, `src/main.jsx` and the tests left out).
+- **Repeatable build:** 50 builds in a row gave the same `dist/` (SHA-256 `d5f9d9e8dcd4…afaa1c04`, 2026-11-04, on the
+  code before the bad-field fixes).
+- **Bad-field test:** 20,050 card changes and 1,430 map changes, all tested; 8 crashes remain in the storage card
+  (`SimulationPanel.jsx`, not touched), caught by the error boundary and planned for Task 4; 0 on the map.
+- **Warehouses:** Madhya Pradesh included (3,710 rows read, 662 active) alongside Maharashtra (426 rows, 303 active).
+- **Error boundary:** `src/components/CardBoundary.jsx` around every card in `src/App.jsx`.
+
+Python checks (pytest, requirements.txt, Pydantic) apply to the forecast service repository, not to this React dashboard.

@@ -2,7 +2,7 @@
 
 **Owner:** Gauri Deshpande. **State:** DRAFT, prepared in Hemanth's review of 2026-10-02 for Gauri to check, edit
 and sign. The April 2026 packet described mock adapters (`Mahesadapter`, `deep_adapter`) that no longer exist; it
-is replaced. **Last updated:** 2026-10-29. File-by-file index: `CODE_INDEX.md`.
+is replaced. **Last updated:** 2026-11-05. File-by-file index: `CODE_INDEX.md`.
 
 ## 1. Entry point
 
@@ -43,7 +43,8 @@ the warehouse distances (`src/config/geo.js`) and the choice of which warehouses
   district, price, the day that price was seen and its distance. "Show more" adds up to 5 more, including prices from
   other days, under a line saying AIAIC did not compare them.
 - **Warehouses.** "Warehouses in and near your district": WDRA-registered warehouses that are active and still
-  valid today, in the district or within 150 km of it, nearest first, with capacity.
+  valid today, in the district or within 150 km of it, nearest first, with capacity. **Madhya Pradesh is included**
+  alongside Maharashtra: 3,710 Madhya Pradesh rows read, 662 of them active (Maharashtra: 426 rows, 303 active).
 - **Weather map.** A map of the state's districts (Leaflet, OpenStreetMap tiles), one pin per district with the
   week's weather in words. A switch turns it into a warehouses view: the number of registered warehouses per district.
 - **Weather forecast card.** "What will the weather be this week?": the district's 7-day forecast, day by day (dry,
@@ -53,6 +54,10 @@ the warehouse distances (`src/config/geo.js`) and the choice of which warehouses
   and the date of the warehouse list, each with its date and source, kept apart from this season's answers.
   **Switched off for now** (`SHOW_BACKGROUND = false` in `src/App.jsx`, since 5be526d): the card is built but not
   shown, and its data is not fetched.
+- **Error boundary.** Every card has its own safety net (`src/components/CardBoundary.jsx`): if one card fails, it
+  shows a short message in the chosen language and the rest of the page keeps working.
+- **Bad data from the backend.** A field of the wrong type (text where a list is expected, a list where text is
+  expected, and so on) is read as "no data" for that card, not a crash. Checked by the bad-field test (section 6).
 
 ## 4. What is intentionally not here
 
@@ -66,8 +71,9 @@ the warehouse distances (`src/config/geo.js`) and the choice of which warehouses
 - No crop insurance information.
 - No machine translation of backend text. Marathi and Hindi backend text is shown only when AIAIC sends it in that
   language; otherwise the English line goes behind one tap.
-- No pytest, Pydantic, `requirements.txt` or 50-run hash gate. This repository has no Python code, so they do not
-  apply here. Its checks are the Vitest tests, ESLint and the Vite build (section 6).
+- Python checks (pytest, requirements.txt, Pydantic) apply to the forecast service repository, not to this React
+  dashboard. Its checks are the Vitest tests with coverage, ESLint, the Vite build and the repeatable-build check
+  (section 6).
 
 ## 5. Risks and open questions
 
@@ -78,19 +84,32 @@ the warehouse distances (`src/config/geo.js`) and the choice of which warehouses
   them in production dependencies, all high: `nanoid`, `postcss`, `source-map-js` and `vite`. All four come in
   through `@tailwindcss/vite`, a build plugin; none is in the code the browser runs. Fixing `vite` needs a newer
   version than the one pinned (8.0.8).
-- **Large build file.** `npm run build` warns that `dist/assets/index-*.js` is 831.80 kB (240.83 kB gzipped), over
-  Vite's 500 kB limit. The page is not split into smaller parts.
+- **Large build file.** `npm run build` warns that `dist/assets/index-*.js` is 1,479.54 kB (363.91 kB gzipped),
+  over Vite's 500 kB limit. Most of the growth is the warehouse list, which now holds every Maharashtra and Madhya
+  Pradesh row, including 3,171 inactive or suspended ones the page never shows. The page is not split into smaller
+  parts.
 - **Backend advice still in English.** On Marathi and Hindi pages, some of AIAIC's advice text exists only in
   English. It is shown behind one tap, so a farmer who reads only Marathi or Hindi may miss it.
 - **Old soil moisture data.** The soil moisture AIAIC holds is from 2020 (`sm_Maharashtra_2020.csv`,
   `sm_MadhyaPradesh_2020.csv`). The Background card shows its dates; that card is switched off for now.
-- **Warehouse list.** Maharashtra only, from WDRA's list as of 21 Oct 2026 (downloaded 24 Oct 2026). Other states
-  show no warehouses. The list does not update by itself; it is rebuilt with `scripts/build_wdra.js`.
+- **Warehouse list.** Maharashtra (WDRA's list as of 21 Oct 2026, downloaded 24 Oct 2026) and Madhya Pradesh (no
+  list date in the file, so none is shown). Other states show no warehouses. 50 active Madhya Pradesh warehouses are
+  not placed on the map, because four district names differ from the backend's (Narsimhapur, Khargone (West Nimar),
+  Khandwa (East Nimar), Agar-Malwa). The list does not update by itself; it is rebuilt with `scripts/build_wdra.js`.
+- **Storage card and bad data.** 8 crashes remain in the storage card (`src/components/SimulationPanel.jsx`) when
+  its `read_these_first` is not a list. They are caught by the error boundary, so the rest of the page keeps working.
+  The fix is planned for Task 4.
 - **Straight-line distances.** Mandi and warehouse distances are straight lines between district centres. Roads are
   longer; the transport and warehouse cards say so, the Top 5 card only says "about X km".
 
 ## 6. Evidence
 
+- 2026-11-05: `npx vitest run --coverage`: 14 test files, 83 tests passed, 0 failed; statements 92.57%, branches
+  83.84%, functions 90.97%, lines 93.91%. `npm run lint`: no errors, no warnings. `npm run build`: succeeds, with the
+  chunk-size warning in section 5. Bad-field test: 20,050 card changes and 1,430 map changes tested; 8 storage-card
+  cases left (caught by the error boundary), 0 on the map.
+- 2026-11-04: 50 builds in a row, every `dist/` identical (SHA-256 `d5f9d9e8dcd4…afaa1c04`), on the code before the
+  2026-11-05 bad-field fixes.
 - 2026-10-29, after `npm ci`: `npx vitest run`: 9 test files, 46 tests passed, 0 failed. `npm run lint`
   (`eslint .`): no errors, no warnings. `npm run build`: succeeds, with the one chunk-size warning in section 5.
 - 2026-10-02: `npm test`: 3 passed (the tests at the time).
@@ -98,16 +117,36 @@ the warehouse distances (`src/config/geo.js`) and the choice of which warehouses
   list was Nashik's, the answers were shown, and the store card showed the single price with the fixed-band note
   (screenshot in the review folder).
 
-## 7. Data sources
+## 7. Quality checks (2026-11-05, working tree after 5be526d, not yet committed)
+
+| Check | Result |
+|---|---|
+| Tests (`npx vitest run`) | 14 test files, **83 tests**, all passing |
+| Coverage (`npx vitest run --coverage`) | statements **92.57%** (835/902), branches **83.84%** (825/984), functions **90.97%** (262/288), lines **93.91%** (695/740) |
+| Lint (`npm run lint`) | no errors, no warnings |
+| Build (`npm run build`) | succeeds; one chunk-size warning (section 5) |
+| Repeatable build | **50 builds in a row, identical output**: SHA-256 of `dist/` `d5f9d9e8dcd4…afaa1c04` every time (run on 2026-11-04, on the code before the bad-field fixes below) |
+| Bad-field test | every field of live backend answers (Akola + tur, English and Marathi, plus the forecast) and of the map's outlook, district points and warehouse list, changed one at a time to 10 bad values (missing, null, empty text, wrong type, empty list or object, NaN, a very large number, -1): **20,050 card changes and 1,430 map changes, all tested**, in chunks of under 4 minutes |
+| Bad-field result | the first full run found 262 card crashes and 11 map crashes, from about 15 places in the code; each was fixed so that bad data is read as "no data", with tests (`src/test/bad_backend_fields.test.jsx`, `src/test/aiaic_api.test.js`). The rerun found **0 map crashes and 8 card crashes left**, all in the storage card: a `read_these_first` that is not a list (`src/components/SimulationPanel.jsx`, which has the owner's uncommitted changes and was not touched). The error boundary catches those, so only that card shows its short message; the fix is planned for Task 4 |
+| Error boundary | every card is wrapped in `src/components/CardBoundary.jsx`: a card that fails shows "This part could not be shown. The rest of the page still works." (English, Hindi, Marathi) and the other cards keep working; new data gives it another try. Before this, one failing card blanked the whole page |
+
+Coverage measures only `.js` and `.jsx` source files; `src/main.jsx` (it only mounts the app) and the test files are
+left out. `src/components/TimeRangeSelector.jsx` is not used anywhere and is counted at 0%.
+
+Python checks (pytest, requirements.txt, Pydantic) apply to the forecast service repository, not to this React dashboard.
+
+## 8. Data sources
 
 - **AIAIC backend.** Every answer on the cards, with the source AIAIC names for it: Agmarknet daily mandi prices
   and Central Ground Water Board groundwater assessments (named in the recorded answers), DES crop area, the e-NAM
   mandi list, and the weather forecast's provider as AIAIC names it on the card. Each card shows its own source and
   date.
-- **WDRA registered warehouses.** WDRA's public list of registered warehouses, Maharashtra, as of 21 Oct 2026
-  (`src/data/wdra_warehouses.json`). Only id, name, address, district, state, capacity, valid-until date and status
-  are kept. No contact numbers or manager names are kept: `src/data/wdraClean.js` drops personal names and blanks
-  any address that still holds a phone-like number.
+- **WDRA registered warehouses.** WDRA's public list of registered warehouses, Maharashtra (as of 21 Oct 2026) and
+  Madhya Pradesh (`src/data/wdra_warehouses.json`). Only id, name, address, district, state, capacity, valid-until
+  date and status are kept. No contact numbers, manager names or remarks are kept: `src/data/wdraClean.js` reads only
+  the columns it needs, drops personal names (titles, "C/o", "S/o", "Prop." and similar, in names and addresses) and
+  blanks any address that still holds a phone-like number. A scan of the built file on 2026-11-05 found 0 phone
+  numbers, 0 emails and 0 "C/o", "S/o", "W/o", "D/o", "H/o" or "Prop" parts; a test checks this on every run.
 - **Soil moisture.** AIKosh / data.gov.in, "Daily Data of Soil Moisture" (National Water Informatics Centre,
   Ministry of Jal Shakti), 2020, under the Government Open Data License - India (GODL). Served by the AIAIC backend.
 - **Leaflet** 1.9.4 for the district map, with OpenStreetMap tiles (© OpenStreetMap contributors, ODbL; the notice
