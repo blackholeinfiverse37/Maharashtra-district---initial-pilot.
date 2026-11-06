@@ -4,6 +4,12 @@
 // warning; in English the page must stay exactly as it was.
 import { afterEach, expect, test, vi } from "vitest";
 import { cleanup, fireEvent, render, screen, waitFor } from "@testing-library/react";
+
+// The page's calls go to a stub (below), but the data adapter needs a backend address when it is first loaded: set
+// one here, before the imports run, so the test never depends on a local .env file.
+vi.hoisted(() => {
+  vi.stubEnv("VITE_AIAIC_API", "https://backend.test/api");
+});
 import AtAGlancePanel from "../components/AtAGlancePanel";
 import DataDisplayPanel from "../components/DataDisplayPanel";
 import SimulationPanel from "../components/SimulationPanel";

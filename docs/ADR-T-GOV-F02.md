@@ -1,6 +1,6 @@
 # ADR-T-GOV-F02: How the dashboard shows backend data it cannot trust
 
-**Status:** Proposed (for the owner, Gauri Deshpande, to accept or change). **Date:** 2026-11-06.
+**Status:** Accepted, decided by Gauri Deshpande, 6 Nov 2026. **Date:** 2026-11-06.
 **Scope:** the AIAIC District Intelligence Dashboard (this React repository) only. Evidence:
 `docs/EVIDENCE_T-GOV-F02.md`.
 
