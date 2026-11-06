@@ -30,7 +30,15 @@ export default function DataDisplayPanel({ data, crop, cropEn, cropKey, district
   // The chosen crop's row found by AIAIC's crop keys (the list's "Tur (arhar)" is DES's "Tur"), and DES's crop names
   // and coverage note in the chosen language, from the crop answer's summary (src/i18n/backendText.js)
   const des = desCrops(cropService, { lang, apiLang, cropKey, cropEn, crop });
-  const matchingCropRow = allCrops.find((c) => des.isChosen(c));
+  // A crop can have one row per season (Kharif, Rabi, …): the yield shown is the one of the season with the largest
+  // area, and that season is named. Rows with no area count as 0; on a tie, the first row.
+  const area = (c) => (Number.isFinite(Number(c?.area_lakh_ha)) ? Number(c.area_lakh_ha) : 0);
+  const matchingCropRow = allCrops
+    .filter((c) => des.isChosen(c))
+    .reduce((best, c) => (!best || area(c) > area(best) ? c : best), null);
+  const season = typeof matchingCropRow?.season === "string" ? matchingCropRow.season.trim() : "";
+  // "Rabi" -> "Rabi" / "रबी" / "रब्बी"; a season the string files do not know, as the backend sends it
+  const seasonWord = season ? t(`harvest.season.${season.toLowerCase().replace(/\s+/g, "_")}`, {}, season) : "";
   const yieldKgHa = matchingCropRow?.yield_kg_ha;
   const yieldTHa = yieldKgHa
     ? formatNumber(yieldKgHa / 1000, { minimumFractionDigits: 2, maximumFractionDigits: 2 })
@@ -92,9 +100,10 @@ export default function DataDisplayPanel({ data, crop, cropEn, cropKey, district
   const backendTalukaLine = explainability.find((line) =>
     typeof line === "string" && line.toLowerCase().includes("taluka")
   );
-  // In Marathi and Hindi the backend's taluka line (its English reasoning) never stands in: with CGWB's list held and
-  // no taluka worse (Bhandara: 7 of 7 safe), the plain line says so; without the list, the line is counted apart.
-  const heldWithNoneWorse = !english && !!cgwbUnits;
+  // With CGWB's list held, it is the only source, in every language: when no taluka is worse (Bhandara: 7 of 7 safe),
+  // the plain line says so, and the backend's taluka line (another survey) is never used. Without the list, English
+  // shows that line and Marathi and Hindi count it apart.
+  const heldWithNoneWorse = !!cgwbUnits;
   const talukaWarning = unitGroups.length
     ? [
         t("water.talukaIntro", { district: region, category: waterCategoryWord }),
@@ -122,6 +131,7 @@ export default function DataDisplayPanel({ data, crop, cropEn, cropKey, district
               {yieldTHa} <span className="card-unit">{t("harvest.unit")}</span>
             </p>
             <p className="card-small">{t("harvest.hectareNote")}</p>
+            {seasonWord && <p className="card-small">{t("harvest.season", { season: seasonWord })}</p>}
           </>
         ) : (
           <>
@@ -150,20 +160,27 @@ export default function DataDisplayPanel({ data, crop, cropEn, cropKey, district
           <p className="card-text">{noAnswer("market", "price.noData")}</p>
         ) : (
           <>
-            {mandiPrice ? (
-              <>
-                <p className="card-number">
-                  ₹{mandiPrice} <span className="card-unit">{t("common.perQuintal")}</span>
-                </p>
-                <p className="card-small">{t("price.quintalNote")}</p>
-              </>
+            {/* An answer the backend abstained on gives no price and no mandi, only the warning (as the water card) */}
+            {marketService.abstained ? (
+              <Warning text={t("price.abstained")} />
             ) : (
-              <p className="card-sentence">{t("price.noRecent")}</p>
+              <>
+                {mandiPrice ? (
+                  <>
+                    <p className="card-number">
+                      ₹{mandiPrice} <span className="card-unit">{t("common.perQuintal")}</span>
+                    </p>
+                    <p className="card-small">{t("price.quintalNote")}</p>
+                  </>
+                ) : (
+                  <p className="card-sentence">{t("price.noRecent")}</p>
+                )}
+                {marketMandi && (
+                  <p className="card-text font-semibold">{t("price.payingMost", { mandi: marketMandi })}</p>
+                )}
+                <p className="card-small">{t("price.beforeTransport")}</p>
+              </>
             )}
-            {marketMandi && (
-              <p className="card-text font-semibold">{t("price.payingMost", { mandi: marketMandi })}</p>
-            )}
-            <p className="card-small">{t("price.beforeTransport")}</p>
             <p className="card-small" title={marketSourceName.title || undefined}>
               {t("common.whereFrom", { source: marketSourceName.text || t("common.unknown") })}
               {freshnessLabel(marketSource)}

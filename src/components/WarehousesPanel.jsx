@@ -2,6 +2,7 @@ import { useState } from "react";
 import { useLanguage, useT } from "../i18n/LanguageContext";
 import { formatDate, formatNumber } from "../i18n/format";
 import { listDate, warehousesNear } from "../data/warehousesNear";
+import { centresFrom, norm } from "../config/geo";
 import WDRA from "../data/wdra_warehouses.json";
 
 // "Warehouses in and near your district": WDRA's public list of registered warehouses (built into the page by
@@ -21,6 +22,9 @@ export default function WarehousesPanel({ stateName, districtEn, mapData, distri
   if (!districtEn || !stateName) return null;
 
   const found = warehousesNear({ list: data?.warehouses, stateName, districtEn, mapData, today }).slice(0, MOST);
+  // Without the district's centre (the map data did not load), distances cannot be worked out: only the district's own
+  // warehouses can be listed, and the card says the nearby districts were not checked
+  const nearbyChecked = centresFrom(mapData).has(norm(districtEn));
   const shown = open ? found : found.slice(0, FIRST);
   const asOn = formatDate(listDate(data, stateName), locale);
 
@@ -28,7 +32,7 @@ export default function WarehousesPanel({ stateName, districtEn, mapData, distri
     <div className="card">
       <h3 className="card-title">{t("wh.title")}</h3>
       {found.length === 0 ? (
-        <p className="card-text">{t("wh.none")}</p>
+        <p className="card-text">{nearbyChecked ? t("wh.none") : t("wh.noneHere")}</p>
       ) : (
         <>
           <ol className="mandi-list">
@@ -61,6 +65,7 @@ export default function WarehousesPanel({ stateName, districtEn, mapData, distri
           )}
         </>
       )}
+      {!nearbyChecked && <p className="warning">{t("wh.nearbyNotChecked")}</p>}
       <p className="card-small">{asOn ? t("wh.note", { date: asOn }) : t("wh.noteNoDate")}</p>
       <p className="card-small">{t("common.whereFrom", { source: t("wh.source") })}</p>
     </div>

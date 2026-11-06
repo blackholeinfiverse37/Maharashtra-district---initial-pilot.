@@ -3,6 +3,7 @@ import Warning from "./Warning";
 import EnglishOnly from "./EnglishOnly";
 import { useLanguage, useT } from "../i18n/LanguageContext";
 import { formatNumber } from "../i18n/format";
+import { sameName } from "../config/geo";
 import { actionText, isEnglish, mustRead, scenarioWords } from "../i18n/backendText";
 import {
   isNotAskedWarning,
@@ -63,7 +64,8 @@ export default function SimulationPanel({ data, districtName, districtNames }) {
 
   // When the backend warns that the prices are a statewide median mandi's, not the district's, one short line says so
   // instead of its long warning (temporary, see src/config/backendTextCleanup.js)
-  const priceNotDistrict = [...(storage.read_these_first || []), ...must.shown, ...must.englishOnly].some(
+  const engineWarnings = Array.isArray(storage.read_these_first) ? storage.read_these_first : []; // not a list: none
+  const priceNotDistrict = [...engineWarnings, ...must.shown, ...must.englishOnly].some(
     isPriceNotDistrictWarning
   );
   // The mandi's district as the dropdown shows it; on a Marathi or Hindi page an English name is left out, not shown
@@ -77,9 +79,14 @@ export default function SimulationPanel({ data, districtName, districtNames }) {
         : t("storage.priceFromMedianNoPlace", { mandi: referenceMandi })
       : null;
 
+  // The reference mandi is in the selected district (both by their English names): the line only says where the price
+  // comes from, never "not from <district>"
+  const mandiInDistrict = sameName(mandiDistrictEn, storage?.subject?.region);
+
   // When AIAIC has no measured spread, its engine fills best/average/worst with a FIXED band around one price.
-  // That is not "a better day / a weaker day", so only the price itself is shown (review 2026-10-02).
-  const band = sim ? null : fixedBandOf(storage.summary);
+  // That is not "a better day / a weaker day", so only the price itself is shown (review 2026-10-02), with or without
+  // a sample calculation.
+  const band = fixedBandOf(storage.summary);
 
   return (
     <div className="card">
@@ -123,16 +130,21 @@ export default function SimulationPanel({ data, districtName, districtNames }) {
             </>
           )}
 
+          {/* Under a sample calculation, our own line instead of the backend's "ILLUSTRATIVE ONLY …" note */}
+          {sim && <p className="card-small">{t("storage.agronomistCheck")}</p>}
+
           {medianLine ? (
             <p className="warning">{medianLine}</p>
+          ) : mandiInDistrict ? (
+            <p className="card-small">{t("storage.priceFromHere", { mandi: referenceMandi })}</p>
           ) : (
             <p className="card-small">{t("storage.priceFrom", { mandi: referenceMandi, district: requestedRegion })}</p>
           )}
         </>
       )}
 
-      {sample?.note && <p className="card-text">{sample.note}</p>}
-      <EnglishOnly lines={sample?.englishOnly} />
+      {/* The sample's "ILLUSTRATIVE ONLY …" note is not shown, in any language (the agronomist line above replaces it) */}
+      <EnglishOnly lines={sample?.englishOnly?.filter((l) => l !== sim?.note && l !== storage.summary?.illustrative_scenario?.note)} />
 
       {warnings.map((w, i) => (
         <Warning key={i} text={w} />

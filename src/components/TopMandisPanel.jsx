@@ -43,6 +43,7 @@ export default function TopMandisPanel({ data, districtNames }) {
   const t = useT();
   const [open, setOpen] = useState(false);
   const market = data?.market?.[0];
+  const abstained = market?.abstained === true;
 
   const rows = market?.summary?.price_compare?.rows;
   const options = market?.supporting_evidence?.options;
@@ -74,11 +75,13 @@ export default function TopMandisPanel({ data, districtNames }) {
     const date = formatDate(m.day, locale);
     const km = formatNumber(m.km, locale, { maximumFractionDigits: 0 });
     const distance = m.local ? t("top5.inYourDistrict") : km ? t("top5.aboutKm", { km }) : null;
+    // an answer the backend abstained on recommends no mandi
+    const recommended = m.chosen && !abstained;
     return (
-      <li key={`${m.mandi}-${i}`} className={`mandi-row ${m.chosen ? "mandi-chosen" : ""}`}>
+      <li key={`${m.mandi}-${i}`} className={`mandi-row ${recommended ? "mandi-chosen" : ""}`}>
         <p className="mandi-name">
           {m.mandi}
-          {m.chosen && <span className="mandi-tag">{t("top5.recommended")}</span>}
+          {recommended && <span className="mandi-tag">{t("top5.recommended")}</span>}
         </p>
         {price && <p className="card-text">{t("common.pricePerQuintal", { price })}</p>}
         <p className="card-small">

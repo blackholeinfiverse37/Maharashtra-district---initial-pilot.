@@ -11,9 +11,16 @@ export function distanceKm([lat1, lon1], [lat2, lon2]) {
   return 2 * EARTH_RADIUS_KM * Math.asin(Math.sqrt(h));
 }
 
-// District names compared without case, dots or extra spaces ("Mumbai Sub." = "mumbai sub")
+// District names compared without case, dots, extra spaces or a part in brackets ("Mumbai Sub." = "mumbai sub";
+// WDRA's "Khandwa (East Nimar)" = AIAIC's "Khandwa")
 export const sameName = (a, b) => norm(a) !== "" && norm(a) === norm(b);
-export const norm = (s) => String(s || "").toLowerCase().replace(/\./g, " ").replace(/\s+/g, " ").trim();
+export const norm = (s) =>
+  String(s || "")
+    .toLowerCase()
+    .replace(/\([^)]*\)/g, " ")
+    .replace(/\./g, " ")
+    .replace(/\s+/g, " ")
+    .trim();
 
 // Every district's centre from AIAIC's /places/map, findable by its English name or its key
 export function centresFrom(mapData) {

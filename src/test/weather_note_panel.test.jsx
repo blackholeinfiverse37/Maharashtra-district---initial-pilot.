@@ -1,5 +1,5 @@
 // The weather card: the district's 7-day forecast when it has days; otherwise the backend's own reason for having no
-// weather answer, or nothing. Made-up forecasts only.
+// weather answer, or nothing. Made-up forecasts only, seen on a fixed day (1 Nov 2026).
 import { afterEach, expect, test } from "vitest";
 import { cleanup, render, screen } from "@testing-library/react";
 import WeatherNotePanel from "../components/WeatherNotePanel";
@@ -33,7 +33,7 @@ const forecast = (extra = {}) => ({
 const rows = (container) => [...container.querySelectorAll(".forecast-day")].map((li) => li.textContent);
 
 test("a forecast with days: the summary, each day's name, kind, highest temperature and rain chance, and the source", () => {
-  const { container } = inLanguage("en", <WeatherNotePanel forecast={forecast()} />);
+  const { container } = inLanguage("en", <WeatherNotePanel today="2026-11-01" forecast={forecast()} />);
   expect(screen.getByText("What will the weather be this week?")).toBeTruthy();
   expect(screen.getByText("Dry this week; rain likely on Friday.")).toBeTruthy();
   const r = rows(container);
@@ -51,20 +51,20 @@ test("a forecast with days: the summary, each day's name, kind, highest temperat
 });
 
 test("the kinds and labels are in the chosen language", () => {
-  const { container } = inLanguage("mr", <WeatherNotePanel forecast={forecast()} />);
+  const { container } = inLanguage("mr", <WeatherNotePanel today="2026-11-01" forecast={forecast()} />);
   expect(rows(container)[0]).not.toContain("Dry");
   expect(rows(container)[0]).toContain("31.4");
   expect(container.textContent).not.toContain("What will the weather");
 });
 
 test("the source line shows only what the forecast gives", () => {
-  inLanguage("en", <WeatherNotePanel forecast={forecast({ source: { name: "Testcast" } })} />);
+  inLanguage("en", <WeatherNotePanel today="2026-11-01" forecast={forecast({ source: { name: "Testcast" } })} />);
   expect(screen.getByText("Where this comes from: Testcast")).toBeTruthy();
   cleanup();
-  inLanguage("en", <WeatherNotePanel forecast={forecast({ source: { read_at: "2026-11-01T06:00:00+00:00" } })} />);
+  inLanguage("en", <WeatherNotePanel today="2026-11-01" forecast={forecast({ source: { read_at: "2026-11-01T06:00:00+00:00" } })} />);
   expect(screen.getByText("Forecast read on 1 Nov 2026")).toBeTruthy();
   cleanup();
-  const { container } = inLanguage("en", <WeatherNotePanel forecast={forecast({ source: null, summary: null })} />);
+  const { container } = inLanguage("en", <WeatherNotePanel today="2026-11-01" forecast={forecast({ source: null, summary: null })} />);
   expect(container.querySelector(".card-small")).toBeNull();
   expect(container.querySelector(".card-sentence")).toBeNull();
 });
@@ -82,5 +82,5 @@ test("no forecast days: nothing when there is no reason, or when the weather ser
   const answered = { weather: [{ recommendation: "SOW" }], na_reasons: { weather: { text: "A reason" } } };
   expect(inLanguage("en", <WeatherNotePanel data={answered} />).container.innerHTML).toBe("");
   cleanup();
-  expect(inLanguage("en", <WeatherNotePanel forecast={{ days: "not a list" }} />).container.innerHTML).toBe("");
+  expect(inLanguage("en", <WeatherNotePanel today="2026-11-01" forecast={{ days: "not a list" }} />).container.innerHTML).toBe("");
 });

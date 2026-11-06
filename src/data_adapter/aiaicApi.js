@@ -138,10 +138,11 @@ export async function fetchBackendLanguages() {
 
 // The engine fills best/average/worst with a FIXED band (e.g. plus or minus 2% of one price) when it has no measured
 // spread. That is not "a better day / a weaker day", so it must never be shown as one. The summary marks it on the
-// case items: returns the marker (e.g. "plus_minus_2_pct") or null.
+// case items: returns the marker (e.g. "plus_minus_2_pct") or null. Sections or items that are not lists are read as none.
 export function fixedBandOf(summary) {
-  for (const section of (summary && summary.sections) || []) {
-    for (const item of section.items || []) {
+  const list = (v) => (Array.isArray(v) ? v : [])
+  for (const section of list(summary && summary.sections)) {
+    for (const item of list(section && section.items)) {
       if (item && item.data && item.data.fixed_band) return item.data.fixed_band
     }
   }

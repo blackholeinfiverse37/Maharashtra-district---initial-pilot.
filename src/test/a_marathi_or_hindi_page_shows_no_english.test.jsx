@@ -202,20 +202,22 @@ describe("the English page", () => {
 describe("the storage card's sample calculation (Indore, soybean: a scenario AIAIC runs under stated assumptions)", () => {
   const storageIn = (lang) => ({ storage: viewIn(indore, lang).storage });
 
-  test.each(["mr", "hi"])("in %s says the sample and its note in her language", (lang) => {
+  test.each(["mr", "hi"])("in %s says the sample in her language, without its note", (lang) => {
     const { container } = inLanguage(lang, <SimulationPanel data={storageIn(lang)} districtName="इंदौर" />);
     const text = visibleText(container);
     const block = indore.summary[lang].storage[0].illustrative_scenario;
     expect(text).toContain(block.text);
-    expect(text).toContain(block.note.slice(0, 30));
+    expect(text).not.toContain(block.note.slice(0, 30));
+    expect(text).toContain(STRINGS[lang]["storage.agronomistCheck"]); // our own line in its place
     expect(englishWords(text, indore)).toEqual([]);
   });
 
-  test("in English keeps the sample's own code and note", () => {
+  test("in English keeps the sample's own code, without its note", () => {
     const { container } = inLanguage("en", <SimulationPanel data={storageIn("en")} districtName="Indore" />);
     const text = visibleText(container);
     expect(text).toContain("In this sample calculation: sell now");
-    expect(text).toContain("ILLUSTRATIVE ONLY");
+    expect(text).not.toContain("ILLUSTRATIVE ONLY");
+    expect(text).toContain("Please check with an agronomist before you rely on this.");
   });
 });
 
@@ -275,8 +277,14 @@ describe("the water card's taluka line", () => {
     expect(screen.getByText("आणखी माहिती, फक्त इंग्रजीत (1)")).toBeTruthy();
   });
 
-  test("in English, as before: the backend's own taluka line", () => {
+  test("in English, all talukas safe: the same plain line as in Marathi, never the backend's taluka line", () => {
     const { container } = inLanguage("en", <DataDisplayPanel data={water(allSafe)} districtName="Nashik" card="water" />);
+    expect(visibleText(container)).toContain("No taluka in this district is in a worse category than the district average.");
+    expect(visibleText(container)).not.toContain("BUT THE DISTRICT FIGURE HIDES YOUR TALUKA");
+  });
+
+  test("in English, no list: the backend's own taluka line, as before", () => {
+    const { container } = inLanguage("en", <DataDisplayPanel data={water(noList)} districtName="Nashik" card="water" />);
     expect(visibleText(container)).toContain("BUT THE DISTRICT FIGURE HIDES YOUR TALUKA");
   });
 });
