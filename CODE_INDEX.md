@@ -1,6 +1,6 @@
 # CODE_INDEX: AIAIC District Intelligence Dashboard (prototype)
 
-Updated 2026-11-06: the working tree after commit 0e343f7, with the Task 4 changes. What each file is for, what changed
+Updated 2026-11-06: the Task 4 changes (commit cbbdfb8). What each file is for, what changed
 since commit b54256e, and which files make up each recent feature. Entry point and data flow: see `REVIEW_PACKET.md`.
 Quality checks (tests, coverage, builds, bad-field test): section 4.
 

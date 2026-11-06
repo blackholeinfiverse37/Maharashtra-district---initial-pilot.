@@ -133,7 +133,7 @@ the warehouse distances (`src/config/geo.js`) and the choice of which warehouses
   list was Nashik's, the answers were shown, and the store card showed the single price with the fixed-band note
   (screenshot in the review folder).
 
-## 7. Quality checks (2026-11-06, working tree after 0e343f7, with the Task 4 changes)
+## 7. Quality checks (2026-11-06, the Task 4 changes, commit cbbdfb8)
 
 | Check | Result |
 |---|---|

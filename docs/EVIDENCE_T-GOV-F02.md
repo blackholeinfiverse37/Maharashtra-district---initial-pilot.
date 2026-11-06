@@ -1,7 +1,6 @@
 # EVIDENCE T-GOV-F02: AIAIC District Intelligence Dashboard
 
-**Compiled:** 2026-11-06, on the working tree after commit 0e343f7 (the Task 4 changes, not yet committed when this
-was written). **Owner:** Gauri Deshpande. Decisions: `docs/ADR-T-GOV-F02.md`. Datasets: `docs/DATASET_INVENTORY.md`.
+**Compiled:** 2026-11-06, on the Task 4 changes (committed in cbbdfb8 and on GitHub). **Owner:** Gauri Deshpande. Decisions: `docs/ADR-T-GOV-F02.md`. Datasets: `docs/DATASET_INVENTORY.md`.
 
 Everything below was run or read on 2026-11-06 unless another date is given. The backend's address is written as
 `$VITE_AIAIC_API` (it is kept in `.env`, which is never committed).
