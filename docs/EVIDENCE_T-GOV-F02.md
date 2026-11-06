@@ -136,6 +136,33 @@ left out (`vite.config.js`).
 7. The bad-field test (section 6) was run from a copy of the project outside the repository; its script is not in
    the repository.
 
+**Clean-copy check (2026-11-06).** To show the repository works on its own: a fresh clone of the local `main` branch
+(at commit 8d2f34f) into a new, empty folder, with **no `.env` file**, on Node v24.11.1 and npm 11.6.2. Exact commands
+and results:
+
+```
+$ git clone <repository link> aiaic-check
+$ cd aiaic-check
+$ npm ci
+added 286 packages in 6s
+$ npm test
+ Test Files  15 passed (15)
+      Tests  97 passed (97)
+$ npm run lint
+(no output: no errors, no warnings; exit 0)
+$ npm run build
+dist/index.html                     0.49 kB │ gzip:   0.32 kB
+dist/assets/index-B7LVO9Ok.css     34.16 kB │ gzip:  11.16 kB
+dist/assets/index-DjyvKAcH.js   1,484.71 kB │ gzip: 364.68 kB
+✓ built in 501ms
+(!) Some chunks are larger than 500 kB after minification.
+```
+
+All four steps exited with 0, and the clone had no changed files afterwards. The tests need no `.env` and no server:
+they use recorded backend answers, and the one test that loads the whole page sets its own test address
+(`src/test/backend_english_is_not_shown_in_marathi.test.jsx`). The build sizes differ slightly from those in section 4,
+which were measured in the working folder.
+
 ## 6. Results
 
 **Logic defects (Task 4).** Nine defects from the 2026-11-05 audit, each with a regression test in
