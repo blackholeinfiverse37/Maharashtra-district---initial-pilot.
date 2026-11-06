@@ -210,6 +210,7 @@ the code before Task 3 and Task 4. Not repeated on the final code.
 ## 7. Known gaps and handover
 
 - **Ask agronomists before final deploy: the storage sample calculation and its wording need an agronomist's review.**
+- **Blocked downloads.** On 30 Oct 2026 the sign-in code (OTP) for data.gov.in did not arrive, on the owner's mobile number or email, so the owner could not sign in. The 2025 soil moisture data and the DES crop production data could not be downloaded. This is a sign-in problem on the owner's account; the site's own status was not checked.
 - **Translations.** Every dashboard string in Hindi and Marathi is machine-drafted and waits for a native speaker's
   review (`docs/translations_for_review.csv`, 179 strings).
 - **District names that still differ.** 30 active Madhya Pradesh warehouses are not placed on the map, because WDRA
