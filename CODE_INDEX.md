@@ -1,6 +1,6 @@
 # CODE_INDEX: AIAIC District Intelligence Dashboard (prototype)
 
-Updated 2026-11-05: the working tree after commit 5be526d (not yet committed). What each file is for, what changed
+Updated 2026-11-06: the working tree after commit 0e343f7, with the Task 4 changes. What each file is for, what changed
 since commit b54256e, and which files make up each recent feature. Entry point and data flow: see `REVIEW_PACKET.md`.
 Quality checks (tests, coverage, builds, bad-field test): section 4.
 
@@ -70,6 +70,7 @@ src/
     card_boundary.test.jsx                                     one failing card does not blank the page
     district_map.test.jsx                                      map switches between weather and warehouses views
     storage_price_not_district.test.jsx                        the short storage price note replaces the long warning
+    task4_defects.test.jsx                                     regression tests for the 9 Task 4 defects and 2 crashes
     the_store_panel_never_shows_a_fixed_band_as_a_range.test.jsx   a fixed ±2% band is shown as one price
     top5_show_more.test.jsx                                    Top 5 mandis card and its "Show more"
     transport_cost_card.test.jsx                               transport cost card
@@ -95,6 +96,8 @@ scripts/
 
 ```
 docs/
+  ADR-T-GOV-F02.md              decision record: how the dashboard shows backend data it cannot trust
+  EVIDENCE_T-GOV-F02.md         evidence: AIKosh and MASTERDB, two API samples, test output, steps, results, known gaps
   demo_1.mp4                    a demo video of the dashboard (committed 2026-09-23)
   translations_for_review.csv   every dashboard string in English, Hindi and Marathi, for a native speaker to check
 ```
@@ -143,9 +146,11 @@ instruction file for the repository, which is not listed below.
  src/test/we_did_not_ask_cleanup.test.js            |   25 +
 ```
 
-Not yet committed (2026-11-05): Madhya Pradesh warehouses, the error boundary, the bad-data fixes and the new tests
-above, `vite.config.js` (coverage settings), `package.json` and `package-lock.json` (`@vitest/coverage-v8` 5.0.1) and
-`.gitignore` (`coverage`).
+Committed after this list: 0baa199 (test coverage setup), 7555d38 (Madhya Pradesh warehouses, the error boundary,
+the bad-data fixes and their tests) and 0e343f7 (review packet and code index). Task 4 (2026-11-06) changes
+`src/components/{DataDisplayPanel,SimulationPanel,TopMandisPanel,WarehousesPanel,WeatherNotePanel}.jsx`,
+`src/config/geo.js`, `src/data_adapter/aiaicApi.js`, the three string files and their CSV, and adds
+`src/test/task4_defects.test.jsx`, `docs/ADR-T-GOV-F02.md` and `docs/EVIDENCE_T-GOV-F02.md`.
 
 ## 3. Recent features and their files
 
@@ -162,15 +167,19 @@ first versions are not in the list above. The warehouse view on the map came lat
 
 ## 4. Quality checks
 
-As of 2026-11-05 (details in `REVIEW_PACKET.md`, section 7):
+As of 2026-11-06 (details in `REVIEW_PACKET.md`, section 7, and `docs/EVIDENCE_T-GOV-F02.md`):
 
-- **Tests:** 14 files, 83 tests, all passing (`npx vitest run`).
-- **Coverage:** statements 92.57%, branches 83.84%, functions 90.97%, lines 93.91% (`npx vitest run --coverage`;
+- **Tests:** 15 files, 97 tests, all passing (`npx vitest run`).
+- **Coverage:** statements 92.85%, branches 85.38%, functions 91.12%, lines 94.21% (`npx vitest run --coverage`;
   `.js`/`.jsx` source only, `src/main.jsx` and the tests left out).
 - **Repeatable build:** 50 builds in a row gave the same `dist/` (SHA-256 `d5f9d9e8dcd4…afaa1c04`, 2026-11-04, on the
-  code before the bad-field fixes).
-- **Bad-field test:** 20,050 card changes and 1,430 map changes, all tested; 8 crashes remain in the storage card
-  (`SimulationPanel.jsx`, not touched), caught by the error boundary and planned for Task 4; 0 on the map.
+  code before the Task 3 and Task 4 fixes; not repeated on the final code).
+- **Bad-field test:** 0 crashes. The last full run, after all Task 4 fixes: 0 in 20,050 card changes and 1,430 map
+  changes. After the final change, only the storage card was retested, because only that card changed since: 0 in
+  4,430 storage changes.
+- **Task 4:** 9 logic defects fixed, each with a regression test that failed before the fix
+  (`src/test/task4_defects.test.jsx`); the storage sample's "ILLUSTRATIVE ONLY" note replaced by the dashboard's own
+  agronomist line.
 - **Warehouses:** Madhya Pradesh included (3,710 rows read, 662 active) alongside Maharashtra (426 rows, 303 active).
 - **Error boundary:** `src/components/CardBoundary.jsx` around every card in `src/App.jsx`.
 

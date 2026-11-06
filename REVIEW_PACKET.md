@@ -2,7 +2,8 @@
 
 **Owner:** Gauri Deshpande. **State:** DRAFT, prepared in Hemanth's review of 2026-10-02 for Gauri to check, edit
 and sign. The April 2026 packet described mock adapters (`Mahesadapter`, `deep_adapter`) that no longer exist; it
-is replaced. **Last updated:** 2026-11-05. File-by-file index: `CODE_INDEX.md`.
+is replaced. **Last updated:** 2026-11-06. File-by-file index: `CODE_INDEX.md`. Evidence:
+`docs/EVIDENCE_T-GOV-F02.md`. Decisions: `docs/ADR-T-GOV-F02.md`.
 
 ## 1. Entry point
 
@@ -57,7 +58,16 @@ the warehouse distances (`src/config/geo.js`) and the choice of which warehouses
 - **Error boundary.** Every card has its own safety net (`src/components/CardBoundary.jsx`): if one card fails, it
   shows a short message in the chosen language and the rest of the page keeps working.
 - **Bad data from the backend.** A field of the wrong type (text where a list is expected, a list where text is
-  expected, and so on) is read as "no data" for that card, not a crash. Checked by the bad-field test (section 6).
+  expected, and so on) is read as "no data" for that card, not a crash. Checked by the bad-field test (section 7).
+- **Task 4 fixes (2026-11-06).** Nine logic defects fixed, each with a regression test that failed before the fix
+  (`src/test/task4_defects.test.jsx`; list in `docs/EVIDENCE_T-GOV-F02.md`): a fixed band shown as one price also with
+  a sample calculation; one taluka source in every language; past forecast days dropped; a neutral price line for a
+  mandi in the district; no price or recommended mandi for an abstained answer; the yield of the main season, named;
+  "could not check nearby districts"; the crop's weather answer shown as sent; the groundwater percentage described
+  against the water that can be safely drawn.
+- **Storage sample calculation note.** The backend's "ILLUSTRATIVE ONLY" note is not shown. Under the sample
+  calculation, the dashboard's own line: "Please check with an agronomist before you rely on this." (English, Hindi,
+  Marathi).
 
 ## 4. What is intentionally not here
 
@@ -84,7 +94,7 @@ the warehouse distances (`src/config/geo.js`) and the choice of which warehouses
   them in production dependencies, all high: `nanoid`, `postcss`, `source-map-js` and `vite`. All four come in
   through `@tailwindcss/vite`, a build plugin; none is in the code the browser runs. Fixing `vite` needs a newer
   version than the one pinned (8.0.8).
-- **Large build file.** `npm run build` warns that `dist/assets/index-*.js` is 1,479.54 kB (363.91 kB gzipped),
+- **Large build file.** `npm run build` warns that `dist/assets/index-*.js` is 1,484.76 kB (364.72 kB gzipped),
   over Vite's 500 kB limit. Most of the growth is the warehouse list, which now holds every Maharashtra and Madhya
   Pradesh row, including 3,171 inactive or suspended ones the page never shows. The page is not split into smaller
   parts.
@@ -93,21 +103,27 @@ the warehouse distances (`src/config/geo.js`) and the choice of which warehouses
 - **Old soil moisture data.** The soil moisture AIAIC holds is from 2020 (`sm_Maharashtra_2020.csv`,
   `sm_MadhyaPradesh_2020.csv`). The Background card shows its dates; that card is switched off for now.
 - **Warehouse list.** Maharashtra (WDRA's list as of 21 Oct 2026, downloaded 24 Oct 2026) and Madhya Pradesh (no
-  list date in the file, so none is shown). Other states show no warehouses. 50 active Madhya Pradesh warehouses are
-  not placed on the map, because four district names differ from the backend's (Narsimhapur, Khargone (West Nimar),
-  Khandwa (East Nimar), Agar-Malwa). The list does not update by itself; it is rebuilt with `scripts/build_wdra.js`.
-- **Storage card and bad data.** 8 crashes remain in the storage card (`src/components/SimulationPanel.jsx`) when
-  its `read_these_first` is not a list. They are caught by the error boundary, so the rest of the page keeps working.
-  The fix is planned for Task 4.
+  list date in the file, so none is shown). Other states show no warehouses. 30 active Madhya Pradesh warehouses are
+  not placed on the map, because two district names are spelt differently from the backend's (Narsimhapur 29,
+  Agar-Malwa 1). Names with a part in brackets now match (Khandwa (East Nimar), Khargone (West Nimar)). The list does
+  not update by itself; it is rebuilt with `scripts/build_wdra.js`.
+- **Storage card and bad data.** Fixed in Task 4: the 8 storage-card crashes (`src/components/SimulationPanel.jsx`,
+  a `read_these_first` that is not a list) and 18 more found while fixing them (summary sections or items that are not
+  lists) are now read as "no data". The bad-field rerun found 0 crashes (section 7).
 - **Straight-line distances.** Mandi and warehouse distances are straight lines between district centres. Roads are
   longer; the transport and warehouse cards say so, the Top 5 card only says "about X km".
+- **Ask agronomists before final deploy:** the storage sample calculation and its wording need an agronomist's review.
 
 ## 6. Evidence
 
+- 2026-11-06: `npx vitest run --coverage`: 15 test files, 97 tests passed, 0 failed; statements 92.85%, branches
+  85.38%, functions 91.12%, lines 94.21%. `npm run lint`: no errors, no warnings. `npm run build`: succeeds, with the
+  chunk-size warning in section 5. Bad-field test: 0 crashes (section 7). Details, API samples and steps to
+  reproduce: `docs/EVIDENCE_T-GOV-F02.md`.
 - 2026-11-05: `npx vitest run --coverage`: 14 test files, 83 tests passed, 0 failed; statements 92.57%, branches
   83.84%, functions 90.97%, lines 93.91%. `npm run lint`: no errors, no warnings. `npm run build`: succeeds, with the
   chunk-size warning in section 5. Bad-field test: 20,050 card changes and 1,430 map changes tested; 8 storage-card
-  cases left (caught by the error boundary), 0 on the map.
+  cases left (caught by the error boundary), 0 on the map. (Those 8 were fixed on 2026-11-06.)
 - 2026-11-04: 50 builds in a row, every `dist/` identical (SHA-256 `d5f9d9e8dcd4…afaa1c04`), on the code before the
   2026-11-05 bad-field fixes.
 - 2026-10-29, after `npm ci`: `npx vitest run`: 9 test files, 46 tests passed, 0 failed. `npm run lint`
@@ -117,17 +133,17 @@ the warehouse distances (`src/config/geo.js`) and the choice of which warehouses
   list was Nashik's, the answers were shown, and the store card showed the single price with the fixed-band note
   (screenshot in the review folder).
 
-## 7. Quality checks (2026-11-05, working tree after 5be526d, not yet committed)
+## 7. Quality checks (2026-11-06, working tree after 0e343f7, with the Task 4 changes)
 
 | Check | Result |
 |---|---|
-| Tests (`npx vitest run`) | 14 test files, **83 tests**, all passing |
-| Coverage (`npx vitest run --coverage`) | statements **92.57%** (835/902), branches **83.84%** (825/984), functions **90.97%** (262/288), lines **93.91%** (695/740) |
+| Tests (`npx vitest run`) | 15 test files, **97 tests**, all passing |
+| Coverage (`npx vitest run --coverage`) | statements **92.85%** (858/924), branches **85.38%** (882/1033), functions **91.12%** (267/293), lines **94.21%** (716/760) |
 | Lint (`npm run lint`) | no errors, no warnings |
 | Build (`npm run build`) | succeeds; one chunk-size warning (section 5) |
-| Repeatable build | **50 builds in a row, identical output**: SHA-256 of `dist/` `d5f9d9e8dcd4…afaa1c04` every time (run on 2026-11-04, on the code before the bad-field fixes below) |
+| Repeatable build | **50 builds in a row, identical output**: SHA-256 of `dist/` `d5f9d9e8dcd4…afaa1c04` every time (run on 2026-11-04, on the code before the Task 3 and Task 4 fixes; not repeated on the final code) |
 | Bad-field test | every field of live backend answers (Akola + tur, English and Marathi, plus the forecast) and of the map's outlook, district points and warehouse list, changed one at a time to 10 bad values (missing, null, empty text, wrong type, empty list or object, NaN, a very large number, -1): **20,050 card changes and 1,430 map changes, all tested**, in chunks of under 4 minutes |
-| Bad-field result | the first full run found 262 card crashes and 11 map crashes, from about 15 places in the code; each was fixed so that bad data is read as "no data", with tests (`src/test/bad_backend_fields.test.jsx`, `src/test/aiaic_api.test.js`). The rerun found **0 map crashes and 8 card crashes left**, all in the storage card: a `read_these_first` that is not a list (`src/components/SimulationPanel.jsx`, which has the owner's uncommitted changes and was not touched). The error boundary catches those, so only that card shows its short message; the fix is planned for Task 4 |
+| Bad-field result | **0 crashes.** The last full run, after all Task 4 fixes: **0 crashes in 20,050 card changes and 1,430 map changes**. After the final change (the agronomist line in `SimulationPanel.jsx`), **only the storage card was retested, because only that card changed since**: **0 crashes in 4,430 storage changes** (every field under the storage answer, plus the whole answer). The other cards and the map rely on the last full run. History: the first full run (2026-11-05) found 262 card and 11 map crashes, fixed in Task 3; 8 storage-card crashes were left and were fixed in Task 4 |
 | Error boundary | every card is wrapped in `src/components/CardBoundary.jsx`: a card that fails shows "This part could not be shown. The rest of the page still works." (English, Hindi, Marathi) and the other cards keep working; new data gives it another try. Before this, one failing card blanked the whole page |
 
 Coverage measures only `.js` and `.jsx` source files; `src/main.jsx` (it only mounts the app) and the test files are
